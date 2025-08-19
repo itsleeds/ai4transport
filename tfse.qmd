@@ -1,18 +1,49 @@
+# Introduction
 
-Questions:
-
-- What compute environments do participants have access to currently?
-  - VS Code + copilot
-  - Jupyter Notebooks
-  - Cloud provider such as AWS or Google Cloud
-- Introductory webinar AI overview
+We're developing materials to support teaching of AI for transport, building on introductory webinars on AI and transport that will cover:
 
 - Webinar 1: What is AI?
 - Use of AI in data analysis
 - Application of AI in transport planning
 
-Questions we would like to pitch to the potential attendees:
+# Questions for course organisers
 
+- What compute environments do participants have access to currently?
+  - VS Code + copilot
+  - Jupyter Notebooks
+  - Cloud provider such as AWS or Google Cloud
+
+- Any additional information on what software they use on a daily basis
+
+# Questions for potential attendees
+
+We would like to collect responses to the following questions from potential attendees:
+
+## Current working practices
+
+- Which software, web applications or other digital tools do you use for your day-to-day transport planning work?
+- With reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.
+- What are the most boring parts of your work?
+- Which parts of your work are most conducive to automation?
+
+## AI tools
+
+- Which AI tools have you heard of?
+- Which AI tools have you tested?
+- Which AI tools do you currently use in your work (if any)?
+- Are there any particular AI tools or technologies you are interested in learning more about?
+
+## Data and data science
+
+- How do you currently use data in your decision-making processes?
+- What kinds of data do you use?
+- Which data science tools do you use?
+- Do you use any programming languages (e.g., Python, R) for data analysis?
+- Do you use interactive development environments (e.g. VS Code) for your work, and if so which?
+
+## General
+
+- What skills or knowledge do you hope to gain from this course?
 
 <!-- Draft Outline: -->
 
