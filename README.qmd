@@ -1,0 +1,24 @@
+---
+title: "Online Course: An Introduction to AI for Transport Planning"
+author: "Robin Lovelace and Chris Rushton"
+format: gfm
+# editor: visual
+---
+
+```{r}
+#| echo: false
+#| eval: false
+# Export to docx
+quarto::quarto_render("tfse.qmd", output_format = "docx", output_file = "tfse.docx")
+```
+
+This repo contains code to support teaching the use of AI, by which we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:
+
+- Automate boring tasks
+- Speed-up work to increase productivity
+- Enhance capabilities, leading to new and better outputs
+
+The ultimate goal is more effective transport planning investments and decisions
+
+The trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning.
+See the [tfse](tfse) document for the (currently in-development) course content for that specific course.
