@@ -1,3 +1,19 @@
+<!-- tfse ask
+
+It was a pleasure meeting you both earlier today, and apologies again for the rushed ending. As promised, I’ve summarised our discussion and next steps below.
+ 
+Current Position and Phase 1:
+Phase 1 of support is being delivered through TfSE’s subject matter expert supply chain. While these commissions are not yet fully confirmed, our preference is to continue with this approach for Phase 1 and build any follow-on support (Phase 2) around it.
+Phase 1 will cover three key areas:
+Introduction to AI and its application in transport planning (high level)
+AI in data analysis
+Practical applications in transport planning
+ 
+To shape the next stage of support with your team, we agreed that the best approach is to:
+Share a hypothesis for what the course could look like, including day-to-day challenges and relevant user cases. This could also include some questions to go into the Chat Forum, or survey style format to users to understand in a bit more detail what it is they require, or if the hypothesis suits their needs.
+Focus on fundamentals, given current capability levels, but also incorporate case studies and examples (as you mentioned) to highlight real opportunities.
+Keep the theme of “demystifying AI”, while allowing for adjustments after our introductory session, so we can avoid duplication. -->
+
 # Introduction
 
 We're developing materials to support teaching of AI for transport, building on introductory webinars on AI and transport that will cover:
