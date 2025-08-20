@@ -63,81 +63,67 @@ We would like to collect responses to the following questions from potential att
 
 <!-- Draft Outline: -->
 
-<!-- ## Course Overview
+## Course Overview
 
-This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use free and open source data and digital tools to convert open access datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course is designed for people who have experience with data science and would like to apply their skills in the transport sector and for transport professionals and researchers to empower their work with data science.
+This 8-hour online course provides a comprehensive introduction to the field of Data Science and AI for Transport.
 
-## Syllabus (8 hours total)
+We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of "garbage in, garbage out" and "all models are wrong but some are useful" applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.
 
-### Module 1: Introduction to Transport Data Science (1.5 hours)
+This course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.
 
-*   **Lecture (45 mins):**
-    *   What is Transport Data Science?
-    *   Importance and applications in the modern world.
-    *   Overview of data sources and types in transport planning
-    *   Key challenges and opportunities.
-*   **Practical (30 mins):**
-    *   Setting up the R/Python environment for transport data analysis.
-    *   Introduction to key packages and tools.
-*   **Test (15 mins):** Quiz on fundamental concepts.
+Participants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East.
+## Syllabus (6 hours total)
 
-### Module 2: Data Acquisition and Preprocessing (2 hours)
+The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
 
-*   **Lecture (60 mins):**
-    *   Sources of transport data (public APIs, open data portals, proprietary data).
-    *   Data cleaning techniques for common transport data issues (missing values, outliers, inconsistencies).
-    *   Data transformation and formatting.
-    *   Introduction to spatial data and coordinate reference systems.
-*   **Practical (45 mins):**
-    *   Downloading and importing a sample transport dataset.
-    *   Applying data cleaning and preprocessing steps.
-*   **Test (15 mins):** Short assignment on data cleaning.
-
-### Module 3: Exploratory Data Analysis (EDA) for Transport (2 hours)
-
-*   **Lecture (60 mins):**
-    *   Descriptive statistics for transport data.
-    *   Visualizing transport patterns:
-        *   Transport network datasets
-        *   Flow maps with origin-destination data
-        *   Route assignment with routing engines
-        *   Network generation and network processing
-    *   Introduction to network analysis concepts.
-*   **Practical (45 mins):**
-    *   Performing EDA on a processed transport dataset.
-    *   Creating insightful visualizations.
-*   **Test (15 mins):** Quiz on EDA techniques and interpretation.
-
-### Module 4: Introduction to Transport Modelling and Case Studies (2.5 hours)
+### Module 1: Foundations of AI in Transport (10:00 - 11:30)
 
 *   **Lecture (30 mins):**
-    *   Basic concepts of transport demand modelling.
-    *   Distance decay and uptake functions.
-    *   Case study: Propensity to Cycle Tool (PCT) and its applications.
+    *   Demystifying AI: Key concepts and terminology.
+    *   Data Science as a framework for applying AI effectively.
+    *   Overview of AI applications in transport planning.
+    *   Ethical considerations and "garbage in, garbage out".
+*   **Practical (60 mins):**
+    *   Interactive session exploring real-world AI use cases in transport.
+    *   Hands-on exercise identifying potential AI applications in common transport planning tasks.
 
-*   **Practical (120 mins):**
-    *   Working through a guided case study using a real-world (simplified) dataset.
-
-*   **Test (30 mins):** Final project - a small data analysis task on a new dataset.
-
-### Course Wrap-up and Next Steps (30 mins)
+### Module 2: AI-Powered Coding and Development (11:30 - 13:00)
 
 *   **Lecture (30 mins):**
-    *   Recap of key learnings.
-    *   Further learning resources and communities.
-    *   Career opportunities in Transport Data Science.
-    *   Q&A.
+    *   Introduction to AI-powered integrated development environments and VS Code
+    *   Introduction to AI coding assistants (GitHub Copilot).
+    *   Setting up an efficient AI-assisted workflow: when to use AI vs when not to
+    *   Best practices for writing prompts for code generation.
+*   **Practical (60 mins):**
+    *   Using Copilot to generate, explain, and debug Python code for a common transport data task.
+    *   Automating script creation for data handling.
+
+### Lunch Break (13:00 - 14:00)
+
+### Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)
+
+*   **Lecture (30 mins):**
+    *   Introduction to Large Language Models (LLMs) and prompt engineering.
+    *   Techniques for using LLMs with transport-related documents and data.
+*   **Practical (60 mins):**
+    *   Reading and summarizing transport policy documents.
+      * Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.
+    *   Analyzing qualitative data (e.g., consultation responses).
+    *   Drafting sections of a transport report based on provided data.
+
+### Module 4: AI for Transport Data Analysis (15:30 - 17:00)
+
+*   **Lecture (30 mins):**
+    *   How AI accelerates data cleaning, preprocessing, and exploratory analysis.
+    *   Using AI to identify patterns and generate hypotheses from transport datasets.
+*   **Practical (60 mins):**
+    *   Guided case study: Using AI tools to analyze a transport dataset from start to finish.
+    *   Generating visualizations and interpreting results with AI assistance.
+    *   Course wrap-up and Q&A.
 
 ## Resourcing
 
-The development and initial delivery of this course is estimated as follows:
+The development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:
 
-*   **Course Leader:** 10 days
-    *   Curriculum design and content creation (lectures, practicals, assessments).
-    *   Recording lectures.
-    *   Overall project management.
-*   **PDRA (Post-Doctoral Research Associate):** 10 days
-    *   Developing practical exercises and solutions.
-    *   Sourcing and preparing datasets.
-    *   Assisting with content review and platform setup.
-    *   Initial TA support during first run. -->
+*   **Robin Lovelace:** 3 days
+*   **Chris:** 2 days
