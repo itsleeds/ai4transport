@@ -65,13 +65,14 @@ We would like to collect responses to the following questions from potential att
 
 ## Course Overview
 
-This 8-hour online course provides a comprehensive introduction to the field of Data Science and AI for Transport.
+This 6-hour course provides a comprehensive introduction to the field of Data Science and AI for Transport.
 
 We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of "garbage in, garbage out" and "all models are wrong but some are useful" applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.
 
 This course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.
 
 Participants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East.
+
 ## Syllabus (6 hours total)
 
 The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
@@ -106,9 +107,9 @@ The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
     *   Introduction to Large Language Models (LLMs) and prompt engineering.
     *   Techniques for using LLMs with transport-related documents and data.
 *   **Practical (60 mins):**
-    *   Reading and summarizing transport policy documents.
+    *   Reading and summarising transport policy documents.
       * Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.
-    *   Analyzing qualitative data (e.g., consultation responses).
+    *   Analysing qualitative data (e.g., consultation responses).
     *   Drafting sections of a transport report based on provided data.
 
 ### Module 4: AI for Transport Data Analysis (15:30 - 17:00)
