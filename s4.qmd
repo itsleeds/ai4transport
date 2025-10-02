@@ -1,0 +1,37 @@
+---
+title: "Session 4: AI for Transport Data Analysis"
+---
+
+## Introduction
+
+In this session, we'll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.
+
+## Lecture: AI in Data Analysis
+
+-   **Accelerating the Workflow:** How AI helps with data cleaning, preprocessing, and exploratory data analysis (EDA).
+-   **Pattern Identification:** Using AI to uncover patterns and generate hypotheses from complex transport datasets.
+
+## Practical: Analyzing Spatio-Temporal OD Data with AI
+
+We will work through a guided case study using open access Call Detail Records (CDR) data from Spain.
+
+### 1. Data Acquisition and Preparation with AI Assistance
+
+-   We will use the `spanishoddata` package to download OD data.
+-   Use an AI assistant to help write the R code to filter the data for a specific city (e.g., Seville).
+-   Prepare the location and flow data for visualization.
+
+### 2. AI-Powered Visualization
+
+-   Use the `flowmapblue` package to create an interactive flow map.
+-   Ask an AI assistant to help customize the map, for example, by adding animation or clustering.
+
+### 3. Interpretation and Reporting
+
+-   Use an LLM to help interpret the patterns shown in the flow map.
+-   Generate a summary of the findings for a report.
+
+## Course Wrap-up
+
+-   Recap of the key concepts and skills covered in the course.
+-   Q&A session.
