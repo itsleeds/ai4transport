@@ -87,36 +87,72 @@ The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
 -   **Lecture (30 mins):**
 
     -   Demystifying AI: Key concepts and terminology.
+
         -   Cross-referencing Anthropic's free AI Fluency course
+
     -   Data Science as a framework for applying AI effectively.
+
         -   Our own experience and unique take on it
+
     -   Overview of AI applications in transport planning.
+
         -   ...
-    -   Ethical considerations and "garbage in, garbage out" vs prompt engineering and context engineering.
-        -   
+
+    -   
+
+        ## Ethical considerations and "garbage in, garbage out" vs prompt engineering and context engineering.
 
 -   **Practical (60 mins):**
 
 Interactive session exploring real-world AI use cases in transport.
+      
+-   Hands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).
+    -   Start with pen and paper (recommended)
+    -   Draw a flowchart of an example from your current work
+    -   Draw a flowchart that shows how AI could be introduced
+    -   Bonus if fast: do for another project/workflow, which project is most conducive to AI integration?
+-   In groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).
+-   Feedback to everyone and discuss common themes (~20 mins).
 
-    -   Hands-on exercise identifying potential AI applications in common transport planning tasks.
-        -   Start with pen and paper (recommended)
-        -   Draw a flowchart of an example from your current work
-        -   Draw a flowchart that shows how AI could be introduced
-        -   Bonus if fast: do for another project/workflow, which project is most conducive to AI integration?
-    -   In groups of around 5 people: talk about how best to integrate AI in your work from first principles
-        -   Feedback to everyone and discus
+### Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)
 
-### Module 2: AI-Powered Coding and Development (11:30 - 13:00)
+<!-- TODO: think of a task and write some example code -->
 
--   **Lecture (30 mins):**
-    -   Introduction to AI-powered integrated development environments and VS Code
-    -   Introduction to AI coding assistants (GitHub Copilot).
-    -   Setting up an efficient AI-assisted workflow: when to use AI vs when not to
-    -   Best practices for writing prompts for code generation.
--   **Practical (60 mins):**
-    -   Using Copilot to generate, explain, and debug Python code for a common transport data task.
-    -   Automating script creation for data handling.
+<!-- 
+- I do 
+- Starter for 10 code (we will show them) to Working example code (we will show them)
+- You do a small step
+ -->
+
+<!-- Framework: 
+
+- I do
+- We do
+- You do -->
+
+-   **I Do: Live Demonstration (11:30 - 12:00)**
+    -   Instructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).
+    -   Demonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.
+    -   Live coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).
+
+-   **We Do: Guided Practice (12:00 - 12:30)**
+    -   Building on the "I Do" example, participants follow along with the instructor.
+    -   Guided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.
+    -   Collaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.
+
+-   **You Do: Independent Application (12:30 - 13:00)**
+    -   Participants receive a small, related challenge to solve independently or in pairs.
+    -   Task: Use Copilot to automate a script for data handling or generate a simple visualization.
+    -   Instructor provides support and reviews solutions.
+
+```{python}
+# Make a graph showing x and x^2:
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 10, 100)
+y = x**2
+plt.plot(x, y)   
+```
 
 ### Lunch Break (13:00 - 14:00)
 
@@ -133,10 +169,10 @@ Interactive session exploring real-world AI use cases in transport.
 
 ### Module 4: AI for Transport Data Analysis (15:30 - 17:00)
 
--   **Lecture (30 mins):**
+-   **Lecture (15 mins):**
     -   How AI accelerates data cleaning, preprocessing, and exploratory analysis.
     -   Using AI to identify patterns and generate hypotheses from transport datasets.
--   **Practical (60 mins):**
+-   **Practical (75 mins):**
     -   Guided case study: Using AI tools to analyze a transport dataset from start to finish.
     -   Generating visualizations and interpreting results with AI assistance.
     -   Course wrap-up and Q&A.
@@ -148,7 +184,7 @@ The development and initial delivery of this course is estimated at 5 days total
 -   **Robin Lovelace:** 3 days
 -   **Chris:** 2 days
 
-# Content 
+# Content
 
 We will teach you the framework within which you will get the most out of AI, maximising opportinities for productivity gains
 
@@ -158,7 +194,14 @@ The way towards productivity gains is automation
 
 ![](images/paste-1.png)
 
+General principle: code better than clicking (technically, CLI > GUI)
+
+Installing GH CLI tool
+
 Ways to use AI.
-Task watch Lesson 1:[ Introduction to AI Fluency from Anthropic's](https://www.youtube.com/watch?v=JpGtOfSgR-c) free AI course (pre course)
+Task watch Lesson 1:[Introduction to AI Fluency from Anthropic's](https://www.youtube.com/watch?v=JpGtOfSgR-c) free AI course (pre course)
 
 ![](images/paste-2.png)
+
+Next steps (2025-10-02):
+
