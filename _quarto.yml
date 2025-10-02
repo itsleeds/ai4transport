@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "AI for Transport"
+  repo-url: "https://github.com/itsleeds/ai4transport"
+  repo-actions: [issue]
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "Materials by ITS Leeds, 2025."
+  sidebar:
+    background: primary
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/itsleeds/ai4transport
+        text: GitHub
+    style: docked
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: schedule.qmd
+        text: Schedule
+      - href: prerequisites.qmd
+        text: Prerequisites
+      - section: "Sessions"
+        contents:
+          - href: s1.qmd
+            text: "Session 1: Foundations"
+          - href: s2.qmd
+            text: "Session 2: AI-Powered Development"
+          - href: s3.qmd
+            text: "Session 3: LLMs for Reporting"
+          - href: s4.qmd
+            text: "Session 4: Data Analysis"
+      - href: https://github.com/itsleeds/ai4transport/issues
+        text: Forum
+
+format:
+  html:
+    theme: lux
+    toc: true
+    title-prefix: "AI for Transport - "
+    number-sections: true
+    author-meta: "ITS Leeds"
+    date-meta: "2025"
+    copyright: "© 2025 ITS Leeds"
+    license: "CC BY-SA"
+
+execute:
+  freeze: false
+  cache: true
+  message: false
+  warning: false

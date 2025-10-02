@@ -1,0 +1,46 @@
+---
+title: "Session 2: (AI-Powered) Coding and Development"
+---
+
+## Introduction
+
+This session focuses on how AI can enhance your coding and development workflow. We will cover how to use AI coding assistants and integrate them with version control best practices using Git and GitHub.
+
+## AI-Powered IDEs
+
+-   **Introduction to AI Coding Assistants:** We'll look at tools like GitHub Copilot.
+-   **Live Demonstration:** An instructor will show an efficient AI-assisted workflow in VS Code, covering:
+    -   Generating code with prompts.
+    -   Explaining complex code blocks.
+    -   Debugging with AI assistance.
+
+## Guided Practice: AI-Assisted Data Cleaning
+
+-   **Follow-along exercise:** We will use Copilot to clean a sample transport dataset.
+-   **Collaborative Debugging:** We'll intentionally introduce a bug and use AI tools to find and fix it as a group.
+
+## Independent Challenge: Automating a Script
+
+-   **Task:** Use Copilot to write a Python script that automates a simple data handling task or generates a plot.
+-   Instructors will be available to help.
+
+## Version Control with Git and GitHub
+
+AI-powered development is most effective when combined with strong version control habits.
+
+-   **Git Basics:** Committing your AI-generated code.
+-   **GitHub Collaboration:**
+    -   Using issues to track tasks.
+    -   Creating branches for new features (e.g., `gh issue develop 11`).
+    -   Making pull requests to merge your work (`gh pr create`).
+
+## Exercise
+
+Contribute to a shared repository using an AI-assisted workflow.
+
+1.  **Fork and Clone** the exercise repository.
+2.  **Create an issue** describing a new feature you will add.
+3.  **Create a branch** linked to your issue.
+4.  **Use Copilot** to write the code for the new feature.
+5.  **Commit and push** your changes.
+6.  **Create a pull request** for your work to be reviewed.

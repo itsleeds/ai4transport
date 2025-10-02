@@ -1,0 +1,423 @@
+---
+title: "Data Science for Transport Planning: Day 1"
+author: "Professor Robin Lovelace"
+date: "September 18, 2025"
+format: clean-revealjs
+bibliography: ../references.bib
+---
+
+## Welcome!
+
+Data Science for Transport Planning
+
+**2-day course**
+
+18-19 September 2025
+
+## Agenda
+
+-   **10:00-11:00** Introduction to Data Science for Transport Planning
+-   11:00-12:30 Finding, importing and cleaning transport datasets
+-   12:30-13:30 Lunch
+-   13:30-15:00 Origin-destination data analysis
+-   15:00-15:15 Break and refreshments
+-   15:15-17:00 OD Transport data visualisation
+
+## Prerequisites
+
+### To run the code
+
+-   Computer to run the code
+    -   Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally
+    -   Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)
+
+## Learn and share
+
+The following will help:
+
+-   An interest in transport planning and knowledge of transport datasets
+-   A willingness to learn and share
+-   A GitHub account (to ask questions on the Discussions page and share your own code)
+-   Familiarity with data science tools, e.g. R, Python, RStudio, VS Code
+
+## Housekeeping
+
+-   Connect to the UoL-Guest Wi-Fi network and enter your details.
+-   GitHub account sign-up if not done already.
+-   Coffee and lunch: in the social space just outside this room
+-   **Toilets**
+    -   Gents toilets can be found on first and ground floors.
+    -   Ladies toilets on the middle and far staircases and ground floor.
+    -   Accessible toilet facilities including a gender neutral toilet, are available on the lower ground floor.
+
+## Housekeeping II
+
+-   **Fire Alarm**
+    -   If the alarm sounds, leave the building via the ground floor.
+    -   The assembly point is the grassed area outside
+-   **Use of Extension Leads & Adapters**
+    -   Cube adapters are prohibited.
+    -   International chargers are advised against.
+    -   Alternative plugs can be logged/loaned out from the Facilities Office.
+
+## WiFi
+
+![](images/paste-2.png)
+
+## Setup check
+
+To check you have the necessary software installed, try running the following code.
+
+```{r}
+#| eval: false
+#| echo: true
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if (!require("pak")) install.packages("pak")
+if (!require("pak")) install.packages("pak")
+pkgs = c(
+    "sf",
+    "tidyverse",
+    "tmap",
+    "stats19",
+    "stplanr",
+    "osmextract",
+    "zonebuilder"
+)
+pak::pak(pkgs)
+```
+
+You should be able to generate the map on the next slide.
+
+## Setup check: The result
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+#| echo: false
+#| output: false
+library(tidyverse)
+zones = zonebuilder::zb_zone("Leeds", n_circles = 3)
+study_area = zones |>
+  sf::st_union()
+extra_tags = c(
+  "maxspeed",
+  "lit",
+  "cycleway"
+)
+osm_network = osmextract::oe_get(
+  place = "Leeds, UK",
+  boundary = study_area,
+  boundary_type = "clipsrc",
+  extra_tags = extra_tags
+)
+library(sf)
+```
+
+```{r}
+#| label: plot
+#| echo: false
+osm_network |>
+  select(maxspeed) |>
+  plot()
+```
+
+## The DSTP Team
+
+::: {layout-ncol="3"}
+![](images/paste-9.png)
+
+![](images/paste-8.png)
+
+![](images/paste-10.png)
+:::
+
+Source: GitHub
+
+```{=html}
+<!-- ### Robin Lovelace
+
+-   Professor of Transport Data Science
+-   Focus: influencing decision-making, to make it more evidence-based
+-   R package developer and data scientist
+-   New methods for more reproducible, data-driven and participatory transport planning -->
+```
+
+## About you
+
+::: incremental
+-   Name
+-   What tools you currently use for research
+-   Where you're from
+-   A random fact about you
+
+### Me
+
+-   Currently using VS Code, Quarto, R, Google Gemini etc, Devcontainers
+-   From Herefordshire, UK, work at the University of Leeds\
+-   Random fact: I run 5 km every Saturday with double buggy
+:::
+
+### Over to you
+
+## The origins of the course
+
+### "If only I was told this earlier in my career"
+
+::: incremental
+Imagine a workflow that enabled:
+
+-   Fewer context switches
+-   More focus on *the content* and not style of the work
+-   Integration of code into your research manuscript
+-   Automatic generation of results that update when the data change
+-   Control over how you export and publish your work 😎
+-   Full reproducibility and control for maximum benefit 🚀
+:::
+
+## Reproducible workflows
+
+"Research is considered to be reproducible when the exact results can be reproduced if given access to the original data, software, or code." Source: [displayr.com](https://www.displayr.com/what-is-reproducible-research/)
+
+![](images/paste-3.png)
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="40%"}
+#### Stages of open and reproducible science
+
+1.  Open access to the publications
+
+2.  Open access to data
+
+3.  Open access to the code
+
+4.  Fully reproducible
+
+5.  Project deployed in web app
+:::
+
+::: {.column width="60%"}
+![](images/paste-12.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Example: networkmerge
+
+![](images/paste-5.png)
+
+See paper website: https://nptscot.github.io/networkmerge/ Source: [github.com/nptscot](https://github.com/nptscot)
+
+## Example: PCT, NPT, biclaR etc.
+
+Source: @félix2025. Also see PCT paper and follow-ons, e.g. @lovelace2024
+
+![](images/paste-6.png)
+
+See [biclar.tmobilidade.pt source](https://biclar.tmlmobilidade.pt/index/) code: [github.com/u-shift](#0)
+
+## Course principles
+
+::: incremental
+-   "Learn by doing"
+-   "Learn by teaching"
+-   "We're all learning"
+-   "Can-do" and "Go for It" attitude
+-   "Every error is a learning opportunity"
+-   "No such thing as a bad question"
+-   Balance between focused work and comms
+:::
+
+## Computational infrastructure
+
+Source: "Dependency" by Randall Munroe: [xkcd.com/2347/](https://xkcd.com/2347/)
+
+![](images/paste-7.png)
+
+## Software stack
+
+![](images/software-stack.png)
+
+## Which IDE to use? Source: tdscience/course
+
+![](images/ide-table.png)
+
+## The practical sessions
+
+-   Time of in-depth work
+-   Use the course website as a reference point but spend most of the time in your own environment
+-   We will support people one-to-one and can do 'live demos'
+
+::: callout-tip
+Press Ctrl+Tab to switch from IDE to browser with course content and other things for an efficient workflow
+:::
+
+------------------------------------------------------------------------
+
+#### What are transport datasets? A geo typology
+
+Source: [Geocomputation with R](https://r.geocompx.org) [@lovelace2025]
+
+![](images/paste-15.png)
+
+# Practical session 0
+
+## Set-up: project folder/repo
+
+Option 1: Create an empty folder on your computer (beginner level)
+
+-   Via Windows Explore or other GUI
+-   Via command line (e.g., `mkdir dstp-rl`, but replace 'rl' with your initials)
+-   Via RStudio or VS Code
+
+Option 2: Create a new repository on GitHub (more advanced, recommended)
+
+-   Via GitHub Desktop (beginner level)
+-   Via `gh` command line tool (more advanced, recommended)
+
+``` sh
+gh repo create dstp-rl --public --clone # replace 'rl' with your initials
+```
+
+## Tabsets
+
+::: panel-tabset
+### gh CLI tool
+
+The following creates a fresh GitHub repo with GitHub CLI (recommended)
+
+Note: you need to have installed the [GitHub CLI](https://cli.github.com/) and authenticated it with your GitHub account.
+
+``` sh
+cd path/to/your/folder # e.g. cd C:/Users/YourName/Documents
+gh repo create dstp-rl --public --clone # replace 'rl' with your initials
+code path/to/your/folder/dstp-rl # or open in RStudio
+```
+
+### R
+
+``` r
+dir.create("C:/path/to/your/folder/dstp") # replace with your path
+rstudioapi::openProject("C:/path/to/your/folder/dstp")
+```
+
+### Shell
+
+The following creates an empty folder with PowerShell or RStudio/VS Code terminal
+
+``` sh
+# After opening a terminal in your chosen IDE/shell
+cd path/to/your/folder # e.g. cd C:/Users/YourName/Documents
+mkdir dstp-rl # replace 'rl' with your initials
+# Then open the folder in your IDE
+```
+:::
+
+## Opening your project
+
+Option 1 (RStudio): Open the folder you created in RStudio using the New Project graphical interface menu
+
+Option 2 (RStudio - recommended): Open the folder you created in RStudio using the `rstudioapi` package, e.g. with the following command in R Console:
+
+``` r
+rstudioapi::openProject("C:/path/to/your/folder/dstp")
+```
+
+Option 3: (VS Code): Open the folder you created in VS Code using the File \> Open Folder menu
+
+``` sh
+code path/to/your/folder/dstp
+```
+
+Option 4 (VS Code - recommended):
+
+``` sh
+code path/to/your/folder/dstp
+```
+
+## Minimise context switching
+
+![](images/paste-11.png)
+
+## Any questions before we move to the first practical session?
+
+# Session 1 (see [Session 1 workbook](../s1.qmd))
+
+## Session 1 in context
+
+-   10:00-11:00 Introduction to Data Science for Transport Planning
+-   **11:00-12:30 Finding, importing and cleaning transport datasets**
+-   12:30-13:30 Lunch
+-   13:30-15:00 Origin-destination data analysis
+-   15:00-15:15 Break and refreshments
+-   15:15-17:00 OD Transport data visualisation
+
+## Solo working through the practical (until \~12:30)
+
+See practical at [tdscience.github.io/dstp/s1](https://tdscience.github.io/dstp/s1)
+
+Any questions before the lunch break?
+
+Put your hands up, ask another participant, or use the [github.com/tdscience/dstp/discussions](https://github.com/tdscience/dstp/discussions)
+
+## Lunch break (12:30-13:30)
+
+See you back here at 13:30
+
+# Session 2 (see [Session 2 workbook](../s2.qmd))
+
+## Lecture on Session 2: OD and geographic data
+
+![](images/paste-13.png)
+
+OD data is implicitly geographic [@lovelace2022]
+
+## Running R/Python code
+
+::: panel-tabset
+## R
+
+```{r}
+world = spData::world
+plot(world[3:6])
+plot(world["pop"])
+```
+
+## Python
+
+```{python}
+#| eval: false
+# Since world is a GeoDataFrame, we can select columns by position
+# However, GeoPandas plots the geometry, so we need to specify columns
+world = gpd.read_file('https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip')
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+world.plot(column='POP_EST', ax=axes[0])
+world.plot(column='GDP_YEAR', ax=axes[1])
+world.plot(column='CONTINENT', ax=axes[2])
+plt.show()
+```
+
+![](images/world-facet-py.png)
+:::
+
+See Yang's slides in link at [tdscience.github.io/dstp/s2](https://tdscience.github.io/dstp/s2)
+
+## Exercises
+
+Work through the exercises in the [Session 2 workbook](../s2.qmd)
+
+Any questions before the break (15:00-15:15)?
+
+15:00-15:15 Break and refreshments
+
+## Session 3
+
+-   15:15-17:00 OD Transport data visualisation
+-   See [Session 3 workbook](../s3.qmd)
+
+![](images/paste-14.png)
+
+## References

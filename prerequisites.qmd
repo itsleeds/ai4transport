@@ -1,0 +1,107 @@
+---
+title: "Prerequisites"
+description-meta: "Software and knowledge prerequisites for the AI for Transport course, including setup instructions and testing code."
+pagetitle: "Course Prerequisites"
+---
+
+## Course Prerequisites
+
+This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.
+
+You must have a GitHub account and have saved your username. We will cover version control concepts in the course.
+
+## Software Prerequisites
+
+You should bring a laptop with the following software installed and tested:
+
+-   A modern web browser (e.g., Chrome, Firefox, Edge).
+-   A text editor (e.g., VS Code, Notepad++).
+-   The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).
+
+## Recommended Online Courses
+
+To prepare for this course, we recommend watching the following short video:
+
+-   [Introduction to AI Fluency](https://www.youtube.com/watch?v=JpGtOfSgR-c) by Anthropic (Lesson 1, ~5 minutes).
+
+And taking these short but very useful online courses:
+
+-   [Intro to GitHub](https://github.com/skills/introduction-to-github) (should take less than an hour).
+-   [Communicate using Markdown](https://github.com/skills/communicate-using-markdown) (should take around 30 minutes or less).
+
+## Testing your setup
+
+You can test your setup by running the following code in Python or R.
+
+::: panel-tabset
+
+## Python
+
+```{python}
+#| label: python-test
+#| eval: false
+import osmnx as ox
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import shapely
+
+# Centered on London
+study_point = shapely.Point(-0.1278, 51.5074)
+study_geom = gpd.GeoSeries([study_point], crs=4326)
+study_polygon = study_geom.to_crs(epsg=3857).buffer(8000).to_crs(epsg=4326).unary_union
+study_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs="EPSG:4326")
+tags = {"highway": True, "maxspeed": True, "lit": True, "cycleway": True}
+gdf = ox.features_from_polygon(study_polygon, tags)
+gdf = gdf[gdf.geom_type.isin(["LineString", "MultiLineString"])]
+gdf = gdf.to_crs(epsg=3857)
+gdf.plot(column="maxspeed", figsize=(10, 10), legend=True)
+plt.show()
+```
+
+## R
+
+```{r}
+#| label: r-test
+#| message: false
+#| warning: false
+#| results: hide
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if (!require("pak")) install.packages("pak")
+pkgs = c(
+    "sf",
+    "tidyverse",
+    "tmap",
+    "osmextract"
+)
+pak::pak(pkgs)
+library(tidyverse)
+library(sf)
+# Centered on London
+study_area = st_point(c(-0.1278, 51.5074)) |>
+  st_sfc(crs = 4326) |>
+  st_transform(27700) |>
+  st_buffer(8000) |>
+  st_transform(4326)
+extra_tags = c(
+  "maxspeed",
+  "lit",
+  "cycleway"
+)
+osm_network = osmextract::oe_get(
+  place = study_area,
+  boundary = study_area,
+  boundary_type = "clipsrc",
+  extra_tags = extra_tags
+)
+```
+
+```{r}
+#| label: r-test-london
+osm_network |>
+  select(maxspeed) |>
+  plot()
+```
+
+:::
+
+Let us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.
