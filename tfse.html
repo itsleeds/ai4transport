@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="ITS Leeds">
+<meta name="dcterms.date" content="2025">
+
+<title>TfSE AI for Transport Course – AI for Transport -</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8b6ce9001ab9036ff0c9c7a81932cd85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      AI for Transport
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI for Transport</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/itsleeds/ai4transport" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prerequisites.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prerequisites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 1: Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 2: AI-Powered Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 3: LLMs for Reporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 4: Data Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/itsleeds/ai4transport/issues" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forum</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#questions-for-course-organisers" id="toc-questions-for-course-organisers" class="nav-link" data-scroll-target="#questions-for-course-organisers"><span class="header-section-number">2</span> Questions for course organisers</a></li>
+  <li><a href="#questions-for-potential-attendees" id="toc-questions-for-potential-attendees" class="nav-link" data-scroll-target="#questions-for-potential-attendees"><span class="header-section-number">3</span> Questions for potential attendees</a>
+  <ul class="collapse">
+  <li><a href="#current-working-practices" id="toc-current-working-practices" class="nav-link" data-scroll-target="#current-working-practices"><span class="header-section-number">3.1</span> Current working practices</a></li>
+  <li><a href="#ai-tools" id="toc-ai-tools" class="nav-link" data-scroll-target="#ai-tools"><span class="header-section-number">3.2</span> AI tools</a></li>
+  <li><a href="#data-and-data-science" id="toc-data-and-data-science" class="nav-link" data-scroll-target="#data-and-data-science"><span class="header-section-number">3.3</span> Data and data science</a></li>
+  <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general"><span class="header-section-number">3.4</span> General</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link" data-scroll-target="#course-overview"><span class="header-section-number">3.5</span> Course Overview</a></li>
+  <li><a href="#syllabus-6-hours-total" id="toc-syllabus-6-hours-total" class="nav-link" data-scroll-target="#syllabus-6-hours-total"><span class="header-section-number">3.6</span> Syllabus (6 hours total)</a>
+  <ul class="collapse">
+  <li><a href="#module-1-foundations-of-ai-in-transport-1000---1130" id="toc-module-1-foundations-of-ai-in-transport-1000---1130" class="nav-link" data-scroll-target="#module-1-foundations-of-ai-in-transport-1000---1130"><span class="header-section-number">3.6.1</span> Module 1: Foundations of AI in Transport (10:00 - 11:30)</a></li>
+  <li><a href="#module-2-ai-powered-coding-and-development-1130---1300" id="toc-module-2-ai-powered-coding-and-development-1130---1300" class="nav-link" data-scroll-target="#module-2-ai-powered-coding-and-development-1130---1300"><span class="header-section-number">3.7.1</span> Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)</a></li>
+  <li><a href="#lunch-break-1300---1400" id="toc-lunch-break-1300---1400" class="nav-link" data-scroll-target="#lunch-break-1300---1400"><span class="header-section-number">3.7.2</span> Lunch Break (13:00 - 14:00)</a></li>
+  <li><a href="#module-3-using-llms-for-reporting-and-analysis-1400---1530" id="toc-module-3-using-llms-for-reporting-and-analysis-1400---1530" class="nav-link" data-scroll-target="#module-3-using-llms-for-reporting-and-analysis-1400---1530"><span class="header-section-number">3.7.3</span> Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)</a></li>
+  <li><a href="#module-4-ai-for-transport-data-analysis-1530---1700" id="toc-module-4-ai-for-transport-data-analysis-1530---1700" class="nav-link" data-scroll-target="#module-4-ai-for-transport-data-analysis-1530---1700"><span class="header-section-number">3.7.4</span> Module 4: AI for Transport Data Analysis (15:30 - 17:00)</a></li>
+  </ul></li>
+  <li><a href="#resourcing" id="toc-resourcing" class="nav-link" data-scroll-target="#resourcing"><span class="header-section-number">3.8</span> Resourcing</a></li>
+  </ul></li>
+  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content"><span class="header-section-number">4</span> Content</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TfSE AI for Transport Course</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- tfse ask
+
+It was a pleasure meeting you both earlier today, and apologies again for the rushed ending. As promised, I’ve summarised our discussion and next steps below.
+ 
+Current Position and Phase 1:
+Phase 1 of support is being delivered through TfSE’s subject matter expert supply chain. While these commissions are not yet fully confirmed, our preference is to continue with this approach for Phase 1 and build any follow-on support (Phase 2) around it.
+Phase 1 will cover three key areas:
+Introduction to AI and its application in transport planning (high level)
+AI in data analysis
+Practical applications in transport planning
+ 
+To shape the next stage of support with your team, we agreed that the best approach is to:
+Share a hypothesis for what the course could look like, including day-to-day challenges and relevant user cases. This could also include some questions to go into the Chat Forum, or survey style format to users to understand in a bit more detail what it is they require, or if the hypothesis suits their needs.
+Focus on fundamentals, given current capability levels, but also incorporate case studies and examples (as you mentioned) to highlight real opportunities.
+Keep the theme of “demystifying AI”, while allowing for adjustments after our introductory session, so we can avoid duplication. -->
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>We’re developing materials to support teaching of AI for transport, building on introductory webinars on AI and transport that will cover:</p>
+<ul>
+<li>Webinar 1: What is AI?</li>
+<li>Use of AI in data analysis</li>
+<li>Application of AI in transport planning</li>
+</ul>
+</section>
+<section id="questions-for-course-organisers" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Questions for course organisers</h1>
+<ul>
+<li>What compute environments do participants have access to currently?
+<ul>
+<li>VS Code + copilot</li>
+<li>Jupyter Notebooks</li>
+<li>Cloud provider such as AWS or Google Cloud</li>
+</ul></li>
+<li>Any additional information on what software they use on a daily basis</li>
+</ul>
+</section>
+<section id="questions-for-potential-attendees" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Questions for potential attendees</h1>
+<p>We would like to collect responses to the following questions from potential attendees:</p>
+<section id="current-working-practices" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="current-working-practices"><span class="header-section-number">3.1</span> Current working practices</h2>
+<ul>
+<li>Which software, web applications or other digital tools do you use for your day-to-day transport planning work?</li>
+<li>With reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.</li>
+<li>What are the most boring parts of your work?</li>
+<li>Which parts of your work are most conducive to automation?</li>
+</ul>
+</section>
+<section id="ai-tools" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ai-tools"><span class="header-section-number">3.2</span> AI tools</h2>
+<ul>
+<li>Which AI tools have you heard of?</li>
+<li>Which AI tools have you tested?</li>
+<li>Which AI tools do you currently use in your work (if any)?</li>
+<li>Are there any particular AI tools or technologies you are interested in learning more about?</li>
+</ul>
+</section>
+<section id="data-and-data-science" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-and-data-science"><span class="header-section-number">3.3</span> Data and data science</h2>
+<ul>
+<li>How do you currently use data in your decision-making processes?</li>
+<li>What kinds of data do you use?</li>
+<li>Which data science tools do you use?</li>
+<li>Do you use any programming languages (e.g., Python, R) for data analysis?</li>
+<li>Do you use interactive development environments (e.g.&nbsp;VS Code) for your work, and if so which?</li>
+</ul>
+</section>
+<section id="general" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="general"><span class="header-section-number">3.4</span> General</h2>
+<ul>
+<li>What skills or knowledge do you hope to gain from this course?</li>
+</ul>
+<!-- Draft Outline: -->
+</section>
+<section id="course-overview" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="course-overview"><span class="header-section-number">3.5</span> Course Overview</h2>
+<p>This 6-hour course provides a comprehensive introduction to the field of Data Science and AI for Transport.</p>
+<p>We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.</p>
+<p>This course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.</p>
+<p>Participants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East.</p>
+</section>
+<section id="syllabus-6-hours-total" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="syllabus-6-hours-total"><span class="header-section-number">3.6</span> Syllabus (6 hours total)</h2>
+<p>The course will run from 10:00 to 17:00, with a 1-hour break for lunch.</p>
+<section id="module-1-foundations-of-ai-in-transport-1000---1130" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored"><span class="header-section-number">3.6.1</span> Module 1: Foundations of AI in Transport (10:00 - 11:30)</h3>
+<ul>
+<li><p><strong>Lecture (30 mins):</strong></p>
+<ul>
+<li><p>Demystifying AI: Key concepts and terminology.</p>
+<ul>
+<li>Cross-referencing Anthropic’s free AI Fluency course</li>
+</ul></li>
+<li><p>Data Science as a framework for applying AI effectively.</p>
+<ul>
+<li>Our own experience and unique take on it</li>
+</ul></li>
+<li><p>Overview of AI applications in transport planning.</p>
+<ul>
+<li>…</li>
+</ul></li>
+<li><h2 id="ethical-considerations-and-garbage-in-garbage-out-vs-prompt-engineering-and-context-engineering." data-number="3.7" class="anchored" data-anchor-id="module-1-foundations-of-ai-in-transport-1000---1130"><span class="header-section-number">3.7</span> Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.</h2></li>
+</ul></li>
+<li><p><strong>Practical (60 mins):</strong></p></li>
+</ul>
+<p>Interactive session exploring real-world AI use cases in transport.</p>
+<ul>
+<li>Hands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).
+<ul>
+<li>Start with pen and paper (recommended)</li>
+<li>Draw a flowchart of an example from your current work</li>
+<li>Draw a flowchart that shows how AI could be introduced</li>
+<li>Bonus if fast: do for another project/workflow, which project is most conducive to AI integration?</li>
+</ul></li>
+<li>In groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).</li>
+<li>Feedback to everyone and discuss common themes (~20 mins).</li>
+</ul>
+</section>
+<section id="module-2-ai-powered-coding-and-development-1130---1300" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="module-2-ai-powered-coding-and-development-1130---1300"><span class="header-section-number">3.7.1</span> Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)</h3>
+<!-- TODO: think of a task and write some example code -->
+<!-- 
+- I do 
+- Starter for 10 code (we will show them) to Working example code (we will show them)
+- You do a small step
+ -->
+<!-- Framework: 
+
+- I do
+- We do
+- You do -->
+<ul>
+<li><strong>I Do: Live Demonstration (11:30 - 12:00)</strong>
+<ul>
+<li>Instructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).</li>
+<li>Demonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.</li>
+<li>Live coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).</li>
+</ul></li>
+<li><strong>We Do: Guided Practice (12:00 - 12:30)</strong>
+<ul>
+<li>Building on the “I Do” example, participants follow along with the instructor.</li>
+<li>Guided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.</li>
+<li>Collaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.</li>
+</ul></li>
+<li><strong>You Do: Independent Application (12:30 - 13:00)</strong>
+<ul>
+<li>Participants receive a small, related challenge to solve independently or in pairs.</li>
+<li>Task: Use Copilot to automate a script for data handling or generate a simple visualization.</li>
+<li>Instructor provides support and reviews solutions.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a graph showing x and x^2:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lunch-break-1300---1400" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="lunch-break-1300---1400"><span class="header-section-number">3.7.2</span> Lunch Break (13:00 - 14:00)</h3>
+</section>
+<section id="module-3-using-llms-for-reporting-and-analysis-1400---1530" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="module-3-using-llms-for-reporting-and-analysis-1400---1530"><span class="header-section-number">3.7.3</span> Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)</h3>
+<ul>
+<li><strong>Lecture (30 mins):</strong>
+<ul>
+<li>Introduction to Large Language Models (LLMs) and prompt engineering.</li>
+<li>Techniques for using LLMs with transport-related documents and data.</li>
+</ul></li>
+<li><strong>Practical (60 mins):</strong>
+<ul>
+<li>Reading and summarising transport policy documents.</li>
+<li>Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.</li>
+<li>Analysing qualitative data (e.g., consultation responses).</li>
+<li>Drafting sections of a transport report based on provided data.</li>
+</ul></li>
+</ul>
+</section>
+<section id="module-4-ai-for-transport-data-analysis-1530---1700" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="module-4-ai-for-transport-data-analysis-1530---1700"><span class="header-section-number">3.7.4</span> Module 4: AI for Transport Data Analysis (15:30 - 17:00)</h3>
+<ul>
+<li><strong>Lecture (15 mins):</strong>
+<ul>
+<li>How AI accelerates data cleaning, preprocessing, and exploratory analysis.</li>
+<li>Using AI to identify patterns and generate hypotheses from transport datasets.</li>
+</ul></li>
+<li><strong>Practical (75 mins):</strong>
+<ul>
+<li>Guided case study: Using AI tools to analyze a transport dataset from start to finish.</li>
+<li>Generating visualizations and interpreting results with AI assistance.</li>
+<li>Course wrap-up and Q&amp;A.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="resourcing" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="resourcing"><span class="header-section-number">3.8</span> Resourcing</h2>
+<p>The development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:</p>
+<ul>
+<li><strong>Robin Lovelace:</strong> 3 days</li>
+<li><strong>Chris:</strong> 2 days</li>
+</ul>
+</section>
+</section>
+<section id="content" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Content</h1>
+<p>This draft will go into the sections, e.g.&nbsp;s1.qmd, s2.qmd, …</p>
+<p>We will teach you the framework within which you will get the most out of AI, maximising opportunities for productivity gains</p>
+<p>Anthropics’ course on using AI reference</p>
+<p>The way towards productivity gains is automation</p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
+<p>General principle: code better than clicking (technically, CLI &gt; GUI)</p>
+<p>Installing GH CLI tool</p>
+<p>https://tdscience.github.io/dstp/s6.html</p>
+<p>General principle: Code review is good</p>
+<p>Implementation:</p>
+<pre><code>gh issue create
+gh issue develop xx --checkout
+# e.g. gh issue develop 11 # to work on issue 11
+gh pr create --reviewer chris-r-uol</code></pre>
+<p>Ways to use AI. Task watch Lesson 1:<a href="https://www.youtube.com/watch?v=JpGtOfSgR-c">Introduction to AI Fluency from Anthropic’s</a> free AI course (pre course)</p>
+<p><img src="images/paste-2.png" class="img-fluid"></p>
+<p>Next steps (2025-10-02):</p>
+<ul>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/8">Draft and share survey for potential attendees</a></li>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/9">Draft and share course outline for feedback</a></li>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/10">Draft Sections 1 and 4 (Robin)</a></li>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/11">Draft Sections 2 and 3 (Chris)</a></li>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/12">Review and finalise content (both)</a></li>
+<li><a href="https://github.com/itsleeds/ai4transport/issues/13">Convert this into website and hosting (Robin, Netlify or GitHub Pages)</a></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 ITS Leeds</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/ai4transport\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Materials by ITS Leeds, 2025.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
