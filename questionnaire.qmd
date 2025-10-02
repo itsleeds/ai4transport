@@ -1,12 +1,14 @@
 ---
 title: "Pre-Course Questionnaire"
+number-sections: false
 ---
 
 This questionnaire will help us tailor the 'AI for Transport' course to your needs. Please complete the prerequisites before filling out this form.
 
+
 ---
 
-### Prerequisites Confirmation
+## Prerequisites Confirmation
 
 **1. I confirm that I have read the course prerequisites and completed the required setup steps.**
 
@@ -15,7 +17,7 @@ This questionnaire will help us tailor the 'AI for Transport' course to your nee
 
 ---
 
-### Your Details
+## Your Details
 
 **2. What is your GitHub username?**
 
@@ -23,7 +25,7 @@ This questionnaire will help us tailor the 'AI for Transport' course to your nee
 
 ---
 
-### Your Setup
+## Your Setup
 
 **3. What is your primary development environment?**
 
@@ -55,7 +57,7 @@ This questionnaire will help us tailor the 'AI for Transport' course to your nee
 
 ---
 
-### Current Work and AI Experience
+## Current Work and AI Experience
 
 **7. Which software or digital tools do you use most often in your day-to-day transport planning work?**
 
@@ -77,6 +79,7 @@ This questionnaire will help us tailor the 'AI for Transport' course to your nee
 
 *   [ ] ChatGPT
 *   [ ] GitHub Copilot
+*   [ ] Microsoft 365 Copilot
 *   [ ] Google Gemini
 *   [ ] None
 *   [ ] Other (please specify)
@@ -87,7 +90,8 @@ This questionnaire will help us tailor the 'AI for Transport' course to your nee
 
 ---
 
-### Course Expectations
+
+## Course Expectations
 
 **13. What specific skills or knowledge do you hope to gain from this course?**
 
