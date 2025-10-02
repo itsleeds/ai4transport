@@ -37,9 +37,13 @@ You can test your setup by running the following code in Python or R.
 
 ## Python
 
-```{python}
+<!--
 #| label: python-test
 #| eval: false
+-->
+
+
+```python
 import osmnx as ox
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -65,6 +69,7 @@ plt.show()
 #| message: false
 #| warning: false
 #| results: hide
+#| eval: false
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 if (!require("pak")) install.packages("pak")
 pkgs = c(
