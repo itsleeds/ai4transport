@@ -12,11 +12,20 @@ You must have a GitHub account and have saved your username. We will cover versi
 
 ## Software Prerequisites
 
-You should bring a laptop with the following software installed and tested:
+You should bring a laptop with either of the following:
 
 -   A modern web browser (e.g., Chrome, Firefox, Edge).
--   A text editor (e.g., VS Code, Notepad++).
--   The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).
+  - A GitHub account (sign up at [github.com](https://github.com/)) and have your username ready.
+  - Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:
+  <!-- - TODO: update this when new repo is live -->
+  - https://github.com/codespaces/new/tdscience/dstp?quickstart=1
+
+**or, for running the code locally:**
+
+- A laptop with a the necessary software installed, including:
+  - An IDE such as VS Code (recommended) or RStudio.
+  - R or Python installed (see below for testing code).
+  - The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).
 
 ## Recommended Online Courses
 
