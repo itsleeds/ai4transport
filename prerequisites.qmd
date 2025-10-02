@@ -71,6 +71,7 @@ pkgs = c(
     "sf",
     "tidyverse",
     "tmap",
+    "tmaptools",
     "osmextract"
 )
 pak::pak(pkgs)
