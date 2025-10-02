@@ -198,6 +198,8 @@ General principle: code better than clicking (technically, CLI > GUI)
 
 Installing GH CLI tool
 
+https://tdscience.github.io/dstp/s6.html
+
 Ways to use AI.
 Task watch Lesson 1:[Introduction to AI Fluency from Anthropic's](https://www.youtube.com/watch?v=JpGtOfSgR-c) free AI course (pre course)
 
