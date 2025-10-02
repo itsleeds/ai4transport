@@ -1,3 +1,8 @@
+---
+title: "TfSE AI for Transport Course"
+number-sections: true
+---
+
 ```{=html}
 <!-- tfse ask
 
@@ -206,4 +211,11 @@ Task watch Lesson 1:[Introduction to AI Fluency from Anthropic's](https://www.yo
 ![](images/paste-2.png)
 
 Next steps (2025-10-02):
+
+- [Draft and share survey for potential attendees](https://github.com/itsleeds/ai4transport/issues/8)
+- [Draft and share course outline for feedback](https://github.com/itsleeds/ai4transport/issues/9)
+- [Draft Sections 1 and 4 (Robin)](https://github.com/itsleeds/ai4transport/issues/10)
+- [Draft Sections 2 and 3 (Chris)](https://github.com/itsleeds/ai4transport/issues/11)
+- [Review and finalise content (both)](https://github.com/itsleeds/ai4transport/issues/12)
+- [Convert this into website and hosting (Robin, Netlify or GitHub Pages)](https://github.com/itsleeds/ai4transport/issues/13)
 
