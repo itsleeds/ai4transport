@@ -1,0 +1,102 @@
+---
+title: "Pre-Course Questionnaire"
+---
+
+This questionnaire will help us tailor the 'AI for Transport' course to your needs. Please complete the prerequisites before filling out this form.
+
+---
+
+### Prerequisites Confirmation
+
+**1. I confirm that I have read the course prerequisites and completed the required setup steps.**
+
+*   ( ) Yes
+*   ( ) No
+
+---
+
+### Your Details
+
+**2. What is your GitHub username?**
+
+*Short text answer*
+
+---
+
+### Your Setup
+
+**3. What is your primary development environment?**
+
+*   ( ) VS Code
+*   ( ) RStudio
+*   ( ) Jupyter Notebook
+*   ( ) Other (please specify)
+*   ( ) None
+
+**4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)**
+
+*   [ ] Python
+*   [ ] R
+*   [ ] SQL
+*   [ ] None
+*   [ ] Other (please specify)
+
+**5. How do you plan to follow the course materials?**
+
+*   ( ) On my own computer using a local setup.
+*   ( ) In the cloud using GitHub Codespaces.
+*   ( ) I'm not sure yet.
+
+**6. Did the test code in the [prerequisites.qmd](prerequisites.qmd) file run successfully on your machine?**
+
+*   ( ) Yes
+*   ( ) No
+*   ( ) I did not run the code
+
+---
+
+### Current Work and AI Experience
+
+**7. Which software or digital tools do you use most often in your day-to-day transport planning work?**
+
+*Long text answer*
+
+**8. Briefly describe a typical work task you complete on a day-to-day basis.**
+
+*Long text answer*
+
+**9. What are the most repetitive or boring parts of your work?**
+
+*Long text answer*
+
+**10. Which parts of your work do you think are most suitable for automation?**
+
+*Long text answer*
+
+**11. Which AI tools have you heard of or tested? (Select all that apply)**
+
+*   [ ] ChatGPT
+*   [ ] GitHub Copilot
+*   [ ] Google Gemini
+*   [ ] None
+*   [ ] Other (please specify)
+
+**12. Which AI tools, if any, do you currently use in your work?**
+
+*Long text answer*
+
+---
+
+### Course Expectations
+
+**13. What specific skills or knowledge do you hope to gain from this course?**
+
+*Long text answer*
+
+**14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?**
+
+*   (1) Not confident at all
+*   (2)
+*   (3)
+*   (4)
+*   (5) Very confident
