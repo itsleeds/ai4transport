@@ -38,6 +38,7 @@ jobs:
           Rscript -e "install.packages('tmaptools')"
 
       - name: Render and Publish
+        if: github.ref == 'refs/heads/main'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
