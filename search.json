@@ -423,7 +423,42 @@
     "href": "questionnaire.html",
     "title": "Pre-Course Questionnaire",
     "section": "",
-    "text": "This questionnaire will help us tailor the ‘AI for Transport’ course to your needs. Please complete the prerequisites before filling out this form.\n\n\n0.1 Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No\n\n\n\n\n0.2 Your Details\n2. What is your GitHub username?\nShort text answer\n\n\n\n0.3 Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code\n\n\n\n\n0.4 Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer\n\n\n\n0.5 Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident\n\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds"
+    "text": "This questionnaire will help us tailor the ‘AI for Transport’ course to your needs. Please complete the prerequisites before filling out this form."
+  },
+  {
+    "objectID": "questionnaire.html#prerequisites-confirmation",
+    "href": "questionnaire.html#prerequisites-confirmation",
+    "title": "Pre-Course Questionnaire",
+    "section": "Prerequisites Confirmation",
+    "text": "Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No"
+  },
+  {
+    "objectID": "questionnaire.html#your-details",
+    "href": "questionnaire.html#your-details",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Details",
+    "text": "Your Details\n2. What is your GitHub username?\nShort text answer"
+  },
+  {
+    "objectID": "questionnaire.html#your-setup",
+    "href": "questionnaire.html#your-setup",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Setup",
+    "text": "Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code"
+  },
+  {
+    "objectID": "questionnaire.html#current-work-and-ai-experience",
+    "href": "questionnaire.html#current-work-and-ai-experience",
+    "title": "Pre-Course Questionnaire",
+    "section": "Current Work and AI Experience",
+    "text": "Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer"
+  },
+  {
+    "objectID": "questionnaire.html#course-expectations",
+    "href": "questionnaire.html#course-expectations",
+    "title": "Pre-Course Questionnaire",
+    "section": "Course Expectations",
+    "text": "Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident"
   },
   {
     "objectID": "index.html",
