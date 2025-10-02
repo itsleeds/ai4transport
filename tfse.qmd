@@ -1,3 +1,4 @@
+```{=html}
 <!-- tfse ask
 
 It was a pleasure meeting you both earlier today, and apologies again for the rushed ending. As promised, I’ve summarised our discussion and next steps below.
@@ -13,23 +14,23 @@ To shape the next stage of support with your team, we agreed that the best appro
 Share a hypothesis for what the course could look like, including day-to-day challenges and relevant user cases. This could also include some questions to go into the Chat Forum, or survey style format to users to understand in a bit more detail what it is they require, or if the hypothesis suits their needs.
 Focus on fundamentals, given current capability levels, but also incorporate case studies and examples (as you mentioned) to highlight real opportunities.
 Keep the theme of “demystifying AI”, while allowing for adjustments after our introductory session, so we can avoid duplication. -->
+```
 
 # Introduction
 
 We're developing materials to support teaching of AI for transport, building on introductory webinars on AI and transport that will cover:
 
-- Webinar 1: What is AI?
-- Use of AI in data analysis
-- Application of AI in transport planning
+-   Webinar 1: What is AI?
+-   Use of AI in data analysis
+-   Application of AI in transport planning
 
 # Questions for course organisers
 
-- What compute environments do participants have access to currently?
-  - VS Code + copilot
-  - Jupyter Notebooks
-  - Cloud provider such as AWS or Google Cloud
-
-- Any additional information on what software they use on a daily basis
+-   What compute environments do participants have access to currently?
+    -   VS Code + copilot
+    -   Jupyter Notebooks
+    -   Cloud provider such as AWS or Google Cloud
+-   Any additional information on what software they use on a daily basis
 
 # Questions for potential attendees
 
@@ -37,29 +38,29 @@ We would like to collect responses to the following questions from potential att
 
 ## Current working practices
 
-- Which software, web applications or other digital tools do you use for your day-to-day transport planning work?
-- With reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.
-- What are the most boring parts of your work?
-- Which parts of your work are most conducive to automation?
+-   Which software, web applications or other digital tools do you use for your day-to-day transport planning work?
+-   With reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.
+-   What are the most boring parts of your work?
+-   Which parts of your work are most conducive to automation?
 
 ## AI tools
 
-- Which AI tools have you heard of?
-- Which AI tools have you tested?
-- Which AI tools do you currently use in your work (if any)?
-- Are there any particular AI tools or technologies you are interested in learning more about?
+-   Which AI tools have you heard of?
+-   Which AI tools have you tested?
+-   Which AI tools do you currently use in your work (if any)?
+-   Are there any particular AI tools or technologies you are interested in learning more about?
 
 ## Data and data science
 
-- How do you currently use data in your decision-making processes?
-- What kinds of data do you use?
-- Which data science tools do you use?
-- Do you use any programming languages (e.g., Python, R) for data analysis?
-- Do you use interactive development environments (e.g. VS Code) for your work, and if so which?
+-   How do you currently use data in your decision-making processes?
+-   What kinds of data do you use?
+-   Which data science tools do you use?
+-   Do you use any programming languages (e.g., Python, R) for data analysis?
+-   Do you use interactive development environments (e.g. VS Code) for your work, and if so which?
 
 ## General
 
-- What skills or knowledge do you hope to gain from this course?
+-   What skills or knowledge do you hope to gain from this course?
 
 <!-- Draft Outline: -->
 
@@ -67,11 +68,15 @@ We would like to collect responses to the following questions from potential att
 
 This 6-hour course provides a comprehensive introduction to the field of Data Science and AI for Transport.
 
-We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of "garbage in, garbage out" and "all models are wrong but some are useful" applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.
+We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods.
+The principles of "garbage in, garbage out" and "all models are wrong but some are useful" applies equally to AI models as they do to traditional models.
+With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.
 
 This course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.
 
-Participants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East.
+Participants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value.
+By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems.
+The course will be tailored to the specific needs and backgrounds of Transport for the South East.
 
 ## Syllabus (6 hours total)
 
@@ -79,52 +84,81 @@ The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
 
 ### Module 1: Foundations of AI in Transport (10:00 - 11:30)
 
-*   **Lecture (30 mins):**
-    *   Demystifying AI: Key concepts and terminology.
-    *   Data Science as a framework for applying AI effectively.
-    *   Overview of AI applications in transport planning.
-    *   Ethical considerations and "garbage in, garbage out".
-*   **Practical (60 mins):**
-    *   Interactive session exploring real-world AI use cases in transport.
-    *   Hands-on exercise identifying potential AI applications in common transport planning tasks.
+-   **Lecture (30 mins):**
+
+    -   Demystifying AI: Key concepts and terminology.
+        -   Cross-referencing Anthropic's free AI Fluency course
+    -   Data Science as a framework for applying AI effectively.
+        -   Our own experience and unique take on it
+    -   Overview of AI applications in transport planning.
+        -   ...
+    -   Ethical considerations and "garbage in, garbage out" vs prompt engineering and context engineering.
+        -   
+
+-   **Practical (60 mins):**
+
+Interactive session exploring real-world AI use cases in transport.
+
+    -   Hands-on exercise identifying potential AI applications in common transport planning tasks.
+        -   Start with pen and paper (recommended)
+        -   Draw a flowchart of an example from your current work
+        -   Draw a flowchart that shows how AI could be introduced
+        -   Bonus if fast: do for another project/workflow, which project is most conducive to AI integration?
+    -   In groups of around 5 people: talk about how best to integrate AI in your work from first principles
+        -   Feedback to everyone and discus
 
 ### Module 2: AI-Powered Coding and Development (11:30 - 13:00)
 
-*   **Lecture (30 mins):**
-    *   Introduction to AI-powered integrated development environments and VS Code
-    *   Introduction to AI coding assistants (GitHub Copilot).
-    *   Setting up an efficient AI-assisted workflow: when to use AI vs when not to
-    *   Best practices for writing prompts for code generation.
-*   **Practical (60 mins):**
-    *   Using Copilot to generate, explain, and debug Python code for a common transport data task.
-    *   Automating script creation for data handling.
+-   **Lecture (30 mins):**
+    -   Introduction to AI-powered integrated development environments and VS Code
+    -   Introduction to AI coding assistants (GitHub Copilot).
+    -   Setting up an efficient AI-assisted workflow: when to use AI vs when not to
+    -   Best practices for writing prompts for code generation.
+-   **Practical (60 mins):**
+    -   Using Copilot to generate, explain, and debug Python code for a common transport data task.
+    -   Automating script creation for data handling.
 
 ### Lunch Break (13:00 - 14:00)
 
 ### Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)
 
-*   **Lecture (30 mins):**
-    *   Introduction to Large Language Models (LLMs) and prompt engineering.
-    *   Techniques for using LLMs with transport-related documents and data.
-*   **Practical (60 mins):**
-    *   Reading and summarising transport policy documents.
-      * Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.
-    *   Analysing qualitative data (e.g., consultation responses).
-    *   Drafting sections of a transport report based on provided data.
+-   **Lecture (30 mins):**
+    -   Introduction to Large Language Models (LLMs) and prompt engineering.
+    -   Techniques for using LLMs with transport-related documents and data.
+-   **Practical (60 mins):**
+    -   Reading and summarising transport policy documents.
+    -   Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.
+    -   Analysing qualitative data (e.g., consultation responses).
+    -   Drafting sections of a transport report based on provided data.
 
 ### Module 4: AI for Transport Data Analysis (15:30 - 17:00)
 
-*   **Lecture (30 mins):**
-    *   How AI accelerates data cleaning, preprocessing, and exploratory analysis.
-    *   Using AI to identify patterns and generate hypotheses from transport datasets.
-*   **Practical (60 mins):**
-    *   Guided case study: Using AI tools to analyze a transport dataset from start to finish.
-    *   Generating visualizations and interpreting results with AI assistance.
-    *   Course wrap-up and Q&A.
+-   **Lecture (30 mins):**
+    -   How AI accelerates data cleaning, preprocessing, and exploratory analysis.
+    -   Using AI to identify patterns and generate hypotheses from transport datasets.
+-   **Practical (60 mins):**
+    -   Guided case study: Using AI tools to analyze a transport dataset from start to finish.
+    -   Generating visualizations and interpreting results with AI assistance.
+    -   Course wrap-up and Q&A.
 
 ## Resourcing
 
 The development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:
 
-*   **Robin Lovelace:** 3 days
-*   **Chris:** 2 days
+-   **Robin Lovelace:** 3 days
+-   **Chris:** 2 days
+
+# Content 
+
+We will teach you the framework within which you will get the most out of AI, maximising opportinities for productivity gains
+
+Anthropics' course on using AI reference
+
+The way towards productivity gains is automation
+
+![](images/paste-1.png)
+
+Ways to use AI.
+Task watch Lesson 1:[ Introduction to AI Fluency from Anthropic's](https://www.youtube.com/watch?v=JpGtOfSgR-c) free AI course (pre course)
+
+![](images/paste-2.png)
