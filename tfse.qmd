@@ -1,3 +1,8 @@
+---
+title: "TfSE AI for Transport Course"
+number-sections: true
+---
+
 ```{=html}
 <!-- tfse ask
 
@@ -145,7 +150,7 @@ Interactive session exploring real-world AI use cases in transport.
     -   Task: Use Copilot to automate a script for data handling or generate a simple visualization.
     -   Instructor provides support and reviews solutions.
 
-```{python}
+```python
 # Make a graph showing x and x^2:
 import matplotlib.pyplot as plt
 import numpy as np
@@ -186,7 +191,9 @@ The development and initial delivery of this course is estimated at 5 days total
 
 # Content
 
-We will teach you the framework within which you will get the most out of AI, maximising opportinities for productivity gains
+This draft will go into the sections, e.g. s1.qmd, s2.qmd, ...
+
+We will teach you the framework within which you will get the most out of AI, maximising opportunities for productivity gains
 
 Anthropics' course on using AI reference
 
@@ -200,10 +207,28 @@ Installing GH CLI tool
 
 https://tdscience.github.io/dstp/s6.html
 
+General principle: Code review is good
+
+Implementation:
+
+```
+gh issue create
+gh issue develop xx --checkout
+# e.g. gh issue develop 11 # to work on issue 11
+gh pr create --reviewer chris-r-uol
+```
+
 Ways to use AI.
 Task watch Lesson 1:[Introduction to AI Fluency from Anthropic's](https://www.youtube.com/watch?v=JpGtOfSgR-c) free AI course (pre course)
 
 ![](images/paste-2.png)
 
 Next steps (2025-10-02):
+
+- [Draft and share survey for potential attendees](https://github.com/itsleeds/ai4transport/issues/8)
+- [Draft and share course outline for feedback](https://github.com/itsleeds/ai4transport/issues/9)
+- [Draft Sections 1 and 4 (Robin)](https://github.com/itsleeds/ai4transport/issues/10)
+- [Draft Sections 2 and 3 (Chris)](https://github.com/itsleeds/ai4transport/issues/11)
+- [Review and finalise content (both)](https://github.com/itsleeds/ai4transport/issues/12)
+- [Convert this into website and hosting (Robin, Netlify or GitHub Pages)](https://github.com/itsleeds/ai4transport/issues/13)
 
