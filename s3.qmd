@@ -23,8 +23,20 @@ Imagine you're the head of a research institute with a large number of brilliant
 ### 1. Web Scraping with Beautiful Soup 🕷️
 
 ```python
+from bs4 import BeautifulSoup
+import requests
+
+headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/122.0.0.0 Safari/537.36'
+        )
+    }
+
 def get_html(url):
     response = requests.get(url, headers=headers, timeout=5)
+    content = response.text
     soup = BeautifulSoup(content, 'html.parser')
     body = soup.body.get_text(separator=' ', strip=True)
     return body
@@ -43,7 +55,7 @@ The application uses **Large Language Models** (LLMs) to understand and categori
 
 #### Creating the Client
 
-The application uses an AI client to communicate with language models.  The first thing we need to do is to set up the client.  This is how we talk to the LLM API.  OpenAI provide this function and it can be set up to communicate with other API routing.  In this example I have set it up to use the https://requesty.ai framework.  You'll be surprised how much you can get for a few pounds worth of credit. 
+The application uses an AI client to communicate with language models.  The first thing we need to do is to set up the client.  This is how we talk to the LLM API.  OpenAI provide this function and it can be set up to communicate with other API routing.  In this example I have set it up to use the https://requesty.ai framework.  You'll be surprised how much you can get for a few pounds worth of credit. You can get an account by following this link: https://app.requesty.ai/join?ref=b8e83c7e 
 
 ```python
 API_URL = "https://router.requesty.ai/v1"
@@ -115,6 +127,8 @@ HTML data has lots of interesting information in it but it also has a lot of for
 I want the data to be returned in JSON format specifically, since it is something that can be used more easily than simple string formats.  Whilst the LLM does output in a string that looks like a JSON, converting it to JSON is quite simple in Python.
 
 ``` python
+import json
+
 def analyse_html(url:str):
     name = url.split('/')[-1]
     data = get_html(url)
@@ -124,11 +138,11 @@ def analyse_html(url:str):
         1) Remove the unnecessary and unrelated information and leave only the relevant personal profile research interest content.  
         2) Extract the key research interests from the profile. Choose as many as you like, but make sure that they are relevant.  Do not make them too specific as they will be grouped at a later step 
         3) Create a list of research interests based on the extraction in a JSON format. The key for the json should be {name} Output your results as a json.  
-    ### Notes: Only return the JSON and no other text. Do not explain your reasoning or provide any other information."""
+    ### Notes: Only return the JSON and no other text. Do not explain your reasoning or provide any other information.  Format only as text, do not add anything like ```json ``` or write it for markdown."""
     
     task_description = task_description.format(data=data, name=name) 
     
-    completion = make_completion(client, model="google/gemini-2.5-flash-preview-05-20", prompt=task_description)
+    completion = make_completion(client, model="coding/gemini-2.5-flash", prompt=task_description)
 
     try:
         # Try to parse the completion as JSON
@@ -136,9 +150,8 @@ def analyse_html(url:str):
         return parsed_json
     except json.JSONDecodeError as e:
         print("Raw completion (not valid JSON):")
-        print(completion)
         print(f"Failed to parse as JSON: {str(e)}")
-        return None
+        return completion
     
 ```
 
@@ -165,10 +178,11 @@ def consolidate_results(input:json):
                         """
     
     completion = make_completion(client,
-                                model="coding/gemini-2.5-pro-preview-05-06", 
+                                model="coding/gemini-2.5-pro", 
                                 prompt=task_description, 
-                                reasoning_effort="high")
+                                )
     
+    print(completion)
     try:
         # Try to parse the completion as JSON
         parsed_json = json.loads(completion)
@@ -179,11 +193,11 @@ def consolidate_results(input:json):
         # Try to fix the JSON format using a second API call
         reformat_json_task = f"""You are an expert in JSON formatting. 
                                 Please take the text input {completion} and reformat into a valid JSON file. 
-                                You must only output the JSON file and no other text.
+                                You must only output the JSON file and no other text. Do not add anything like ```json ``` to the text.
                                 """
        
         reformat_json = make_completion(client, 
-                                        model="google/gemini-2.5-flash-preview-05-20", 
+                                        model="coding/gemini-2.5-flash", 
                                         prompt=reformat_json_task)
         
         try:
@@ -191,28 +205,33 @@ def consolidate_results(input:json):
             return parsed_json
         except json.JSONDecodeError as e2:
             print(f"Failed to parse reformatted JSON: {str(e2)}")
+
             return None
 ```
 ### Putting it all together
 
 ```python
-import pandas as pd
-import openai
-import requests
-import json
-
 URLS = ['https://environment.leeds.ac.uk/transport/staff/975/professor-simon-shepherd',
         'https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton',
         'https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace',
 ]
+
+output = {}
+
 for url in URLS:
         try:
             analysis = analyse_html(url)
+            print(analysis)
             output.update(analysis)
         except Exception as e:
-            print(error(f"Error processing {url}: {str(e)}"))
+            print(f"Error processing {url}: {str(e)}")
 
-    consolidated = consolidate_results(output)
+
+        #print(output)
+
+consolidated = consolidate_results(output)
+
+print(consolidated)
 ```
 
 ### Why this is matters:
@@ -231,10 +250,46 @@ Standardised and consistent data opens the door to powerful visualizations that 
 ### 1. UpSet Plots - Beyond Venn Diagrams 📈
 
 ```python
+#!pip install upsetplot
+import matplotlib.pyplot as plt
+import pandas as pd
 from upsetplot import UpSet, from_indicators
-def plot_research_upset(data):
-    upset_data = from_indicators(df.columns, df)
+
+def plot_research_upset(data, figsize=(16, 50), title="UpSet Plot of Shared Research Interests"):
+    """
+    Plots an UpSet plot showing combinations of research interests among researchers.
+
+    Args:
+        data: dict mapping researcher names to a list of interests.
+        figsize: tuple, size of the matplotlib figure.
+        title: str, plot title.
+
+    Returns:
+        matplotlib Figure.
+    """
+    all_interests = sorted(set(interest for interests in data.values() for interest in interests))
+    df = pd.DataFrame([
+        [interest in interests for interest in all_interests]
+        for interests in data.values()
+    ], columns=all_interests, index=data.keys())
+
+    upset_data = from_indicators(df.columns, df)  # Change to use df directly, not df.columns
+    
+    fig = plt.figure(figsize=figsize)
     upset = UpSet(upset_data, show_counts=True, sort_by='cardinality')
+    upset.plot(fig=fig)
+    
+    # Adjust the label to show researcher names
+    axes = fig.get_axes()
+    for ax in axes:
+        if ax.get_ylabel() == 'Subset size':
+            # Find the intersection size axis and get its tick labels
+            ax.set_xlabel('Research Interest Combinations')
+            # You may need to increase bottom margin for readability
+    
+    plt.suptitle(title)
+    plt.tight_layout()
+    return fig
 ```
 
 **What's an UpSet plot?**
@@ -244,107 +299,70 @@ def plot_research_upset(data):
 
 **Real insight**: Discover unexpected research combinations that might lead to breakthrough collaborations!
 
-### 2. Network Analysis with NetworkX 🕸️
+### 2. Interactive Heatmaps with Plotly 🌡️
 
 ```python
-import networkx as nx
-
-def build_researcher_similarity_graph(data):
-    G = nx.Graph()
-    for r1, r2 in combinations(researchers, 2):
-        shared = set(data[r1]) & set(data[r2])
-        if shared:
-            G.add_edge(r1, r2, weight=len(shared))
-```
-
-**Network thinking:**
-- **Nodes**: Individual researchers
-- **Edges**: Connections between researchers who share interests
-- **Edge weight**: How many interests they share (thicker line = more overlap)
-
-**Powerful insights:**
-- Identify **research clusters** (tight-knit groups working on similar topics)
-- Find **bridge researchers** (connecting different research areas)
-- Spot **isolated researchers** (who might benefit from new collaborations)
-
-### 3. Interactive Heatmaps with Plotly 🌡️
-
-```python
+from itertools import combinations
 import plotly.express as px
-def plot_researcher_similarity_heatmap(adj_matrix, labels):
-    fig = px.imshow(df, text_auto=True, color_continuous_scale="viridis")
+
+def make_shared_interest_matrix(data):
+    """
+    Returns a symmetric adjacency matrix (DataFrame) of shared interests counts.
+    """
+    names = list(data.keys())
+    mat = pd.DataFrame(0, index=names, columns=names)
+    for r1, r2 in combinations(names, 2):
+        shared = len(set(data[r1]) & set(data[r2]))
+        mat.loc[r1, r2] = shared
+        mat.loc[r2, r1] = shared
+    return mat
+
+def plot_researcher_similarity_heatmap(adj_matrix, labels, title="Shared Research Interests Heatmap"):
+    """
+    Plots a heatmap showing the number of shared research interests between researchers.
+
+    Parameters:
+        adj_matrix: numpy.ndarray or pandas.DataFrame, symmetric matrix of shared interests
+        labels: list of researcher names (row/col order must match adj_matrix)
+        title: plot title (str)
+    """
+    # Convert to DataFrame for Plotly Express
+    df = pd.DataFrame(adj_matrix, index=labels, columns=labels)
+
+    fig = px.imshow(
+        df,
+        text_auto=True,
+        color_continuous_scale="viridis",
+        labels=dict(x="Researcher", y="Researcher", color="# Shared Interests"),
+        title=title
+    )
+    fig.update_layout(
+        xaxis_side="top",
+        width=800,
+        height=800,
+        coloraxis_colorbar=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.0,
+            x=0.5,
+            xanchor="center",
+            thickness=20,
+            len=0.4,
+            title_side="bottom",
+            title="# Shared Interests"
+        )
+    )
+    return fig
+
+labels = list(consolidated.keys())
+adj_matrix = make_shared_interest_matrix(consolidated)
+fig = plot_researcher_similarity_heatmap(adj_matrix, labels)
+fig.show()
 ```
 
 **Why heatmaps are powerful:**
-- **Instant visual understanding**: Dark squares = high collaboration potential
 - **Interactive exploration**: Hover over cells to see exact numbers
 - **Pattern recognition**: Easily spot clusters and outliers
-
----
-
-## 🔧 Software Engineering Best Practices
-
-### 1. Caching with Streamlit 💾
-
-```python
-import streamlit as st
-@st.cache_resource
-def analyse_html(url: str):
-    # Expensive AI analysis here
-```
-
-**Why caching matters:**
-- **Speed**: Results are stored after first calculation
-- **Cost savings**: Avoids repeated expensive AI API calls
-- **User experience**: App responds instantly on subsequent runs
-
-### 2. Error Handling and Resilience 🛡️
-
-```python
-try:
-    parsed_json = json.loads(completion)
-    return parsed_json
-except json.JSONDecodeError as e:
-    # Try to fix the JSON using another AI call
-    reformat_json = make_completion(client, model="...", prompt=reformat_task)
-```
-
-**Professional development practices:**
-- **Graceful failure**: App continues running even if one component fails
-- **User feedback**: Clear error messages help users understand what went wrong
-- **Recovery strategies**: Automatic attempts to fix common issues
-
-### 3. Modular Code Design 🧱
-
-The code is organized into logical functions:
-- `get_html()` - Web scraping
-- `analyse_html()` - AI analysis  
-- `consolidate_results()` - Data standardization
-- `plot_*()` - Visualization functions
-
-**Benefits:**
-- **Maintainability**: Easy to update one part without breaking others
-- **Testability**: Each function can be tested independently
-- **Reusability**: Functions can be used in other projects
-
----
-
-## 🚀 Practical Applications Beyond Academia
-
-### Business Intelligence
-- **Customer segmentation**: Group customers by behavior patterns
-- **Market analysis**: Identify trends and opportunities
-- **Competitor analysis**: Track industry movements
-
-### Human Resources
-- **Skill mapping**: Identify employee expertise and gaps
-- **Team formation**: Create balanced project teams
-- **Career development**: Suggest collaboration opportunities
-
-### Healthcare Research
-- **Literature review**: Automatically categorize research papers
-- **Expert identification**: Find specialists for clinical trials
-- **Interdisciplinary connections**: Bridge different medical fields
 
 ---
 
@@ -364,12 +382,6 @@ After studying this code, you now understand:
 3. **Pattern recognition** - Finding hidden structures in data
 4. **Interactive dashboards** - Building user-friendly data exploration tools
 
-### Software Engineering
-1. **Error handling** - Building resilient applications
-2. **Performance optimization** - Using caching for efficiency
-3. **Modular design** - Writing maintainable code
-4. **API integration** - Working with external services
-
 ---
 
 ## 🔮 Next Steps: Extending This Project
@@ -388,19 +400,6 @@ After studying this code, you now understand:
 - Build a **recommendation engine** using collaborative filtering
 - Implement **natural language processing** for automatic interest extraction
 - Add **social network analysis** metrics (centrality, clustering coefficients)
-
----
-
-## 💡 The Bigger Picture
-
-This application demonstrates how **data science can solve real human problems**:
-
-- **Breaking down silos**: Researchers discover colleagues they didn't know were working on related topics
-- **Fostering innovation**: Cross-disciplinary collaborations often lead to breakthrough discoveries
-- **Resource optimization**: Institutions can better allocate funding and resources
-- **Community building**: Shared interests create stronger, more connected research teams
-
-The techniques you've learned here are the **building blocks of modern data science** - from recommendation systems at Netflix to fraud detection at banks, these same principles power the digital world around us.
 
 ---
 
