@@ -135,7 +135,7 @@ def analyse_html(url:str):
         parsed_json = json.loads(completion)
         return parsed_json
     except json.JSONDecodeError as e:
-        print"Raw completion (not valid JSON):"
+        print("Raw completion (not valid JSON):")
         print(completion)
         print(f"Failed to parse as JSON: {str(e)}")
         return None
