@@ -1,5 +1,417 @@
----
-title: "Session 3: Using LLMs for Reporting and Analysis"
+# Understanding Research Team Analysis with Python 🔬📊
+
+## Revealing Hidden Structure in Text Data
+
+This guide will walk you through an exciting Python application that analyzes research interests within an academic team. You'll learn how modern data science techniques, coupled with Large Language Models, can reveal hidden patterns in text data with the research profiles of our research team being used as a practical example.
+
+## 🎯 What Does This Application Do?
+
+Imagine you're the head of a research institute with a large number of brilliant researchers. Each has their own webpage describing their research interests, but the descriptions are written differently and the data format is highly unstructured. Some say "transport policy," others say "transport policy and evaluation," and still others say "policy analysis in transportation.".  They're all researching the same thing but it would be difficult to analyse this in its current state. 
+
+**The challenge**: How do you force structure onto unstructured, inconsistent and chaotic text based data?
+
+**The solution**: This application automatically:
+1. 📖 **Reads** each researcher's webpage
+2. 🤖 **Extracts** their research interests using AI
+3. 🔄 **Standardizes** the terminology 
+4. 📈 **Visualizes** collaboration opportunities through interactive charts
+
 ---
 
-Placeholder for session 3.
+## 🛠️ Key Technologies and Concepts
+
+### 1. Web Scraping with Beautiful Soup 🕷️
+
+```python
+def get_html(url):
+    response = requests.get(url, headers=headers, timeout=5)
+    soup = BeautifulSoup(content, 'html.parser')
+    body = soup.body.get_text(separator=' ', strip=True)
+    return body
+```
+
+**What's happening here?**
+- **Requests library**: Downloads webpage content (like copying text from a website)
+- **Beautiful Soup**: Parses HTML and extracts clean text (removes all the webpage formatting)
+- **Headers**: Makes our program look like a regular web browser to avoid being blocked
+
+**Real-world application**: This technique is used everywhere - from price comparison websites to social media sentiment analysis!
+
+### 2. AI-Powered Text Analysis 🧠
+
+The application uses **Large Language Models** (LLMs) to understand and categorize research interests through API completions:
+
+#### Creating the Client
+
+The application uses an AI client to communicate with language models.  The first thing we need to do is to set up the client.  This is how we talk to the LLM API.  OpenAI provide this function and it can be set up to communicate with other API routing.  In this example I have set it up to use the https://requesty.ai framework.  You'll be surprised how much you can get for a few pounds worth of credit. 
+
+```python
+API_URL = "https://router.requesty.ai/v1"
+ROUTER_API_KEY = "you_need_to_get_your_own_api_key"
+
+def set_up_client():
+    client = openai.OpenAI(
+        api_key=ROUTER_API_KEY,
+        base_url=API_URL,
+        default_headers={"Authorization": f"Bearer {ROUTER_API_KEY}"}
+    )
+    
+    return client
+
+client = set_up_client()
+```
+
+**What's happening here?**
+- **API Key**: Your secret token that identifies and authorizes your application
+- **Base URL**: The endpoint where AI services are hosted (like a web address for AI)
+- **Headers**: Additional information sent with each request for authentication
+- **Router API**: A service that can route requests to different AI models (Google Gemini, OpenAI GPT, etc.)
+
+**Why use a client?**
+- **Abstraction**: Hides complex networking details behind simple function calls
+- **Authentication**: Handles security credentials automatically
+- **Error handling**: Manages connection issues and retries
+- **Consistency**: Same interface works with different AI providers
+
+#### Using Completions
+
+Completions are how we interact with LLMs.  These are the outputs that you might expect to see after you send a prompt to an LLM like ChatGPT or Google Gemini. We create a function for making completions so we can reuse it throughout the application.  **This is one of the key building blocks of the application and of programmed LLM analysis**.
+
+**What are completions?**
+- **Input**: You provide a prompt (instructions + context)
+- **Processing**: The AI model analyzes the text and generates a response
+- **Output**: Structured data (like JSON) or refined text
+
+**How completions work in our code:**
+
+We start by making a function that requests a `completion` from the API.  This function is shown below. 
+
+```python
+def make_completion(client, model: str, prompt: str):
+    completion = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return completion.choices[0].message.content 
+```
+You may change the `role` to "system" to give that `content` prompt higher priority however for simplicity it is best to keep the structure of this function the same.
+
+There is more to the completion than just the message content and in your own time you may want to explore the different outputs available but for the purpose of this exercise just seeing the message content is enough.
+
+## Analysis of Data
+
+The following function illustrates how the tools we have just created can be merged together to perform the analysis of a researcher's profile page.  
+
+**The completion pipeline:**
+1. **Web content** → AI processes raw HTML text
+2. **Extraction prompt** → "Find research interests in this text"
+3. **AI completion** → Returns structured JSON with categorized interests
+4. **Consolidation prompt** → "Standardize these research terms"
+5. **Final completion** → Produces consistent, comparable data
+
+### Process the HTML using an LLM
+HTML data has lots of interesting information in it but it also has a lot of formatting and metadata that makes reading it quite difficult for human eyes when in its raw form.  Luckily for us, LLMs can help with this.  The `analyse_html` function is trying to create an output in JSON format that is suitable for downstream analysis. It can figure out the name of the researcher from the URL, but it needs an LLM completion to do the rest.  This is encapsulated in the `task_description` string variable.  We can then inject the relevant information into the string, in this case `data` which is the HTML, and the user's `name` which is extracted from the URL itself.
+
+I want the data to be returned in JSON format specifically, since it is something that can be used more easily than simple string formats.  Whilst the LLM does output in a string that looks like a JSON, converting it to JSON is quite simple in Python.
+
+``` python
+def analyse_html(url:str):
+    name = url.split('/')[-1]
+    data = get_html(url)
+    task_description = """
+    ### Role: You are a research assistant. 
+    ### Task: Extract the key resarch interests from the research profile provided. The research profile is {data} but it likely contains a lot of unnecssary and unrelated information typically found on a generic university website.  Follow these steps:  
+        1) Remove the unnecessary and unrelated information and leave only the relevant personal profile research interest content.  
+        2) Extract the key research interests from the profile. Choose as many as you like, but make sure that they are relevant.  Do not make them too specific as they will be grouped at a later step 
+        3) Create a list of research interests based on the extraction in a JSON format. The key for the json should be {name} Output your results as a json.  
+    ### Notes: Only return the JSON and no other text. Do not explain your reasoning or provide any other information."""
+    
+    task_description = task_description.format(data=data, name=name) 
+    
+    completion = make_completion(client, model="google/gemini-2.5-flash-preview-05-20", prompt=task_description)
+
+    try:
+        # Try to parse the completion as JSON
+        parsed_json = json.loads(completion)
+        return parsed_json
+    except json.JSONDecodeError as e:
+        print"Raw completion (not valid JSON):"
+        print(completion)
+        print(f"Failed to parse as JSON: {str(e)}")
+        return None
+    
+```
+
+### Consolidation Function
+
+```python
+def consolidate_results(input:json):
+    client = set_up_client()
+    task_description = f"""
+                        ### Role: You are the head of a distinguished research institute.  
+                        
+                        ### Background: Your managers are looking to understand the shared research interests of the researchers within the research institute. 
+                         
+                        ### Task You have been given a json of of research interests from your research assistants here {input}. Your task is to consolidate the lists of research interests so that similar interests are labelled in the same way to avoid confusion.
+                         
+                        ### Problem: The description of research interest is inconsistent across the individuals and this is causing issues for managing the research group and determining which researchers should be collaborating with each other more frequently.
+                        
+                        ### Outcome: Your manager wants you to consolidate the research interests for each researcher so that they are labelled in a consistent way and similar topics which are mostly overlapping are consolidated into one label.  For example, if one researcher has the interest 'transport policy' and another has 'transport policy and evaluation' then these should be consolidated into one label.  The same applies to 'urban air quality' and 'transport emissions policy'.  The aim is to have a list of research interests that are consistent across the researchers and that are not too specific.  The research interests should be related to transport and data science, so please remove any that are not.  Please also remove any duplicate interests from each researcher.  
+                          
+                        ### Further Instructions: Keep the new interest labels short but descriptive and unambiguous.  Each researcher only needs to have each research interest listed once.  This data will be used to create a network graph of research interests so we do not want similar interests given different names.
+                         
+                        ### Deliverable: Create a valid json file as output where the keys are the researcher names, who usually start with dr- or professor-.  Only return the JSON and no other text. Do not explain your reasoning or provide any other information.
+                         
+                        """
+    
+    completion = make_completion(client,
+                                model="coding/gemini-2.5-pro-preview-05-06", 
+                                prompt=task_description, 
+                                reasoning_effort="high")
+    
+    try:
+        # Try to parse the completion as JSON
+        parsed_json = json.loads(completion)
+        return parsed_json
+    except json.JSONDecodeError as e:
+        print("Original completion was not valid JSON:")
+        
+        # Try to fix the JSON format using a second API call
+        reformat_json_task = f"""You are an expert in JSON formatting. 
+                                Please take the text input {completion} and reformat into a valid JSON file. 
+                                You must only output the JSON file and no other text.
+                                """
+       
+        reformat_json = make_completion(client, 
+                                        model="google/gemini-2.5-flash-preview-05-20", 
+                                        prompt=reformat_json_task)
+        
+        try:
+            parsed_json = json.loads(reformat_json)
+            return parsed_json
+        except json.JSONDecodeError as e2:
+            print(f"Failed to parse reformatted JSON: {str(e2)}")
+            return None
+```
+### Putting it all together
+
+```python
+import pandas as pd
+import openai
+import requests
+import json
+
+URLS = ['https://environment.leeds.ac.uk/transport/staff/975/professor-simon-shepherd',
+        'https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton',
+        'https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace',
+]
+for url in URLS:
+        try:
+            analysis = analyse_html(url)
+            output.update(analysis)
+        except Exception as e:
+            print(error(f"Error processing {url}: {str(e)}"))
+
+    consolidated = consolidate_results(output)
+```
+
+### Why this is matters:
+- **Before AI**: Someone would manually read each webpage and categorize interests
+- **With AI**: The computer understands context, identifies relevant information, and standardizes terminology
+- **The magic**: The AI can recognize that "urban air quality" and "transport emissions policy" are related concepts
+- **Collaboration discovery**: Researchers with similar interests can now be easily identified
+- **Scalability**: Works whether you have 5 researchers or 500
+
+---
+
+## 📊 Advanced Visualization Techniques
+
+Standardised and consistent data opens the door to powerful visualizations that reveal hidden patterns in research collaborations.  These visualisations highlight some potential methods that you could apply to your own use cases.
+
+### 1. UpSet Plots - Beyond Venn Diagrams 📈
+
+```python
+from upsetplot import UpSet, from_indicators
+def plot_research_upset(data):
+    upset_data = from_indicators(df.columns, df)
+    upset = UpSet(upset_data, show_counts=True, sort_by='cardinality')
+```
+
+**What's an UpSet plot?**
+- Traditional Venn diagrams become messy with more than 3 categories
+- UpSet plots show **all possible combinations** of research interests
+- You can see not just "who works on AI" but "who works on AI AND sustainability AND transport"
+
+**Real insight**: Discover unexpected research combinations that might lead to breakthrough collaborations!
+
+### 2. Network Analysis with NetworkX 🕸️
+
+```python
+import networkx as nx
+
+def build_researcher_similarity_graph(data):
+    G = nx.Graph()
+    for r1, r2 in combinations(researchers, 2):
+        shared = set(data[r1]) & set(data[r2])
+        if shared:
+            G.add_edge(r1, r2, weight=len(shared))
+```
+
+**Network thinking:**
+- **Nodes**: Individual researchers
+- **Edges**: Connections between researchers who share interests
+- **Edge weight**: How many interests they share (thicker line = more overlap)
+
+**Powerful insights:**
+- Identify **research clusters** (tight-knit groups working on similar topics)
+- Find **bridge researchers** (connecting different research areas)
+- Spot **isolated researchers** (who might benefit from new collaborations)
+
+### 3. Interactive Heatmaps with Plotly 🌡️
+
+```python
+import plotly.express as px
+def plot_researcher_similarity_heatmap(adj_matrix, labels):
+    fig = px.imshow(df, text_auto=True, color_continuous_scale="viridis")
+```
+
+**Why heatmaps are powerful:**
+- **Instant visual understanding**: Dark squares = high collaboration potential
+- **Interactive exploration**: Hover over cells to see exact numbers
+- **Pattern recognition**: Easily spot clusters and outliers
+
+---
+
+## 🔧 Software Engineering Best Practices
+
+### 1. Caching with Streamlit 💾
+
+```python
+import streamlit as st
+@st.cache_resource
+def analyse_html(url: str):
+    # Expensive AI analysis here
+```
+
+**Why caching matters:**
+- **Speed**: Results are stored after first calculation
+- **Cost savings**: Avoids repeated expensive AI API calls
+- **User experience**: App responds instantly on subsequent runs
+
+### 2. Error Handling and Resilience 🛡️
+
+```python
+try:
+    parsed_json = json.loads(completion)
+    return parsed_json
+except json.JSONDecodeError as e:
+    # Try to fix the JSON using another AI call
+    reformat_json = make_completion(client, model="...", prompt=reformat_task)
+```
+
+**Professional development practices:**
+- **Graceful failure**: App continues running even if one component fails
+- **User feedback**: Clear error messages help users understand what went wrong
+- **Recovery strategies**: Automatic attempts to fix common issues
+
+### 3. Modular Code Design 🧱
+
+The code is organized into logical functions:
+- `get_html()` - Web scraping
+- `analyse_html()` - AI analysis  
+- `consolidate_results()` - Data standardization
+- `plot_*()` - Visualization functions
+
+**Benefits:**
+- **Maintainability**: Easy to update one part without breaking others
+- **Testability**: Each function can be tested independently
+- **Reusability**: Functions can be used in other projects
+
+---
+
+## 🚀 Practical Applications Beyond Academia
+
+### Business Intelligence
+- **Customer segmentation**: Group customers by behavior patterns
+- **Market analysis**: Identify trends and opportunities
+- **Competitor analysis**: Track industry movements
+
+### Human Resources
+- **Skill mapping**: Identify employee expertise and gaps
+- **Team formation**: Create balanced project teams
+- **Career development**: Suggest collaboration opportunities
+
+### Healthcare Research
+- **Literature review**: Automatically categorize research papers
+- **Expert identification**: Find specialists for clinical trials
+- **Interdisciplinary connections**: Bridge different medical fields
+
+---
+
+## 🎓 Key Learning Outcomes
+
+After studying this code, you now understand:
+
+### Technical Skills
+1. **Web scraping** - Extracting data from websites programmatically
+2. **AI integration** - Using language models for text analysis
+3. **Data visualization** - Creating meaningful charts and graphs
+4. **Network analysis** - Understanding relationships in complex data
+
+### Data Science Concepts
+1. **Data pipeline design** - Moving data through transformation steps
+2. **Text processing** - Cleaning and standardizing textual data
+3. **Pattern recognition** - Finding hidden structures in data
+4. **Interactive dashboards** - Building user-friendly data exploration tools
+
+### Software Engineering
+1. **Error handling** - Building resilient applications
+2. **Performance optimization** - Using caching for efficiency
+3. **Modular design** - Writing maintainable code
+4. **API integration** - Working with external services
+
+---
+
+## 🔮 Next Steps: Extending This Project
+
+### Beginner Extensions
+- Add more visualization types (bar charts, pie charts)
+- Create a simple recommendation system ("You should talk to...")
+- Add data export functionality (CSV, Excel)
+
+### Intermediate Extensions
+- Implement **machine learning clustering** to automatically group researchers
+- Add **time-based analysis** (how interests evolve over time)
+- Create **collaboration prediction models**
+
+### Advanced Extensions
+- Build a **recommendation engine** using collaborative filtering
+- Implement **natural language processing** for automatic interest extraction
+- Add **social network analysis** metrics (centrality, clustering coefficients)
+
+---
+
+## 💡 The Bigger Picture
+
+This application demonstrates how **data science can solve real human problems**:
+
+- **Breaking down silos**: Researchers discover colleagues they didn't know were working on related topics
+- **Fostering innovation**: Cross-disciplinary collaborations often lead to breakthrough discoveries
+- **Resource optimization**: Institutions can better allocate funding and resources
+- **Community building**: Shared interests create stronger, more connected research teams
+
+The techniques you've learned here are the **building blocks of modern data science** - from recommendation systems at Netflix to fraud detection at banks, these same principles power the digital world around us.
+
+---
+
+## 🎉 Congratulations!
+
+You've just explored a sophisticated data science application that combines:
+- **Web technologies** (scraping, APIs)
+- **Artificial intelligence** (language models)
+- **Data science** (analysis, visualization)
+- **Software engineering** (architecture, best practices)
+
+These skills are in high demand across virtually every industry. Whether you're interested in research, business, healthcare, or technology, you now have a foundation for building data-driven solutions to complex problems.
+
+**Remember**: The most powerful aspect of this application isn't the individual technologies - it's how they work together to solve a meaningful human problem. That's the essence of great data science! 🌟
