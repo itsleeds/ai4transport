@@ -19,11 +19,9 @@ You should bring a laptop with either of the following:
 -   Option 1: if you're using a cloud-based development environment:
     -   A modern web browser (e.g., Chrome, Firefox, Edge).
     -   A GitHub account (sign up at [github.com](https://github.com/)) and have your username ready.
-    -   Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd: 
+    -   Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
-
-
 
 **or, for running the code locally:**
 
@@ -54,37 +52,9 @@ You should be able to run the code in a GitHub Codespaces with the following lin
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
 
-
 Choose either the Python or R code below, depending on which language you prefer to use.
 
 ::: panel-tabset
-## Python
-
-```{=html}
-<!--
-#| label: python-test
-#| eval: false
--->
-```
-
-``` python
-import osmnx as ox
-import geopandas as gpd
-import matplotlib.pyplot as plt
-import shapely
-
-# Centered on London
-study_point = shapely.Point(-0.1278, 51.5074)
-study_geom = gpd.GeoSeries([study_point], crs=4326)
-study_polygon = study_geom.to_crs(epsg=3857).buffer(1000).to_crs(epsg=4326).unary_union
-study_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs="EPSG:4326")
-tags = {"highway": True, "maxspeed": True, "lit": True, "cycleway": True}
-gdf = ox.features_from_polygon(study_polygon, tags)
-gdf = gdf[gdf.geom_type.isin(["LineString", "MultiLineString"])]
-gdf = gdf.to_crs(epsg=3857)
-gdf.plot(column="maxspeed", figsize=(10, 10), legend=True)
-plt.show()
-```
 
 ## R
 
@@ -100,42 +70,114 @@ pkgs = c(
     "sf",
     "tidyverse",
     "tmap",
-    "tmaptools",
     "osmextract"
 )
 pak::pak(pkgs)
+```
+
+```{r}
+#| label: r-test-london-2
+#| message: false
+#| warning: false
+#| results: hide
 library(tidyverse)
 library(sf)
-# Centered on London
-study_area = st_point(c(-0.1278, 51.5074)) |>
+```
+
+The next bit optionally downloads lots of data, so you may want to skip it if you're just testing your setup.
+
+```{r}
+#| eval: false
+#| code-fold: true
+# Centered on Broadway House, London
+broadway_house = stplanr::geo_code("Tothill St, London")
+# [1] -0.1302077 51.4996820
+study_area = st_point(c(-0.13020, 51.4997)) |> 
   st_sfc(crs = 4326) |>
   st_transform(27700) |>
-  st_buffer(1000) |>
+  st_buffer(500) |>
   st_transform(4326)
 extra_tags = c(
   "maxspeed",
   "lit",
   "cycleway"
 )
-osm_network = osmextract::oe_get(
+osm_network = osmextract::oe_get_network(
   place = study_area,
   boundary = study_area,
   boundary_type = "clipsrc",
-  extra_tags = extra_tags
+  extra_tags = extra_tags,
+  mode = "driving"
 )
 ```
 
 ```{r}
-#| label: r-test-london
-osm_network |>
-  select(maxspeed) |>
-  plot()
+#| label: save-and-load-data
+# sf::write_sf(osm_network, "osm_network.geojson", delete_dsn = TRUE)
+osm_network = sf::read_sf("osm_network.geojson")
 ```
+
+```{r}
+#| label: r-test-london
+library(tmap)
+tmap_mode("view")
+m = tm_shape(osm_network) +
+  tm_lines("maxspeed")
+m
+```
+
+```{r}
+#| eval: false
+#| echo: false
+# Save as interactive HTML map
+tmap::tmap_save(m, "osm_network.html")
+```
+
+## Python
+
+```{=html}
+<!--
+#| label: python-test
+#| eval: false
+-->
+```
+
+``` python
+import osmnx as ox
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import shapely
+
+# Import and plot the saved data:
+gdf = gpd.read_file("osm_network.geojson")
+gdf.explore(column="maxspeed")
+
+# Optional: Download data from OSM:
+study_point = shapely.Point(-0.13020, 51.4997)
+study_geom = gpd.GeoSeries([study_point], crs=4326)
+study_polygon = study_geom.to_crs(epsg=3857).buffer(500).to_crs(epsg=4326).unary_union
+study_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs="EPSG:4326")
+tags = {"highway": True, "maxspeed": True, "lit": True, "cycleway": True}
+gdf = ox.features_from_polygon(study_polygon, tags)
+gdf = gdf[gdf.geom_type.isin(["LineString", "MultiLineString"])]
+gdf = gdf.to_crs(epsg=3857)
+gdf.plot(column="maxspeed", figsize=(10, 10), legend=True)
+plt.show()
+```
+
 :::
 
 If it worked, it should look something like this (from the online development version):
 
-![](images/paste-6.png)
+![](images/paste-8.png)
+
+<!-- ![](images/paste-6.png) -->
+
+That is the road network surrounding Broadway House in London, where the course will be held in person.
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d4967.063123114177!2d-0.12752320081146365!3d51.503463215611866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x487604b9c09f521d%3A0x397a001d24dc88ca!2sWaterloo%20Station%2C%20London!3m2!1d51.503121699999994!2d-0.11294929999999999!4m5!1s0x487604db8491bbf7%3A0xfb613e7385622281!2sBroadway%20House%2C%20Broadway%20House%2C%20Tothill%20Street%2C%20London!3m2!1d51.499846399999996!2d-0.1324372!5e0!3m2!1sen!2suk!4v1760627002206!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+</iframe>
 
 Let us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.
 
