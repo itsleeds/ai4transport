@@ -6,7 +6,7 @@ pagetitle: "Course Prerequisites"
 
 ## Course Prerequisites
 
-No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.
+We assume you are familiar with transport datasets and have basic data analysis skills.
 
 You must have a GitHub account and have saved your username.
 
@@ -16,7 +16,8 @@ We will cover version control concepts in the course.
 
 You should bring a laptop with either of the following:
 
--   A modern web browser (e.g., Chrome, Firefox, Edge).
+- Option 1: if you're using a cloud-based development environment:
+  - A modern web browser (e.g., Chrome, Firefox, Edge).
   - A GitHub account (sign up at [github.com](https://github.com/)) and have your username ready.
   - Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:
   <!-- - TODO: update this when new repo is live -->
@@ -42,7 +43,7 @@ And taking these short but very useful online courses:
 
 ## Testing your setup
 
-You can test your setup by running the following code in Python or R.
+You can test your setup by running the following code in Python or R, either in your local IDE or in GitHub Codespaces.
 
 ::: panel-tabset
 
