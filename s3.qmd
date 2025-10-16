@@ -1,3 +1,7 @@
+---
+author: "[Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton)"
+---
+
 # Understanding Research Team Analysis with Python 🔬📊
 
 ## Revealing Hidden Structure in Text Data
