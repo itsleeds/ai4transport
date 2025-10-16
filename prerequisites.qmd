@@ -4,7 +4,7 @@ description-meta: "Software and knowledge prerequisites for the AI for Transport
 pagetitle: "Course Prerequisites"
 ---
 
-## Course Prerequisites
+## Course [Prerequisites](https://itsleeds.github.io/ai4transport/prerequisites.html)
 
 We assume you are familiar with transport datasets and have basic data analysis skills.
 
@@ -192,4 +192,4 @@ reticulate::py_install("osmnx")
 
 ## Next Steps
 
-Everyone should complete the [Pre-Course Questionnaire]() before the course begins.
+Everyone should complete the [Pre-Course Questionnaire](https://forms.office.com/e/PwWyC73hC3) before the course begins.
