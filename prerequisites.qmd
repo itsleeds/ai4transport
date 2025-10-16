@@ -6,9 +6,11 @@ pagetitle: "Course Prerequisites"
 
 ## Course Prerequisites
 
-This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.
+No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.
 
-You must have a GitHub account and have saved your username. We will cover version control concepts in the course.
+You must have a GitHub account and have saved your username.
+
+We will cover version control concepts in the course.
 
 ## Software Prerequisites
 
@@ -120,3 +122,7 @@ osm_network |>
 :::
 
 Let us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.
+
+## Next Steps
+
+Everyone should complete the [Pre-Course Questionnaire]() before the course begins.
