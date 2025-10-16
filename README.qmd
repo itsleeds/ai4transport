@@ -5,6 +5,8 @@ format: gfm
 # editor: visual
 ---
 
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
+
 ```{r}
 #| echo: false
 #| eval: false
@@ -12,11 +14,12 @@ format: gfm
 quarto::quarto_render("tfse.qmd", output_format = "docx", output_file = "tfse.docx")
 ```
 
-This repo contains code to support teaching the use of AI, by which we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:
+This repo contains code to support teaching the use of data science and AI for transport planning.
+By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:
 
-- Automate boring tasks
-- Speed-up work to increase productivity
-- Enhance capabilities, leading to new and better outputs
+-   Automate boring tasks
+-   Speed-up work to increase productivity
+-   Enhance capabilities, leading to new and better outputs
 
 The ultimate goal is more effective transport planning investments and decisions
 
