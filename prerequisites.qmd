@@ -120,17 +120,11 @@ osm_network = sf::read_sf("osm_network.geojson")
 ```{r}
 #| label: r-test-london
 library(tmap)
-tmap_mode("view")
+# Uncomment the next line to view in interactive window:
+# tmap_mode("view") 
 m = tm_shape(osm_network) +
   tm_lines("maxspeed")
 m
-```
-
-```{r}
-#| eval: false
-#| echo: false
-# Save as interactive HTML map
-tmap::tmap_save(m, "osm_network.html")
 ```
 
 ## Python
