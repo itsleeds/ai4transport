@@ -16,25 +16,24 @@ We will cover version control concepts in the course.
 
 You should bring a laptop with either of the following:
 
-- Option 1: if you're using a cloud-based development environment:
-  - A modern web browser (e.g., Chrome, Firefox, Edge).
-  - A GitHub account (sign up at [github.com](https://github.com/)) and have your username ready.
-  - Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:
-  <!-- - TODO: update this when new repo is live -->
-  - https://github.com/codespaces/new/tdscience/dstp?quickstart=1
+-   Option 1: if you're using a cloud-based development environment:
+    -   A modern web browser (e.g., Chrome, Firefox, Edge).
+    -   A GitHub account (sign up at [github.com](https://github.com/)) and have your username ready.
+    -   Tested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd: <!-- - TODO: update this when new repo is live -->
+    -   https://github.com/codespaces/new/tdscience/dstp?quickstart=1
 
 **or, for running the code locally:**
 
-- A laptop with a the necessary software installed, including:
-  - An IDE such as VS Code (recommended) or RStudio.
-  - R or Python installed (see below for testing code).
-  - The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).
+-   A laptop with a the necessary software installed, including:
+    -   An IDE such as VS Code (recommended) or RStudio.
+    -   R or Python installed (see below for testing code).
+    -   The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).
 
 ## Recommended Online Courses
 
 To prepare for this course, we recommend watching the following short video:
 
--   [Introduction to AI Fluency](https://www.youtube.com/watch?v=JpGtOfSgR-c) by Anthropic (Lesson 1, ~5 minutes).
+-   [Introduction to AI Fluency](https://www.youtube.com/watch?v=JpGtOfSgR-c) by Anthropic (Lesson 1, \~5 minutes).
 
 And taking these short but very useful online courses:
 
@@ -44,18 +43,23 @@ And taking these short but very useful online courses:
 ## Testing your setup
 
 You can test your setup by running the following code in Python or R, either in your local IDE or in GitHub Codespaces.
+Do so by first creating a new Quarto (.qmd) file, e.g. called test.qmd, and then typing the following into a code chunk with three backticks (located in the top left of your keyboard, just left of the 1 key) to start and end the code chunk and `{r}` or `{python}` at the end of the first code chunk to make the code interactive, as follows (update the code as needed):
+
+![](images/paste-7.png)
+
+Choose either the Python or R code below, depending on which language you prefer to use.
 
 ::: panel-tabset
-
 ## Python
 
+```{=html}
 <!--
 #| label: python-test
 #| eval: false
 -->
+```
 
-
-```python
+``` python
 import osmnx as ox
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -64,7 +68,7 @@ import shapely
 # Centered on London
 study_point = shapely.Point(-0.1278, 51.5074)
 study_geom = gpd.GeoSeries([study_point], crs=4326)
-study_polygon = study_geom.to_crs(epsg=3857).buffer(8000).to_crs(epsg=4326).unary_union
+study_polygon = study_geom.to_crs(epsg=3857).buffer(1000).to_crs(epsg=4326).unary_union
 study_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs="EPSG:4326")
 tags = {"highway": True, "maxspeed": True, "lit": True, "cycleway": True}
 gdf = ox.features_from_polygon(study_polygon, tags)
@@ -98,7 +102,7 @@ library(sf)
 study_area = st_point(c(-0.1278, 51.5074)) |>
   st_sfc(crs = 4326) |>
   st_transform(27700) |>
-  st_buffer(8000) |>
+  st_buffer(1000) |>
   st_transform(4326)
 extra_tags = c(
   "maxspeed",
@@ -119,10 +123,22 @@ osm_network |>
   select(maxspeed) |>
   plot()
 ```
-
 :::
 
+If it worked, it should look something like this (from the online development version):
+
+![](images/paste-6.png)
+
 Let us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.
+
+```{r}
+#| eval: false
+#| echo: false
+# install python with reticulate
+if (!require("reticulate")) install.packages("reticulate")
+reticulate::install_python()
+reticulate::py_install("osmnx")
+```
 
 ## Next Steps
 
