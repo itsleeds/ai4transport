@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.43">
 
-  <meta name="author" content="Professor Robin Lovelace">
-  <meta name="dcterms.date" content="2025-09-18">
-  <title>AI for Transport – Data Science for Transport Planning: Day 1</title>
+  <meta name="author" content="Robin Lovelace and Chris Rushton">
+  <meta name="dcterms.date" content="2025-10-01">
+  <title>AI for Transport</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,92 +29,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-5225a0b03738627c8390147651eb7bbf.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -214,422 +129,162 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Science for Transport Planning: Day 1</h1>
+  <h1 class="title">AI for Transport</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Professor Robin Lovelace 
+Robin Lovelace and Chris Rushton 
 </div>
 </div>
 </div>
 
-  <p class="date">September 18, 2025</p>
+  <p class="date">October 1, 2025</p>
 </section>
 <section id="welcome" class="slide level2">
 <h2>Welcome!</h2>
-<p>Data Science for Transport Planning</p>
-<p><strong>2-day course</strong></p>
-<p>18-19 September 2025</p>
+<p>AI for Transport</p>
+<p><strong>1-day course</strong></p>
+<p>October 2025</p>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
 <ul>
-<li><strong>10:00-11:00</strong> Introduction to Data Science for Transport Planning</li>
-<li>11:00-12:30 Finding, importing and cleaning transport datasets</li>
-<li>12:30-13:30 Lunch</li>
-<li>13:30-15:00 Origin-destination data analysis</li>
-<li>15:00-15:15 Break and refreshments</li>
-<li>15:15-17:00 OD Transport data visualisation</li>
+<li><strong>10:00-11:30</strong> Session 1: Foundations of AI in Transport</li>
+<li><strong>11:30-13:00</strong> Session 2: (AI-Powered) Coding and Development</li>
+<li><strong>13:00-14:00</strong> Lunch</li>
+<li><strong>14:00-15:30</strong> Session 3: Using LLMs for Reporting and Analysis</li>
+<li><strong>15:30-17:00</strong> Session 4: AI for Transport Data Analysis</li>
 </ul>
 </section>
 <section id="prerequisites" class="slide level2">
 <h2>Prerequisites</h2>
-<h3 id="to-run-the-code">To run the code</h3>
+<h3 id="to-participate">To participate</h3>
 <ul>
-<li>Computer to run the code
-<ul>
-<li>Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally</li>
-<li>Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)</li>
-</ul></li>
+<li>Computer with internet access</li>
+<li>A willingness to learn and experiment with AI tools</li>
+<li>Basic familiarity with transport planning concepts</li>
+<li>Optional: Experience with coding or data analysis tools</li>
 </ul>
 </section>
 <section id="learn-and-share" class="slide level2">
 <h2>Learn and share</h2>
 <p>The following will help:</p>
 <ul>
-<li>An interest in transport planning and knowledge of transport datasets</li>
-<li>A willingness to learn and share</li>
-<li>A GitHub account (to ask questions on the Discussions page and share your own code)</li>
-<li>Familiarity with data science tools, e.g.&nbsp;R, Python, RStudio, VS Code</li>
+<li>An interest in transport planning and AI applications</li>
+<li>A willingness to learn and share experiences</li>
+<li>A GitHub account (useful for accessing course materials)</li>
+<li>Openness to trying new AI tools and workflows</li>
 </ul>
 </section>
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <ul>
-<li>Connect to the UoL-Guest Wi-Fi network and enter your details.</li>
-<li>GitHub account sign-up if not done already.</li>
-<li>Coffee and lunch: in the social space just outside this room</li>
-<li><strong>Toilets</strong>
-<ul>
-<li>Gents toilets can be found on first and ground floors.</li>
-<li>Ladies toilets on the middle and far staircases and ground floor.</li>
-<li>Accessible toilet facilities including a gender neutral toilet, are available on the lower ground floor.</li>
-</ul></li>
+<li>Connect to the Wi-Fi network</li>
+<li>Course materials available online</li>
+<li>Coffee and lunch breaks as scheduled</li>
+<li><strong>Interactive sessions</strong>: Please participate and ask questions</li>
 </ul>
-</section>
-<section id="housekeeping-ii" class="slide level2">
-<h2>Housekeeping II</h2>
-<ul>
-<li><strong>Fire Alarm</strong>
-<ul>
-<li>If the alarm sounds, leave the building via the ground floor.</li>
-<li>The assembly point is the grassed area outside</li>
-</ul></li>
-<li><strong>Use of Extension Leads &amp; Adapters</strong>
-<ul>
-<li>Cube adapters are prohibited.</li>
-<li>International chargers are advised against.</li>
-<li>Alternative plugs can be logged/loaned out from the Facilities Office.</li>
-</ul></li>
-</ul>
-</section>
-<section id="wifi" class="slide level2">
-<h2>WiFi</h2>
-
-<img data-src="images/paste-2.png" class="r-stretch"></section>
-<section id="setup-check" class="slide level2">
-<h2>Setup check</h2>
-<p>To check you have the necessary software installed, try running the following code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
-<span id="cb1-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pak"</span>)) <span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
-<span id="cb1-3"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pak"</span>)) <span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
-<span id="cb1-4"><a></a>pkgs <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb1-5"><a></a>    <span class="st">"sf"</span>,</span>
-<span id="cb1-6"><a></a>    <span class="st">"tidyverse"</span>,</span>
-<span id="cb1-7"><a></a>    <span class="st">"tmap"</span>,</span>
-<span id="cb1-8"><a></a>    <span class="st">"stats19"</span>,</span>
-<span id="cb1-9"><a></a>    <span class="st">"stplanr"</span>,</span>
-<span id="cb1-10"><a></a>    <span class="st">"osmextract"</span>,</span>
-<span id="cb1-11"><a></a>    <span class="st">"zonebuilder"</span></span>
-<span id="cb1-12"><a></a>)</span>
-<span id="cb1-13"><a></a>pak<span class="sc">::</span><span class="fu">pak</span>(pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You should be able to generate the map on the next slide.</p>
-</section>
-<section id="setup-check-the-result" class="slide level2">
-<h2>Setup check: The result</h2>
-
-<img data-src="day1_files/figure-revealjs/plot-1.png" width="960" class="r-stretch"></section>
-<section id="the-dstp-team" class="slide level2">
-<h2>The DSTP Team</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="images/paste-9.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="images/paste-8.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="images/paste-10.png"></p>
-</div>
-</div>
-</div>
-<p>Source: GitHub</p>
-<!-- ### Robin Lovelace
-
--   Professor of Transport Data Science
--   Focus: influencing decision-making, to make it more evidence-based
--   R package developer and data scientist
--   New methods for more reproducible, data-driven and participatory transport planning -->
-</section>
-<section id="about-you" class="slide level2">
-<h2>About you</h2>
-<div>
-<ul>
-<li class="fragment">Name</li>
-<li class="fragment">What tools you currently use for research</li>
-<li class="fragment">Where you’re from</li>
-<li class="fragment">A random fact about you</li>
-</ul>
-<h3 id="me">Me</h3>
-<ul>
-<li class="fragment">Currently using VS Code, Quarto, R, Google Gemini etc, Devcontainers</li>
-<li class="fragment">From Herefordshire, UK, work at the University of Leeds<br>
-</li>
-<li class="fragment">Random fact: I run 5 km every Saturday with double buggy</li>
-</ul>
-</div>
-<h3 id="over-to-you">Over to you</h3>
-</section>
-<section id="the-origins-of-the-course" class="slide level2">
-<h2>The origins of the course</h2>
-<h3 id="if-only-i-was-told-this-earlier-in-my-career">“If only I was told this earlier in my career”</h3>
-<div>
-<p>Imagine a workflow that enabled:</p>
-<ul>
-<li class="fragment">Fewer context switches</li>
-<li class="fragment">More focus on <em>the content</em> and not style of the work</li>
-<li class="fragment">Integration of code into your research manuscript</li>
-<li class="fragment">Automatic generation of results that update when the data change</li>
-<li class="fragment">Control over how you export and publish your work 😎</li>
-<li class="fragment">Full reproducibility and control for maximum benefit 🚀</li>
-</ul>
-</div>
-</section>
-<section id="reproducible-workflows" class="slide level2">
-<h2>Reproducible workflows</h2>
-<p>“Research is considered to be reproducible when the exact results can be reproduced if given access to the original data, software, or code.” Source: <a href="https://www.displayr.com/what-is-reproducible-research/">displayr.com</a></p>
-
-<img data-src="images/paste-3.png" class="r-stretch"></section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:40%;">
-<h4 id="stages-of-open-and-reproducible-science">Stages of open and reproducible science</h4>
-<ol type="1">
-<li><p>Open access to the publications</p></li>
-<li><p>Open access to data</p></li>
-<li><p>Open access to the code</p></li>
-<li><p>Fully reproducible</p></li>
-<li><p>Project deployed in web app</p></li>
-</ol>
-</div><div class="column" style="width:60%;">
-<p><img data-src="images/paste-12.png"></p>
-</div></div>
-</section>
-<section id="example-networkmerge" class="slide level2">
-<h2>Example: networkmerge</h2>
-
-<img data-src="images/paste-5.png" class="r-stretch"><p>See paper website: https://nptscot.github.io/networkmerge/ Source: <a href="https://github.com/nptscot">github.com/nptscot</a></p>
-</section>
-<section id="example-pct-npt-biclar-etc." class="slide level2">
-<h2>Example: PCT, NPT, biclaR etc.</h2>
-<p>Source: <span class="citation" data-cites="félix2025">Félix, Moura, and Lovelace (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>. Also see PCT paper and follow-ons, e.g. <span class="citation" data-cites="lovelace2024">Lovelace et al. (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
-
-<img data-src="images/paste-6.png" class="r-stretch"><p>See <a href="https://biclar.tmlmobilidade.pt/index/">biclar.tmobilidade.pt source</a> code: <a href="#/0">github.com/u-shift</a></p>
 </section>
 <section id="course-principles" class="slide level2">
 <h2>Course principles</h2>
 <div>
 <ul>
-<li class="fragment">“Learn by doing”</li>
-<li class="fragment">“Learn by teaching”</li>
-<li class="fragment">“We’re all learning”</li>
-<li class="fragment">“Can-do” and “Go for It” attitude</li>
-<li class="fragment">“Every error is a learning opportunity”</li>
+<li class="fragment">“Learn by doing” with AI tools</li>
+<li class="fragment">“Demystifying AI” for practical use</li>
 <li class="fragment">“No such thing as a bad question”</li>
-<li class="fragment">Balance between focused work and comms</li>
+<li class="fragment">Focus on practical applications</li>
+<li class="fragment">Real-world transport examples</li>
+<li class="fragment">Hands-on experience with AI workflows</li>
 </ul>
 </div>
 </section>
-<section id="computational-infrastructure" class="slide level2">
-<h2>Computational infrastructure</h2>
-<p>Source: “Dependency” by Randall Munroe: <a href="https://xkcd.com/2347/">xkcd.com/2347/</a></p>
-
-<img data-src="images/paste-7.png" class="r-stretch"></section>
-<section id="software-stack" class="slide level2">
-<h2>Software stack</h2>
-
-<img data-src="images/software-stack.png" class="r-stretch"></section>
-<section id="which-ide-to-use-source-tdsciencecourse" class="slide level2">
-<h2>Which IDE to use? Source: tdscience/course</h2>
-
-<img data-src="images/ide-table.png" class="r-stretch"></section>
-<section id="the-practical-sessions" class="slide level2">
-<h2>The practical sessions</h2>
+<section id="about-the-instructors" class="slide level2">
+<h2>About the instructors</h2>
+<p><strong>Robin Lovelace</strong> - Professor of Transport Data Science, University of Leeds - Focus on data-driven transport planning and open source tools</p>
+<p><strong>Chris Rushton</strong> - Transport planning and AI specialist - Experience in practical AI applications</p>
+</section>
+<section id="about-you" class="slide level2">
+<h2>About you</h2>
+<p>Quick introductions: - Name and organisation - Current role in transport - Experience with AI tools (if any) - What you hope to gain from today</p>
+</section>
+<section id="session-1-foundations-of-ai-in-transport" class="slide level2">
+<h2>Session 1: Foundations of AI in Transport</h2>
+<h3 id="key-topics">Key topics:</h3>
 <ul>
-<li>Time of in-depth work</li>
-<li>Use the course website as a reference point but spend most of the time in your own environment</li>
-<li>We will support people one-to-one and can do ‘live demos’</li>
+<li>What is AI and how does it apply to transport?</li>
+<li>Overview of AI tools and techniques</li>
+<li>Real-world transport applications</li>
+<li>Ethical considerations</li>
 </ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>Press Ctrl+Tab to switch from IDE to browser with course content and other things for an efficient workflow</p>
-</div>
-</div>
-</div>
+<p>See: <a href="../s1.html">Session 1 materials</a></p>
 </section>
-<section class="slide level2">
-
-<h4 id="what-are-transport-datasets-a-geo-typology">What are transport datasets? A geo typology</h4>
-<p>Source: <a href="https://r.geocompx.org">Geocomputation with R</a> <span class="citation" data-cites="lovelace2025">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace, Nowosad, and Münchow 2025</a>)</span></p>
-
-<img data-src="images/paste-15.png" class="r-stretch"></section>
-<section>
-<section id="practical-session-0" class="title-slide slide level1 center">
-<h1>Practical session 0</h1>
-
-</section>
-<section id="set-up-project-folderrepo" class="slide level2">
-<h2>Set-up: project folder/repo</h2>
-<p>Option 1: Create an empty folder on your computer (beginner level)</p>
+<section id="session-2-ai-powered-coding-and-development" class="slide level2">
+<h2>Session 2: (AI-Powered) Coding and Development</h2>
+<h3 id="key-topics-1">Key topics:</h3>
 <ul>
-<li>Via Windows Explore or other GUI</li>
-<li>Via command line (e.g., <code>mkdir dstp-rl</code>, but replace ‘rl’ with your initials)</li>
-<li>Via RStudio or VS Code</li>
+<li>AI coding assistants (GitHub Copilot, etc.)</li>
+<li>Efficient AI-assisted workflows</li>
+<li>Live coding demonstrations</li>
+<li>Hands-on practice</li>
 </ul>
-<p>Option 2: Create a new repository on GitHub (more advanced, recommended)</p>
+<p>See: <a href="../s2.html">Session 2 materials</a></p>
+</section>
+<section id="lunch-break-1300-1400" class="slide level2">
+<h2>Lunch Break (13:00-14:00)</h2>
+</section>
+<section id="session-3-using-llms-for-reporting-and-analysis" class="slide level2">
+<h2>Session 3: Using LLMs for Reporting and Analysis</h2>
+<h3 id="key-topics-2">Key topics:</h3>
 <ul>
-<li>Via GitHub Desktop (beginner level)</li>
-<li>Via <code>gh</code> command line tool (more advanced, recommended)</li>
+<li>Large Language Models for transport documents</li>
+<li>Prompt engineering techniques</li>
+<li>Analysing policy documents and reports</li>
+<li>Practical exercises with real transport data</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">gh</span> repo create dstp-rl <span class="at">--public</span> <span class="at">--clone</span> <span class="co"># replace 'rl' with your initials</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See: <a href="../s3.html">Session 3 materials</a></p>
 </section>
-<section id="tabsets" class="slide level2">
-<h2>Tabsets</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">gh CLI tool</a></li><li><a href="#tabset-1-2">R</a></li><li><a href="#tabset-1-3">Shell</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<p>The following creates a fresh GitHub repo with GitHub CLI (recommended)</p>
-<p>Note: you need to have installed the <a href="https://cli.github.com/">GitHub CLI</a> and authenticated it with your GitHub account.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="bu">cd</span> path/to/your/folder <span class="co"># e.g. cd C:/Users/YourName/Documents</span></span>
-<span id="cb3-2"><a></a><span class="ex">gh</span> repo create dstp-rl <span class="at">--public</span> <span class="at">--clone</span> <span class="co"># replace 'rl' with your initials</span></span>
-<span id="cb3-3"><a></a><span class="ex">code</span> path/to/your/folder/dstp-rl <span class="co"># or open in RStudio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">dir.create</span>(<span class="st">"C:/path/to/your/folder/dstp"</span>) <span class="co"># replace with your path</span></span>
-<span id="cb4-2"><a></a>rstudioapi<span class="sc">::</span><span class="fu">openProject</span>(<span class="st">"C:/path/to/your/folder/dstp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-3">
-<p>The following creates an empty folder with PowerShell or RStudio/VS Code terminal</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="co"># After opening a terminal in your chosen IDE/shell</span></span>
-<span id="cb5-2"><a></a><span class="bu">cd</span> path/to/your/folder <span class="co"># e.g. cd C:/Users/YourName/Documents</span></span>
-<span id="cb5-3"><a></a><span class="fu">mkdir</span> dstp-rl <span class="co"># replace 'rl' with your initials</span></span>
-<span id="cb5-4"><a></a><span class="co"># Then open the folder in your IDE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="opening-your-project" class="slide level2">
-<h2>Opening your project</h2>
-<p>Option 1 (RStudio): Open the folder you created in RStudio using the New Project graphical interface menu</p>
-<p>Option 2 (RStudio - recommended): Open the folder you created in RStudio using the <code>rstudioapi</code> package, e.g.&nbsp;with the following command in R Console:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>rstudioapi<span class="sc">::</span><span class="fu">openProject</span>(<span class="st">"C:/path/to/your/folder/dstp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Option 3: (VS Code): Open the folder you created in VS Code using the File &gt; Open Folder menu</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">code</span> path/to/your/folder/dstp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Option 4 (VS Code - recommended):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">code</span> path/to/your/folder/dstp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="minimise-context-switching" class="slide level2">
-<h2>Minimise context switching</h2>
-
-<img data-src="images/paste-11.png" class="r-stretch"></section>
-<section id="any-questions-before-we-move-to-the-first-practical-session" class="slide level2">
-<h2>Any questions before we move to the first practical session?</h2>
-</section></section>
-<section>
-<section id="session-1-see-session-1-workbook" class="title-slide slide level1 center">
-<h1>Session 1 (see <a href="../s1.html">Session 1 workbook</a>)</h1>
-
-</section>
-<section id="session-1-in-context" class="slide level2">
-<h2>Session 1 in context</h2>
+<section id="session-4-ai-for-transport-data-analysis" class="slide level2">
+<h2>Session 4: AI for Transport Data Analysis</h2>
+<h3 id="key-topics-3">Key topics:</h3>
 <ul>
-<li>10:00-11:00 Introduction to Data Science for Transport Planning</li>
-<li><strong>11:00-12:30 Finding, importing and cleaning transport datasets</strong></li>
-<li>12:30-13:30 Lunch</li>
-<li>13:30-15:00 Origin-destination data analysis</li>
-<li>15:00-15:15 Break and refreshments</li>
-<li>15:15-17:00 OD Transport data visualisation</li>
+<li>AI-accelerated data processing</li>
+<li>Pattern recognition in transport datasets</li>
+<li>Visualisation with AI assistance</li>
+<li>Complete workflow examples</li>
 </ul>
+<p>See: <a href="../s4.html">Session 4 materials</a></p>
 </section>
-<section id="solo-working-through-the-practical-until-1230" class="slide level2">
-<h2>Solo working through the practical (until ~12:30)</h2>
-<p>See practical at <a href="https://tdscience.github.io/dstp/s1">tdscience.github.io/dstp/s1</a></p>
-<p>Any questions before the lunch break?</p>
-<p>Put your hands up, ask another participant, or use the <a href="https://github.com/tdscience/dstp/discussions">github.com/tdscience/dstp/discussions</a></p>
+<section id="feedback-on-session-4" class="slide level2">
+<h2>Feedback on Session 4</h2>
+<p>Please provide feedback on this session: <a href="https://forms.office.com/e/XZ2Hdt72HK">forms.office.com/e/XZ2Hdt72HK</a></p>
 </section>
-<section id="lunch-break-1230-1330" class="slide level2">
-<h2>Lunch break (12:30-13:30)</h2>
-<p>See you back here at 13:30</p>
-</section></section>
-<section>
-<section id="session-2-see-session-2-workbook" class="title-slide slide level1 center">
-<h1>Session 2 (see <a href="../s2.html">Session 2 workbook</a>)</h1>
-
-</section>
-<section id="lecture-on-session-2-od-and-geographic-data" class="slide level2">
-<h2>Lecture on Session 2: OD and geographic data</h2>
-
-<img data-src="images/paste-13.png" class="r-stretch"><p>OD data is implicitly geographic <span class="citation" data-cites="lovelace2022">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace, Félix, and Carlino 2022</a>)</span></p>
-</section>
-<section id="running-rpython-code" class="slide level2">
-<h2>Running R/Python code</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">R</a></li><li><a href="#tabset-2-2">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="day1_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="day1_files/figure-revealjs/unnamed-chunk-2-2.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-2">
-<p><img data-src="images/world-facet-py.png"></p>
-</div>
-</div>
-</div>
-<p>See Yang’s slides in link at <a href="https://tdscience.github.io/dstp/s2">tdscience.github.io/dstp/s2</a></p>
-</section>
-<section id="exercises" class="slide level2">
-<h2>Exercises</h2>
-<p>Work through the exercises in the <a href="../s2.html">Session 2 workbook</a></p>
-<p>Any questions before the break (15:00-15:15)?</p>
-<p>15:00-15:15 Break and refreshments</p>
-</section>
-<section id="session-3" class="slide level2">
-<h2>Session 3</h2>
+<section id="course-wrap-up" class="slide level2">
+<h2>Course wrap-up</h2>
+<h3 id="key-takeaways">Key takeaways:</h3>
 <ul>
-<li>15:15-17:00 OD Transport data visualisation</li>
-<li>See <a href="../s3.html">Session 3 workbook</a></li>
+<li>AI as a tool to enhance transport planning</li>
+<li>Practical skills for immediate application</li>
+<li>Resources for continued learning</li>
+<li>Building AI into your workflow</li>
 </ul>
-
-<img data-src="images/paste-14.png" class="r-stretch"></section>
-<section id="references" class="slide level2 smaller scrollable">
+<h3 id="next-steps">Next steps:</h3>
+<ul>
+<li>Try the tools in your own work</li>
+<li>Join the community discussions</li>
+<li>Share your experiences and learn from others</li>
+</ul>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank you!</h2>
+<p>Questions? Discussion?</p>
+<p>Course materials: Available online Community: <a href="https://github.com/itsleeds/ai4transport/discussions">GitHub Discussions</a></p>
+</section>
+<section id="references" class="slide level2">
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-félix2025" class="csl-entry" role="listitem">
-Félix, Rosa, Filipe Moura, and Robin Lovelace. 2025. <span>“Reproducible Methods for Modeling Combined Public Transport and Cycling Trips and Associated Benefits: Evidence from the biclaR Tool.”</span> <em>Computers, Environment and Urban Systems</em> 117 (April): 102230. <a href="https://doi.org/10.1016/j.compenvurbsys.2024.102230">https://doi.org/10.1016/j.compenvurbsys.2024.102230</a>.
-</div>
-<div id="ref-lovelace2022" class="csl-entry" role="listitem">
-Lovelace, Robin, Rosa Félix, and Dustin Carlino. 2022. <span>“Jittering: A Computationally Efficient Method for Generating Realistic Route Networks from Origin-Destination Data.”</span> <em>Findings</em>, April, 33873. <a href="https://doi.org/10.32866/001c.33873">https://doi.org/10.32866/001c.33873</a>.
-</div>
-<div id="ref-lovelace2025" class="csl-entry" role="listitem">
-Lovelace, Robin, Jakub Nowosad, and Jannes Münchow. 2025. <em>Geocomputation with R</em>. CRC Press. <a href="https://r.geocompx.org/">https://r.geocompx.org/</a>.
-</div>
-<div id="ref-lovelace2024" class="csl-entry" role="listitem">
-Lovelace, Robin, Joey Talbot, Eugeni Vidal-Tortosa, Hussein Mahfouz, Elaine Brick, Peter Wright, Gary O’Toole, Dan Brennan, and Suzanne Meade. 2024. <span>“Cycle Route Uptake and Scenario Estimation (CRUSE): An Approach for Developing Strategic Cycle Network Planning Tools.”</span> <em>European Transport Research Review</em> 16 (1): 55. <a href="https://doi.org/10.1186/s12544-024-00668-8">https://doi.org/10.1186/s12544-024-00668-8</a>.
-</div>
-</div>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -845,82 +500,6 @@ Lovelace, Robin, Joey Talbot, Eugeni Vidal-Tortosa, Hussein Mahfouz, Elaine Bric
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -56,290 +56,202 @@
     "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
   },
   {
-    "objectID": "slides/day1.html#welcome",
-    "href": "slides/day1.html#welcome",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Welcome!",
-    "text": "Welcome!\nData Science for Transport Planning\n2-day course\n18-19 September 2025"
-  },
-  {
-    "objectID": "slides/day1.html#agenda",
-    "href": "slides/day1.html#agenda",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Agenda",
-    "text": "Agenda\n\n10:00-11:00 Introduction to Data Science for Transport Planning\n11:00-12:30 Finding, importing and cleaning transport datasets\n12:30-13:30 Lunch\n13:30-15:00 Origin-destination data analysis\n15:00-15:15 Break and refreshments\n15:15-17:00 OD Transport data visualisation"
-  },
-  {
-    "objectID": "slides/day1.html#prerequisites",
-    "href": "slides/day1.html#prerequisites",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nTo run the code\n\nComputer to run the code\n\nEither: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally\nOr: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)"
-  },
-  {
-    "objectID": "slides/day1.html#learn-and-share",
-    "href": "slides/day1.html#learn-and-share",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Learn and share",
-    "text": "Learn and share\nThe following will help:\n\nAn interest in transport planning and knowledge of transport datasets\nA willingness to learn and share\nA GitHub account (to ask questions on the Discussions page and share your own code)\nFamiliarity with data science tools, e.g. R, Python, RStudio, VS Code"
-  },
-  {
-    "objectID": "slides/day1.html#housekeeping",
-    "href": "slides/day1.html#housekeeping",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Housekeeping",
-    "text": "Housekeeping\n\nConnect to the UoL-Guest Wi-Fi network and enter your details.\nGitHub account sign-up if not done already.\nCoffee and lunch: in the social space just outside this room\nToilets\n\nGents toilets can be found on first and ground floors.\nLadies toilets on the middle and far staircases and ground floor.\nAccessible toilet facilities including a gender neutral toilet, are available on the lower ground floor."
-  },
-  {
-    "objectID": "slides/day1.html#housekeeping-ii",
-    "href": "slides/day1.html#housekeeping-ii",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Housekeeping II",
-    "text": "Housekeeping II\n\nFire Alarm\n\nIf the alarm sounds, leave the building via the ground floor.\nThe assembly point is the grassed area outside\n\nUse of Extension Leads & Adapters\n\nCube adapters are prohibited.\nInternational chargers are advised against.\nAlternative plugs can be logged/loaned out from the Facilities Office."
-  },
-  {
-    "objectID": "slides/day1.html#wifi",
-    "href": "slides/day1.html#wifi",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "WiFi",
-    "text": "WiFi"
-  },
-  {
-    "objectID": "slides/day1.html#setup-check",
-    "href": "slides/day1.html#setup-check",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Setup check",
-    "text": "Setup check\nTo check you have the necessary software installed, try running the following code.\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!require(\"pak\")) install.packages(\"pak\")\nif (!require(\"pak\")) install.packages(\"pak\")\npkgs = c(\n    \"sf\",\n    \"tidyverse\",\n    \"tmap\",\n    \"stats19\",\n    \"stplanr\",\n    \"osmextract\",\n    \"zonebuilder\"\n)\npak::pak(pkgs)\n\nYou should be able to generate the map on the next slide."
-  },
-  {
-    "objectID": "slides/day1.html#setup-check-the-result",
-    "href": "slides/day1.html#setup-check-the-result",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Setup check: The result",
-    "text": "Setup check: The result"
-  },
-  {
-    "objectID": "slides/day1.html#the-dstp-team",
-    "href": "slides/day1.html#the-dstp-team",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "The DSTP Team",
-    "text": "The DSTP Team\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: GitHub"
-  },
-  {
-    "objectID": "slides/day1.html#about-you",
-    "href": "slides/day1.html#about-you",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "About you",
-    "text": "About you\n\n\nName\nWhat tools you currently use for research\nWhere you’re from\nA random fact about you\n\nMe\n\nCurrently using VS Code, Quarto, R, Google Gemini etc, Devcontainers\nFrom Herefordshire, UK, work at the University of Leeds\n\nRandom fact: I run 5 km every Saturday with double buggy\n\n\nOver to you"
-  },
-  {
-    "objectID": "slides/day1.html#the-origins-of-the-course",
-    "href": "slides/day1.html#the-origins-of-the-course",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "The origins of the course",
-    "text": "The origins of the course\n“If only I was told this earlier in my career”\n\nImagine a workflow that enabled:\n\nFewer context switches\nMore focus on the content and not style of the work\nIntegration of code into your research manuscript\nAutomatic generation of results that update when the data change\nControl over how you export and publish your work 😎\nFull reproducibility and control for maximum benefit 🚀"
-  },
-  {
-    "objectID": "slides/day1.html#reproducible-workflows",
-    "href": "slides/day1.html#reproducible-workflows",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Reproducible workflows",
-    "text": "Reproducible workflows\n“Research is considered to be reproducible when the exact results can be reproduced if given access to the original data, software, or code.” Source: displayr.com"
-  },
-  {
-    "objectID": "slides/day1.html#example-networkmerge",
-    "href": "slides/day1.html#example-networkmerge",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Example: networkmerge",
-    "text": "Example: networkmerge\n\nSee paper website: https://nptscot.github.io/networkmerge/ Source: github.com/nptscot"
-  },
-  {
-    "objectID": "slides/day1.html#example-pct-npt-biclar-etc.",
-    "href": "slides/day1.html#example-pct-npt-biclar-etc.",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Example: PCT, NPT, biclaR etc.",
-    "text": "Example: PCT, NPT, biclaR etc.\nSource: Félix, Moura, and Lovelace (2025). Also see PCT paper and follow-ons, e.g. Lovelace et al. (2024)\n\nSee biclar.tmobilidade.pt source code: github.com/u-shift"
-  },
-  {
-    "objectID": "slides/day1.html#course-principles",
-    "href": "slides/day1.html#course-principles",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Course principles",
-    "text": "Course principles\n\n\n“Learn by doing”\n“Learn by teaching”\n“We’re all learning”\n“Can-do” and “Go for It” attitude\n“Every error is a learning opportunity”\n“No such thing as a bad question”\nBalance between focused work and comms"
-  },
-  {
-    "objectID": "slides/day1.html#computational-infrastructure",
-    "href": "slides/day1.html#computational-infrastructure",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Computational infrastructure",
-    "text": "Computational infrastructure\nSource: “Dependency” by Randall Munroe: xkcd.com/2347/"
-  },
-  {
-    "objectID": "slides/day1.html#software-stack",
-    "href": "slides/day1.html#software-stack",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Software stack",
-    "text": "Software stack"
-  },
-  {
-    "objectID": "slides/day1.html#which-ide-to-use-source-tdsciencecourse",
-    "href": "slides/day1.html#which-ide-to-use-source-tdsciencecourse",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Which IDE to use? Source: tdscience/course",
-    "text": "Which IDE to use? Source: tdscience/course"
-  },
-  {
-    "objectID": "slides/day1.html#the-practical-sessions",
-    "href": "slides/day1.html#the-practical-sessions",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "The practical sessions",
-    "text": "The practical sessions\n\nTime of in-depth work\nUse the course website as a reference point but spend most of the time in your own environment\nWe will support people one-to-one and can do ‘live demos’\n\n\n\n\n\n\n\nTip\n\n\nPress Ctrl+Tab to switch from IDE to browser with course content and other things for an efficient workflow"
-  },
-  {
-    "objectID": "slides/day1.html#set-up-project-folderrepo",
-    "href": "slides/day1.html#set-up-project-folderrepo",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Set-up: project folder/repo",
-    "text": "Set-up: project folder/repo\nOption 1: Create an empty folder on your computer (beginner level)\n\nVia Windows Explore or other GUI\nVia command line (e.g., mkdir dstp-rl, but replace ‘rl’ with your initials)\nVia RStudio or VS Code\n\nOption 2: Create a new repository on GitHub (more advanced, recommended)\n\nVia GitHub Desktop (beginner level)\nVia gh command line tool (more advanced, recommended)\n\ngh repo create dstp-rl --public --clone # replace 'rl' with your initials"
-  },
-  {
-    "objectID": "slides/day1.html#tabsets",
-    "href": "slides/day1.html#tabsets",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Tabsets",
-    "text": "Tabsets\n\ngh CLI toolRShell\n\n\nThe following creates a fresh GitHub repo with GitHub CLI (recommended)\nNote: you need to have installed the GitHub CLI and authenticated it with your GitHub account.\ncd path/to/your/folder # e.g. cd C:/Users/YourName/Documents\ngh repo create dstp-rl --public --clone # replace 'rl' with your initials\ncode path/to/your/folder/dstp-rl # or open in RStudio\n\n\ndir.create(\"C:/path/to/your/folder/dstp\") # replace with your path\nrstudioapi::openProject(\"C:/path/to/your/folder/dstp\")\n\n\nThe following creates an empty folder with PowerShell or RStudio/VS Code terminal\n# After opening a terminal in your chosen IDE/shell\ncd path/to/your/folder # e.g. cd C:/Users/YourName/Documents\nmkdir dstp-rl # replace 'rl' with your initials\n# Then open the folder in your IDE"
-  },
-  {
-    "objectID": "slides/day1.html#opening-your-project",
-    "href": "slides/day1.html#opening-your-project",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Opening your project",
-    "text": "Opening your project\nOption 1 (RStudio): Open the folder you created in RStudio using the New Project graphical interface menu\nOption 2 (RStudio - recommended): Open the folder you created in RStudio using the rstudioapi package, e.g. with the following command in R Console:\nrstudioapi::openProject(\"C:/path/to/your/folder/dstp\")\nOption 3: (VS Code): Open the folder you created in VS Code using the File &gt; Open Folder menu\ncode path/to/your/folder/dstp\nOption 4 (VS Code - recommended):\ncode path/to/your/folder/dstp"
-  },
-  {
-    "objectID": "slides/day1.html#minimise-context-switching",
-    "href": "slides/day1.html#minimise-context-switching",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Minimise context switching",
-    "text": "Minimise context switching"
-  },
-  {
-    "objectID": "slides/day1.html#any-questions-before-we-move-to-the-first-practical-session",
-    "href": "slides/day1.html#any-questions-before-we-move-to-the-first-practical-session",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Any questions before we move to the first practical session?",
-    "text": "Any questions before we move to the first practical session?"
-  },
-  {
-    "objectID": "slides/day1.html#session-1-in-context",
-    "href": "slides/day1.html#session-1-in-context",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Session 1 in context",
-    "text": "Session 1 in context\n\n10:00-11:00 Introduction to Data Science for Transport Planning\n11:00-12:30 Finding, importing and cleaning transport datasets\n12:30-13:30 Lunch\n13:30-15:00 Origin-destination data analysis\n15:00-15:15 Break and refreshments\n15:15-17:00 OD Transport data visualisation"
-  },
-  {
-    "objectID": "slides/day1.html#solo-working-through-the-practical-until-1230",
-    "href": "slides/day1.html#solo-working-through-the-practical-until-1230",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Solo working through the practical (until ~12:30)",
-    "text": "Solo working through the practical (until ~12:30)\nSee practical at tdscience.github.io/dstp/s1\nAny questions before the lunch break?\nPut your hands up, ask another participant, or use the github.com/tdscience/dstp/discussions"
-  },
-  {
-    "objectID": "slides/day1.html#lunch-break-1230-1330",
-    "href": "slides/day1.html#lunch-break-1230-1330",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Lunch break (12:30-13:30)",
-    "text": "Lunch break (12:30-13:30)\nSee you back here at 13:30"
-  },
-  {
-    "objectID": "slides/day1.html#lecture-on-session-2-od-and-geographic-data",
-    "href": "slides/day1.html#lecture-on-session-2-od-and-geographic-data",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Lecture on Session 2: OD and geographic data",
-    "text": "Lecture on Session 2: OD and geographic data\n\nOD data is implicitly geographic (Lovelace, Félix, and Carlino 2022)"
-  },
-  {
-    "objectID": "slides/day1.html#running-rpython-code",
-    "href": "slides/day1.html#running-rpython-code",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Running R/Python code",
-    "text": "Running R/Python code\n\nRPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSee Yang’s slides in link at tdscience.github.io/dstp/s2"
-  },
-  {
-    "objectID": "slides/day1.html#exercises",
-    "href": "slides/day1.html#exercises",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Exercises",
-    "text": "Exercises\nWork through the exercises in the Session 2 workbook\nAny questions before the break (15:00-15:15)?\n15:00-15:15 Break and refreshments"
-  },
-  {
-    "objectID": "slides/day1.html#session-3",
-    "href": "slides/day1.html#session-3",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "Session 3",
-    "text": "Session 3\n\n15:15-17:00 OD Transport data visualisation\nSee Session 3 workbook"
-  },
-  {
-    "objectID": "slides/day1.html#references",
-    "href": "slides/day1.html#references",
-    "title": "Data Science for Transport Planning: Day 1",
-    "section": "References",
-    "text": "References\n\n\n\n\nFélix, Rosa, Filipe Moura, and Robin Lovelace. 2025. “Reproducible Methods for Modeling Combined Public Transport and Cycling Trips and Associated Benefits: Evidence from the biclaR Tool.” Computers, Environment and Urban Systems 117 (April): 102230. https://doi.org/10.1016/j.compenvurbsys.2024.102230.\n\n\nLovelace, Robin, Rosa Félix, and Dustin Carlino. 2022. “Jittering: A Computationally Efficient Method for Generating Realistic Route Networks from Origin-Destination Data.” Findings, April, 33873. https://doi.org/10.32866/001c.33873.\n\n\nLovelace, Robin, Jakub Nowosad, and Jannes Münchow. 2025. Geocomputation with R. CRC Press. https://r.geocompx.org/.\n\n\nLovelace, Robin, Joey Talbot, Eugeni Vidal-Tortosa, Hussein Mahfouz, Elaine Brick, Peter Wright, Gary O’Toole, Dan Brennan, and Suzanne Meade. 2024. “Cycle Route Uptake and Scenario Estimation (CRUSE): An Approach for Developing Strategic Cycle Network Planning Tools.” European Transport Research Review 16 (1): 55. https://doi.org/10.1186/s12544-024-00668-8."
-  },
-  {
-    "objectID": "s4.html",
-    "href": "s4.html",
-    "title": "Session 4: AI for Transport Data Analysis",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: Using LLMs for Reporting and Analysis\n\n\n\n15:30 - 17:00\nSession 4: AI for Transport Data Analysis",
     "crumbs": [
-      "Sessions",
-      "Session 4: Data Analysis"
+      "Schedule"
     ]
   },
   {
-    "objectID": "s4.html#introduction",
-    "href": "s4.html#introduction",
-    "title": "Session 4: AI for Transport Data Analysis",
+    "objectID": "schedule.html#course-schedule",
+    "href": "schedule.html#course-schedule",
+    "title": "Schedule",
     "section": "",
-    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: Using LLMs for Reporting and Analysis\n\n\n\n15:30 - 17:00\nSession 4: AI for Transport Data Analysis",
     "crumbs": [
-      "Sessions",
-      "Session 4: Data Analysis"
+      "Schedule"
     ]
   },
   {
-    "objectID": "s4.html#lecture-ai-in-data-analysis",
-    "href": "s4.html#lecture-ai-in-data-analysis",
-    "title": "Session 4: AI for Transport Data Analysis",
-    "section": "2 Lecture: AI in Data Analysis",
-    "text": "2 Lecture: AI in Data Analysis\n\nAccelerating the Workflow: How AI helps with data cleaning, preprocessing, and exploratory data analysis (EDA).\nPattern Identification: Using AI to uncover patterns and generate hypotheses from complex transport datasets.",
+    "objectID": "s3.html",
+    "href": "s3.html",
+    "title": "Session 3: Using LLMs for Reporting and Analysis",
+    "section": "",
+    "text": "Placeholder for session 3.\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds",
     "crumbs": [
       "Sessions",
-      "Session 4: Data Analysis"
+      "Session 3: LLMs for Reporting"
     ]
   },
   {
-    "objectID": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
-    "href": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
-    "title": "Session 4: AI for Transport Data Analysis",
-    "section": "3 Practical: Analyzing Spatio-Temporal OD Data with AI",
-    "text": "3 Practical: Analyzing Spatio-Temporal OD Data with AI\nWe will work through a guided case study using open access Call Detail Records (CDR) data from Spain.\n\n3.1 1. Data Acquisition and Preparation with AI Assistance\n\nWe will use the spanishoddata package to download OD data.\nUse an AI assistant to help write the R code to filter the data for a specific city (e.g., Seville).\nPrepare the location and flow data for visualization.\n\n\n\n3.2 2. AI-Powered Visualization\n\nUse the flowmapblue package to create an interactive flow map.\nAsk an AI assistant to help customize the map, for example, by adding animation or clustering.\n\n\n\n3.3 3. Interpretation and Reporting\n\nUse an LLM to help interpret the patterns shown in the flow map.\nGenerate a summary of the findings for a report.",
+    "objectID": "s1.html",
+    "href": "s1.html",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
     "crumbs": [
       "Sessions",
-      "Session 4: Data Analysis"
+      "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s4.html#course-wrap-up",
-    "href": "s4.html#course-wrap-up",
-    "title": "Session 4: AI for Transport Data Analysis",
-    "section": "4 Course Wrap-up",
-    "text": "4 Course Wrap-up\n\nRecap of the key concepts and skills covered in the course.\nQ&A session.",
+    "objectID": "s1.html#introduction",
+    "href": "s1.html#introduction",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
     "crumbs": [
       "Sessions",
-      "Session 4: Data Analysis"
+      "Session 1: Foundations"
     ]
+  },
+  {
+    "objectID": "s1.html#lecture",
+    "href": "s1.html#lecture",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "2 Lecture",
+    "text": "2 Lecture\n\nDemystifying AI: Key concepts and terminology, with reference to Anthropic’s AI Fluency course.\nData Science Framework: How to apply AI effectively within a robust data science workflow.\nAI in Transport: Overview of applications in transport planning.\nEthical Considerations: “Garbage in, garbage out” vs. prompt and context engineering.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#practical",
+    "href": "s1.html#practical",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "3 Practical",
+    "text": "3 Practical\nThis is an interactive session to explore real-world AI use cases in transport.\n\nIdentify AI Opportunities (20 mins):\n\nOn paper, draw a flowchart of a typical task from your work.\nDraw a second flowchart showing how AI could be integrated to improve this workflow.\nBonus: If you have time, repeat for another task. Which is more suitable for AI integration?\n\nGroup Discussion (20 mins):\n\nIn small groups, discuss how AI could be best integrated into your work from first principles.\n\nGroup Feedback (20 mins):\n\nShare key themes and ideas from your group discussion with everyone.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#next-steps",
+    "href": "s1.html#next-steps",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "4 Next steps",
+    "text": "4 Next steps\nThe course team will consider the following next steps:\n\nDraft and share survey for potential attendees\nDraft and share course outline for feedback\nDraft Sections 1 and 4 (Robin)\nDraft Sections 2 and 3 (Chris)\nReview and finalise content (both)\nConvert this into website and hosting (Robin, Netlify or GitHub Pages)",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.\nYou must have a GitHub account and have saved your username. We will cover version control concepts in the course.",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#course-prerequisites",
+    "href": "prerequisites.html#course-prerequisites",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.\nYou must have a GitHub account and have saved your username. We will cover version control concepts in the course.",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#software-prerequisites",
+    "href": "prerequisites.html#software-prerequisites",
+    "title": "Prerequisites",
+    "section": "2 Software Prerequisites",
+    "text": "2 Software Prerequisites\nYou should bring a laptop with either of the following:\n\nA modern web browser (e.g., Chrome, Firefox, Edge).\nA GitHub account (sign up at github.com) and have your username ready.\nTested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd: \nhttps://github.com/codespaces/new/tdscience/dstp?quickstart=1\n\nor, for running the code locally:\n\nA laptop with a the necessary software installed, including:\n\nAn IDE such as VS Code (recommended) or RStudio.\nR or Python installed (see below for testing code).\nThe gh command-line tool (see cli.github.com for installation and set-up instructions).",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#recommended-online-courses",
+    "href": "prerequisites.html#recommended-online-courses",
+    "title": "Prerequisites",
+    "section": "3 Recommended Online Courses",
+    "text": "3 Recommended Online Courses\nTo prepare for this course, we recommend watching the following short video:\n\nIntroduction to AI Fluency by Anthropic (Lesson 1, ~5 minutes).\n\nAnd taking these short but very useful online courses:\n\nIntro to GitHub (should take less than an hour).\nCommunicate using Markdown (should take around 30 minutes or less).",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#testing-your-setup",
+    "href": "prerequisites.html#testing-your-setup",
+    "title": "Prerequisites",
+    "section": "4 Testing your setup",
+    "text": "4 Testing your setup\nYou can test your setup by running the following code in Python or R.\n\nPythonR\n\n\n\nimport osmnx as ox\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport shapely\n\n# Centered on London\nstudy_point = shapely.Point(-0.1278, 51.5074)\nstudy_geom = gpd.GeoSeries([study_point], crs=4326)\nstudy_polygon = study_geom.to_crs(epsg=3857).buffer(8000).to_crs(epsg=4326).unary_union\nstudy_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs=\"EPSG:4326\")\ntags = {\"highway\": True, \"maxspeed\": True, \"lit\": True, \"cycleway\": True}\ngdf = ox.features_from_polygon(study_polygon, tags)\ngdf = gdf[gdf.geom_type.isin([\"LineString\", \"MultiLineString\"])]\ngdf = gdf.to_crs(epsg=3857)\ngdf.plot(column=\"maxspeed\", figsize=(10, 10), legend=True)\nplt.show()\n\n\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!require(\"pak\")) install.packages(\"pak\")\npkgs = c(\n    \"sf\",\n    \"tidyverse\",\n    \"tmap\",\n    \"tmaptools\",\n    \"osmextract\"\n)\npak::pak(pkgs)\nlibrary(tidyverse)\nlibrary(sf)\n# Centered on London\nstudy_area = st_point(c(-0.1278, 51.5074)) |&gt;\n  st_sfc(crs = 4326) |&gt;\n  st_transform(27700) |&gt;\n  st_buffer(8000) |&gt;\n  st_transform(4326)\nextra_tags = c(\n  \"maxspeed\",\n  \"lit\",\n  \"cycleway\"\n)\nosm_network = osmextract::oe_get(\n  place = study_area,\n  boundary = study_area,\n  boundary_type = \"clipsrc\",\n  extra_tags = extra_tags\n)\n\n\nosm_network |&gt;\n  select(maxspeed) |&gt;\n  plot()\n\n\n\n\n\n\n\n\n\n\n\nLet us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI for Transport",
+    "section": "",
+    "text": "This is the source repository for the AI for Transport course website.\nVisit https://itsleeds.github.io/ai4transport/ to see the rendered website.\n\n\nThis course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "AI for Transport",
+    "section": "",
+    "text": "This course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "questionnaire.html",
+    "href": "questionnaire.html",
+    "title": "Pre-Course Questionnaire",
+    "section": "",
+    "text": "This questionnaire will help us tailor the ‘AI for Transport’ course to your needs. Please complete the prerequisites before filling out this form."
+  },
+  {
+    "objectID": "questionnaire.html#prerequisites-confirmation",
+    "href": "questionnaire.html#prerequisites-confirmation",
+    "title": "Pre-Course Questionnaire",
+    "section": "Prerequisites Confirmation",
+    "text": "Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No"
+  },
+  {
+    "objectID": "questionnaire.html#your-details",
+    "href": "questionnaire.html#your-details",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Details",
+    "text": "Your Details\n2. What is your GitHub username?\nShort text answer"
+  },
+  {
+    "objectID": "questionnaire.html#your-setup",
+    "href": "questionnaire.html#your-setup",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Setup",
+    "text": "Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code"
+  },
+  {
+    "objectID": "questionnaire.html#current-work-and-ai-experience",
+    "href": "questionnaire.html#current-work-and-ai-experience",
+    "title": "Pre-Course Questionnaire",
+    "section": "Current Work and AI Experience",
+    "text": "Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nMicrosoft 365 Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer"
+  },
+  {
+    "objectID": "questionnaire.html#course-expectations",
+    "href": "questionnaire.html#course-expectations",
+    "title": "Pre-Course Questionnaire",
+    "section": "Course Expectations",
+    "text": "Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident"
   },
   {
     "objectID": "s2.html",
@@ -419,348 +331,177 @@
     ]
   },
   {
-    "objectID": "questionnaire.html",
-    "href": "questionnaire.html",
-    "title": "Pre-Course Questionnaire",
+    "objectID": "s4.html",
+    "href": "s4.html",
+    "title": "Session 4: AI for Transport Data Analysis",
     "section": "",
-    "text": "This questionnaire will help us tailor the ‘AI for Transport’ course to your needs. Please complete the prerequisites before filling out this form."
+    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Data Analysis"
+    ]
   },
   {
-    "objectID": "questionnaire.html#prerequisites-confirmation",
-    "href": "questionnaire.html#prerequisites-confirmation",
-    "title": "Pre-Course Questionnaire",
-    "section": "Prerequisites Confirmation",
-    "text": "Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No"
+    "objectID": "s4.html#introduction",
+    "href": "s4.html#introduction",
+    "title": "Session 4: AI for Transport Data Analysis",
+    "section": "",
+    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Data Analysis"
+    ]
   },
   {
-    "objectID": "questionnaire.html#your-details",
-    "href": "questionnaire.html#your-details",
-    "title": "Pre-Course Questionnaire",
-    "section": "Your Details",
-    "text": "Your Details\n2. What is your GitHub username?\nShort text answer"
+    "objectID": "s4.html#lecture-ai-in-data-analysis",
+    "href": "s4.html#lecture-ai-in-data-analysis",
+    "title": "Session 4: AI for Transport Data Analysis",
+    "section": "2 Lecture: AI in Data Analysis",
+    "text": "2 Lecture: AI in Data Analysis\n\nAccelerating the Workflow: How AI helps with data cleaning, preprocessing, and exploratory data analysis (EDA).\nPattern Identification: Using AI to uncover patterns and generate hypotheses from complex transport datasets.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Data Analysis"
+    ]
   },
   {
-    "objectID": "questionnaire.html#your-setup",
-    "href": "questionnaire.html#your-setup",
-    "title": "Pre-Course Questionnaire",
-    "section": "Your Setup",
-    "text": "Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code"
+    "objectID": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
+    "href": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
+    "title": "Session 4: AI for Transport Data Analysis",
+    "section": "3 Practical: Analyzing Spatio-Temporal OD Data with AI",
+    "text": "3 Practical: Analyzing Spatio-Temporal OD Data with AI\nWe will work through a guided case study using open access Call Detail Records (CDR) data from Spain.\n\n3.1 1. Data Acquisition and Preparation with AI Assistance\n\nWe will use the spanishoddata package to download OD data.\nUse an AI assistant to help write the R code to filter the data for a specific city (e.g., Seville).\nPrepare the location and flow data for visualization.\n\n\n\n3.2 2. AI-Powered Visualization\n\nUse the flowmapblue package to create an interactive flow map.\nAsk an AI assistant to help customize the map, for example, by adding animation or clustering.\n\n\n\n3.3 3. Interpretation and Reporting\n\nUse an LLM to help interpret the patterns shown in the flow map.\nGenerate a summary of the findings for a report.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Data Analysis"
+    ]
   },
   {
-    "objectID": "questionnaire.html#current-work-and-ai-experience",
-    "href": "questionnaire.html#current-work-and-ai-experience",
-    "title": "Pre-Course Questionnaire",
-    "section": "Current Work and AI Experience",
-    "text": "Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer"
+    "objectID": "s4.html#course-wrap-up",
+    "href": "s4.html#course-wrap-up",
+    "title": "Session 4: AI for Transport Data Analysis",
+    "section": "4 Course Wrap-up",
+    "text": "4 Course Wrap-up\n\nRecap of the key concepts and skills covered in the course.\nQ&A session.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Data Analysis"
+    ]
   },
   {
-    "objectID": "questionnaire.html#course-expectations",
-    "href": "questionnaire.html#course-expectations",
-    "title": "Pre-Course Questionnaire",
-    "section": "Course Expectations",
-    "text": "Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "slides/day1.html#welcome",
+    "href": "slides/day1.html#welcome",
     "title": "AI for Transport",
-    "section": "",
-    "text": "This is the source repository for the AI for Transport course website.\nVisit https://itsleeds.github.io/ai4transport/ to see the rendered website.\n\n\nThis course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
-    "crumbs": [
-      "Home"
-    ]
+    "section": "Welcome!",
+    "text": "Welcome!\nAI for Transport\n1-day course\nOctober 2025"
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
+    "objectID": "slides/day1.html#agenda",
+    "href": "slides/day1.html#agenda",
     "title": "AI for Transport",
-    "section": "",
-    "text": "This course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html",
-    "href": "prerequisites.html",
-    "title": "Prerequisites",
-    "section": "",
-    "text": "This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.\nYou must have a GitHub account and have saved your username. We will cover version control concepts in the course.",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#course-prerequisites",
-    "href": "prerequisites.html#course-prerequisites",
-    "title": "Prerequisites",
-    "section": "",
-    "text": "This course assumes a willingness to learn. No previous coding experience is required, but familiarity with transport planning concepts will be beneficial.\nYou must have a GitHub account and have saved your username. We will cover version control concepts in the course.",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#software-prerequisites",
-    "href": "prerequisites.html#software-prerequisites",
-    "title": "Prerequisites",
-    "section": "2 Software Prerequisites",
-    "text": "2 Software Prerequisites\nYou should bring a laptop with the following software installed and tested:\n\nA modern web browser (e.g., Chrome, Firefox, Edge).\nA text editor (e.g., VS Code, Notepad++).\nThe gh command-line tool (see cli.github.com for installation and set-up instructions).",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#recommended-online-courses",
-    "href": "prerequisites.html#recommended-online-courses",
-    "title": "Prerequisites",
-    "section": "3 Recommended Online Courses",
-    "text": "3 Recommended Online Courses\nTo prepare for this course, we recommend watching the following short video:\n\nIntroduction to AI Fluency by Anthropic (Lesson 1, ~5 minutes).\n\nAnd taking these short but very useful online courses:\n\nIntro to GitHub (should take less than an hour).\nCommunicate using Markdown (should take around 30 minutes or less).",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#testing-your-setup",
-    "href": "prerequisites.html#testing-your-setup",
-    "title": "Prerequisites",
-    "section": "4 Testing your setup",
-    "text": "4 Testing your setup\nYou can test your setup by running the following code in Python or R.\n\nPythonR\n\n\n\nimport osmnx as ox\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport shapely\n\n# Centered on London\nstudy_point = shapely.Point(-0.1278, 51.5074)\nstudy_geom = gpd.GeoSeries([study_point], crs=4326)\nstudy_polygon = study_geom.to_crs(epsg=3857).buffer(8000).to_crs(epsg=4326).unary_union\nstudy_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs=\"EPSG:4326\")\ntags = {\"highway\": True, \"maxspeed\": True, \"lit\": True, \"cycleway\": True}\ngdf = ox.features_from_polygon(study_polygon, tags)\ngdf = gdf[gdf.geom_type.isin([\"LineString\", \"MultiLineString\"])]\ngdf = gdf.to_crs(epsg=3857)\ngdf.plot(column=\"maxspeed\", figsize=(10, 10), legend=True)\nplt.show()\n\n\n\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!require(\"pak\")) install.packages(\"pak\")\npkgs = c(\n    \"sf\",\n    \"tidyverse\",\n    \"tmap\",\n    \"osmextract\"\n)\npak::pak(pkgs)\nlibrary(tidyverse)\nlibrary(sf)\n# Centered on London\nstudy_area = st_point(c(-0.1278, 51.5074)) |&gt;\n  st_sfc(crs = 4326) |&gt;\n  st_transform(27700) |&gt;\n  st_buffer(8000) |&gt;\n  st_transform(4326)\nextra_tags = c(\n  \"maxspeed\",\n  \"lit\",\n  \"cycleway\"\n)\nosm_network = osmextract::oe_get(\n  place = study_area,\n  boundary = study_area,\n  boundary_type = \"clipsrc\",\n  extra_tags = extra_tags\n)\n\n\nosm_network |&gt;\n  select(maxspeed) |&gt;\n  plot()\n\n\n\n\n\n\n\n\n\n\n\nLet us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "s1.html",
-    "href": "s1.html",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#introduction",
-    "href": "s1.html#introduction",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#lecture",
-    "href": "s1.html#lecture",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "2 Lecture",
-    "text": "2 Lecture\n\nDemystifying AI: Key concepts and terminology, with reference to Anthropic’s AI Fluency course.\nData Science Framework: How to apply AI effectively within a robust data science workflow.\nAI in Transport: Overview of applications in transport planning.\nEthical Considerations: “Garbage in, garbage out” vs. prompt and context engineering.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#practical",
-    "href": "s1.html#practical",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "3 Practical",
-    "text": "3 Practical\nThis is an interactive session to explore real-world AI use cases in transport.\n\nIdentify AI Opportunities (20 mins):\n\nOn paper, draw a flowchart of a typical task from your work.\nDraw a second flowchart showing how AI could be integrated to improve this workflow.\nBonus: If you have time, repeat for another task. Which is more suitable for AI integration?\n\nGroup Discussion (20 mins):\n\nIn small groups, discuss how AI could be best integrated into your work from first principles.\n\nGroup Feedback (20 mins):\n\nShare key themes and ideas from your group discussion with everyone.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#next-steps",
-    "href": "s1.html#next-steps",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "4 Next steps",
-    "text": "4 Next steps\nThe course team will consider the following next steps:\n\nDraft and share survey for potential attendees\nDraft and share course outline for feedback\nDraft Sections 1 and 4 (Robin)\nDraft Sections 2 and 3 (Chris)\nReview and finalise content (both)\nConvert this into website and hosting (Robin, Netlify or GitHub Pages)",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s3.html",
-    "href": "s3.html",
-    "title": "Session 3: Using LLMs for Reporting and Analysis",
-    "section": "",
-    "text": "Placeholder for session 3.\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds",
-    "crumbs": [
-      "Sessions",
-      "Session 3: LLMs for Reporting"
-    ]
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: Using LLMs for Reporting and Analysis\n\n\n\n15:30 - 17:00\nSession 4: AI for Transport Data Analysis",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "schedule.html#course-schedule",
-    "href": "schedule.html#course-schedule",
-    "title": "Schedule",
-    "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: Using LLMs for Reporting and Analysis\n\n\n\n15:30 - 17:00\nSession 4: AI for Transport Data Analysis",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides/day2.html#welcome-to-day-2",
-    "href": "slides/day2.html#welcome-to-day-2",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Welcome to Day 2!",
-    "text": "Welcome to Day 2!\nData Science for Transport Planning\n2-day course\n18-19 September 2025"
-  },
-  {
-    "objectID": "slides/day2.html#agenda",
-    "href": "slides/day2.html#agenda",
-    "title": "Data Science for Transport Planning: Day 2",
     "section": "Agenda",
-    "text": "Agenda\n\n09:00-10:45 Spatio-temporal data\n10:45-11:15 Break and refreshments\n11:15-12:30 Routing and route network analysis\n12:30-13:30 Lunch\n13:30-15:00 Best practices for data science in transport planning\n15:00-16:00 Advanced topics"
+    "text": "Agenda\n\n10:00-11:30 Session 1: Foundations of AI in Transport\n11:30-13:00 Session 2: (AI-Powered) Coding and Development\n13:00-14:00 Lunch\n14:00-15:30 Session 3: Using LLMs for Reporting and Analysis\n15:30-17:00 Session 4: AI for Transport Data Analysis"
   },
   {
-    "objectID": "slides/day2.html#recap-of-day-1",
-    "href": "slides/day2.html#recap-of-day-1",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Recap of Day 1",
-    "text": "Recap of Day 1\n\nIntroduction to Data Science for Transport Planning\nFinding, importing and cleaning transport datasets\nOrigin-destination data analysis\nOD Transport data visualisation"
+    "objectID": "slides/day1.html#prerequisites",
+    "href": "slides/day1.html#prerequisites",
+    "title": "AI for Transport",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nTo participate\n\nComputer with internet access\nA willingness to learn and experiment with AI tools\nBasic familiarity with transport planning concepts\nOptional: Experience with coding or data analysis tools"
   },
   {
-    "objectID": "slides/day2.html#lets-move-to-the-practical-sessions",
-    "href": "slides/day2.html#lets-move-to-the-practical-sessions",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Let’s move to the practical sessions",
-    "text": "Let’s move to the practical sessions\nSee the schedule for details.\nAny questions before we start?"
+    "objectID": "slides/day1.html#learn-and-share",
+    "href": "slides/day1.html#learn-and-share",
+    "title": "AI for Transport",
+    "section": "Learn and share",
+    "text": "Learn and share\nThe following will help:\n\nAn interest in transport planning and AI applications\nA willingness to learn and share experiences\nA GitHub account (useful for accessing course materials)\nOpenness to trying new AI tools and workflows"
   },
   {
-    "objectID": "slides/day2.html#practical-session-4-spatio-temporal-data",
-    "href": "slides/day2.html#practical-session-4-spatio-temporal-data",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Practical session 4: Spatio-temporal data",
-    "text": "Practical session 4: Spatio-temporal data"
+    "objectID": "slides/day1.html#housekeeping",
+    "href": "slides/day1.html#housekeeping",
+    "title": "AI for Transport",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nConnect to the Wi-Fi network\nCourse materials available online\nCoffee and lunch breaks as scheduled\nInteractive sessions: Please participate and ask questions"
   },
   {
-    "objectID": "slides/day2.html#practical-4-options",
-    "href": "slides/day2.html#practical-4-options",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Practical 4 options",
-    "text": "Practical 4 options\n\nGet stuck-into open access CDR (call detail records) data from Spain using the spanishoddata package\nRevisit the London Cycle Hire data from session 3.\nExplore changes in the spatial and temporal distrutions of road traffic collisions with stats19 package\nBring your own data (BYOD)!"
+    "objectID": "slides/day1.html#course-principles",
+    "href": "slides/day1.html#course-principles",
+    "title": "AI for Transport",
+    "section": "Course principles",
+    "text": "Course principles\n\n\n“Learn by doing” with AI tools\n“Demystifying AI” for practical use\n“No such thing as a bad question”\nFocus on practical applications\nReal-world transport examples\nHands-on experience with AI workflows"
   },
   {
-    "objectID": "slides/day2.html#spanishoddata",
-    "href": "slides/day2.html#spanishoddata",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "spanishoddata",
-    "text": "spanishoddata\nDownload a load of data from Spain!"
+    "objectID": "slides/day1.html#about-the-instructors",
+    "href": "slides/day1.html#about-the-instructors",
+    "title": "AI for Transport",
+    "section": "About the instructors",
+    "text": "About the instructors\nRobin Lovelace - Professor of Transport Data Science, University of Leeds - Focus on data-driven transport planning and open source tools\nChris Rushton - Transport planning and AI specialist - Experience in practical AI applications"
   },
   {
-    "objectID": "slides/day2.html#practical-session-5-routing-and-route-network-analysis",
-    "href": "slides/day2.html#practical-session-5-routing-and-route-network-analysis",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Practical session 5: Routing and route network analysis",
-    "text": "Practical session 5: Routing and route network analysis"
+    "objectID": "slides/day1.html#about-you",
+    "href": "slides/day1.html#about-you",
+    "title": "AI for Transport",
+    "section": "About you",
+    "text": "About you\nQuick introductions: - Name and organisation - Current role in transport - Experience with AI tools (if any) - What you hope to gain from today"
   },
   {
-    "objectID": "slides/day2.html#routing-infrastructure",
-    "href": "slides/day2.html#routing-infrastructure",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Routing infrastructure",
-    "text": "Routing infrastructure"
+    "objectID": "slides/day1.html#session-1-foundations-of-ai-in-transport",
+    "href": "slides/day1.html#session-1-foundations-of-ai-in-transport",
+    "title": "AI for Transport",
+    "section": "Session 1: Foundations of AI in Transport",
+    "text": "Session 1: Foundations of AI in Transport\nKey topics:\n\nWhat is AI and how does it apply to transport?\nOverview of AI tools and techniques\nReal-world transport applications\nEthical considerations\n\nSee: Session 1 materials"
   },
   {
-    "objectID": "slides/day2.html#routing-costs",
-    "href": "slides/day2.html#routing-costs",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Routing costs",
-    "text": "Routing costs"
+    "objectID": "slides/day1.html#session-2-ai-powered-coding-and-development",
+    "href": "slides/day1.html#session-2-ai-powered-coding-and-development",
+    "title": "AI for Transport",
+    "section": "Session 2: (AI-Powered) Coding and Development",
+    "text": "Session 2: (AI-Powered) Coding and Development\nKey topics:\n\nAI coding assistants (GitHub Copilot, etc.)\nEfficient AI-assisted workflows\nLive coding demonstrations\nHands-on practice\n\nSee: Session 2 materials"
   },
   {
-    "objectID": "slides/day2.html#routing-server-cost-summary",
-    "href": "slides/day2.html#routing-server-cost-summary",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Routing Server Cost Summary",
-    "text": "Routing Server Cost Summary\nVM Configuration: - e2-medium instance (2 vCPUs, 4 GB RAM) - Spot pricing (60-90% discount) - Europe-west2 region\nEstimated Daily Cost: - On-demand: ~$0.034/hour - Spot discount: ~70% = ~$0.010/hour - Per day (24h): ~$0.24\nMonthly Estimate: ~$7-8\nAdditional Costs: - Disk storage: ~$0.04/month - Network egress: Free for 1 GB/day, then ~$0.12/GB - Spot interruptions possible but cost-effective for non-critical workloads\nPrices approximate; use GCP Pricing Calculator for current rates."
+    "objectID": "slides/day1.html#lunch-break-1300-1400",
+    "href": "slides/day1.html#lunch-break-1300-1400",
+    "title": "AI for Transport",
+    "section": "Lunch Break (13:00-14:00)",
+    "text": "Lunch Break (13:00-14:00)"
   },
   {
-    "objectID": "slides/day2.html#practical-session-6-version-control-gitgithub",
-    "href": "slides/day2.html#practical-session-6-version-control-gitgithub",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Practical session 6: Version control (Git+GitHub)",
-    "text": "Practical session 6: Version control (Git+GitHub)\nWe do not need that for sure!"
+    "objectID": "slides/day1.html#session-3-using-llms-for-reporting-and-analysis",
+    "href": "slides/day1.html#session-3-using-llms-for-reporting-and-analysis",
+    "title": "AI for Transport",
+    "section": "Session 3: Using LLMs for Reporting and Analysis",
+    "text": "Session 3: Using LLMs for Reporting and Analysis\nKey topics:\n\nLarge Language Models for transport documents\nPrompt engineering techniques\nAnalysing policy documents and reports\nPractical exercises with real transport data\n\nSee: Session 3 materials"
   },
   {
-    "objectID": "slides/day2.html#version-control",
-    "href": "slides/day2.html#version-control",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Version Control",
-    "text": "Version Control\nYes, we do…\n\nVersion control. From: programmerhumor.io"
+    "objectID": "slides/day1.html#session-4-ai-for-transport-data-analysis",
+    "href": "slides/day1.html#session-4-ai-for-transport-data-analysis",
+    "title": "AI for Transport",
+    "section": "Session 4: AI for Transport Data Analysis",
+    "text": "Session 4: AI for Transport Data Analysis\nKey topics:\n\nAI-accelerated data processing\nPattern recognition in transport datasets\nVisualisation with AI assistance\nComplete workflow examples\n\nSee: Session 4 materials"
   },
   {
-    "objectID": "slides/day2.html#how-does-it-look",
-    "href": "slides/day2.html#how-does-it-look",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "How does it look?",
-    "text": "How does it look?\n\nFrom 20i.com"
+    "objectID": "slides/day1.html#feedback-on-session-4",
+    "href": "slides/day1.html#feedback-on-session-4",
+    "title": "AI for Transport",
+    "section": "Feedback on Session 4",
+    "text": "Feedback on Session 4\nPlease provide feedback on this session: forms.office.com/e/XZ2Hdt72HK"
   },
   {
-    "objectID": "slides/day2.html#key-terms",
-    "href": "slides/day2.html#key-terms",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Key terms",
-    "text": "Key terms\n\nFork: Making a personal copu of a repository\nClone: Downloading a full copy of a repository to your computer\nPull : Fetches changes from the cloud to your local copy\nCommit: Saves a snapshot of your changes\nPush: Uploads your local commits\nBranch: A separate line of development in a repository.\nPull request: Proposes your changes from a branch to be merged into the main project."
+    "objectID": "slides/day1.html#course-wrap-up",
+    "href": "slides/day1.html#course-wrap-up",
+    "title": "AI for Transport",
+    "section": "Course wrap-up",
+    "text": "Course wrap-up\nKey takeaways:\n\nAI as a tool to enhance transport planning\nPractical skills for immediate application\nResources for continued learning\nBuilding AI into your workflow\n\nNext steps:\n\nTry the tools in your own work\nJoin the community discussions\nShare your experiences and learn from others"
   },
   {
-    "objectID": "slides/day2.html#what-we-will-be-doing",
-    "href": "slides/day2.html#what-we-will-be-doing",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "What we will be doing",
-    "text": "What we will be doing\n\nForking a repository\nCloning a repository (for those working locally)\nCreating an issue\nCreating a branch\nMaking changes\nCommitting changes\nPushing changes\nCreating a PR"
+    "objectID": "slides/day1.html#thank-you",
+    "href": "slides/day1.html#thank-you",
+    "title": "AI for Transport",
+    "section": "Thank you!",
+    "text": "Thank you!\nQuestions? Discussion?\nCourse materials: Available online Community: GitHub Discussions"
   },
   {
-    "objectID": "slides/day2.html#feedback-on-the-course",
-    "href": "slides/day2.html#feedback-on-the-course",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Feedback on the course",
-    "text": "Feedback on the course\nPlease provide feedback on this forms.office.com/e/m102aC23ZD (should take less than 5 minutes):"
-  },
-  {
-    "objectID": "slides/day2.html#advanced-topics",
-    "href": "slides/day2.html#advanced-topics",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Advanced topics",
-    "text": "Advanced topics"
-  },
-  {
-    "objectID": "slides/day2.html#visualising-large-datasets",
-    "href": "slides/day2.html#visualising-large-datasets",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Visualising large datasets",
-    "text": "Visualising large datasets\n\nInstall and try visualising datasets from previous sessions with:\n\nmapgl: an R interface to Mapbox GL JS for rendering large spatial datasets.\ntmap.gl: Use your existing tmap code, that builds on mapgl\nThe nptscot/pmtiles GitHub package provides tools for creating vector tiles in R (advanced)."
-  },
-  {
-    "objectID": "slides/day2.html#route-network-integration",
-    "href": "slides/day2.html#route-network-integration",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Route network integration",
-    "text": "Route network integration\n\nTake a read of the networkmerge paper and try to reproduce some of the code\nSearch for and download the Ordnance Survey’s OpenRoads data product\nCheck-out the stplanr function rnet_join() for joining different route networks, e.g. walking and cycling networks.\nCheck-out the anime package for astonishingly fast network joining (advanced)."
-  },
-  {
-    "objectID": "slides/day2.html#deploying-your-work-as-web-applications",
-    "href": "slides/day2.html#deploying-your-work-as-web-applications",
-    "title": "Data Science for Transport Planning: Day 2",
-    "section": "Deploying your work as web applications",
-    "text": "Deploying your work as web applications\n\nThink about the project that you’re working on that would have the maximum benefit from being deployed as a web application.\nSketch out the user interface and user experience (UI/UX) of the application.\nSketch the data flow and architecture of backend systems.\nRead-up on the targets package for reproducible pipelines.\nTake a look at the source code of some deployed web applications for inspiration\n\nExample: Propensity to Cycle Tool (PCT)\nThe PCT is an open-source planning tool for cycling scenarios in England and Wales.\n(Interactive map screenshot: Cycling potential layers over England and Wales, showing commute scenarios with color-coded routes)\n\nInteractive maps with Leaflet for route visualization\nScenarios: Government Target, Go Dutch, Ebike\nSource: pct.bike, GitHub npct/pct\n\nBest practice: Use Shiny for interactivity, open-source for collaboration, integrate with census data for evidence-based planning.\nExample: Propensity to Cycle Tool for Northern Ireland (PCTNI)\nSimilar to PCT, adapted for Northern Ireland with OSM data.\n(Interactive map screenshot: Route network layers for Northern Ireland, highlighting fastest/quietest cycling routes)\n\nLayers for fastest/quietest routes, cycle networks\nBased on 2011 Census, under active development\nSource: pctni.org, GitHub pctni\nCheck out the code in the nptscot/nptscot and nptscot/nptscot.github.io repositories, plus the resulting app at npt.scot.\nLook for the source code associated with other apps including pctni.org, pct.bike and other apps of your choice."
+    "objectID": "slides/day1.html#references",
+    "href": "slides/day1.html#references",
+    "title": "AI for Transport",
+    "section": "References",
+    "text": "References"
   }
 ]
