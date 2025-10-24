@@ -20,7 +20,7 @@ Building on Session 2’s AI-powered coding, this session shows how to call an L
 We’ll use Python. If packages are missing, install them first.
 
 ```{python}
-#!pip install openai requests pypdf
+!pip install openai requests pypdf
 import os
 import json
 from typing import List, Dict
