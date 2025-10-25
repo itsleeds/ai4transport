@@ -1,6 +1,8 @@
 ---
 title: "Session 3: Automating Document Analysis with LLM APIs"
 author: "[Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton)"
+execute: 
+  eval: false
 ---
 
 ## Introduction
