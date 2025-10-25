@@ -9,7 +9,7 @@
 <meta name="author" content="ITS Leeds">
 <meta name="dcterms.date" content="2025">
 
-<title>Session 3: Using LLMs for Reporting and Analysis – AI for Transport -</title>
+<title>Session 3: Automating Document Analysis with LLM APIs – AI for Transport -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -173,21 +208,44 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link" data-scroll-target="#what-youll-learn"><span class="header-section-number">2</span> What you’ll learn</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">3</span> Setup</a></li>
+  <li><a href="#a-simple-chat-completion" id="toc-a-simple-chat-completion" class="nav-link" data-scroll-target="#a-simple-chat-completion"><span class="header-section-number">4</span> A simple chat completion</a></li>
+  <li><a href="#getting-structured-json-outputs" id="toc-getting-structured-json-outputs" class="nav-link" data-scroll-target="#getting-structured-json-outputs"><span class="header-section-number">5</span> Getting structured (JSON) outputs</a></li>
+  <li><a href="#analysing-a-pdf-from-a-url-robust-approach" id="toc-analysing-a-pdf-from-a-url-robust-approach" class="nav-link" data-scroll-target="#analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">6</span> Analysing a PDF from a URL (robust approach)</a>
+  <ul class="collapse">
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">6.1</span> Try it</a></li>
+  </ul></li>
+  <li><a href="#batch-a-task-across-multiple-documents" id="toc-batch-a-task-across-multiple-documents" class="nav-link" data-scroll-target="#batch-a-task-across-multiple-documents"><span class="header-section-number">7</span> Batch a task across multiple documents</a></li>
+  <li><a href="#good-practice-and-guardrails" id="toc-good-practice-and-guardrails" class="nav-link" data-scroll-target="#good-practice-and-guardrails"><span class="header-section-number">8</span> Good practice and guardrails</a></li>
+  <li><a href="#where-this-fits-in-the-course" id="toc-where-this-fits-in-the-course" class="nav-link" data-scroll-target="#where-this-fits-in-the-course"><span class="header-section-number">9</span> Where this fits in the course</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s1.html">Sessions</a></li><li class="breadcrumb-item"><a href="./s3.html">Session 3: LLMs for Reporting</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 3: Using LLMs for Reporting and Analysis</h1>
+<h1 class="title">Session 3: Automating Document Analysis with LLM APIs</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton">Chris Rushton</a> </p>
+          </div>
+  </div>
     
   
     
@@ -198,9 +256,226 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Placeholder for session 3.</p>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.</p>
+</section>
+<section id="what-youll-learn" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-youll-learn"><span class="header-section-number">2</span> What you’ll learn</h2>
+<ul>
+<li>Set up an API client</li>
+<li>Send a basic prompt and parse a response</li>
+<li>Ask the model for structured JSON and validate it</li>
+<li>Fetch a PDF from a URL, extract text, and summarise it reproducibly</li>
+<li>Batch a task across multiple files</li>
+</ul>
+</section>
+<section id="setup" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="setup"><span class="header-section-number">3</span> Setup</h2>
+<p>We’ll use Python. If packages are missing, install them first.</p>
+<div id="f554c20a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai requests pypdf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Dict</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Best practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the <code>.env</code> file directly.</p>
+<p>Now create the client:</p>
+<div id="be1cb048" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ROUTER_API_KEY <span class="op">=</span> <span class="st">'link to your api key location'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>CLIENT <span class="op">=</span> OpenAI(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>ROUTER_API_KEY,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    default_headers<span class="op">=</span>{<span class="st">"Authorization"</span>: <span class="ss">f"Bearer </span><span class="sc">{</span>ROUTER_API_KEY<span class="sc">}</span><span class="ss">"</span>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="a-simple-chat-completion" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="a-simple-chat-completion"><span class="header-section-number">4</span> A simple chat completion</h2>
+<p>This mirrors what you do in a chat UI, but from code:</p>
+<div id="0e76a984" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> CLIENT.chat.completions.create(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"You are a dilligent, concise transport planning assistant."</span>},</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="st">"Tell me a family-friendly transport planning joke."</span>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resp.choices[<span class="dv">0</span>].message.content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Try tweaking the prompt style (e.g., more witty, drier, aimed at students vs.&nbsp;professionals).</p>
+</section>
+<section id="getting-structured-json-outputs" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="getting-structured-json-outputs"><span class="header-section-number">5</span> Getting structured (JSON) outputs</h2>
+<p>When you need to use the response downstream, ask the model to return JSON and validate it.</p>
+<div id="023c5a47" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>schema_hint <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"properties"</span>: {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: {<span class="st">"type"</span>: <span class="st">"string"</span>},</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"insight"</span>: {<span class="st">"type"</span>: <span class="st">"string"</span>},</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"confidence"</span>: {<span class="st">"type"</span>: <span class="st">"number"</span>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"required"</span>: [<span class="st">"title"</span>, <span class="st">"insight"</span>, <span class="st">"confidence"</span>]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> (</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Summarise one noteworthy transport planning insight from London’s congestion pricing "</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"policy in 1-2 sentences. Return only valid JSON with keys: title, insight, confidence (0-1)."</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> CLIENT.chat.completions.create(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"Return only JSON, no extra text."</span>},</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: prompt}</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> resp.choices[<span class="dv">0</span>].message.content</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(raw)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">set</span>([<span class="st">"title"</span>, <span class="st">"insight"</span>, <span class="st">"confidence"</span>]) <span class="op">&lt;=</span> <span class="bu">set</span>(data.keys())</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Model did not return valid JSON. Raw output: </span><span class="sc">{</span>raw<span class="sc">}</span><span class="ss">"</span>) <span class="im">from</span> e</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="analysing-a-pdf-from-a-url-robust-approach" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">6</span> Analysing a PDF from a URL (robust approach)</h2>
+<p>Rather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.</p>
+<div id="21df03b9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pypdf</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pypdf <span class="im">import</span> PdfReader</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_pdf_text(url: <span class="bu">str</span>, max_pages: <span class="bu">int</span> <span class="op">=</span> <span class="dv">5</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Download a PDF and extract text from the first `max_pages` pages."""</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url, timeout<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    r.raise_for_status()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> io.BytesIO(r.content) <span class="im">as</span> f:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        reader <span class="op">=</span> PdfReader(f)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        pages <span class="op">=</span> <span class="bu">min</span>(max_pages, <span class="bu">len</span>(reader.pages))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> []</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(pages):</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            text.append(reader.pages[i].extract_text() <span class="kw">or</span> <span class="st">""</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>.join(text).strip()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> chunk_text(text: <span class="bu">str</span>, chunk_chars: <span class="bu">int</span> <span class="op">=</span> <span class="dv">6000</span>) <span class="op">-&gt;</span> List[<span class="bu">str</span>]:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Split text into roughly token-sized chunks for prompting."""</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    chunks <span class="op">=</span> []</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(text), chunk_chars):</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        chunks.append(text[i:i<span class="op">+</span>chunk_chars])</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> chunks</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarise_pdf(url: <span class="bu">str</span>, task: <span class="bu">str</span> <span class="op">=</span> <span class="st">"Summarise and comment on this document for a transport audience."</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> fetch_pdf_text(url)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> text:</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"No text extracted from the PDF."</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    chunks <span class="op">=</span> chunk_text(text)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    summaries <span class="op">=</span> []</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx, ch <span class="kw">in</span> <span class="bu">enumerate</span>(chunks, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> CLIENT.chat.completions.create(</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            messages<span class="op">=</span>[</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>                {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"You are a precise analyst. Keep outputs concise."</span>},</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>                {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="ss">f"</span><span class="sc">{</span>task<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Chunk </span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(chunks)<span class="sc">}</span><span class="ss">:</span><span class="ch">\n</span><span class="sc">{</span>ch<span class="sc">}</span><span class="ss">"</span>}</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        summaries.append(r.choices[<span class="dv">0</span>].message.content)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compress partial summaries into a final synthesis</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    final <span class="op">=</span> CLIENT.chat.completions.create(</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        messages<span class="op">=</span>[</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"Create a single, coherent summary with key takeaways."</span>},</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>.join(summaries)}</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final.choices[<span class="dv">0</span>].message.content</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Example (uses a classic sample PDF)</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>sample_url <span class="op">=</span> <span class="st">"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>summarise_pdf(sample_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="try-it" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="try-it"><span class="header-section-number">6.1</span> Try it</h3>
+<ul>
+<li>Change <code>max_pages</code> in <code>fetch_pdf_text</code> to control cost/speed.</li>
+<li>Swap <code>task</code> to focus on risks, methods, or key findings.</li>
+<li>Use your own PDF URLs (public reports, guidance docs, etc.).</li>
+</ul>
+</section>
+</section>
+<section id="batch-a-task-across-multiple-documents" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="batch-a-task-across-multiple-documents"><span class="header-section-number">7</span> Batch a task across multiple documents</h2>
+<p>You’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):</p>
+<div id="a35f1211" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_insights(text: <span class="bu">str</span>) <span class="op">-&gt;</span> Dict:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> (</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"From the provided text, output JSON with: title, bullets (array of 2-3 concise points),"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">" confidence (0-1). Return only JSON."</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> CLIENT.chat.completions.create(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>MODEL,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        messages<span class="op">=</span>[</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"Return valid JSON only."</span>},</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="ss">f"</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n\n</span><span class="sc">{</span>text[:<span class="dv">6000</span>]<span class="sc">}</span><span class="ss">"</span>}</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    raw <span class="op">=</span> r.choices[<span class="dv">0</span>].message.content</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> json.loads(raw)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"title"</span>: <span class="st">"(parse_error)"</span>, <span class="st">"bullets"</span>: [raw], <span class="st">"confidence"</span>: <span class="fl">0.0</span>}</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> batch_process(urls: List[<span class="bu">str</span>], out_path: <span class="bu">str</span> <span class="op">=</span> <span class="st">"insights.jsonl"</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(out_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> url <span class="kw">in</span> urls:</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                text <span class="op">=</span> fetch_pdf_text(url, max_pages<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                data <span class="op">=</span> extract_insights(text)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                data.update({<span class="st">"source"</span>: url, <span class="st">"ts"</span>: datetime.utcnow().isoformat()})</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                f.write(json.dumps(data, ensure_ascii<span class="op">=</span><span class="va">False</span>) <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                f.write(json.dumps({</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"source"</span>: url, <span class="st">"error"</span>: <span class="bu">str</span>(e), <span class="st">"ts"</span>: datetime.utcnow().isoformat()</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                }) <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out_path</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>urls <span class="op">=</span> [</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"</span>,</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add more public PDF URLs here</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>batch_process(urls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="good-practice-and-guardrails" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="good-practice-and-guardrails"><span class="header-section-number">8</span> Good practice and guardrails</h2>
+<ul>
+<li>Reproducibility: fix the model name per project and log prompts.</li>
+<li>Privacy: don’t send sensitive data to third-party APIs without approval.</li>
+<li>Cost control: cap pages, chunk sizes, and batch sizes; cache intermediate results.</li>
+<li>Error handling: catch network errors/timeouts; write partial results with error notes.</li>
+<li>Version control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).</li>
+</ul>
+</section>
+<section id="where-this-fits-in-the-course" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="where-this-fits-in-the-course"><span class="header-section-number">9</span> Where this fits in the course</h2>
+<ul>
+<li>From Session 1: we’re applying AI within a clear workflow with ethical awareness.</li>
+<li>From Session 2: we’re turning assisted coding into reproducible automation.</li>
+<li>Into Session 4: we’ll apply the same ideas to transport data analysis and reporting.</li>
+</ul>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 ITS Leeds</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -611,7 +886,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

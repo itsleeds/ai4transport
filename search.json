@@ -327,9 +327,108 @@
   {
     "objectID": "s3.html",
     "href": "s3.html",
-    "title": "Session 3: Using LLMs for Reporting and Analysis",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
     "section": "",
-    "text": "Placeholder for session 3.\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds",
+    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#introduction",
+    "href": "s3.html#introduction",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "",
+    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#what-youll-learn",
+    "href": "s3.html#what-youll-learn",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "2 What you’ll learn",
+    "text": "2 What you’ll learn\n\nSet up an API client\nSend a basic prompt and parse a response\nAsk the model for structured JSON and validate it\nFetch a PDF from a URL, extract text, and summarise it reproducibly\nBatch a task across multiple files",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#setup",
+    "href": "s3.html#setup",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "3 Setup",
+    "text": "3 Setup\nWe’ll use Python. If packages are missing, install them first.\n\n#!pip install openai requests pypdf\nimport os\nimport json\nfrom typing import List, Dict\nfrom openai import OpenAI\n\nBest practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the .env file directly.\nNow create the client:\n\nROUTER_API_KEY = 'link to your api key location'\n\nCLIENT = OpenAI(\n    api_key=ROUTER_API_KEY,\n    default_headers={\"Authorization\": f\"Bearer {ROUTER_API_KEY}\"}\n)",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#a-simple-chat-completion",
+    "href": "s3.html#a-simple-chat-completion",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "4 A simple chat completion",
+    "text": "4 A simple chat completion\nThis mirrors what you do in a chat UI, but from code:\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a dilligent, concise transport planning assistant.\"},\n        {\"role\": \"user\", \"content\": \"Tell me a family-friendly transport planning joke.\"}\n    ]\n)\nprint(resp.choices[0].message.content)\n\nTry tweaking the prompt style (e.g., more witty, drier, aimed at students vs. professionals).",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#getting-structured-json-outputs",
+    "href": "s3.html#getting-structured-json-outputs",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "5 Getting structured (JSON) outputs",
+    "text": "5 Getting structured (JSON) outputs\nWhen you need to use the response downstream, ask the model to return JSON and validate it.\n\nschema_hint = {\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\"type\": \"string\"},\n        \"insight\": {\"type\": \"string\"},\n        \"confidence\": {\"type\": \"number\"}\n    },\n    \"required\": [\"title\", \"insight\", \"confidence\"]\n}\n\nprompt = (\n    \"Summarise one noteworthy transport planning insight from London’s congestion pricing \"\n    \"policy in 1-2 sentences. Return only valid JSON with keys: title, insight, confidence (0-1).\"\n)\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"Return only JSON, no extra text.\"},\n        {\"role\": \"user\", \"content\": prompt}\n    ]\n)\n\nraw = resp.choices[0].message.content\ntry:\n    data = json.loads(raw)\n    assert set([\"title\", \"insight\", \"confidence\"]) &lt;= set(data.keys())\nexcept Exception as e:\n    raise ValueError(f\"Model did not return valid JSON. Raw output: {raw}\") from e\n\ndata",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#analysing-a-pdf-from-a-url-robust-approach",
+    "href": "s3.html#analysing-a-pdf-from-a-url-robust-approach",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "6 Analysing a PDF from a URL (robust approach)",
+    "text": "6 Analysing a PDF from a URL (robust approach)\nRather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.\n\n!pip install pypdf\nimport io\nimport math\nimport requests\nfrom pypdf import PdfReader\n\ndef fetch_pdf_text(url: str, max_pages: int = 5) -&gt; str:\n    \"\"\"Download a PDF and extract text from the first `max_pages` pages.\"\"\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    with io.BytesIO(r.content) as f:\n        reader = PdfReader(f)\n        pages = min(max_pages, len(reader.pages))\n        text = []\n        for i in range(pages):\n            text.append(reader.pages[i].extract_text() or \"\")\n    return \"\\n\\n\".join(text).strip()\n\ndef chunk_text(text: str, chunk_chars: int = 6000) -&gt; List[str]:\n    \"\"\"Split text into roughly token-sized chunks for prompting.\"\"\"\n    chunks = []\n    for i in range(0, len(text), chunk_chars):\n        chunks.append(text[i:i+chunk_chars])\n    return chunks\n\ndef summarise_pdf(url: str, task: str = \"Summarise and comment on this document for a transport audience.\") -&gt; str:\n    text = fetch_pdf_text(url)\n    if not text:\n        return \"No text extracted from the PDF.\"\n    chunks = chunk_text(text)\n    summaries = []\n    for idx, ch in enumerate(chunks, start=1):\n        r = CLIENT.chat.completions.create(\n            model=\"gpt-5-mini\",\n            messages=[\n                {\"role\": \"system\", \"content\": \"You are a precise analyst. Keep outputs concise.\"},\n                {\"role\": \"user\", \"content\": f\"{task}\\n\\nChunk {idx}/{len(chunks)}:\\n{ch}\"}\n            ]\n        )\n        summaries.append(r.choices[0].message.content)\n    # Compress partial summaries into a final synthesis\n    final = CLIENT.chat.completions.create(\n        model=\"gpt-5-mini\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"Create a single, coherent summary with key takeaways.\"},\n            {\"role\": \"user\", \"content\": \"\\n\\n\".join(summaries)}\n        ]\n    )\n    return final.choices[0].message.content\n\n# Example (uses a classic sample PDF)\nsample_url = \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\"\nsummarise_pdf(sample_url)\n\n\n6.1 Try it\n\nChange max_pages in fetch_pdf_text to control cost/speed.\nSwap task to focus on risks, methods, or key findings.\nUse your own PDF URLs (public reports, guidance docs, etc.).",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#batch-a-task-across-multiple-documents",
+    "href": "s3.html#batch-a-task-across-multiple-documents",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "7 Batch a task across multiple documents",
+    "text": "7 Batch a task across multiple documents\nYou’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):\n\nfrom datetime import datetime\n\ndef extract_insights(text: str) -&gt; Dict:\n    prompt = (\n        \"From the provided text, output JSON with: title, bullets (array of 2-3 concise points),\"\n        \" confidence (0-1). Return only JSON.\"\n    )\n    r = CLIENT.chat.completions.create(\n        model=MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Return valid JSON only.\"},\n            {\"role\": \"user\", \"content\": f\"{prompt}\\n\\n{text[:6000]}\"}\n        ]\n    )\n    raw = r.choices[0].message.content\n    try:\n        return json.loads(raw)\n    except Exception:\n        return {\"title\": \"(parse_error)\", \"bullets\": [raw], \"confidence\": 0.0}\n\ndef batch_process(urls: List[str], out_path: str = \"insights.jsonl\") -&gt; str:\n    with open(out_path, \"w\", encoding=\"utf-8\") as f:\n        for url in urls:\n            try:\n                text = fetch_pdf_text(url, max_pages=5)\n                data = extract_insights(text)\n                data.update({\"source\": url, \"ts\": datetime.utcnow().isoformat()})\n                f.write(json.dumps(data, ensure_ascii=False) + \"\\n\")\n            except Exception as e:\n                f.write(json.dumps({\n                    \"source\": url, \"error\": str(e), \"ts\": datetime.utcnow().isoformat()\n                }) + \"\\n\")\n    return out_path\n\nurls = [\n    \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\",\n    # add more public PDF URLs here\n]\n\nbatch_process(urls)",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#good-practice-and-guardrails",
+    "href": "s3.html#good-practice-and-guardrails",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "8 Good practice and guardrails",
+    "text": "8 Good practice and guardrails\n\nReproducibility: fix the model name per project and log prompts.\nPrivacy: don’t send sensitive data to third-party APIs without approval.\nCost control: cap pages, chunk sizes, and batch sizes; cache intermediate results.\nError handling: catch network errors/timeouts; write partial results with error notes.\nVersion control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).",
+    "crumbs": [
+      "Sessions",
+      "Session 3: LLMs for Reporting"
+    ]
+  },
+  {
+    "objectID": "s3.html#where-this-fits-in-the-course",
+    "href": "s3.html#where-this-fits-in-the-course",
+    "title": "Session 3: Automating Document Analysis with LLM APIs",
+    "section": "9 Where this fits in the course",
+    "text": "9 Where this fits in the course\n\nFrom Session 1: we’re applying AI within a clear workflow with ethical awareness.\nFrom Session 2: we’re turning assisted coding into reproducible automation.\nInto Session 4: we’ll apply the same ideas to transport data analysis and reporting.",
     "crumbs": [
       "Sessions",
       "Session 3: LLMs for Reporting"
@@ -499,7 +598,7 @@
     "href": "prerequisites.html#testing-your-setup",
     "title": "Prerequisites",
     "section": "4 Testing your setup",
-    "text": "4 Testing your setup\nYou can test your setup by running the following code in Python or R, either in your local IDE or in GitHub Codespaces. Do so by first creating a new Quarto (.qmd) file, e.g. called test.qmd, and then typing the following into a code chunk with three backticks (located in the top left of your keyboard, just left of the 1 key) to start and end the code chunk and {r} or {python} at the end of the first code chunk to make the code interactive, as follows (update the code as needed):\n\nYou should be able to run the code in a GitHub Codespaces with the following link:\n\n\n\nOpen in GitHub Codespaces\n\n\nChoose either the Python or R code below, depending on which language you prefer to use.\n\nRPython\n\n\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!require(\"pak\")) install.packages(\"pak\")\npkgs = c(\n    \"sf\",\n    \"tidyverse\",\n    \"tmap\",\n    \"osmextract\"\n)\npak::pak(pkgs)\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\nThe next bit optionally downloads lots of data, so you may want to skip it if you’re just testing your setup.\n\n\nCode\n# Centered on Broadway House, London\nbroadway_house = stplanr::geo_code(\"Tothill St, London\")\n# [1] -0.1302077 51.4996820\nstudy_area = st_point(c(-0.13020, 51.4997)) |&gt; \n  st_sfc(crs = 4326) |&gt;\n  st_transform(27700) |&gt;\n  st_buffer(500) |&gt;\n  st_transform(4326)\nextra_tags = c(\n  \"maxspeed\",\n  \"lit\",\n  \"cycleway\"\n)\nosm_network = osmextract::oe_get_network(\n  place = study_area,\n  boundary = study_area,\n  boundary_type = \"clipsrc\",\n  extra_tags = extra_tags,\n  mode = \"driving\"\n)\n\n\n\n# sf::write_sf(osm_network, \"osm_network.geojson\", delete_dsn = TRUE)\nosm_network = sf::read_sf(\"osm_network.geojson\")\n\n\nlibrary(tmap)\ntmap_mode(\"view\")\nm = tm_shape(osm_network) +\n  tm_lines(\"maxspeed\")\nm\n\n\n\n\n\n\n\n\n\nimport osmnx as ox\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport shapely\n\n# Import and plot the saved data:\ngdf = gpd.read_file(\"osm_network.geojson\")\ngdf.explore(column=\"maxspeed\")\n\n# Optional: Download data from OSM:\nstudy_point = shapely.Point(-0.13020, 51.4997)\nstudy_geom = gpd.GeoSeries([study_point], crs=4326)\nstudy_polygon = study_geom.to_crs(epsg=3857).buffer(500).to_crs(epsg=4326).unary_union\nstudy_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs=\"EPSG:4326\")\ntags = {\"highway\": True, \"maxspeed\": True, \"lit\": True, \"cycleway\": True}\ngdf = ox.features_from_polygon(study_polygon, tags)\ngdf = gdf[gdf.geom_type.isin([\"LineString\", \"MultiLineString\"])]\ngdf = gdf.to_crs(epsg=3857)\ngdf.plot(column=\"maxspeed\", figsize=(10, 10), legend=True)\nplt.show()\n\n\n\nIf it worked, it should look something like this (from the online development version):\n\n\nThat is the road network surrounding Broadway House in London, where the course will be held in person.\n\n\nLet us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.",
+    "text": "4 Testing your setup\nYou can test your setup by running the following code in Python or R, either in your local IDE or in GitHub Codespaces. Do so by first creating a new Quarto (.qmd) file, e.g. called test.qmd, and then typing the following into a code chunk with three backticks (located in the top left of your keyboard, just left of the 1 key) to start and end the code chunk and {r} or {python} at the end of the first code chunk to make the code interactive, as follows (update the code as needed):\nTo run code in .qmd files interactively, ensure your cursor is focused in a code chunk (or you have specific lines of code selected) and then click the “Run Cell” button or (preferably) do it with keyboard shortcuts: press Ctrl+Enter to run the current line or Ctrl+Shift+Enter to run the entire code chunk.  See the Quarto documentation at quarto.org/docs/ for more details on how to run code chunks in Quarto.\n\nYou should be able to run the code in a GitHub Codespaces with the following link:\n\n\n\nOpen in GitHub Codespaces\n\n\nChoose either the Python or R code below, depending on which language you prefer to use.\n\nRPython\n\n\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!require(\"pak\")) install.packages(\"pak\")\npkgs = c(\n    \"sf\",\n    \"tidyverse\",\n    \"tmap\",\n    \"osmextract\"\n)\npak::pak(pkgs)\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\nThe next bit optionally downloads lots of data, so you may want to skip it if you’re just testing your setup.\n\n\nCode\n# Centered on Broadway House, London\nbroadway_house = stplanr::geo_code(\"Tothill St, London\")\n# [1] -0.1302077 51.4996820\nstudy_area = st_point(c(-0.13020, 51.4997)) |&gt; \n  st_sfc(crs = 4326) |&gt;\n  st_transform(27700) |&gt;\n  st_buffer(500) |&gt;\n  st_transform(4326)\nextra_tags = c(\n  \"maxspeed\",\n  \"lit\",\n  \"cycleway\"\n)\nosm_network = osmextract::oe_get_network(\n  place = study_area,\n  boundary = study_area,\n  boundary_type = \"clipsrc\",\n  extra_tags = extra_tags,\n  mode = \"driving\"\n)\n\n\n\n# sf::write_sf(osm_network, \"osm_network.geojson\", delete_dsn = TRUE)\nosm_network = sf::read_sf(\"osm_network.geojson\")\n\n\nlibrary(tmap)\n# Uncomment the next line to view in interactive window:\n# tmap_mode(\"view\") \nm = tm_shape(osm_network) +\n  tm_lines(\"maxspeed\")\nm\n\n\n\n\n\n\n\n\n\n\n\nimport osmnx as ox\nimport geopandas as gpd\nimport matplotlib.pyplot as plt\nimport shapely\n\n# Import and plot the saved data:\ngdf = gpd.read_file(\"osm_network.geojson\")\ngdf.explore(column=\"maxspeed\")\n\n# Optional: Download data from OSM:\nstudy_point = shapely.Point(-0.13020, 51.4997)\nstudy_geom = gpd.GeoSeries([study_point], crs=4326)\nstudy_polygon = study_geom.to_crs(epsg=3857).buffer(500).to_crs(epsg=4326).unary_union\nstudy_polygon_gpd = gpd.GeoDataFrame(geometry=[study_polygon], crs=\"EPSG:4326\")\ntags = {\"highway\": True, \"maxspeed\": True, \"lit\": True, \"cycleway\": True}\ngdf = ox.features_from_polygon(study_polygon, tags)\ngdf = gdf[gdf.geom_type.isin([\"LineString\", \"MultiLineString\"])]\ngdf = gdf.to_crs(epsg=3857)\ngdf.plot(column=\"maxspeed\", figsize=(10, 10), legend=True)\nplt.show()\n\n\n\nIf it worked, it should look something like this (from the online development version):\n\n\nThat is the road network surrounding Broadway House in London, where the course will be held in person.\n\n\nLet us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.",
     "crumbs": [
       "Prerequisites"
     ]
