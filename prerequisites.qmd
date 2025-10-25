@@ -46,6 +46,10 @@ And taking these short but very useful online courses:
 You can test your setup by running the following code in Python or R, either in your local IDE or in GitHub Codespaces.
 Do so by first creating a new Quarto (.qmd) file, e.g. called test.qmd, and then typing the following into a code chunk with three backticks (located in the top left of your keyboard, just left of the 1 key) to start and end the code chunk and `{r}` or `{python}` at the end of the first code chunk to make the code interactive, as follows (update the code as needed):
 
+To run code in `.qmd` files interactively, ensure your cursor is focused in a code chunk (or you have specific lines of code selected) and then click the "Run Cell" button or (preferably) do it with keyboard shortcuts: press `Ctrl+Enter` to run the current line or `Ctrl+Shift+Enter` to run the entire code chunk.
+<!-- https://quarto.org/docs/get-started/hello/vscode.html#running-cells -->
+See the Quarto documentation at [quarto.org/docs/](https://quarto.org/docs/get-started/hello/vscode.html#running-cells) for more details on how to run code chunks in Quarto.
+
 ![](images/paste-7.png)
 
 You should be able to run the code in a GitHub Codespaces with the following link:
