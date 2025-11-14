@@ -113,13 +113,26 @@ osm_network = osmextract::oe_get_network(
   extra_tags = extra_tags,
   mode = "driving"
 )
+sf::write_sf(osm_network, "osm_network.geojson", delete_dsn = TRUE)
 ```
 
 ```{r}
 #| label: save-and-load-data
-# sf::write_sf(osm_network, "osm_network.geojson", delete_dsn = TRUE)
-osm_network = sf::read_sf("osm_network.geojson")
+u = "https://github.com/itsleeds/ai4transport/raw/main/osm_network.geojson"
+osm_network = sf::read_sf(u)
 ```
+
+If the command above fails, see instructions below:
+
+<details>
+
+Your computer cannot access the file `osm_network.geojson`, perhaps due to a firewall or network issue.
+You can solve this issue as follows:
+
+Manually download the file from [here](https://github.com/itsleeds/ai4transport/raw/main/osm_network.geojson) or if GitHub is blocked, you can access it from OneDrive [here]().
+
+</details>
+
 
 ```{r}
 #| label: r-test-london
