@@ -12,6 +12,8 @@ format: gfm
 #| eval: false
 # Export to docx
 quarto::quarto_render("tfse.qmd", output_format = "docx", output_file = "tfse.docx")
+# regenerate the README
+quarto::quarto_render("README.qmd", output_format = "gfm", output_file = "README.md")
 ```
 
 This repo contains code to support teaching the use of data science and AI for transport planning.
