@@ -1,8 +1,10 @@
 ---
 title: "Online Course: An Introduction to AI for Transport Planning"
 author: "Robin Lovelace and Chris Rushton"
-format: gfm
 # editor: visual
+format: 
+  html:
+    embed-resources: true
 ---
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
@@ -14,6 +16,14 @@ format: gfm
 quarto::quarto_render("tfse.qmd", output_format = "docx", output_file = "tfse.docx")
 # regenerate the README
 quarto::quarto_render("README.qmd", output_format = "gfm", output_file = "README.md")
+# Export prequisites to self-contained HTML
+quarto::quarto_render("prerequisites.qmd", output_format = "html", output_file = "prerequisites.html")
+# Optionally: copy whole folder to OneDrive location for sharing
+system("cp -rv . ~/OneDrive/shortcourses/ai4transport/")
+# And the prerequisites
+system("cp -rv docs/prerequisites.html ~/OneDrive/shortcourses/ai4transport/tfse.html")
+list.files("~/OneDrive/shortcourses/ai4transport/")
+browseURL("/home/robin/OneDrive/shortcourses/ai4transport/tfse.html")
 ```
 
 This repo contains code to support teaching the use of data science and AI for transport planning.
