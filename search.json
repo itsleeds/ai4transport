@@ -196,19 +196,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "AI for Transport",
+    "title": "Online Course: An Introduction to AI for Transport Planning",
     "section": "",
-    "text": "This is the source repository for the AI for Transport course website.\nVisit https://itsleeds.github.io/ai4transport/ to see the rendered website.\n\n\nThis course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "AI for Transport",
-    "section": "",
-    "text": "This course provides a comprehensive introduction to the field of Data Science and AI for Transport.",
+    "text": "Online Course: An Introduction to AI for Transport Planning\nRobin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI for transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds",
     "crumbs": [
       "Home"
     ]
