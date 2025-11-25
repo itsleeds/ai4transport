@@ -6,9 +6,24 @@ title: "Session 1: Foundations of AI in Transport"
 
 This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.
 
+## Quick Start: Try it Now
+
+Before we dive into the theory, let's see AI in action. You don't need to install anything yet.
+
+1.  Open a new tab and go to a free AI chat tool like [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or [Google Gemini](https://gemini.google.com).
+2.  Copy and paste the following prompt:
+
+> "I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short, empathetic response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words."
+
+3.  See what it produces. Is it perfect? Probably not. Is it a good starting point? Usually, yes.
+
+This is the core of using AI: **it's not a replacement for your expertise, but an accelerator for your work.**
+
 ## Lecture
 
--   **Demystifying AI:** Key concepts and terminology, with reference to [Anthropic's AI Fluency course](https://www.youtube.com/watch?v=JpGtOfSgR-c).
+-   **Demystifying AI:**
+    -   **What is a Large Language Model (LLM)?** Think of it as a super-advanced predictive text engine. It has "read" almost everything on the internet and learned patterns of language. When you ask it a question, it predicts the most likely next words to answer you based on those patterns. It doesn't "know" facts like a human, but it can simulate reasoning very well.
+    -   Key concepts and terminology, with reference to [Anthropic's AI Fluency course](https://www.youtube.com/watch?v=JpGtOfSgR-c).
 -   **Data Science Framework:** How to apply AI effectively within a robust data science workflow.
 -   **AI in Transport:** Overview of applications in transport planning.
 -   **Ethical Considerations:** "Garbage in, garbage out" vs. prompt and context engineering.

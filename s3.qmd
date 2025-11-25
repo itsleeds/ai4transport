@@ -17,9 +17,22 @@ Building on Session 2’s AI-powered coding, this session shows how to call an L
 - Fetch a PDF from a URL, extract text, and summarise it reproducibly
 - Batch a task across multiple files
 
-## Setup
+## Level 0: The Non-Coder Approach (Chat with your PDF)
 
-We’ll use Python. If packages are missing, install them first.
+Before we write code, it is important to know that you can do single-document analysis without any programming.
+
+**Try this manual workflow:**
+1.  Go to [Claude.ai](https://claude.ai), [ChatGPT Plus](https://chatgpt.com), or [Gemini Advanced](https://gemini.google.com).
+2.  Click the "paperclip" or "plus" icon to upload a PDF (e.g., a local transport policy document).
+3.  Ask: *"Summarise the key transport objectives in this document as a bulleted list."*
+
+**Why do we need code then?**
+Imagine you have **500 planning applications** to review. Uploading them one by one and copying the answers into Excel would take days.
+The method below allows you to write a script once and process 5, 500, or 5,000 documents automatically while you grab a coffee.
+
+## Level 1: Automating for Scale (Python Setup)
+
+We’ll use Python to build this automation. If packages are missing, install them first.
 
 ```{python}
 #!pip install openai requests pypdf
