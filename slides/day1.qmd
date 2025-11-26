@@ -81,7 +81,13 @@ See: [Session 1 materials](../s1.qmd)
 
 ## Different ways to use AI
 
-Microsoft 365 Copilot (the web-based chat tool you referenced) has limited coding capabilities compared to GitHub Copilot in VS Code.
+Example output from Microsoft 365 Copilot
+
+![](images/paste-9.png)
+
+## Microsoft 365 Copilot vs. GitHub Copilot
+
+*Microsoft 365* Copilot has limited coding capabilities compared to *GitHub Copilot* in VS Code.
 M365 Copilot is primarily designed for productivity tasks (emails, documents, data analysis), not software development.
 
 ![](images/paste-21.png)
