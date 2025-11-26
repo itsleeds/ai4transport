@@ -4,18 +4,27 @@ title: "Session 1: Foundations of AI in Transport"
 
 ## Introduction
 
-This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.
+This session provides a foundation for understanding and applying AI in transport planning.
+We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.
 
 ## Quick Start: Try it Now
 
-Before we dive into the theory, let's see AI in action. You don't need to install anything yet.
+Before we dive into the theory, let's see AI in action.
+You don't need to install anything yet.
 
-1.  Open a new tab and go to a free AI chat tool like [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or [Google Gemini](https://gemini.google.com).
+1.  Open a new tab and go to a free AI chat tool like [Microsoft 365 Copilot](https://m365.cloud.microsoft/chat/?auth=2&home=1&from=ShellLogo) (available to staff in many organisations with IT services provided by Microsoft at [m365.cloud.microsoft/](https://m365.cloud.microsoft/chat/?auth=2&home=1&from=ShellLogo)), [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or [Google Gemini](https://gemini.google.com).
 2.  Copy and paste the following prompt:
 
-> "I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short, empathetic response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words."
+> "I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words."
 
-3.  See what it produces. Is it perfect? Probably not. Is it a good starting point? Usually, yes.
+3.  See what it produces, on your computer or by clicking the button to expand in the image below. Is it perfect? Probably not. Is it a good starting point? Often, yes.
+
+<details>
+<summary>Example output from Microsoft 365 Copilot</summary>
+
+![](images/paste-9.png)
+
+</details>
 
 This is the core of using AI: **it's not a replacement for your expertise, but an accelerator for your work.**
 
@@ -36,10 +45,8 @@ This is an interactive session to explore real-world AI use cases in transport.
     -   On paper, draw a flowchart of a typical task from your work.
     -   Draw a second flowchart showing how AI could be integrated to improve this workflow.
     -   *Bonus:* If you have time, repeat for another task. Which is more suitable for AI integration?
-
 2.  **Group Discussion (20 mins):**
     -   In small groups, discuss how AI could be best integrated into your work from first principles.
-
 3.  **Group Feedback (20 mins):**
     -   Share key themes and ideas from your group discussion with everyone.
 
@@ -47,9 +54,9 @@ This is an interactive session to explore real-world AI use cases in transport.
 
 The course team will consider the following next steps:
 
-- [Draft and share survey for potential attendees](https://github.com/itsleeds/ai4transport/issues/8)
-- [Draft and share course outline for feedback](https://github.com/itsleeds/ai4transport/issues/9)
-- [Draft Sections 1 and 4 (Robin)](https://github.com/itsleeds/ai4transport/issues/10)
-- [Draft Sections 2 and 3 (Chris)](https://github.com/itsleeds/ai4transport/issues/11)
-- [Review and finalise content (both)](https://github.com/itsleeds/ai4transport/issues/12)
-- [Convert this into website and hosting (Robin, Netlify or GitHub Pages)](https://github.com/itsleeds/ai4transport/issues/13)
+-   [Draft and share survey for potential attendees](https://github.com/itsleeds/ai4transport/issues/8)
+-   [Draft and share course outline for feedback](https://github.com/itsleeds/ai4transport/issues/9)
+-   [Draft Sections 1 and 4 (Robin)](https://github.com/itsleeds/ai4transport/issues/10)
+-   [Draft Sections 2 and 3 (Chris)](https://github.com/itsleeds/ai4transport/issues/11)
+-   [Review and finalise content (both)](https://github.com/itsleeds/ai4transport/issues/12)
+-   [Convert this into website and hosting (Robin, Netlify or GitHub Pages)](https://github.com/itsleeds/ai4transport/issues/13)
