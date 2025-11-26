@@ -681,7 +681,17 @@
     "href": "slides/day1.html#different-ways-to-use-ai",
     "title": "AI and Data Science for Transport",
     "section": "Different ways to use AI",
-    "text": "Different ways to use AI\nMicrosoft 365 Copilot (the web-based chat tool you referenced) has limited coding capabilities compared to GitHub Copilot in VS Code. M365 Copilot is primarily designed for productivity tasks (emails, documents, data analysis), not software development.",
+    "text": "Different ways to use AI\nExample output from Microsoft 365 Copilot",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "slides/day1.html#microsoft-365-copilot-vs.-github-copilot",
+    "href": "slides/day1.html#microsoft-365-copilot-vs.-github-copilot",
+    "title": "AI and Data Science for Transport",
+    "section": "Microsoft 365 Copilot vs. GitHub Copilot",
+    "text": "Microsoft 365 Copilot vs. GitHub Copilot\nMicrosoft 365 Copilot has limited coding capabilities compared to GitHub Copilot in VS Code. M365 Copilot is primarily designed for productivity tasks (emails, documents, data analysis), not software development.",
     "crumbs": [
       "Slides"
     ]
