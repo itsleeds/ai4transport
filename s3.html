@@ -293,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="level-1-automating-for-scale-python-setup" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="level-1-automating-for-scale-python-setup"><span class="header-section-number">4</span> Level 1: Automating for Scale (Python Setup)</h2>
 <p>We’ll use Python to build this automation. If packages are missing, install them first.</p>
-<div id="6e1d5ccc" class="cell" data-execution_count="1">
+<div id="81896833" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai requests pypdf</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Best practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the <code>.env</code> file directly.</p>
 <p>Now create the client:</p>
-<div id="1799e4e9" class="cell" data-execution_count="2">
+<div id="ed1403fc" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ROUTER_API_KEY <span class="op">=</span> <span class="st">'link to your api key location'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>CLIENT <span class="op">=</span> OpenAI(</span>
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-simple-chat-completion" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="a-simple-chat-completion"><span class="header-section-number">5</span> A simple chat completion</h2>
 <p>This mirrors what you do in a chat UI, but from code:</p>
-<div id="6bae9869" class="cell" data-execution_count="3">
+<div id="92d607de" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> CLIENT.chat.completions.create(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
@@ -329,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-structured-json-outputs" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="getting-structured-json-outputs"><span class="header-section-number">6</span> Getting structured (JSON) outputs</h2>
 <p>When you need to use the response downstream, ask the model to return JSON and validate it.</p>
-<div id="bbf6eb82" class="cell" data-execution_count="4">
+<div id="002447b6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>schema_hint <span class="op">=</span> {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"properties"</span>: {</span>
@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysing-a-pdf-from-a-url-robust-approach" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">7</span> Analysing a PDF from a URL (robust approach)</h2>
 <p>Rather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.</p>
-<div id="dfabd0a5" class="cell" data-execution_count="5">
+<div id="f33c83b7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pypdf</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -433,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="batch-a-task-across-multiple-documents" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="batch-a-task-across-multiple-documents"><span class="header-section-number">8</span> Batch a task across multiple documents</h2>
 <p>You’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):</p>
-<div id="518642a5" class="cell" data-execution_count="6">
+<div id="f3e8dff1" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_insights(text: <span class="bu">str</span>) <span class="op">-&gt;</span> Dict:</span>
