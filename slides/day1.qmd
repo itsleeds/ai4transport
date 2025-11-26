@@ -86,6 +86,10 @@ M365 Copilot is primarily designed for productivity tasks (emails, documents, da
 
 ![](images/paste-21.png)
 
+## Chris's slides 
+
+See powerpoint slides: [tbc]()
+
 ## Session 2: (AI-Powered) Coding and Development
 
 ### Key topics:
