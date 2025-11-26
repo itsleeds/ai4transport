@@ -17,3 +17,4 @@ site_libs/
 .venv/
 Pre-Course Questionnaire(1-13).xlsx
 results.csv
+*.pptx

@@ -66,7 +66,12 @@ The following will help:
 
 ## About you
 
-Quick introductions: - Name and organisation - Current role in transport - Experience with AI tools (if any) - What you hope to gain from today
+Quick introductions:
+
+-   Name and organisation
+-   Current role in transport
+-   Experience with AI tools (if any)
+-   What you hope to gain from today
 
 ## Session 1: Foundations of AI and Data Science for Transport in Transport
 
@@ -92,9 +97,11 @@ M365 Copilot is primarily designed for productivity tasks (emails, documents, da
 
 ![](images/paste-21.png)
 
-## Chris's slides 
+## Chris's slides
 
-See powerpoint slides: [tbc]()
+See powerpoint slides: [github.com/itsleeds/ai4transport/releases](https://github.com/itsleeds/ai4transport/releases/download/v1/TFSE.Generative.AI.Basics.pptx)
+
+![](images/paste-22.png)
 
 ## Session 2: (AI-Powered) Coding and Development
 
