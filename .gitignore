@@ -2,7 +2,7 @@ docs
 
 /.quarto/
 .Rproj.user
-_freeze/
+# _freeze/
 *_cache/
 *_files/
 cache/
@@ -15,3 +15,5 @@ site_libs/
 /.luarc.json
 *.rds
 .venv/
+Pre-Course Questionnaire(1-13).xlsx
+results.csv

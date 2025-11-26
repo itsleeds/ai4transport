@@ -1,5 +1,5 @@
 ---
-title: "Session 1: Foundations of AI in Transport"
+title: "Session 1: Foundations of AI and Data Science for Transport in Transport"
 ---
 
 ## Introduction

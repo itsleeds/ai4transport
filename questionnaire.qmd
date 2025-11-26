@@ -3,7 +3,7 @@ title: "Pre-Course Questionnaire"
 number-sections: false
 ---
 
-This questionnaire will help us tailor the 'AI for Transport' course to your needs. Please complete the prerequisites before filling out this form.
+This questionnaire will help us tailor the 'AI and Data Science for Transport' course to your needs. Please complete the prerequisites before filling out this form.
 
 
 ---

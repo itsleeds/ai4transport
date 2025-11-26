@@ -1,5 +1,5 @@
 ---
-title: "TfSE AI for Transport Course"
+title: "TfSE AI and Data Science for Transport Course"
 number-sections: true
 ---
 
@@ -23,7 +23,7 @@ Keep the theme of “demystifying AI”, while allowing for adjustments after ou
 
 # Introduction
 
-We're developing materials to support teaching of AI for transport, building on introductory webinars on AI and transport that will cover:
+We're developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:
 
 -   Webinar 1: What is AI?
 -   Use of AI in data analysis
@@ -71,7 +71,7 @@ We would like to collect responses to the following questions from potential att
 
 ## Course Overview
 
-This 6-hour course provides a comprehensive introduction to the field of Data Science and AI for Transport.
+This 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.
 
 We have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods.
 The principles of "garbage in, garbage out" and "all models are wrong but some are useful" applies equally to AI models as they do to traditional models.
@@ -172,7 +172,7 @@ plt.plot(x, y)
     -   Analysing qualitative data (e.g., consultation responses).
     -   Drafting sections of a transport report based on provided data.
 
-### Module 4: AI for Transport Data Analysis (15:30 - 17:00)
+### Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)
 
 -   **Lecture (15 mins):**
     -   How AI accelerates data cleaning, preprocessing, and exploratory analysis.

@@ -1,11 +1,11 @@
-# Online Course: An Introduction to AI for Transport Planning
+# Online Course: An Introduction to AI and Data Science for Transport Planning
 Robin Lovelace and Chris Rushton
 
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
 
 This repo contains code to support teaching the use of data science and
-AI for transport planning. By AI we mean services such as Google Gemini,
+AI and Data Science for Transport planning. By AI we mean services such as Google Gemini,
 ChatGPT and similar tools from web user interfaces and APIs to:
 
 - Automate boring tasks

@@ -1,6 +1,6 @@
 ---
 title: "Prerequisites"
-description-meta: "Software and knowledge prerequisites for the AI for Transport course, including setup instructions and testing code."
+description-meta: "Software and knowledge prerequisites for the AI and Data Science for Transport course, including setup instructions and testing code."
 pagetitle: "Course Prerequisites"
 ---
 
