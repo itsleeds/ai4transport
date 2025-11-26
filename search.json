@@ -661,7 +661,7 @@
     "href": "slides/day1.html#about-you",
     "title": "AI and Data Science for Transport",
     "section": "About you",
-    "text": "About you\nQuick introductions: - Name and organisation - Current role in transport - Experience with AI tools (if any) - What you hope to gain from today",
+    "text": "About you\nQuick introductions:\n\nName and organisation\nCurrent role in transport\nExperience with AI tools (if any)\nWhat you hope to gain from today",
     "crumbs": [
       "Slides"
     ]
@@ -701,7 +701,7 @@
     "href": "slides/day1.html#chriss-slides",
     "title": "AI and Data Science for Transport",
     "section": "Chris’s slides",
-    "text": "Chris’s slides\nSee powerpoint slides: tbc",
+    "text": "Chris’s slides\nSee powerpoint slides: github.com/itsleeds/ai4transport/releases",
     "crumbs": [
       "Slides"
     ]
