@@ -1,0 +1,69 @@
+---
+title: "Introduction & Survey Results"
+author: "Robin Lovelace and Chris Rushton"
+format: revealjs
+---
+
+## Welcome
+
+**AI and Data Science for Transport**
+
+A practical, hands-on course for transport professionals.
+
+## Course Aims
+
+1.  **Automate** repetitive and boring tasks.
+2.  **Accelerate** your existing workflows.
+3.  **Enhance** your capabilities with new tools.
+
+**Ultimate Goal:** More effective transport planning investments and decisions.
+
+## Agenda
+
+| Time | Session |
+|---|---|
+| **10:00-11:30** | Session 1: Foundations of AI in Transport |
+| **11:30-13:00** | Session 2: (AI-Powered) Coding and Development |
+| **13:00-14:00** | Lunch |
+| **14:00-15:30** | Session 3: Using LLMs for Reporting |
+| **15:30-17:00** | Session 4: AI for Data Analysis |
+
+## Prerequisites
+
+We hope you have:
+
+-   A **GitHub account**.
+-   A willingness to **experiment**.
+-   A modern **web browser**.
+
+*No prior coding experience is strictly required!*
+
+## Survey Insights
+
+We asked you about your current work and tools. Here is what you said.
+
+## Current AI Tool Usage
+
+**Copilot** and **ChatGPT** are the most popular tools among attendees.
+
+![](../_freeze/survey/figure-html/fig-ai-tools-output-1.png)
+
+## Automation Opportunities
+
+**Data analysis** and **reporting** are the key areas where you want AI help.
+
+![](../_freeze/survey/figure-html/fig-automation-output-1.png)
+
+## Why this matters
+
+The course is designed to address exactly these needs:
+
+-   **Session 2 & 4:** Focus on the *Data Analysis* automation you requested.
+-   **Session 3:** Focuses on the *Reporting* workflows.
+-   **Throughout:** We use *Copilot* and *LLMs* because that is what you are already exploring.
+
+## Let's Start!
+
+**Session 1: Foundations of AI in Transport**
+
+[Link to Session 1 materials](../s1.html)
