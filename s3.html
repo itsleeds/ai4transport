@@ -9,7 +9,7 @@
 <meta name="author" content="ITS Leeds">
 <meta name="dcterms.date" content="2025">
 
-<title>Session 3: Automating Document Analysis with LLM APIs – AI for Transport -</title>
+<title>Session 3: Automating Document Analysis with LLM APIs – AI and Data Science for Transport -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI for Transport</a> 
+      <a href="./">AI and Data Science for Transport</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/itsleeds/ai4transport" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
@@ -161,6 +161,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./prerequisites.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prerequisites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slides/day1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -196,6 +202,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Session 4: Data Analysis</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./survey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Survey Results</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -216,16 +228,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link" data-scroll-target="#what-youll-learn"><span class="header-section-number">2</span> What you’ll learn</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">3</span> Setup</a></li>
-  <li><a href="#a-simple-chat-completion" id="toc-a-simple-chat-completion" class="nav-link" data-scroll-target="#a-simple-chat-completion"><span class="header-section-number">4</span> A simple chat completion</a></li>
-  <li><a href="#getting-structured-json-outputs" id="toc-getting-structured-json-outputs" class="nav-link" data-scroll-target="#getting-structured-json-outputs"><span class="header-section-number">5</span> Getting structured (JSON) outputs</a></li>
-  <li><a href="#analysing-a-pdf-from-a-url-robust-approach" id="toc-analysing-a-pdf-from-a-url-robust-approach" class="nav-link" data-scroll-target="#analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">6</span> Analysing a PDF from a URL (robust approach)</a>
+  <li><a href="#level-0-the-non-coder-approach-chat-with-your-pdf" id="toc-level-0-the-non-coder-approach-chat-with-your-pdf" class="nav-link" data-scroll-target="#level-0-the-non-coder-approach-chat-with-your-pdf"><span class="header-section-number">3</span> Level 0: The Non-Coder Approach (Chat with your PDF)</a></li>
+  <li><a href="#level-1-automating-for-scale-python-setup" id="toc-level-1-automating-for-scale-python-setup" class="nav-link" data-scroll-target="#level-1-automating-for-scale-python-setup"><span class="header-section-number">4</span> Level 1: Automating for Scale (Python Setup)</a></li>
+  <li><a href="#a-simple-chat-completion" id="toc-a-simple-chat-completion" class="nav-link" data-scroll-target="#a-simple-chat-completion"><span class="header-section-number">5</span> A simple chat completion</a></li>
+  <li><a href="#getting-structured-json-outputs" id="toc-getting-structured-json-outputs" class="nav-link" data-scroll-target="#getting-structured-json-outputs"><span class="header-section-number">6</span> Getting structured (JSON) outputs</a></li>
+  <li><a href="#analysing-a-pdf-from-a-url-robust-approach" id="toc-analysing-a-pdf-from-a-url-robust-approach" class="nav-link" data-scroll-target="#analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">7</span> Analysing a PDF from a URL (robust approach)</a>
   <ul class="collapse">
-  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">6.1</span> Try it</a></li>
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">7.1</span> Try it</a></li>
   </ul></li>
-  <li><a href="#batch-a-task-across-multiple-documents" id="toc-batch-a-task-across-multiple-documents" class="nav-link" data-scroll-target="#batch-a-task-across-multiple-documents"><span class="header-section-number">7</span> Batch a task across multiple documents</a></li>
-  <li><a href="#good-practice-and-guardrails" id="toc-good-practice-and-guardrails" class="nav-link" data-scroll-target="#good-practice-and-guardrails"><span class="header-section-number">8</span> Good practice and guardrails</a></li>
-  <li><a href="#where-this-fits-in-the-course" id="toc-where-this-fits-in-the-course" class="nav-link" data-scroll-target="#where-this-fits-in-the-course"><span class="header-section-number">9</span> Where this fits in the course</a></li>
+  <li><a href="#batch-a-task-across-multiple-documents" id="toc-batch-a-task-across-multiple-documents" class="nav-link" data-scroll-target="#batch-a-task-across-multiple-documents"><span class="header-section-number">8</span> Batch a task across multiple documents</a></li>
+  <li><a href="#good-practice-and-guardrails" id="toc-good-practice-and-guardrails" class="nav-link" data-scroll-target="#good-practice-and-guardrails"><span class="header-section-number">9</span> Good practice and guardrails</a></li>
+  <li><a href="#where-this-fits-in-the-course" id="toc-where-this-fits-in-the-course" class="nav-link" data-scroll-target="#where-this-fits-in-the-course"><span class="header-section-number">10</span> Where this fits in the course</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -271,10 +284,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Batch a task across multiple files</li>
 </ul>
 </section>
-<section id="setup" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="setup"><span class="header-section-number">3</span> Setup</h2>
-<p>We’ll use Python. If packages are missing, install them first.</p>
-<div id="6b2c03ad" class="cell" data-execution_count="1">
+<section id="level-0-the-non-coder-approach-chat-with-your-pdf" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="level-0-the-non-coder-approach-chat-with-your-pdf"><span class="header-section-number">3</span> Level 0: The Non-Coder Approach (Chat with your PDF)</h2>
+<p>Before we write code, it is important to know that you can do single-document analysis without any programming.</p>
+<p><strong>Try this manual workflow:</strong> 1. Go to <a href="https://claude.ai">Claude.ai</a>, <a href="https://chatgpt.com">ChatGPT Plus</a>, or <a href="https://gemini.google.com">Gemini Advanced</a>. 2. Click the “paperclip” or “plus” icon to upload a PDF (e.g., a local transport policy document). 3. Ask: <em>“Summarise the key transport objectives in this document as a bulleted list.”</em></p>
+<p><strong>Why do we need code then?</strong> Imagine you have <strong>500 planning applications</strong> to review. Uploading them one by one and copying the answers into Excel would take days. The method below allows you to write a script once and process 5, 500, or 5,000 documents automatically while you grab a coffee.</p>
+</section>
+<section id="level-1-automating-for-scale-python-setup" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="level-1-automating-for-scale-python-setup"><span class="header-section-number">4</span> Level 1: Automating for Scale (Python Setup)</h2>
+<p>We’ll use Python to build this automation. If packages are missing, install them first.</p>
+<div id="6e1d5ccc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai requests pypdf</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -283,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Best practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the <code>.env</code> file directly.</p>
 <p>Now create the client:</p>
-<div id="bb8aa73e" class="cell" data-execution_count="2">
+<div id="1799e4e9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ROUTER_API_KEY <span class="op">=</span> <span class="st">'link to your api key location'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>CLIENT <span class="op">=</span> OpenAI(</span>
@@ -292,10 +311,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="a-simple-chat-completion" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="a-simple-chat-completion"><span class="header-section-number">4</span> A simple chat completion</h2>
+<section id="a-simple-chat-completion" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="a-simple-chat-completion"><span class="header-section-number">5</span> A simple chat completion</h2>
 <p>This mirrors what you do in a chat UI, but from code:</p>
-<div id="4e691e8b" class="cell" data-execution_count="3">
+<div id="6bae9869" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> CLIENT.chat.completions.create(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-5-mini"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
@@ -307,10 +326,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Try tweaking the prompt style (e.g., more witty, drier, aimed at students vs.&nbsp;professionals).</p>
 </section>
-<section id="getting-structured-json-outputs" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="getting-structured-json-outputs"><span class="header-section-number">5</span> Getting structured (JSON) outputs</h2>
+<section id="getting-structured-json-outputs" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="getting-structured-json-outputs"><span class="header-section-number">6</span> Getting structured (JSON) outputs</h2>
 <p>When you need to use the response downstream, ask the model to return JSON and validate it.</p>
-<div id="bdacd030" class="cell" data-execution_count="4">
+<div id="bbf6eb82" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>schema_hint <span class="op">=</span> {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"properties"</span>: {</span>
@@ -344,10 +363,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="analysing-a-pdf-from-a-url-robust-approach" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">6</span> Analysing a PDF from a URL (robust approach)</h2>
+<section id="analysing-a-pdf-from-a-url-robust-approach" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="analysing-a-pdf-from-a-url-robust-approach"><span class="header-section-number">7</span> Analysing a PDF from a URL (robust approach)</h2>
 <p>Rather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.</p>
-<div id="3b5d4785" class="cell" data-execution_count="5">
+<div id="dfabd0a5" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pypdf</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -402,8 +421,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>sample_url <span class="op">=</span> <span class="st">"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"</span></span>
 <span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>summarise_pdf(sample_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="try-it" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="try-it"><span class="header-section-number">6.1</span> Try it</h3>
+<section id="try-it" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="try-it"><span class="header-section-number">7.1</span> Try it</h3>
 <ul>
 <li>Change <code>max_pages</code> in <code>fetch_pdf_text</code> to control cost/speed.</li>
 <li>Swap <code>task</code> to focus on risks, methods, or key findings.</li>
@@ -411,10 +430,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="batch-a-task-across-multiple-documents" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="batch-a-task-across-multiple-documents"><span class="header-section-number">7</span> Batch a task across multiple documents</h2>
+<section id="batch-a-task-across-multiple-documents" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="batch-a-task-across-multiple-documents"><span class="header-section-number">8</span> Batch a task across multiple documents</h2>
 <p>You’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):</p>
-<div id="6f821004" class="cell" data-execution_count="6">
+<div id="518642a5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_insights(text: <span class="bu">str</span>) <span class="op">-&gt;</span> Dict:</span>
@@ -457,8 +476,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>batch_process(urls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="good-practice-and-guardrails" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="good-practice-and-guardrails"><span class="header-section-number">8</span> Good practice and guardrails</h2>
+<section id="good-practice-and-guardrails" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="good-practice-and-guardrails"><span class="header-section-number">9</span> Good practice and guardrails</h2>
 <ul>
 <li>Reproducibility: fix the model name per project and log prompts.</li>
 <li>Privacy: don’t send sensitive data to third-party APIs without approval.</li>
@@ -467,8 +486,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Version control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).</li>
 </ul>
 </section>
-<section id="where-this-fits-in-the-course" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="where-this-fits-in-the-course"><span class="header-section-number">9</span> Where this fits in the course</h2>
+<section id="where-this-fits-in-the-course" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="where-this-fits-in-the-course"><span class="header-section-number">10</span> Where this fits in the course</h2>
 <ul>
 <li>From Session 1: we’re applying AI within a clear workflow with ethical awareness.</li>
 <li>From Session 2: we’re turning assisted coding into reproducible automation.</li>
