@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "AI for Transport"
+  title: "AI and Data Science for Transport"
   repo-url: "https://github.com/itsleeds/ai4transport"
   repo-actions: [issue]
   page-footer:
@@ -25,6 +25,8 @@ website:
         text: Schedule
       - href: prerequisites.qmd
         text: Prerequisites
+      - href: slides/day1.html
+        text: Slides
       - section: "Sessions"
         contents:
           - href: s1.qmd
@@ -35,6 +37,8 @@ website:
             text: "Session 3: LLMs for Reporting"
           - href: s4.qmd
             text: "Session 4: Data Analysis"
+          - href: survey.qmd
+            text: "Survey Results"
       - href: https://github.com/itsleeds/ai4transport/issues
         text: Forum
 
@@ -42,7 +46,7 @@ format:
   html:
     theme: lux
     toc: true
-    title-prefix: "AI for Transport - "
+    title-prefix: "AI and Data Science for Transport - "
     number-sections: true
     author-meta: "ITS Leeds"
     date-meta: "2025"

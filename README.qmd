@@ -1,5 +1,5 @@
 ---
-title: "Online Course: An Introduction to AI for Transport Planning"
+title: "Online Course: An Introduction to AI and Data Science for Transport Planning"
 author: "Robin Lovelace and Chris Rushton"
 # editor: visual
 format: 
@@ -26,7 +26,7 @@ list.files("~/OneDrive/shortcourses/ai4transport/")
 browseURL("/home/robin/OneDrive/shortcourses/ai4transport/tfse.html")
 ```
 
-This repo contains code to support teaching the use of data science and AI for transport planning.
+This repo contains code to support teaching the use of data science and AI and Data Science for Transport planning.
 By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:
 
 -   Automate boring tasks

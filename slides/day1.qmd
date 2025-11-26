@@ -1,26 +1,26 @@
 ---
-title: "AI for Transport"
+title: "AI and Data Science for Transport"
 author: "Robin Lovelace and Chris Rushton"
-date: "October 2025"
+date: "2025-12-01"
 format: clean-revealjs
 bibliography: ../references.bib
 ---
 
 ## Welcome!
 
-AI for Transport
+AI and Data Science for Transport
 
 **1-day course**
 
-October 2025
+1st December 2025
 
 ## Agenda
 
--   **10:00-11:30** Session 1: Foundations of AI in Transport
+-   **10:00-11:30** Session 1: Foundations of AI and Data Science for Transport in Transport
 -   **11:30-13:00** Session 2: (AI-Powered) Coding and Development
 -   **13:00-14:00** Lunch
 -   **14:00-15:30** Session 3: Using LLMs for Reporting and Analysis
--   **15:30-17:00** Session 4: AI for Transport Data Analysis
+-   **15:30-17:00** Session 4: AI and Data Science for Transport Data Analysis
 
 ## Prerequisites
 
@@ -60,39 +60,40 @@ The following will help:
 
 ## About the instructors
 
-**Robin Lovelace**
-- Professor of Transport Data Science, University of Leeds
-- Focus on data-driven transport planning and open source tools
+**Robin Lovelace** - Professor of Transport Data Science, University of Leeds - Focus on data-driven transport planning and open source tools
 
-**Chris Rushton**
-- Transport planning and AI specialist
-- Experience in practical AI applications
+**Chris Rushton** - Transport emissions researcher, data engineer, web developer - Experience in practical AI applications
 
 ## About you
 
-Quick introductions:
--   Name and organisation
--   Current role in transport
--   Experience with AI tools (if any)
--   What you hope to gain from today
+Quick introductions: - Name and organisation - Current role in transport - Experience with AI tools (if any) - What you hope to gain from today
 
-## Session 1: Foundations of AI in Transport
+## Session 1: Foundations of AI and Data Science for Transport in Transport
 
 ### Key topics:
-- What is AI and how does it apply to transport?
-- Overview of AI tools and techniques
-- Real-world transport applications
-- Ethical considerations
+
+-   What is AI and how does it apply to transport?
+-   Overview of AI tools and techniques
+-   Real-world transport applications
+-   Ethical considerations
 
 See: [Session 1 materials](../s1.qmd)
+
+## Different ways to use AI
+
+Microsoft 365 Copilot (the web-based chat tool you referenced) has limited coding capabilities compared to GitHub Copilot in VS Code.
+M365 Copilot is primarily designed for productivity tasks (emails, documents, data analysis), not software development.
+
+![](images/paste-21.png)
 
 ## Session 2: (AI-Powered) Coding and Development
 
 ### Key topics:
-- AI coding assistants (GitHub Copilot, etc.)
-- Efficient AI-assisted workflows
-- Live coding demonstrations
-- Hands-on practice
+
+-   AI coding assistants (GitHub Copilot, etc.)
+-   Efficient AI-assisted workflows
+-   Live coding demonstrations
+-   Hands-on practice
 
 See: [Session 2 materials](../s2.qmd)
 
@@ -101,20 +102,22 @@ See: [Session 2 materials](../s2.qmd)
 ## Session 3: Using LLMs for Reporting and Analysis
 
 ### Key topics:
-- Large Language Models for transport documents
-- Prompt engineering techniques
-- Analysing policy documents and reports
-- Practical exercises with real transport data
+
+-   Large Language Models for transport documents
+-   Prompt engineering techniques
+-   Analysing policy documents and reports
+-   Practical exercises with real transport data
 
 See: [Session 3 materials](../s3.qmd)
 
-## Session 4: AI for Transport Data Analysis
+## Session 4: AI and Data Science for Transport Data Analysis
 
 ### Key topics:
-- AI-accelerated data processing
-- Pattern recognition in transport datasets
-- Visualisation with AI assistance
-- Complete workflow examples
+
+-   AI-accelerated data processing
+-   Pattern recognition in transport datasets
+-   Visualisation with AI assistance
+-   Complete workflow examples
 
 See: [Session 4 materials](../s4.qmd)
 
@@ -125,21 +128,23 @@ Please provide feedback on this session: [forms.office.com/e/XZ2Hdt72HK](https:/
 ## Course wrap-up
 
 ### Key takeaways:
-- AI as a tool to enhance transport planning
-- Practical skills for immediate application
-- Resources for continued learning
-- Building AI into your workflow
+
+-   AI as a tool to enhance transport planning
+-   Practical skills for immediate application
+-   Resources for continued learning
+-   Building AI into your workflow
 
 ### Next steps:
-- Try the tools in your own work
-- Join the community discussions
-- Share your experiences and learn from others
+
+-   Try the tools in your own work
+-   Join the community discussions
+-   Share your experiences and learn from others
 
 ## Thank you!
 
-Questions? Discussion?
+Questions?
+Discussion?
 
-Course materials: Available online
-Community: [GitHub Discussions](https://github.com/itsleeds/ai4transport/discussions)
+Course materials: Available online Community: [GitHub Discussions](https://github.com/itsleeds/ai4transport/discussions)
 
 ## References

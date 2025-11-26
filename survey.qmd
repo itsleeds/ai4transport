@@ -1,0 +1,154 @@
+---
+title: "Survey Results"
+freeze: true
+format:
+  html:
+    code-fold: true
+    code-tools: true
+---
+
+```{python}
+#| include: false
+import pandas as pd
+import os
+from IPython.display import Markdown
+
+# Define file paths
+input_file = "Pre-Course Questionnaire(1-13).xlsx"
+output_file = "results.csv"
+
+# Check if input file exists
+if os.path.exists(input_file):
+    try:
+        # Read Excel file
+        df = pd.read_excel(input_file)
+        
+        # Export to CSV
+        df.to_csv(output_file, index=False)
+        print(f"Successfully converted '{input_file}' to '{output_file}'.")
+        
+    except Exception as e:
+        print(f"Error processing file: {e}")
+else:
+    # Fallback to reading CSV if Excel is missing but CSV exists
+    if os.path.exists(output_file):
+        df = pd.read_csv(output_file)
+        print(f"Excel file not found, loaded data from '{output_file}'.")
+    else:
+        print(f"File '{input_file}' not found.")
+```
+
+## AI Tool Usage
+
+We analyze which AI tools participants are currently using in their work.
+
+```{python}
+#| label: tbl-ai-tools
+#| tbl-cap: "Most commonly used AI tools in transport planning work."
+from collections import Counter
+import matplotlib.pyplot as plt
+
+# Find the column for current AI tool usage
+# Using partial string matching to be robust against column name changes
+ai_tools_col = [c for c in df.columns if "currently use" in c][0]
+
+# Drop NaNs and convert to strings
+tools_series = df[ai_tools_col].dropna().astype(str)
+
+# Split multiple entries (assumed comma separated), clean, and flatten
+all_tools = []
+for entry in tools_series:
+    # Split by comma
+    tools = entry.split(',')
+    for tool in tools:
+        # Clean whitespace and normalize case
+        tool_clean = tool.strip().lower()
+        # Map common variations
+        if 'copilot' in tool_clean:
+            all_tools.append('Copilot')
+        elif 'chatgpt' in tool_clean:
+            all_tools.append('ChatGPT')
+        elif 'gemini' in tool_clean:
+            all_tools.append('Gemini')
+        elif 'claude' in tool_clean:
+            all_tools.append('Claude')
+        elif 'none' in tool_clean or tool_clean == '' or tool_clean == 'nan':
+            pass
+        else:
+            # Capitalize first letter for other tools
+            all_tools.append(tool.strip().capitalize())
+
+# Count frequencies
+tool_counts = Counter(all_tools)
+
+# Create a DataFrame for better display
+tools_df = pd.DataFrame.from_dict(tool_counts, orient='index', columns=['Count']).sort_values('Count', ascending=False)
+
+# Display as a markdown table
+Markdown(tools_df.to_markdown(index=True))
+```
+
+As shown in @tbl-ai-tools, Copilot and ChatGPT are the dominant tools.
+
+```{python}
+#| label: fig-ai-tools
+#| fig-cap: "Bar chart of AI tools currently used in work."
+# Simple bar plot
+plt.figure(figsize=(10, 6))
+tools_df['Count'].plot(kind='bar')
+plt.title('AI Tools Currently Used in Work')
+plt.ylabel('Number of Respondents')
+plt.xlabel('AI Tool')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+## Automation Opportunities
+
+We analyze which tasks participants believe are most suitable for automation.
+
+```{python}
+#| label: tbl-automation
+#| tbl-cap: "Tasks identified as suitable for automation, categorized by theme."
+# Find the column for automation
+auto_col = [c for c in df.columns if "suitable for automation" in c][0]
+
+# Drop NaNs
+auto_responses = df[auto_col].dropna().astype(str).tolist()
+
+# Define keywords to categorize responses
+keywords = {
+    "Data Analysis & Processing": ["data", "analysis", "cleaning", "processing", "collection", "formatting", "merging"],
+    "Reporting & Writing": ["report", "writing", "email", "drafting", "summarising"],
+    "Mapping & GIS": ["map", "gis", "spatial", "geo", "coordinates"],
+    "Routine/Repetitive": ["repetitive", "routine", "dashboard"]
+}
+
+category_counts = {k: 0 for k in keywords}
+
+for response in auto_responses:
+    response_lower = response.lower()
+    for category, keys in keywords.items():
+        if any(k in response_lower for k in keys):
+            category_counts[category] += 1
+
+# Create dataframe for summary
+categories_df = pd.DataFrame.from_dict(category_counts, orient='index', columns=['Mentions']).sort_values('Mentions', ascending=False)
+
+# Display summary table
+Markdown(categories_df.to_markdown(index=True))
+```
+
+See @tbl-automation for the breakdown of tasks. Data-related tasks are the most frequently cited candidates for automation.
+
+```{python}
+#| label: fig-automation
+#| fig-cap: "Horizontal bar chart of tasks identified as suitable for automation."
+# Visualize themes
+categories_df.plot(kind='barh', figsize=(10, 5))
+plt.title('Tasks Identified as Suitable for Automation')
+plt.xlabel('Mentions')
+plt.tight_layout()
+plt.show()
+```
