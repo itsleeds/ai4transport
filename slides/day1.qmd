@@ -83,7 +83,7 @@ See: [Session 1 materials](../s1.qmd)
 
 Example output from Microsoft 365 Copilot
 
-![](images/paste-9.png)
+![](../images/paste-9.png)
 
 ## Microsoft 365 Copilot vs. GitHub Copilot
 
