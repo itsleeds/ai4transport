@@ -2,7 +2,7 @@
 
 This document records the interaction steps used to create the survey analysis page.
 
-## 1. Initial Setup and Data Conversion
+## Initial Setup and Data Conversion
 **User Prompt:**
 
 > Create a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv
@@ -13,7 +13,7 @@ This document records the interaction steps used to create the survey analysis p
 - Created `survey.qmd` with Python code to read the Excel file and save as CSV.
 - Rendered the file to generate `results.csv`.
 
-## 2. Data Analysis
+## Data Analysis
 **User Prompt:**
 
 > Now carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that "data" related tasks data analysis is frequently mentioned as things conducive to automation.
@@ -26,7 +26,7 @@ This document records the interaction steps used to create the survey analysis p
     - Analyze automation opportunities (keyword matching).
     - Generate visualizations (bar charts).
 
-## 3. Website Integration
+## Website Integration
 **User Prompt:**
 
 > Update @_quarto.yml to ensure the page builds and is visible on the website
@@ -36,7 +36,7 @@ This document records the interaction steps used to create the survey analysis p
 - Added `survey.qmd` to the `_quarto.yml` sidebar under "Sessions".
 - Re-rendered the website.
 
-## 4. Formatting and Improvements
+## Formatting and Improvements
 **User Prompt:**
 
 > Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format:
@@ -52,7 +52,7 @@ This document records the interaction steps used to create the survey analysis p
 - Added cross-reference labels (`#| label: tbl-...`, `#| label: fig-...`) and captions.
 - Installed `tabulate`.
 
-## 5. Freezing Results for Deployment
+## Freezing Results for Deployment
 **User Prompt:**
 
 > Freeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.
@@ -63,7 +63,7 @@ This document records the interaction steps used to create the survey analysis p
 - Updated `.gitignore` to exclude raw data (`.xlsx`, `.csv`) but explicitly allow `_freeze/` (by removing it from the ignore list).
 - Re-rendered to populate the `_freeze` folder with static outputs.
 
-## 6. Git Operations
+## Git Operations
 **User Prompt:**
 
 > Commit and push the updates
