@@ -25,3 +25,121 @@ In this session, we will explore how AI can be used to augment and accelerate da
 ## 5. Practical Exercise
 
 *Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.*
+
+```{r}
+#| eval: false
+#| echo: false
+#| label: tfse-data-prep
+# Note: the following R code was run once to prepare spatial data files for use in the course.
+library(sf)
+library(dplyr)
+
+# 1. Read TfSE Boundary (Absolute path as per instruction)
+tfse_path = "/home/robin/github/robinlovelace/counterbid/tfse_boundary/TfSE_Area_Boundary.shp"
+if(file.exists(tfse_path)){
+    tfse_boundary = read_sf(tfse_path)
+} else {
+    warning("TfSE boundary file not found at specified path.")
+}
+
+# 2. Read LADs (Local Authority Districts)
+u_lads = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_May_2024_Boundaries_UK_BUC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
+lads = read_sf(u_lads)
+
+# 3. Read MSOAs (Middle Layer Super Output Areas) - Centroids for efficiency in spatial join
+u_msoas = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_Super_Output_Areas_DEC_2021_EW_PWC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
+msoas = read_sf(u_msoas)
+
+# 4. Filter Geographies within TfSE
+# Ensure CRS match
+if(exists("tfse_boundary")){
+    tfse_boundary = st_transform(tfse_boundary, st_crs(lads))
+    msoas = st_transform(msoas, st_crs(lads))
+
+    # Spatial intersection/subset
+    tfse_lads = lads[tfse_boundary, ]
+    tfse_msoas = msoas[tfse_boundary, ]
+
+    # 5. Save to GeoPackage
+    write_sf(tfse_lads, "tfse_lads.gpkg")
+    write_sf(tfse_msoas, "tfse_msoas.gpkg")
+    
+    print("Files saved: tfse_lads.gpkg, tfse_msoas.gpkg")
+}
+```
+
+## 6. Advanced Data Acquisition (Optional)
+
+In this section, we demonstrate how to programmatically access and filter large national datasets using R.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| eval: true
+library(stats19)
+library(sf)
+library(dplyr)
+
+# 1. Load the study area boundary
+# We use the pre-prepared TfSE boundary file
+tfse_boundary = read_sf("tfse_boundary.geojson")
+```
+
+We can download road safety data directly from the Department for Transport using the `stats19` package.
+
+**Example: Getting 5 years of data (Code only)**
+
+```{r}
+#| eval: false
+#| echo: true
+# This code downloads collision data for 2020-2024
+years = 2020:2024
+collisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = "collision"))
+```
+
+**Example: Joining Casualties (Code only)**
+
+```{r}
+#| eval: false
+#| echo: true
+# This code gets casualty data and joins it to the collisions
+casualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = "casualty"))
+
+casualties_joined = dplyr::left_join(
+  casualties_5y,
+  collisions_5y,
+  by = "collision_index" # Common ID field
+)
+```
+
+**Live Demo: Getting 2020 Collisions for TfSE**
+
+For this exercise, we will download just the 2020 collision data and filter it to our study area.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 1. Get 2020 collision data
+collisions_2020 = get_stats19(year = 2020, type = "collision")
+
+# 2. Convert to an 'sf' object (spatial data)
+collisions_sf = format_sf(collisions_2020, lonlat = TRUE)
+
+# 3. Filter to the TfSE boundary
+# Ensure Coordinate Reference Systems match
+collisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))
+
+# Spatial subset: keep collisions within the boundary
+collisions_tfse = collisions_sf[tfse_boundary, ]
+
+print(paste("Original 2020 collisions:", nrow(collisions_sf)))
+print(paste("TfSE collisions:", nrow(collisions_tfse)))
+
+# 4. Quick visual check
+plot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = "red", 
+     main = "Road Collisions in TfSE (2020)")
+plot(st_geometry(tfse_boundary), add = TRUE, border = "blue")
+```
