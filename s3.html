@@ -233,12 +233,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#finding-and-cleaning-data-with-ai" id="toc-finding-and-cleaning-data-with-ai" class="nav-link" data-scroll-target="#finding-and-cleaning-data-with-ai"><span class="header-section-number">2</span> 1. Finding and Cleaning Data with AI</a></li>
-  <li><a href="#exploratory-data-analysis-eda-with-ai" id="toc-exploratory-data-analysis-eda-with-ai" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda-with-ai"><span class="header-section-number">3</span> 2. Exploratory Data Analysis (EDA) with AI</a></li>
-  <li><a href="#ai-assisted-data-visualization" id="toc-ai-assisted-data-visualization" class="nav-link" data-scroll-target="#ai-assisted-data-visualization"><span class="header-section-number">4</span> 3. AI-Assisted Data Visualization</a></li>
-  <li><a href="#interpreting-results-with-llms" id="toc-interpreting-results-with-llms" class="nav-link" data-scroll-target="#interpreting-results-with-llms"><span class="header-section-number">5</span> 4. Interpreting Results with LLMs</a></li>
-  <li><a href="#practical-exercise" id="toc-practical-exercise" class="nav-link" data-scroll-target="#practical-exercise"><span class="header-section-number">6</span> 5. Practical Exercise</a></li>
-  <li><a href="#advanced-data-acquisition-optional" id="toc-advanced-data-acquisition-optional" class="nav-link" data-scroll-target="#advanced-data-acquisition-optional"><span class="header-section-number">7</span> 6. Advanced Data Acquisition (Optional)</a></li>
+  <li><a href="#finding-and-cleaning-data-with-ai" id="toc-finding-and-cleaning-data-with-ai" class="nav-link" data-scroll-target="#finding-and-cleaning-data-with-ai"><span class="header-section-number">2</span> Finding and Cleaning Data with AI</a>
+  <ul class="collapse">
+  <li><a href="#example-downloading-motorway-data" id="toc-example-downloading-motorway-data" class="nav-link" data-scroll-target="#example-downloading-motorway-data"><span class="header-section-number">2.1</span> Example: Downloading motorway data</a></li>
+  <li><a href="#example-downloading-road-traffic-collision-data-in-tfse" id="toc-example-downloading-road-traffic-collision-data-in-tfse" class="nav-link" data-scroll-target="#example-downloading-road-traffic-collision-data-in-tfse"><span class="header-section-number">2.2</span> Example: Downloading road traffic collision data in TfSE</a></li>
+  <li><a href="#bonus-activity" id="toc-bonus-activity" class="nav-link" data-scroll-target="#bonus-activity"><span class="header-section-number">2.3</span> Bonus activity</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis-eda-with-ai" id="toc-exploratory-data-analysis-eda-with-ai" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda-with-ai"><span class="header-section-number">3</span> Exploratory Data Analysis (EDA) with AI</a>
+  <ul class="collapse">
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#ai-assisted-data-visualization" id="toc-ai-assisted-data-visualization" class="nav-link" data-scroll-target="#ai-assisted-data-visualization"><span class="header-section-number">4</span> AI-Assisted Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">4.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#interpreting-results-with-llms" id="toc-interpreting-results-with-llms" class="nav-link" data-scroll-target="#interpreting-results-with-llms"><span class="header-section-number">5</span> Interpreting Results with LLMs</a></li>
+  <li><a href="#bonus-analysing-road-traffic-collision-data-in-tfse" id="toc-bonus-analysing-road-traffic-collision-data-in-tfse" class="nav-link" data-scroll-target="#bonus-analysing-road-traffic-collision-data-in-tfse"><span class="header-section-number">6</span> Bonus: Analysing road traffic collision data in TfSE</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -269,78 +279,166 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.</p>
 </section>
 <section id="finding-and-cleaning-data-with-ai" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="finding-and-cleaning-data-with-ai"><span class="header-section-number">2</span> 1. Finding and Cleaning Data with AI</h2>
-<p><em>Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.</em></p>
+<h2 data-number="2" class="anchored" data-anchor-id="finding-and-cleaning-data-with-ai"><span class="header-section-number">2</span> Finding and Cleaning Data with AI</h2>
+<!-- *Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.* -->
+<p>Generally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists. That means they are <em>not</em> generally good at very specific domains, such as the locations of transport datasets.</p>
+<div class="note">
+<p>You can check which model you are using by asking the AI directly.</p>
+<details>
+<summary>
+Example conversation
+</summary>
+<p><strong>User</strong>: What model are you?</p>
+<p><strong>Copilot</strong>: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.</p>
+</details>
+</div>
+<p>To provide an example, imagine you need a dataset of the motorway network in the South East of England. You could try this prompt in an AI chat tool, as shown in the details below.</p>
+<p>However, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.</p>
+<section id="example-downloading-motorway-data" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="example-downloading-motorway-data"><span class="header-section-number">2.1</span> Example: Downloading motorway data</h3>
+<p>Note: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.</p>
+<ol type="1">
+<li><p>Write a prompt that results in code to download motorway data in the South East of England.</p></li>
+<li><p>Update the prompt to make it more specific, e.g.&nbsp;telling it to use a specific language or package.</p></li>
+<li><p>Try running the code.</p></li>
+</ol>
+<details>
+<summary>
+Example prompt and output
+</summary>
+<p><strong>Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>“Write R code to download motorway network data for the South East of England from OpenStreetMap using the <code>osmdata</code> package.”</p>
+</blockquote>
+<p><strong>AI Output:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(osmdata)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the bounding box for South East England</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">getbb</span>(<span class="st">"South East England, UK"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an Overpass query for motorways</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>motorway_query <span class="ot">&lt;-</span> <span class="fu">opq</span>(bbox) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_osm_feature</span>(<span class="at">key =</span> <span class="st">"highway"</span>, <span class="at">value =</span> <span class="st">"motorway"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>motorway_data <span class="ot">&lt;-</span> <span class="fu">osmdata_sf</span>(motorway_query)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the motorway lines</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>motorways <span class="ot">&lt;-</span> motorway_data<span class="sc">$</span>osm_lines</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the result</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(motorways), <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">main =</span> <span class="st">"Motorway Network in South East England"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to a shapefile</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(motorways, <span class="st">"south_east_motorways.shp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Notes:</strong></p>
+<ol type="1">
+<li>It worked in one shot!</li>
+</ol>
+<p>A year ago this would not have worked first time, but the models are improving rapidly.</p>
+<ol start="2" type="1">
+<li>However, it was not perfect:</li>
+</ol>
+<ul>
+<li>It saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).</li>
+<li>It used the outdated <code>%&gt;%</code> pipe operator from <code>magrittr</code> rather than the native R pipe <code>|&gt;</code>.</li>
+</ul>
+<ol start="3" type="1">
+<li>Refining the prompt can easily fix these issues.</li>
+</ol>
+</details>
+</section>
+<section id="example-downloading-road-traffic-collision-data-in-tfse" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="example-downloading-road-traffic-collision-data-in-tfse"><span class="header-section-number">2.2</span> Example: Downloading road traffic collision data in TfSE</h3>
+<p>See the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.</p>
+</section>
+<section id="bonus-activity" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="bonus-activity"><span class="header-section-number">2.3</span> Bonus activity</h3>
+<p>Use AI to help you find and import data on a topic of your choice relevant to transport planning.</p>
+</section>
 </section>
 <section id="exploratory-data-analysis-eda-with-ai" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="exploratory-data-analysis-eda-with-ai"><span class="header-section-number">3</span> 2. Exploratory Data Analysis (EDA) with AI</h2>
-<p><em>Placeholder: Explain how to use AI to generate summary statistics, identify trends, and perform initial data quality checks.</em></p>
+<h2 data-number="3" class="anchored" data-anchor-id="exploratory-data-analysis-eda-with-ai"><span class="header-section-number">3</span> Exploratory Data Analysis (EDA) with AI</h2>
+<p>Take a read of the AI-assisted EDA session in <a href="./survey-prompts.html">survey-prompts.md</a> for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the <a href="./survey.html">survey</a> page.</p>
+<section id="exercises" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.1</span> Exercises</h3>
+<p>Option 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.</p>
+<p>Option 2: Try to download a specific transport dataset (e.g.&nbsp;the motorway network) using AI assistance, verifying the code and output carefully.</p>
+<p>Option 2: use AI to help you explore the motorway data you downloaded earlier in this session.</p>
+<p>Option 3: use AI to help you explore a transport dataset of your choice.</p>
+</section>
 </section>
 <section id="ai-assisted-data-visualization" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="ai-assisted-data-visualization"><span class="header-section-number">4</span> 3. AI-Assisted Data Visualization</h2>
-<p><em>Placeholder: Demonstrate how to use AI to generate code for creating charts and maps, including interactive visualizations.</em></p>
+<h2 data-number="4" class="anchored" data-anchor-id="ai-assisted-data-visualization"><span class="header-section-number">4</span> AI-Assisted Data Visualization</h2>
+<p>Data visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn. AI can help by generating code snippets for visualizations based on natural language prompts.</p>
+<section id="exercises-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">4.1</span> Exercises</h3>
+<p>Continue with EDA tasks from the previous exercise, but add visualisations.</p>
+<p>You can use packages of your choice, but we recommend you try the following:</p>
+<ul>
+<li><p>For people using R: <code>ggplot2</code> (part of the tidyverse), <code>plotly</code> (for interactive plots), or <code>mapview</code> (for spatial data).</p></li>
+<li><p>For people using Python: <code>matplotlib</code>, <code>seaborn</code>, or <code>plotly</code>.</p></li>
+</ul>
+</section>
 </section>
 <section id="interpreting-results-with-llms" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="interpreting-results-with-llms"><span class="header-section-number">5</span> 4. Interpreting Results with LLMs</h2>
-<p><em>Placeholder: Discuss how to use Large Language Models to help interpret data analysis results and generate narrative summaries.</em></p>
+<h2 data-number="5" class="anchored" data-anchor-id="interpreting-results-with-llms"><span class="header-section-number">5</span> Interpreting Results with LLMs</h2>
+<p>Copy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.</p>
+<p>Do you agree with the AI’s interpretation?</p>
+<p>Advanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render your_file.qmd <span class="at">--to</span> markdown</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then as the AI to read the output (in this case called <code>your_file.md</code>) and help you interpret the results.</p>
 </section>
-<section id="practical-exercise" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="practical-exercise"><span class="header-section-number">6</span> 5. Practical Exercise</h2>
-<p><em>Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.</em></p>
-</section>
-<section id="advanced-data-acquisition-optional" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="advanced-data-acquisition-optional"><span class="header-section-number">7</span> 6. Advanced Data Acquisition (Optional)</h2>
+<section id="bonus-analysing-road-traffic-collision-data-in-tfse" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="bonus-analysing-road-traffic-collision-data-in-tfse"><span class="header-section-number">6</span> Bonus: Analysing road traffic collision data in TfSE</h2>
 <p>In this section, we demonstrate how to programmatically access and filter large national datasets using R.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the study area boundary</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the pre-prepared TfSE boundary file</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tfse_boundary <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"tfse_boundary.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the study area boundary</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the pre-prepared TfSE boundary file</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>tfse_boundary <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"tfse_boundary.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can download road safety data directly from the Department for Transport using the <code>stats19</code> package.</p>
 <p><strong>Example: Getting 5 years of data (Code only)</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code downloads collision data for 2020-2024</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="dv">2020</span><span class="sc">:</span><span class="dv">2024</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>collisions_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"collision"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code downloads collision data for 2020-2024</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="dv">2020</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>collisions_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"collision"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Example: Joining Casualties (Code only)</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code gets casualty data and joins it to the collisions</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>casualties_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"casualty"</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>casualties_joined <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  casualties_5y,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  collisions_5y,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"collision_index"</span> <span class="co"># Common ID field</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code gets casualty data and joins it to the collisions</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>casualties_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"casualty"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>casualties_joined <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  casualties_5y,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  collisions_5y,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"collision_index"</span> <span class="co"># Common ID field</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Live Demo: Getting 2020 Collisions for TfSE</strong></p>
 <p>For this exercise, we will download just the 2020 collision data and filter it to our study area.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Get 2020 collision data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>collisions_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"collision"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Convert to an 'sf' object (spatial data)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">format_sf</span>(collisions_2020, <span class="at">lonlat =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filter to the TfSE boundary</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure Coordinate Reference Systems match</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">st_transform</span>(collisions_sf, <span class="fu">st_crs</span>(tfse_boundary))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial subset: keep collisions within the boundary</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>collisions_tfse <span class="ot">=</span> collisions_sf[tfse_boundary, ]</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Original 2020 collisions:"</span>, <span class="fu">nrow</span>(collisions_sf)))</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"TfSE collisions:"</span>, <span class="fu">nrow</span>(collisions_tfse)))</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Quick visual check</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(collisions_tfse), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"red"</span>, </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Road Collisions in TfSE (2020)"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(tfse_boundary), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">border =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Get 2020 collision data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>collisions_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"collision"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Convert to an 'sf' object (spatial data)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">format_sf</span>(collisions_2020, <span class="at">lonlat =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filter to the TfSE boundary</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure Coordinate Reference Systems match</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">st_transform</span>(collisions_sf, <span class="fu">st_crs</span>(tfse_boundary))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial subset: keep collisions within the boundary</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>collisions_tfse <span class="ot">=</span> collisions_sf[tfse_boundary, ]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Original 2020 collisions:"</span>, <span class="fu">nrow</span>(collisions_sf)))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"TfSE collisions:"</span>, <span class="fu">nrow</span>(collisions_tfse)))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Quick visual check</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(collisions_tfse), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"red"</span>, </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Road Collisions in TfSE (2020)"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(tfse_boundary), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">border =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

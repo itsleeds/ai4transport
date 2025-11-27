@@ -468,8 +468,8 @@
     "objectID": "s3.html#finding-and-cleaning-data-with-ai",
     "href": "s3.html#finding-and-cleaning-data-with-ai",
     "title": "Session 3: AI for Transport Data Analysis",
-    "section": "2 1. Finding and Cleaning Data with AI",
-    "text": "2 1. Finding and Cleaning Data with AI\nPlaceholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.",
+    "section": "2 Finding and Cleaning Data with AI",
+    "text": "2 Finding and Cleaning Data with AI\n\nGenerally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists. That means they are not generally good at very specific domains, such as the locations of transport datasets.\n\nYou can check which model you are using by asking the AI directly.\n\n\nExample conversation\n\nUser: What model are you?\nCopilot: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.\n\n\nTo provide an example, imagine you need a dataset of the motorway network in the South East of England. You could try this prompt in an AI chat tool, as shown in the details below.\nHowever, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.\n\n2.1 Example: Downloading motorway data\nNote: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.\n\nWrite a prompt that results in code to download motorway data in the South East of England.\nUpdate the prompt to make it more specific, e.g. telling it to use a specific language or package.\nTry running the code.\n\n\n\nExample prompt and output\n\nPrompt:\n\n“Write R code to download motorway network data for the South East of England from OpenStreetMap using the osmdata package.”\n\nAI Output:\n\nlibrary(osmdata)\nlibrary(sf)\n# Define the bounding box for South East England\nbbox &lt;- getbb(\"South East England, UK\")\n# Create an Overpass query for motorways\nmotorway_query &lt;- opq(bbox) %&gt;%\n  add_osm_feature(key = \"highway\", value = \"motorway\")\n# Download the data\nmotorway_data &lt;- osmdata_sf(motorway_query)\n# Extract the motorway lines\nmotorways &lt;- motorway_data$osm_lines\n# Plot the result\nplot(st_geometry(motorways), col = 'blue', main = \"Motorway Network in South East England\")\n# Save to a shapefile\nst_write(motorways, \"south_east_motorways.shp\")\n\nNotes:\n\nIt worked in one shot!\n\nA year ago this would not have worked first time, but the models are improving rapidly.\n\nHowever, it was not perfect:\n\n\nIt saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).\nIt used the outdated %&gt;% pipe operator from magrittr rather than the native R pipe |&gt;.\n\n\nRefining the prompt can easily fix these issues.\n\n\n\n\n2.2 Example: Downloading road traffic collision data in TfSE\nSee the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.\n\n\n2.3 Bonus activity\nUse AI to help you find and import data on a topic of your choice relevant to transport planning.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -479,8 +479,8 @@
     "objectID": "s3.html#exploratory-data-analysis-eda-with-ai",
     "href": "s3.html#exploratory-data-analysis-eda-with-ai",
     "title": "Session 3: AI for Transport Data Analysis",
-    "section": "3 2. Exploratory Data Analysis (EDA) with AI",
-    "text": "3 2. Exploratory Data Analysis (EDA) with AI\nPlaceholder: Explain how to use AI to generate summary statistics, identify trends, and perform initial data quality checks.",
+    "section": "3 Exploratory Data Analysis (EDA) with AI",
+    "text": "3 Exploratory Data Analysis (EDA) with AI\nTake a read of the AI-assisted EDA session in survey-prompts.md for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the survey page.\n\n3.1 Exercises\nOption 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.\nOption 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.\nOption 2: use AI to help you explore the motorway data you downloaded earlier in this session.\nOption 3: use AI to help you explore a transport dataset of your choice.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -490,8 +490,8 @@
     "objectID": "s3.html#ai-assisted-data-visualization",
     "href": "s3.html#ai-assisted-data-visualization",
     "title": "Session 3: AI for Transport Data Analysis",
-    "section": "4 3. AI-Assisted Data Visualization",
-    "text": "4 3. AI-Assisted Data Visualization\nPlaceholder: Demonstrate how to use AI to generate code for creating charts and maps, including interactive visualizations.",
+    "section": "4 AI-Assisted Data Visualization",
+    "text": "4 AI-Assisted Data Visualization\nData visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn. AI can help by generating code snippets for visualizations based on natural language prompts.\n\n4.1 Exercises\nContinue with EDA tasks from the previous exercise, but add visualisations.\nYou can use packages of your choice, but we recommend you try the following:\n\nFor people using R: ggplot2 (part of the tidyverse), plotly (for interactive plots), or mapview (for spatial data).\nFor people using Python: matplotlib, seaborn, or plotly.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -501,30 +501,19 @@
     "objectID": "s3.html#interpreting-results-with-llms",
     "href": "s3.html#interpreting-results-with-llms",
     "title": "Session 3: AI for Transport Data Analysis",
-    "section": "5 4. Interpreting Results with LLMs",
-    "text": "5 4. Interpreting Results with LLMs\nPlaceholder: Discuss how to use Large Language Models to help interpret data analysis results and generate narrative summaries.",
+    "section": "5 Interpreting Results with LLMs",
+    "text": "5 Interpreting Results with LLMs\nCopy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.\nDo you agree with the AI’s interpretation?\nAdvanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:\nquarto render your_file.qmd --to markdown\nThen as the AI to read the output (in this case called your_file.md) and help you interpret the results.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
     ]
   },
   {
-    "objectID": "s3.html#practical-exercise",
-    "href": "s3.html#practical-exercise",
+    "objectID": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
+    "href": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
     "title": "Session 3: AI for Transport Data Analysis",
-    "section": "6 5. Practical Exercise",
-    "text": "6 5. Practical Exercise\nPlaceholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#advanced-data-acquisition-optional",
-    "href": "s3.html#advanced-data-acquisition-optional",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "7 6. Advanced Data Acquisition (Optional)",
-    "text": "7 6. Advanced Data Acquisition (Optional)\nIn this section, we demonstrate how to programmatically access and filter large national datasets using R.\n\nlibrary(stats19)\nlibrary(sf)\nlibrary(dplyr)\n\n# 1. Load the study area boundary\n# We use the pre-prepared TfSE boundary file\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\n\nWe can download road safety data directly from the Department for Transport using the stats19 package.\nExample: Getting 5 years of data (Code only)\n\n# This code downloads collision data for 2020-2024\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\nExample: Joining Casualties (Code only)\n\n# This code gets casualty data and joins it to the collisions\ncasualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"casualty\"))\n\ncasualties_joined = dplyr::left_join(\n  casualties_5y,\n  collisions_5y,\n  by = \"collision_index\" # Common ID field\n)\n\nLive Demo: Getting 2020 Collisions for TfSE\nFor this exercise, we will download just the 2020 collision data and filter it to our study area.\n\n# 1. Get 2020 collision data\ncollisions_2020 = get_stats19(year = 2020, type = \"collision\")\n\n# 2. Convert to an 'sf' object (spatial data)\ncollisions_sf = format_sf(collisions_2020, lonlat = TRUE)\n\n# 3. Filter to the TfSE boundary\n# Ensure Coordinate Reference Systems match\ncollisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n\n# Spatial subset: keep collisions within the boundary\ncollisions_tfse = collisions_sf[tfse_boundary, ]\n\nprint(paste(\"Original 2020 collisions:\", nrow(collisions_sf)))\nprint(paste(\"TfSE collisions:\", nrow(collisions_tfse)))\n\n# 4. Quick visual check\nplot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = \"red\", \n     main = \"Road Collisions in TfSE (2020)\")\nplot(st_geometry(tfse_boundary), add = TRUE, border = \"blue\")",
+    "section": "6 Bonus: Analysing road traffic collision data in TfSE",
+    "text": "6 Bonus: Analysing road traffic collision data in TfSE\nIn this section, we demonstrate how to programmatically access and filter large national datasets using R.\n\nlibrary(stats19)\nlibrary(sf)\nlibrary(dplyr)\n\n# 1. Load the study area boundary\n# We use the pre-prepared TfSE boundary file\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\n\nWe can download road safety data directly from the Department for Transport using the stats19 package.\nExample: Getting 5 years of data (Code only)\n\n# This code downloads collision data for 2020-2024\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\nExample: Joining Casualties (Code only)\n\n# This code gets casualty data and joins it to the collisions\ncasualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"casualty\"))\n\ncasualties_joined = dplyr::left_join(\n  casualties_5y,\n  collisions_5y,\n  by = \"collision_index\" # Common ID field\n)\n\nLive Demo: Getting 2020 Collisions for TfSE\nFor this exercise, we will download just the 2020 collision data and filter it to our study area.\n\n# 1. Get 2020 collision data\ncollisions_2020 = get_stats19(year = 2020, type = \"collision\")\n\n# 2. Convert to an 'sf' object (spatial data)\ncollisions_sf = format_sf(collisions_2020, lonlat = TRUE)\n\n# 3. Filter to the TfSE boundary\n# Ensure Coordinate Reference Systems match\ncollisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n\n# Spatial subset: keep collisions within the boundary\ncollisions_tfse = collisions_sf[tfse_boundary, ]\n\nprint(paste(\"Original 2020 collisions:\", nrow(collisions_sf)))\nprint(paste(\"TfSE collisions:\", nrow(collisions_tfse)))\n\n# 4. Quick visual check\nplot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = \"red\", \n     main = \"Road Collisions in TfSE (2020)\")\nplot(st_geometry(tfse_boundary), add = TRUE, border = \"blue\")",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -861,49 +850,49 @@
     "href": "survey-prompts.html",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "This document records the interaction steps used to create the survey analysis page.\n\n\nUser Prompt: &gt; Create a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\nGemini Action: - Installed openpyxl. - Created survey.qmd with Python code to read the Excel file and save as CSV. - Rendered the file to generate results.csv.\n\n\n\nUser Prompt: &gt; Now carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\nGemini Action: - Read results.csv to understand columns. - Added Python chunks to survey.qmd to: - Analyze AI tool usage (cleaning and counting). - Analyze automation opportunities (keyword matching). - Generate visualizations (bar charts).\n\n\n\nUser Prompt: &gt; Update @_quarto.yml to ensure the page builds and is visible on the website\nGemini Action: - Added survey.qmd to the _quarto.yml sidebar under “Sessions”. - Re-rendered the website.\n\n\n\nUser Prompt: &gt; Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: &gt; html: &gt; code-fold: true &gt; code-tools: true\nGemini Action: - Updated YAML header for HTML formatting. - Hid the data loading chunk using #| include: false. - Converted raw text outputs to Markdown tables using the tabulate library and Markdown() display. - Added cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions. - Installed tabulate.\n\n\n\nUser Prompt: &gt; Freeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\nGemini Action: - Added freeze: true to survey.qmd. - Updated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list). - Re-rendered to populate the _freeze folder with static outputs.\n\n\n\nUser Prompt: &gt; Commit and push the updates\nGemini Action: - Staged changes (including new survey.qmd and _freeze directory). - Committed with message “Add survey results page with frozen output”. - Pushed to branch intro-friendly-updates."
+    "text": "This document records the interaction steps used to create the survey analysis page.\n\n\nUser Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv.\n\n\n\n\nUser Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts).\n\n\n\n\n\nUser Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website.\n\n\n\n\nUser Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate.\n\n\n\n\nUser Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs.\n\n\n\n\nUser Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
   },
   {
     "objectID": "survey-prompts.html#initial-setup-and-data-conversion",
     "href": "survey-prompts.html#initial-setup-and-data-conversion",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Create a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\nGemini Action: - Installed openpyxl. - Created survey.qmd with Python code to read the Excel file and save as CSV. - Rendered the file to generate results.csv."
+    "text": "User Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv."
   },
   {
     "objectID": "survey-prompts.html#data-analysis",
     "href": "survey-prompts.html#data-analysis",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Now carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\nGemini Action: - Read results.csv to understand columns. - Added Python chunks to survey.qmd to: - Analyze AI tool usage (cleaning and counting). - Analyze automation opportunities (keyword matching). - Generate visualizations (bar charts)."
+    "text": "User Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts)."
   },
   {
     "objectID": "survey-prompts.html#website-integration",
     "href": "survey-prompts.html#website-integration",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Update @_quarto.yml to ensure the page builds and is visible on the website\nGemini Action: - Added survey.qmd to the _quarto.yml sidebar under “Sessions”. - Re-rendered the website."
+    "text": "User Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website."
   },
   {
     "objectID": "survey-prompts.html#formatting-and-improvements",
     "href": "survey-prompts.html#formatting-and-improvements",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: &gt; html: &gt; code-fold: true &gt; code-tools: true\nGemini Action: - Updated YAML header for HTML formatting. - Hid the data loading chunk using #| include: false. - Converted raw text outputs to Markdown tables using the tabulate library and Markdown() display. - Added cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions. - Installed tabulate."
+    "text": "User Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate."
   },
   {
     "objectID": "survey-prompts.html#freezing-results-for-deployment",
     "href": "survey-prompts.html#freezing-results-for-deployment",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Freeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\nGemini Action: - Added freeze: true to survey.qmd. - Updated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list). - Re-rendered to populate the _freeze folder with static outputs."
+    "text": "User Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs."
   },
   {
     "objectID": "survey-prompts.html#git-operations",
     "href": "survey-prompts.html#git-operations",
     "title": "1 Survey Analysis Workflow Prompts",
     "section": "",
-    "text": "User Prompt: &gt; Commit and push the updates\nGemini Action: - Staged changes (including new survey.qmd and _freeze directory). - Committed with message “Add survey results page with frozen output”. - Pushed to branch intro-friendly-updates."
+    "text": "User Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
   },
   {
     "objectID": "codespaces.html",

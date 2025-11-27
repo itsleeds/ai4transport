@@ -201,12 +201,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#survey-analysis-workflow-prompts" id="toc-survey-analysis-workflow-prompts" class="nav-link active" data-scroll-target="#survey-analysis-workflow-prompts"><span class="header-section-number">1</span> Survey Analysis Workflow Prompts</a>
   <ul class="collapse">
-  <li><a href="#initial-setup-and-data-conversion" id="toc-initial-setup-and-data-conversion" class="nav-link" data-scroll-target="#initial-setup-and-data-conversion"><span class="header-section-number">1.1</span> 1. Initial Setup and Data Conversion</a></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">1.2</span> 2. Data Analysis</a></li>
-  <li><a href="#website-integration" id="toc-website-integration" class="nav-link" data-scroll-target="#website-integration"><span class="header-section-number">1.3</span> 3. Website Integration</a></li>
-  <li><a href="#formatting-and-improvements" id="toc-formatting-and-improvements" class="nav-link" data-scroll-target="#formatting-and-improvements"><span class="header-section-number">1.4</span> 4. Formatting and Improvements</a></li>
-  <li><a href="#freezing-results-for-deployment" id="toc-freezing-results-for-deployment" class="nav-link" data-scroll-target="#freezing-results-for-deployment"><span class="header-section-number">1.5</span> 5. Freezing Results for Deployment</a></li>
-  <li><a href="#git-operations" id="toc-git-operations" class="nav-link" data-scroll-target="#git-operations"><span class="header-section-number">1.6</span> 6. Git Operations</a></li>
+  <li><a href="#initial-setup-and-data-conversion" id="toc-initial-setup-and-data-conversion" class="nav-link" data-scroll-target="#initial-setup-and-data-conversion"><span class="header-section-number">1.1</span> Initial Setup and Data Conversion</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">1.2</span> Data Analysis</a></li>
+  <li><a href="#website-integration" id="toc-website-integration" class="nav-link" data-scroll-target="#website-integration"><span class="header-section-number">1.3</span> Website Integration</a></li>
+  <li><a href="#formatting-and-improvements" id="toc-formatting-and-improvements" class="nav-link" data-scroll-target="#formatting-and-improvements"><span class="header-section-number">1.4</span> Formatting and Improvements</a></li>
+  <li><a href="#freezing-results-for-deployment" id="toc-freezing-results-for-deployment" class="nav-link" data-scroll-target="#freezing-results-for-deployment"><span class="header-section-number">1.5</span> Freezing Results for Deployment</a></li>
+  <li><a href="#git-operations" id="toc-git-operations" class="nav-link" data-scroll-target="#git-operations"><span class="header-section-number">1.6</span> Git Operations</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -221,34 +221,87 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="1"><span class="header-section-number">1</span> Survey Analysis Workflow Prompts</h1>
 <p>This document records the interaction steps used to create the survey analysis page.</p>
 <section id="initial-setup-and-data-conversion" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="initial-setup-and-data-conversion"><span class="header-section-number">1.1</span> 1. Initial Setup and Data Conversion</h2>
-<p><strong>User Prompt:</strong> &gt; Create a new file called survey.qmd that starts by importing <span class="citation" data-cites="Pre-Course">@Pre-Course</span> Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv</p>
-<p><strong>Gemini Action:</strong> - Installed <code>openpyxl</code>. - Created <code>survey.qmd</code> with Python code to read the Excel file and save as CSV. - Rendered the file to generate <code>results.csv</code>.</p>
+<h2 data-number="1.1" class="anchored" data-anchor-id="initial-setup-and-data-conversion"><span class="header-section-number">1.1</span> Initial Setup and Data Conversion</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Create a new file called survey.qmd that starts by importing <span class="citation" data-cites="Pre-Course">@Pre-Course</span> Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Installed <code>openpyxl</code>.</li>
+<li>Created <code>survey.qmd</code> with Python code to read the Excel file and save as CSV.</li>
+<li>Rendered the file to generate <code>results.csv</code>.</li>
+</ul>
 </section>
 <section id="data-analysis" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">1.2</span> 2. Data Analysis</h2>
-<p><strong>User Prompt:</strong> &gt; Now carefully read the contents of results.csv and add multiple Python chunks to <span class="citation" data-cites="survey.qmd">@survey.qmd</span> to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.</p>
-<p><strong>Gemini Action:</strong> - Read <code>results.csv</code> to understand columns. - Added Python chunks to <code>survey.qmd</code> to: - Analyze AI tool usage (cleaning and counting). - Analyze automation opportunities (keyword matching). - Generate visualizations (bar charts).</p>
+<h2 data-number="1.2" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">1.2</span> Data Analysis</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Now carefully read the contents of results.csv and add multiple Python chunks to <span class="citation" data-cites="survey.qmd">@survey.qmd</span> to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Read <code>results.csv</code> to understand columns.</li>
+<li>Added Python chunks to <code>survey.qmd</code> to:
+<ul>
+<li>Analyze AI tool usage (cleaning and counting).</li>
+<li>Analyze automation opportunities (keyword matching).</li>
+<li>Generate visualizations (bar charts).</li>
+</ul></li>
+</ul>
 </section>
 <section id="website-integration" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="website-integration"><span class="header-section-number">1.3</span> 3. Website Integration</h2>
-<p><strong>User Prompt:</strong> &gt; Update <span class="citation" data-cites="_quarto.yml">@_quarto.yml</span> to ensure the page builds and is visible on the website</p>
-<p><strong>Gemini Action:</strong> - Added <code>survey.qmd</code> to the <code>_quarto.yml</code> sidebar under “Sessions”. - Re-rendered the website.</p>
+<h2 data-number="1.3" class="anchored" data-anchor-id="website-integration"><span class="header-section-number">1.3</span> Website Integration</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Update <span class="citation" data-cites="_quarto.yml">@_quarto.yml</span> to ensure the page builds and is visible on the website</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Added <code>survey.qmd</code> to the <code>_quarto.yml</code> sidebar under “Sessions”.</li>
+<li>Re-rendered the website.</li>
+</ul>
 </section>
 <section id="formatting-and-improvements" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="formatting-and-improvements"><span class="header-section-number">1.4</span> 4. Formatting and Improvements</h2>
-<p><strong>User Prompt:</strong> &gt; Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of <span class="citation" data-cites="survey.qmd">@survey.qmd</span> and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: &gt; html: &gt; code-fold: true &gt; code-tools: true</p>
-<p><strong>Gemini Action:</strong> - Updated YAML header for HTML formatting. - Hid the data loading chunk using <code>#| include: false</code>. - Converted raw text outputs to Markdown tables using the <code>tabulate</code> library and <code>Markdown()</code> display. - Added cross-reference labels (<code>#| label: tbl-...</code>, <code>#| label: fig-...</code>) and captions. - Installed <code>tabulate</code>.</p>
+<h2 data-number="1.4" class="anchored" data-anchor-id="formatting-and-improvements"><span class="header-section-number">1.4</span> Formatting and Improvements</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of <span class="citation" data-cites="survey.qmd">@survey.qmd</span> and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Updated YAML header for HTML formatting.</li>
+<li>Hid the data loading chunk using <code>#| include: false</code>.</li>
+<li>Converted raw text outputs to Markdown tables using the <code>tabulate</code> library and <code>Markdown()</code> display.</li>
+<li>Added cross-reference labels (<code>#| label: tbl-...</code>, <code>#| label: fig-...</code>) and captions.</li>
+<li>Installed <code>tabulate</code>.</li>
+</ul>
 </section>
 <section id="freezing-results-for-deployment" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="freezing-results-for-deployment"><span class="header-section-number">1.5</span> 5. Freezing Results for Deployment</h2>
-<p><strong>User Prompt:</strong> &gt; Freeze the results so that the code in <span class="citation" data-cites="survey.qmd">@survey.qmd</span> will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.</p>
-<p><strong>Gemini Action:</strong> - Added <code>freeze: true</code> to <code>survey.qmd</code>. - Updated <code>.gitignore</code> to exclude raw data (<code>.xlsx</code>, <code>.csv</code>) but explicitly allow <code>_freeze/</code> (by removing it from the ignore list). - Re-rendered to populate the <code>_freeze</code> folder with static outputs.</p>
+<h2 data-number="1.5" class="anchored" data-anchor-id="freezing-results-for-deployment"><span class="header-section-number">1.5</span> Freezing Results for Deployment</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Freeze the results so that the code in <span class="citation" data-cites="survey.qmd">@survey.qmd</span> will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Added <code>freeze: true</code> to <code>survey.qmd</code>.</li>
+<li>Updated <code>.gitignore</code> to exclude raw data (<code>.xlsx</code>, <code>.csv</code>) but explicitly allow <code>_freeze/</code> (by removing it from the ignore list).</li>
+<li>Re-rendered to populate the <code>_freeze</code> folder with static outputs.</li>
+</ul>
 </section>
 <section id="git-operations" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="git-operations"><span class="header-section-number">1.6</span> 6. Git Operations</h2>
-<p><strong>User Prompt:</strong> &gt; Commit and push the updates</p>
-<p><strong>Gemini Action:</strong> - Staged changes (including new <code>survey.qmd</code> and <code>_freeze</code> directory). - Committed with message “Add survey results page with frozen output”. - Pushed to branch <code>intro-friendly-updates</code>.</p>
+<h2 data-number="1.6" class="anchored" data-anchor-id="git-operations"><span class="header-section-number">1.6</span> Git Operations</h2>
+<p><strong>User Prompt:</strong></p>
+<blockquote class="blockquote">
+<p>Commit and push the updates</p>
+</blockquote>
+<p><strong>Gemini Action:</strong></p>
+<ul>
+<li>Staged changes (including new <code>survey.qmd</code> and <code>_freeze</code> directory).</li>
+<li>Committed with message “Add survey results page with frozen output”.</li>
+<li>Pushed to branch <code>intro-friendly-updates</code>.</li>
+</ul>
 
 
 </section>
