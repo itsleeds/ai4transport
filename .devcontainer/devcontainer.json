@@ -11,5 +11,6 @@
 				"ms-toolsai.jupyter"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "git config --global core.autocrlf input"
 }
