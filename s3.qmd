@@ -103,9 +103,13 @@ motorways = motorways |>
 mapview::mapview(motorways, zcol = "lanes", legend = TRUE)
 ```
 
+### Bonus activity
+
+Use AI to help you find and import data on a topic of your choice relevant to transport planning.
+
 ## Exploratory Data Analysis (EDA) with AI
 
-*Placeholder: Explain how to use AI to generate summary statistics, identify trends, and perform initial data quality checks.*
+Take a read of the AI-assisted EDA session in [survey-prompts.md](survey-prompts.md) for ideas on how to use AI to speed up EDA tasks.
 
 ## AI-Assisted Data Visualization
 
