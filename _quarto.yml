@@ -34,11 +34,13 @@ website:
           - href: s2.qmd
             text: "Session 2: AI-Powered Development"
           - href: s3.qmd
-            text: "Session 3: LLMs for Reporting"
+            text: "Session 3: Data Analysis"
           - href: s4.qmd
-            text: "Session 4: Data Analysis"
+            text: "Session 4: Deep Dive"
           - href: survey.qmd
             text: "Survey Results"
+          - href: s3-advanced.qmd
+            text: "Bonus: Advanced Automation"
       - href: https://github.com/itsleeds/ai4transport/issues
         text: Forum
 

@@ -1,244 +1,27 @@
 ---
-title: "Session 3: Automating Document Analysis with LLM APIs"
-author: "[Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton)"
-execute: 
-  eval: false
+title: "Session 3: AI for Transport Data Analysis"
 ---
 
 ## Introduction
 
-Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.
+In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.
 
-## What you’ll learn
+## 1. Finding and Cleaning Data with AI
 
-- Set up an API client
-- Send a basic prompt and parse a response
-- Ask the model for structured JSON and validate it
-- Fetch a PDF from a URL, extract text, and summarise it reproducibly
-- Batch a task across multiple files
+*Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.*
 
-## Level 0: The Non-Coder Approach (Chat with your PDF)
+## 2. Exploratory Data Analysis (EDA) with AI
 
-Before we write code, it is important to know that you can do single-document analysis without any programming.
+*Placeholder: Explain how to use AI to generate summary statistics, identify trends, and perform initial data quality checks.*
 
-**Try this manual workflow:**
-1.  Go to [Claude.ai](https://claude.ai), [ChatGPT Plus](https://chatgpt.com), or [Gemini Advanced](https://gemini.google.com).
-2.  Click the "paperclip" or "plus" icon to upload a PDF (e.g., a local transport policy document).
-3.  Ask: *"Summarise the key transport objectives in this document as a bulleted list."*
+## 3. AI-Assisted Data Visualization
 
-**Why do we need code then?**
-Imagine you have **500 planning applications** to review. Uploading them one by one and copying the answers into Excel would take days.
-The method below allows you to write a script once and process 5, 500, or 5,000 documents automatically while you grab a coffee.
+*Placeholder: Demonstrate how to use AI to generate code for creating charts and maps, including interactive visualizations.*
 
-## Level 1: Automating for Scale (Python Setup)
+## 4. Interpreting Results with LLMs
 
-We’ll use Python to build this automation. If packages are missing, install them first.
+*Placeholder: Discuss how to use Large Language Models to help interpret data analysis results and generate narrative summaries.*
 
-```{python}
-#!pip install openai requests pypdf
-import os
-import json
-from typing import List, Dict
-from openai import OpenAI
-```
+## 5. Practical Exercise
 
-Best practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the `.env` file directly.
-
-
-Now create the client:
-
-```{python}
-ROUTER_API_KEY = 'link to your api key location'
-
-CLIENT = OpenAI(
-    api_key=ROUTER_API_KEY,
-    default_headers={"Authorization": f"Bearer {ROUTER_API_KEY}"}
-)
-
-
-```
-
-## A simple chat completion
-
-This mirrors what you do in a chat UI, but from code:
-
-```{python}
-resp = CLIENT.chat.completions.create(
-    model="gpt-5-mini",
-    messages=[
-        {"role": "system", "content": "You are a dilligent, concise transport planning assistant."},
-        {"role": "user", "content": "Tell me a family-friendly transport planning joke."}
-    ]
-)
-print(resp.choices[0].message.content)
-```
-
-Try tweaking the prompt style (e.g., more witty, drier, aimed at students vs. professionals).
-
-## Getting structured (JSON) outputs
-
-When you need to use the response downstream, ask the model to return JSON and validate it.
-
-```{python}
-schema_hint = {
-    "type": "object",
-    "properties": {
-        "title": {"type": "string"},
-        "insight": {"type": "string"},
-        "confidence": {"type": "number"}
-    },
-    "required": ["title", "insight", "confidence"]
-}
-
-prompt = (
-    "Summarise one noteworthy transport planning insight from London’s congestion pricing "
-    "policy in 1-2 sentences. Return only valid JSON with keys: title, insight, confidence (0-1)."
-)
-
-resp = CLIENT.chat.completions.create(
-    model="gpt-5-mini",
-    messages=[
-        {"role": "system", "content": "Return only JSON, no extra text."},
-        {"role": "user", "content": prompt}
-    ]
-)
-
-raw = resp.choices[0].message.content
-try:
-    data = json.loads(raw)
-    assert set(["title", "insight", "confidence"]) <= set(data.keys())
-except Exception as e:
-    raise ValueError(f"Model did not return valid JSON. Raw output: {raw}") from e
-
-data
-```
-
-## Analysing a PDF from a URL (robust approach)
-
-Rather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.
-
-```{python}
-!pip install pypdf
-import io
-import math
-import requests
-from pypdf import PdfReader
-
-def fetch_pdf_text(url: str, max_pages: int = 5) -> str:
-    """Download a PDF and extract text from the first `max_pages` pages."""
-    r = requests.get(url, timeout=30)
-    r.raise_for_status()
-    with io.BytesIO(r.content) as f:
-        reader = PdfReader(f)
-        pages = min(max_pages, len(reader.pages))
-        text = []
-        for i in range(pages):
-            text.append(reader.pages[i].extract_text() or "")
-    return "\n\n".join(text).strip()
-
-def chunk_text(text: str, chunk_chars: int = 6000) -> List[str]:
-    """Split text into roughly token-sized chunks for prompting."""
-    chunks = []
-    for i in range(0, len(text), chunk_chars):
-        chunks.append(text[i:i+chunk_chars])
-    return chunks
-
-def summarise_pdf(url: str, task: str = "Summarise and comment on this document for a transport audience.") -> str:
-    text = fetch_pdf_text(url)
-    if not text:
-        return "No text extracted from the PDF."
-    chunks = chunk_text(text)
-    summaries = []
-    for idx, ch in enumerate(chunks, start=1):
-        r = CLIENT.chat.completions.create(
-            model="gpt-5-mini",
-            messages=[
-                {"role": "system", "content": "You are a precise analyst. Keep outputs concise."},
-                {"role": "user", "content": f"{task}\n\nChunk {idx}/{len(chunks)}:\n{ch}"}
-            ]
-        )
-        summaries.append(r.choices[0].message.content)
-    # Compress partial summaries into a final synthesis
-    final = CLIENT.chat.completions.create(
-        model="gpt-5-mini",
-        messages=[
-            {"role": "system", "content": "Create a single, coherent summary with key takeaways."},
-            {"role": "user", "content": "\n\n".join(summaries)}
-        ]
-    )
-    return final.choices[0].message.content
-
-# Example (uses a classic sample PDF)
-sample_url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-summarise_pdf(sample_url)
-```
-
-### Try it
-
-- Change `max_pages` in `fetch_pdf_text` to control cost/speed.
-- Swap `task` to focus on risks, methods, or key findings.
-- Use your own PDF URLs (public reports, guidance docs, etc.).
-
-## Batch a task across multiple documents
-
-You’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):
-
-```{python}
-from datetime import datetime
-
-def extract_insights(text: str) -> Dict:
-    prompt = (
-        "From the provided text, output JSON with: title, bullets (array of 2-3 concise points),"
-        " confidence (0-1). Return only JSON."
-    )
-    r = CLIENT.chat.completions.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "Return valid JSON only."},
-            {"role": "user", "content": f"{prompt}\n\n{text[:6000]}"}
-        ]
-    )
-    raw = r.choices[0].message.content
-    try:
-        return json.loads(raw)
-    except Exception:
-        return {"title": "(parse_error)", "bullets": [raw], "confidence": 0.0}
-
-def batch_process(urls: List[str], out_path: str = "insights.jsonl") -> str:
-    with open(out_path, "w", encoding="utf-8") as f:
-        for url in urls:
-            try:
-                text = fetch_pdf_text(url, max_pages=5)
-                data = extract_insights(text)
-                data.update({"source": url, "ts": datetime.utcnow().isoformat()})
-                f.write(json.dumps(data, ensure_ascii=False) + "\n")
-            except Exception as e:
-                f.write(json.dumps({
-                    "source": url, "error": str(e), "ts": datetime.utcnow().isoformat()
-                }) + "\n")
-    return out_path
-
-urls = [
-    "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-    # add more public PDF URLs here
-]
-
-batch_process(urls)
-```
-
-## Good practice and guardrails
-
-- Reproducibility: fix the model name per project and log prompts.
-- Privacy: don’t send sensitive data to third-party APIs without approval.
-- Cost control: cap pages, chunk sizes, and batch sizes; cache intermediate results.
-- Error handling: catch network errors/timeouts; write partial results with error notes.
-- Version control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).
-
-## Where this fits in the course
-
-- From Session 1: we’re applying AI within a clear workflow with ethical awareness.
-- From Session 2: we’re turning assisted coding into reproducible automation.
-- Into Session 4: we’ll apply the same ideas to transport data analysis and reporting.
-
-
-
+*Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.*
