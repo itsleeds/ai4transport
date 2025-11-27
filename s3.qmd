@@ -8,23 +8,114 @@ execute:
 
 In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.
 
-## 1. Finding and Cleaning Data with AI
+## Finding and Cleaning Data with AI
 
-*Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.*
+<!-- *Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.* -->
 
-## 2. Exploratory Data Analysis (EDA) with AI
+Generally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists.
+That means they are *not* generally good at very specific domains, such as the locations of transport datasets.
+
+::: note
+You can check which model you are using by asking the AI directly.
+
+<details>
+<summary>Example conversation</summary>
+
+**User**: What model are you?
+
+**Copilot**: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.
+
+</details>
+:::
+
+To provide an example, imagine you need a dataset of the motorway network in the South East of England.
+You could try this prompt in an AI chat tool, as shown in the details below.
+
+However, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.
+
+### Example: Downloading motorway data
+
+1. Write a prompt that results in code to download motorway data in the South East of England.
+
+2. Update the prompt to make it more specific, e.g. telling it to use a specific language or package.
+
+3. Try running the code.
+
+<details>
+<summary>Example prompt and output</summary>
+
+**Prompt:** 
+
+> "Write R code to download motorway network data for the South East of England from OpenStreetMap using the `osmdata` package."
+
+**AI Output:**
+
+```{r}
+#| eval: false
+library(osmdata)
+library(sf)
+# Define the bounding box for South East England
+bbox <- getbb("South East England, UK")
+# Create an Overpass query for motorways
+motorway_query <- opq(bbox) %>%
+  add_osm_feature(key = "highway", value = "motorway")
+# Download the data
+motorway_data <- osmdata_sf(motorway_query)
+# Extract the motorway lines
+motorways <- motorway_data$osm_lines
+# Plot the result
+plot(st_geometry(motorways), col = 'blue', main = "Motorway Network in South East England")
+# Save to a shapefile
+st_write(motorways, "south_east_motorways.shp")
+```
+
+**Notes:**
+
+1. It worked in one shot!
+
+A year ago this would not have worked first time, but the models are improving rapidly.
+
+2. However, it was not perfect:
+
+  - It saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).
+  - It used the outdated `%>%` pipe operator from `magrittr` rather than the native R pipe `|>`.
+
+3. Refining the prompt can easily fix these issues.
+
+</details>
+
+```{r}
+#| eval: false
+#| echo: false
+# Manual updated to save as GeoPackage:
+st_write(motorways, "south_east_motorways.gpkg")
+system("gh release list")
+system("gh release upload v1 south_east_motorways.gpkg")
+```
+
+```{r}
+#| echo: false
+motorways_url = "https://github.com/itsleeds/ai4transport/releases/download/v1/south_east_motorways.gpkg"
+motorways = sf::read_sf(motorways_url)
+motorways = motorways |>
+  # description 	London Orbital Motorway
+  subset(description == "London Orbital Motorway")
+mapview::mapview(motorways, zcol = "lanes", legend = TRUE)
+```
+
+## Exploratory Data Analysis (EDA) with AI
 
 *Placeholder: Explain how to use AI to generate summary statistics, identify trends, and perform initial data quality checks.*
 
-## 3. AI-Assisted Data Visualization
+## AI-Assisted Data Visualization
 
 *Placeholder: Demonstrate how to use AI to generate code for creating charts and maps, including interactive visualizations.*
 
-## 4. Interpreting Results with LLMs
+## Interpreting Results with LLMs
 
 *Placeholder: Discuss how to use Large Language Models to help interpret data analysis results and generate narrative summaries.*
 
-## 5. Practical Exercise
+## Practical Exercise
 
 *Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.*
 
@@ -70,7 +161,7 @@ if(exists("tfse_boundary")){
 }
 ```
 
-## 6. Advanced Data Acquisition (Optional)
+## Advanced Data Acquisition (Optional)
 
 In this section, we demonstrate how to programmatically access and filter large national datasets using R.
 
