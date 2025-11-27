@@ -1,0 +1,3 @@
+
+
+This short guide expands on the description of how to use VSCode inside GitHub Codespaces for Quarto development in the [prerequisites section](prerequisites.qmd) section.
