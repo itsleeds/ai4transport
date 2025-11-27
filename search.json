@@ -532,6 +532,17 @@
     ]
   },
   {
+    "objectID": "s3.html#advanced-data-acquisition-optional",
+    "href": "s3.html#advanced-data-acquisition-optional",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "7 6. Advanced Data Acquisition (Optional)",
+    "text": "7 6. Advanced Data Acquisition (Optional)\nIn this section, we demonstrate how to programmatically access and filter large national datasets using R.\n\nlibrary(stats19)\nlibrary(sf)\nlibrary(dplyr)\n\n# 1. Load the study area boundary\n# We use the pre-prepared TfSE boundary file\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\n\nWe can download road safety data directly from the Department for Transport using the stats19 package.\nExample: Getting 5 years of data (Code only)\n\n# This code downloads collision data for 2020-2024\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\nExample: Joining Casualties (Code only)\n\n# This code gets casualty data and joins it to the collisions\ncasualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"casualty\"))\n\ncasualties_joined = dplyr::left_join(\n  casualties_5y,\n  collisions_5y,\n  by = \"collision_index\" # Common ID field\n)\n\nLive Demo: Getting 2020 Collisions for TfSE\nFor this exercise, we will download just the 2020 collision data and filter it to our study area.\n\n# 1. Get 2020 collision data\ncollisions_2020 = get_stats19(year = 2020, type = \"collision\")\n\n# 2. Convert to an 'sf' object (spatial data)\ncollisions_sf = format_sf(collisions_2020, lonlat = TRUE)\n\n# 3. Filter to the TfSE boundary\n# Ensure Coordinate Reference Systems match\ncollisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n\n# Spatial subset: keep collisions within the boundary\ncollisions_tfse = collisions_sf[tfse_boundary, ]\n\nprint(paste(\"Original 2020 collisions:\", nrow(collisions_sf)))\n\n[1] \"Original 2020 collisions: 91185\"\n\nprint(paste(\"TfSE collisions:\", nrow(collisions_tfse)))\n\n[1] \"TfSE collisions: 19526\"\n\n# 4. Quick visual check\nplot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = \"red\", \n     main = \"Road Collisions in TfSE (2020)\")\nplot(st_geometry(tfse_boundary), add = TRUE, border = \"blue\")",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
     "objectID": "s3-advanced.html",
     "href": "s3-advanced.html",
     "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",

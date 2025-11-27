@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -203,6 +238,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ai-assisted-data-visualization" id="toc-ai-assisted-data-visualization" class="nav-link" data-scroll-target="#ai-assisted-data-visualization"><span class="header-section-number">4</span> 3. AI-Assisted Data Visualization</a></li>
   <li><a href="#interpreting-results-with-llms" id="toc-interpreting-results-with-llms" class="nav-link" data-scroll-target="#interpreting-results-with-llms"><span class="header-section-number">5</span> 4. Interpreting Results with LLMs</a></li>
   <li><a href="#practical-exercise" id="toc-practical-exercise" class="nav-link" data-scroll-target="#practical-exercise"><span class="header-section-number">6</span> 5. Practical Exercise</a></li>
+  <li><a href="#advanced-data-acquisition-optional" id="toc-advanced-data-acquisition-optional" class="nav-link" data-scroll-target="#advanced-data-acquisition-optional"><span class="header-section-number">7</span> 6. Advanced Data Acquisition (Optional)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -251,6 +287,73 @@ ul.task-list li input[type="checkbox"] {
 <section id="practical-exercise" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="practical-exercise"><span class="header-section-number">6</span> 5. Practical Exercise</h2>
 <p><em>Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.</em></p>
+</section>
+<section id="advanced-data-acquisition-optional" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="advanced-data-acquisition-optional"><span class="header-section-number">7</span> 6. Advanced Data Acquisition (Optional)</h2>
+<p>In this section, we demonstrate how to programmatically access and filter large national datasets using R.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the study area boundary</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the pre-prepared TfSE boundary file</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tfse_boundary <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"tfse_boundary.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can download road safety data directly from the Department for Transport using the <code>stats19</code> package.</p>
+<p><strong>Example: Getting 5 years of data (Code only)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code downloads collision data for 2020-2024</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="dv">2020</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>collisions_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"collision"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Example: Joining Casualties (Code only)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code gets casualty data and joins it to the collisions</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>casualties_5y <span class="ot">=</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(years, <span class="sc">~</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> .x, <span class="at">type =</span> <span class="st">"casualty"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>casualties_joined <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  casualties_5y,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  collisions_5y,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"collision_index"</span> <span class="co"># Common ID field</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Live Demo: Getting 2020 Collisions for TfSE</strong></p>
+<p>For this exercise, we will download just the 2020 collision data and filter it to our study area.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Get 2020 collision data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>collisions_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"collision"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Convert to an 'sf' object (spatial data)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">format_sf</span>(collisions_2020, <span class="at">lonlat =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filter to the TfSE boundary</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure Coordinate Reference Systems match</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>collisions_sf <span class="ot">=</span> <span class="fu">st_transform</span>(collisions_sf, <span class="fu">st_crs</span>(tfse_boundary))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial subset: keep collisions within the boundary</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>collisions_tfse <span class="ot">=</span> collisions_sf[tfse_boundary, ]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Original 2020 collisions:"</span>, <span class="fu">nrow</span>(collisions_sf)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Original 2020 collisions: 91185"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"TfSE collisions:"</span>, <span class="fu">nrow</span>(collisions_tfse)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "TfSE collisions: 19526"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Quick visual check</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(collisions_tfse), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"red"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Road Collisions in TfSE (2020)"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(tfse_boundary), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">border =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
