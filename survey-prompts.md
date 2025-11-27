@@ -4,6 +4,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 1. Initial Setup and Data Conversion
 **User Prompt:**
+
 > Create a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv
 
 **Gemini Action:**
@@ -14,6 +15,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 2. Data Analysis
 **User Prompt:**
+
 > Now carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that "data" related tasks data analysis is frequently mentioned as things conducive to automation.
 
 **Gemini Action:**
@@ -26,6 +28,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 3. Website Integration
 **User Prompt:**
+
 > Update @_quarto.yml to ensure the page builds and is visible on the website
 
 **Gemini Action:**
@@ -35,6 +38,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 4. Formatting and Improvements
 **User Prompt:**
+
 > Render to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format:
 >   html:
 >     code-fold: true
@@ -50,6 +54,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 5. Freezing Results for Deployment
 **User Prompt:**
+
 > Freeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.
 
 **Gemini Action:**
@@ -60,6 +65,7 @@ This document records the interaction steps used to create the survey analysis p
 
 ## 6. Git Operations
 **User Prompt:**
+
 > Commit and push the updates
 
 **Gemini Action:**

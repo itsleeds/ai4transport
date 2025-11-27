@@ -51,7 +51,6 @@ However, a more effective approach is likely to be to ask the AI to help you wri
 **AI Output:**
 
 ```{r}
-#| eval: false
 library(osmdata)
 library(sf)
 # Define the bounding box for South East England
@@ -85,7 +84,6 @@ A year ago this would not have worked first time, but the models are improving r
 </details>
 
 ```{r}
-#| eval: false
 #| echo: false
 # Manual updated to save as GeoPackage:
 st_write(motorways, "south_east_motorways.gpkg")
@@ -110,6 +108,11 @@ Use AI to help you find and import data on a topic of your choice relevant to tr
 ## Exploratory Data Analysis (EDA) with AI
 
 Take a read of the AI-assisted EDA session in [survey-prompts.md](survey-prompts.md) for ideas on how to use AI to speed up EDA tasks.
+See the resulting code and outputs in the [survey](survey.qmd) page.
+
+### Exercises
+
+Option 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.
 
 ## AI-Assisted Data Visualization
 
