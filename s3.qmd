@@ -103,6 +103,10 @@ motorways = motorways |>
 mapview::mapview(motorways, zcol = "lanes", legend = TRUE)
 ```
 
+### Example: Downloading road traffic collision data in TfSE
+
+See the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.
+
 ### Bonus activity
 
 Use AI to help you find and import data on a topic of your choice relevant to transport planning.
@@ -153,8 +157,6 @@ Then as the AI to read the output (in this case called `your_file.md`) and help 
 
 ## Bonus: Analysing road traffic collision data in TfSE
 
-*Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.*
-
 ```{r}
 #| eval: false
 #| echo: false
@@ -197,7 +199,6 @@ if(exists("tfse_boundary")){
 }
 ```
 
-## Advanced Data Acquisition (Optional)
 
 In this section, we demonstrate how to programmatically access and filter large national datasets using R.
 
