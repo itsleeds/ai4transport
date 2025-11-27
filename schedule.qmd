@@ -15,7 +15,7 @@ The course will run from 10:00 to 17:00, with a 1-hour break for lunch.
 | 10:00 - 11:30 | Session 1: Foundations of AI and Data Science for Transport in Transport       | [{{< bi file-earmark-code size=1.5em >}}](s1.qmd) |
 | 11:30 - 13:00 | Session 2: (AI-Powered) Coding and Development  | [{{< bi file-earmark-code size=1.5em >}}](s2.qmd) |
 | 13:00 - 14:00 | Lunch                                           |   |
-| 14:00 - 15:30 | Session 3: Using LLMs for Reporting and Analysis| [{{< bi file-earmark-code size=1.5em >}}](s3.qmd) |
-| 15:30 - 17:00 | Session 4: AI and Data Science for Transport Data Analysis       | [{{< bi file-earmark-code size=1.5em >}}](s4.qmd) |
+| 14:00 - 15:30 | Session 3: AI for Transport Data Analysis       | [{{< bi file-earmark-code size=1.5em >}}](s3.qmd) |
+| 15:30 - 17:00 | Session 4: Deep Dive into Transport Data        | [{{< bi file-earmark-code size=1.5em >}}](s4.qmd) |
 
 : {tbl-colwidths="[20,75,5]" .striped}
