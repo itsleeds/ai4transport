@@ -201,7 +201,8 @@ Let us know how you get on and if you have any issues getting set up, either by 
 if (!require("reticulate")) install.packages("reticulate")
 reticulate::install_python()
 reticulate::py_install("osmnx")
-reticulate::py_install("pyaml")
+reticulate::py_install("jupyter")
+reticulate::py_install("jupyter-cache")
 ```
 
 ## Next Steps

@@ -41,6 +41,7 @@ AI is most effective when integrated into a reproducible data science workflow:
 *   **Bias:** AI models reflect the biases in their training data.
 *   **"Hallucinations":** Models can confidently state falsehoods.
 *   **Data Privacy:** Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.
+
 </details>
 
 ## Quick Start: Try it Now (5 minutes)
