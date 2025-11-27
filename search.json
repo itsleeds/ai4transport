@@ -710,7 +710,7 @@
     "href": "s2.html",
     "title": "Session 2: (AI-Powered) Coding and Development",
     "section": "",
-    "text": "This session focuses on how AI can enhance your coding and development workflow. We will cover how to use AI coding assistants and integrate them with version control best practices using Git and GitHub.",
+    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
     "crumbs": [
       "Sessions",
       "Session 2: AI-Powered Development"
@@ -721,7 +721,7 @@
     "href": "s2.html#introduction",
     "title": "Session 2: (AI-Powered) Coding and Development",
     "section": "",
-    "text": "This session focuses on how AI can enhance your coding and development workflow. We will cover how to use AI coding assistants and integrate them with version control best practices using Git and GitHub.",
+    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
     "crumbs": [
       "Sessions",
       "Session 2: AI-Powered Development"
@@ -732,51 +732,18 @@
     "href": "s2.html#ai-powered-ides",
     "title": "Session 2: (AI-Powered) Coding and Development",
     "section": "2 AI-Powered IDEs",
-    "text": "2 AI-Powered IDEs\n\nIntroduction to AI Coding Assistants: We’ll look at tools like GitHub Copilot.\nLive Demonstration: An instructor will show an efficient AI-assisted workflow in VS Code, covering:\n\nGenerating code with prompts.\nExplaining complex code blocks.\nDebugging with AI assistance.",
+    "text": "2 AI-Powered IDEs\n\nIntroduction to AI Coding Assistants: We’ll look at tools like GitHub Copilot using Python.\nLive Demonstration:",
     "crumbs": [
       "Sessions",
       "Session 2: AI-Powered Development"
     ]
   },
   {
-    "objectID": "s2.html#guided-practice-ai-assisted-data-cleaning",
-    "href": "s2.html#guided-practice-ai-assisted-data-cleaning",
+    "objectID": "s2.html#independent-challenge-create-a-new-figure-using-the-ai-tools",
+    "href": "s2.html#independent-challenge-create-a-new-figure-using-the-ai-tools",
     "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "3 Guided Practice: AI-Assisted Data Cleaning",
-    "text": "3 Guided Practice: AI-Assisted Data Cleaning\n\nFollow-along exercise: We will use Copilot to clean a sample transport dataset.\nCollaborative Debugging: We’ll intentionally introduce a bug and use AI tools to find and fix it as a group.",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#independent-challenge-automating-a-script",
-    "href": "s2.html#independent-challenge-automating-a-script",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "4 Independent Challenge: Automating a Script",
-    "text": "4 Independent Challenge: Automating a Script\n\nTask: Use Copilot to write a Python script that automates a simple data handling task or generates a plot.\nInstructors will be available to help.",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#version-control-with-git-and-github",
-    "href": "s2.html#version-control-with-git-and-github",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "5 Version Control with Git and GitHub",
-    "text": "5 Version Control with Git and GitHub\nAI-powered development is most effective when combined with strong version control habits.\n\nGit Basics: Committing your AI-generated code.\nGitHub Collaboration:\n\nUsing issues to track tasks.\nCreating branches for new features (e.g., gh issue develop 11).\nMaking pull requests to merge your work (gh pr create).",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#exercise",
-    "href": "s2.html#exercise",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "6 Exercise",
-    "text": "6 Exercise\nContribute to a shared repository using an AI-assisted workflow.\n\nFork and Clone the exercise repository.\nCreate an issue describing a new feature you will add.\nCreate a branch linked to your issue.\nUse Copilot to write the code for the new feature.\nCommit and push your changes.\nCreate a pull request for your work to be reviewed.",
+    "section": "3 Independent Challenge: Create a new figure using the AI tools",
+    "text": "3 Independent Challenge: Create a new figure using the AI tools\n\nTask: Use Copilot to modify the data/od_viewer.py Python file to make a new plot of something that interests you.",
     "crumbs": [
       "Sessions",
       "Session 2: AI-Powered Development"
@@ -899,7 +866,7 @@
     "href": "codespaces.html",
     "title": "AI and Data Science for Transport",
     "section": "",
-    "text": "This short guide expands on the description of how to use VSCode inside GitHub Codespaces for Quarto development in the prerequisites section section.\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds"
+    "text": "This short guide expands on the description of how to use VSCode inside GitHub Codespaces for Quarto development in the prerequisites section section.\nAs described there, click on the following button:\n\n\n\nOpen in GitHub Codespaces\n\n\nThen open the file you would like to edit, either by clicking on the Files button on the left hand panel and clicking on the file, or (recommended) use the Keyboard shortcut Ctrl+P and then typing the name of the file you would like to edit and then Enter when it shows up.\nTo edit the file s2.qmd, for example, type Ctrl+P then s2, you should see something like this:\n\nTo push changes back to GitHub you can do the following:\n\nOpen a terminal, e.g. by pressing Ctrl+J and then selecting the Terminal option, as shown in the screenshot below\nEnter the following commands:\n\ngit commit -am 'change whatever'\ngit push\n\nTo add an image…\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds"
   },
   {
     "objectID": "survey.html",

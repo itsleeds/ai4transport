@@ -197,12 +197,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#the-myth-vs.-the-reality" id="toc-the-myth-vs.-the-reality" class="nav-link" data-scroll-target="#the-myth-vs.-the-reality"><span class="header-section-number">1.1</span> The Myth vs.&nbsp;The Reality</a></li>
+  <li><a href="#the-cic-framework" id="toc-the-cic-framework" class="nav-link" data-scroll-target="#the-cic-framework"><span class="header-section-number">1.2</span> The CIC Framework</a></li>
+  <li><a href="#trust-but-verify" id="toc-trust-but-verify" class="nav-link" data-scroll-target="#trust-but-verify"><span class="header-section-number">1.3</span> Trust but Verify</a></li>
+  <li><a href="#interacting-with-the-ai-assistant" id="toc-interacting-with-the-ai-assistant" class="nav-link" data-scroll-target="#interacting-with-the-ai-assistant"><span class="header-section-number">1.4</span> Interacting With the AI Assistant</a></li>
+  </ul></li>
   <li><a href="#ai-powered-ides" id="toc-ai-powered-ides" class="nav-link" data-scroll-target="#ai-powered-ides"><span class="header-section-number">2</span> AI-Powered IDEs</a></li>
-  <li><a href="#guided-practice-ai-assisted-data-cleaning" id="toc-guided-practice-ai-assisted-data-cleaning" class="nav-link" data-scroll-target="#guided-practice-ai-assisted-data-cleaning"><span class="header-section-number">3</span> Guided Practice: AI-Assisted Data Cleaning</a></li>
-  <li><a href="#independent-challenge-automating-a-script" id="toc-independent-challenge-automating-a-script" class="nav-link" data-scroll-target="#independent-challenge-automating-a-script"><span class="header-section-number">4</span> Independent Challenge: Automating a Script</a></li>
-  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github"><span class="header-section-number">5</span> Version Control with Git and GitHub</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">6</span> Exercise</a></li>
+  <li><a href="#independent-challenge-create-a-new-figure-using-the-ai-tools" id="toc-independent-challenge-create-a-new-figure-using-the-ai-tools" class="nav-link" data-scroll-target="#independent-challenge-create-a-new-figure-using-the-ai-tools"><span class="header-section-number">3</span> Independent Challenge: Create a new figure using the AI tools</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -230,58 +233,58 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>This session focuses on how AI can enhance your coding and development workflow. We will cover how to use AI coding assistants and integrate them with version control best practices using Git and GitHub.</p>
+<p>This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.</p>
+<section id="the-myth-vs.-the-reality" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="the-myth-vs.-the-reality"><span class="header-section-number">1.1</span> The Myth vs.&nbsp;The Reality</h3>
+<p><strong>The Myth:</strong> AI writes code for you while you sleep.</p>
+<p><strong>The Reality:</strong> AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).</p>
+</section>
+<section id="the-cic-framework" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="the-cic-framework"><span class="header-section-number">1.2</span> The CIC Framework</h3>
+<p>CIC stands for <strong>Context, Instruction, Constraints</strong>. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.</p>
+<section id="examples" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.2.1</span> Examples</h4>
+<blockquote class="blockquote">
+<p><strong>Bad Example:</strong> “Make me a graph of this data.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Good Example:</strong> “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named <code>delay</code> and <code>route</code>. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”</p>
+</blockquote>
+<p>The good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.</p>
+</section>
+</section>
+<section id="trust-but-verify" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="trust-but-verify"><span class="header-section-number">1.3</span> Trust but Verify</h3>
+<p>Despite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.</p>
+<ul>
+<li><strong>Hallucinations:</strong> The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.</li>
+<li><strong>Verification:</strong> Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.</li>
+<li><strong>Security:</strong> <strong>Never</strong> paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.</li>
+</ul>
+</section>
+<section id="interacting-with-the-ai-assistant" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="interacting-with-the-ai-assistant"><span class="header-section-number">1.4</span> Interacting With the AI Assistant</h3>
+<p>There are four primary ways to interact with an AI coding assistant:</p>
+<ol type="1">
+<li><strong>Copy / Paste:</strong> Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.</li>
+<li><strong>Auto-Complete:</strong> The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with <code>TAB</code> or ignore them.</li>
+<li><strong>Code Inspection:</strong> Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.</li>
+<li><strong>Vibe Coding:</strong> Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.</li>
+</ol>
+</section>
 </section>
 <section id="ai-powered-ides" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="ai-powered-ides"><span class="header-section-number">2</span> AI-Powered IDEs</h2>
 <ul>
-<li><strong>Introduction to AI Coding Assistants:</strong> We’ll look at tools like GitHub Copilot.</li>
-<li><strong>Live Demonstration:</strong> An instructor will show an efficient AI-assisted workflow in VS Code, covering:
-<ul>
-<li>Generating code with prompts.</li>
-<li>Explaining complex code blocks.</li>
-<li>Debugging with AI assistance.</li>
-</ul></li>
+<li><strong>Introduction to AI Coding Assistants:</strong> We’ll look at tools like GitHub Copilot using Python.</li>
+<li><strong>Live Demonstration:</strong></li>
 </ul>
 </section>
-<section id="guided-practice-ai-assisted-data-cleaning" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="guided-practice-ai-assisted-data-cleaning"><span class="header-section-number">3</span> Guided Practice: AI-Assisted Data Cleaning</h2>
+<section id="independent-challenge-create-a-new-figure-using-the-ai-tools" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="independent-challenge-create-a-new-figure-using-the-ai-tools"><span class="header-section-number">3</span> Independent Challenge: Create a new figure using the AI tools</h2>
 <ul>
-<li><strong>Follow-along exercise:</strong> We will use Copilot to clean a sample transport dataset.</li>
-<li><strong>Collaborative Debugging:</strong> We’ll intentionally introduce a bug and use AI tools to find and fix it as a group.</li>
+<li><strong>Task:</strong> Use Copilot to modify the <code>data/od_viewer.py</code> Python file to make a new plot of something that interests you.</li>
 </ul>
-</section>
-<section id="independent-challenge-automating-a-script" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="independent-challenge-automating-a-script"><span class="header-section-number">4</span> Independent Challenge: Automating a Script</h2>
-<ul>
-<li><strong>Task:</strong> Use Copilot to write a Python script that automates a simple data handling task or generates a plot.</li>
-<li>Instructors will be available to help.</li>
-</ul>
-</section>
-<section id="version-control-with-git-and-github" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="version-control-with-git-and-github"><span class="header-section-number">5</span> Version Control with Git and GitHub</h2>
-<p>AI-powered development is most effective when combined with strong version control habits.</p>
-<ul>
-<li><strong>Git Basics:</strong> Committing your AI-generated code.</li>
-<li><strong>GitHub Collaboration:</strong>
-<ul>
-<li>Using issues to track tasks.</li>
-<li>Creating branches for new features (e.g., <code>gh issue develop 11</code>).</li>
-<li>Making pull requests to merge your work (<code>gh pr create</code>).</li>
-</ul></li>
-</ul>
-</section>
-<section id="exercise" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="exercise"><span class="header-section-number">6</span> Exercise</h2>
-<p>Contribute to a shared repository using an AI-assisted workflow.</p>
-<ol type="1">
-<li><strong>Fork and Clone</strong> the exercise repository.</li>
-<li><strong>Create an issue</strong> describing a new feature you will add.</li>
-<li><strong>Create a branch</strong> linked to your issue.</li>
-<li><strong>Use Copilot</strong> to write the code for the new feature.</li>
-<li><strong>Commit and push</strong> your changes.</li>
-<li><strong>Create a pull request</strong> for your work to be reviewed.</li>
-</ol>
 
 
 </section>
