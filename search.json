@@ -348,7 +348,7 @@
     "href": "s1.html",
     "title": "Session 1: Foundations of AI in Transport",
     "section": "",
-    "text": "This session lays the groundwork for the course. We will demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.",
+    "text": "This session lays the groundwork for the course.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
@@ -359,40 +359,40 @@
     "href": "s1.html#overview",
     "title": "Session 1: Foundations of AI in Transport",
     "section": "",
-    "text": "This session lays the groundwork for the course. We will demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.",
+    "text": "This session lays the groundwork for the course.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#quick-start-try-it-now",
-    "href": "s1.html#quick-start-try-it-now",
+    "objectID": "s1.html#slides-and-presentation-45-mins",
+    "href": "s1.html#slides-and-presentation-45-mins",
     "title": "Session 1: Foundations of AI in Transport",
-    "section": "2 Quick Start: Try it Now",
-    "text": "2 Quick Start: Try it Now\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
+    "section": "2 Slides and Presentation (45 mins)",
+    "text": "2 Slides and Presentation (45 mins)\nThe first half of the session will be delivered as a presentation. See the slides for details. The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.\nIt will also provide a chance for debate: questions are encouraged!\nA summary of core concepts covered in the presentation can be found below (click to expand):\n\n\nClick to expand core concepts from the presentation\n\n\n2.1 Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n2.2 Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g. ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nTools that integrate with your existing workflows (e.g., GitHub Copilot): Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.\n\nM365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.\n\n\n2.3 The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n2.4 Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#core-concepts-45-mins",
-    "href": "s1.html#core-concepts-45-mins",
+    "objectID": "s1.html#quick-start-try-it-now-5-minutes",
+    "href": "s1.html#quick-start-try-it-now-5-minutes",
     "title": "Session 1: Foundations of AI in Transport",
-    "section": "3 Core Concepts (45 mins)",
-    "text": "3 Core Concepts (45 mins)\n\n3.1 1. Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n3.2 2. Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g., M365 Copilot, ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nCoding Assistants (e.g., GitHub Copilot): Integrated into software development environments (like VS Code) to write and debug code. We will focus on these in Session 2.\n\n\n\n3.3 3. The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n3.4 4. Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
+    "section": "3 Quick Start: Try it Now (5 minutes)",
+    "text": "3 Quick Start: Try it Now (5 minutes)\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#identifying-tasks-where-ai-can-help-45-mins",
-    "href": "s1.html#identifying-tasks-where-ai-can-help-45-mins",
+    "objectID": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
+    "href": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
     "title": "Session 1: Foundations of AI in Transport",
-    "section": "4 Identifying tasks where AI can help (45 mins)",
-    "text": "4 Identifying tasks where AI can help (45 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins) * Draw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data). * You can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches. * Mark the steps where AI could act as an “assistant” to speed up the process.\n2. Small Group Strategy (15 mins) * In groups of 3-4, share your flowcharts. * Discuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n3. Feedback & Discussion (15 mins) * We will share the most promising use-cases with the room.",
+    "section": "4 Identifying tasks where AI can help (40 mins)",
+    "text": "4 Identifying tasks where AI can help (40 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins)\n\nDraw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).\nYou can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches.\nMark the steps where AI could act as an “assistant” to speed up the process.\n\n2. Small Group Strategy (15 mins)\n\nIn groups of 3-4, share your flowcharts.\nDiscuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n\n3. Feedback & Discussion (15 mins)\n\nWe will share the most promising use-cases with the room.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
