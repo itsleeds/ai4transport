@@ -194,14 +194,15 @@ That is the road network surrounding Broadway House in London, where the course 
 
 Let us know how you get on and if you have any issues getting set up, either by email, or (preferably) via the Discussion forum on GitHub associated with this course repository.
 
-<!-- ```r
+```{r}
 #| eval: false
 #| echo: false
 # install python with reticulate
 if (!require("reticulate")) install.packages("reticulate")
 reticulate::install_python()
 reticulate::py_install("osmnx")
-``` -->
+reticulate::py_install("pyaml")
+```
 
 ## Next Steps
 
