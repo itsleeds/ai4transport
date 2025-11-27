@@ -4,43 +4,50 @@ title: "Session 2: (AI-Powered) Coding and Development"
 
 ## Introduction
 
-This session focuses on how AI can enhance your coding and development workflow. We will cover how to use AI coding assistants and integrate them with version control best practices using Git and GitHub.
+This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.
+
+### The Myth vs. The Reality
+
+**The Myth:** AI writes code for you while you sleep.
+
+**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it.  This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).
+
+### The CIC Framework
+
+CIC stands for **Context, Instruction, Constraints**. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.
+
+#### Examples
+
+> **Bad Example:** "Make me a graph of this data."
+
+> **Good Example:** "I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named `delay` and `route`. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints)."
+
+The good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.
+
+### Trust but Verify
+
+Despite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.
+
+-   **Hallucinations:** The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.
+-   **Verification:** Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.
+-   **Security:** **Never** paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.
+
+### Interacting With the AI Assistant
+
+There are four primary ways to interact with an AI coding assistant:
+
+1.  **Copy / Paste:** Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.
+2.  **Auto-Complete:** The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with `TAB` or ignore them.
+3.  **Code Inspection:** Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.
+4.  **Vibe Coding:** Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.
 
 ## AI-Powered IDEs
 
--   **Introduction to AI Coding Assistants:** We'll look at tools like GitHub Copilot.
--   **Live Demonstration:** An instructor will show an efficient AI-assisted workflow in VS Code, covering:
-    -   Generating code with prompts.
-    -   Explaining complex code blocks.
-    -   Debugging with AI assistance.
+-   **Introduction to AI Coding Assistants:** We'll look at tools like GitHub Copilot using Python.
+-   **Live Demonstration:**
 
-## Guided Practice: AI-Assisted Data Cleaning
+## Independent Challenge: Create a new figure using the AI tools
 
--   **Follow-along exercise:** We will use Copilot to clean a sample transport dataset.
--   **Collaborative Debugging:** We'll intentionally introduce a bug and use AI tools to find and fix it as a group.
+-   **Task:** Use Copilot to modify the `data/od_viewer.py` Python file to make a new plot of something that interests you.
 
-## Independent Challenge: Automating a Script
 
--   **Task:** Use Copilot to write a Python script that automates a simple data handling task or generates a plot.
--   Instructors will be available to help.
-
-## Version Control with Git and GitHub
-
-AI-powered development is most effective when combined with strong version control habits.
-
--   **Git Basics:** Committing your AI-generated code.
--   **GitHub Collaboration:**
-    -   Using issues to track tasks.
-    -   Creating branches for new features (e.g., `gh issue develop 11`).
-    -   Making pull requests to merge your work (`gh pr create`).
-
-## Exercise
-
-Contribute to a shared repository using an AI-assisted workflow.
-
-1.  **Fork and Clone** the exercise repository.
-2.  **Create an issue** describing a new feature you will add.
-3.  **Create a branch** linked to your issue.
-4.  **Use Copilot** to write the code for the new feature.
-5.  **Commit and push** your changes.
-6.  **Create a pull request** for your work to be reviewed.

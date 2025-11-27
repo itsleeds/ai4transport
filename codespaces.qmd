@@ -12,13 +12,15 @@ To edit the file `s2.qmd`, for example, type Ctrl+P then s2, you should see some
 
 To push changes back to GitHub you can do the following:
 
-1. Open a terminal, e.g. by pressing Ctrl+J and then selecting the Terminal option, as shown in the screenshot below
+1.  Open a terminal, e.g. by pressing Ctrl+J and then selecting the Terminal option, as shown in the screenshot below
 
-2. Enter the following commands: 
+2.  Enter the following commands:
 
-```
+```         
 git commit -am 'change whatever'
 git push
 ```
 
+2.  To add an image... 
 
+![](ai4transport/Screenshot%202025-11-27%20102612.png)

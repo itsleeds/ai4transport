@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+def read_od_matrix(file_path, n_rows):
+    # reads the OD matrix from the CSV file
+    od_matrix = pd.read_csv(file_path, nrows=n_rows, header=0)
+    print(od_matrix)
+    return od_matrix
+
+def car_cycle_correlation(od_matrix):
+    # plot car drivers as x and bicycle as y using matplotlib
+    plt.scatter(od_matrix['car_driver'], od_matrix['bicycle'])
+    plt.xlabel('Car Drivers')
+    plt.ylabel('Bicycle Trips')
+    plt.title('Correlation between Car Drivers and Bicycle Trips')
+    plt.grid(True)
+
+    #write to file
+    plt.savefig('car_cycle_correlation.png')
+
+
+od_matrix= read_od_matrix('od.csv', n_rows=1000)
+car_cycle_correlation(od_matrix)
+
