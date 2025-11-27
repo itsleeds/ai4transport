@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://itsleeds.github.io/ai4transport/schedule.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
+    <lastmod>2025-11-27T10:11:10.770Z</lastmod>
   </url>
   <url>
     <loc>https://itsleeds.github.io/ai4transport/prerequisites.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/survey-prompts.html</loc>
-    <lastmod>2025-11-27T10:03:09.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/slides/intro.html</loc>
-    <lastmod>2025-11-27T10:03:09.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/s2.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/s4.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/index.html</loc>
-    <lastmod>2025-11-27T10:03:09.448Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/s1.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/tfse.html</loc>
-    <lastmod>2025-11-27T10:03:09.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/s3.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/s3-advanced.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://itsleeds.github.io/ai4transport/slides/day1.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
+    <lastmod>2025-11-27T10:11:10.769Z</lastmod>
   </url>
   <url>
     <loc>https://itsleeds.github.io/ai4transport/questionnaire.html</loc>
-    <lastmod>2025-11-27T10:03:09.454Z</lastmod>
+    <lastmod>2025-11-27T10:11:10.769Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/slides/day1.html</loc>
+    <lastmod>2025-11-27T10:11:10.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/s3-advanced.html</loc>
+    <lastmod>2025-11-27T10:11:10.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/s3.html</loc>
+    <lastmod>2025-11-27T10:11:10.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/tfse.html</loc>
+    <lastmod>2025-11-27T10:11:10.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/s1.html</loc>
+    <lastmod>2025-11-27T10:11:10.769Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/index.html</loc>
+    <lastmod>2025-11-27T10:11:10.764Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/s4.html</loc>
+    <lastmod>2025-11-27T10:11:10.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/s2.html</loc>
+    <lastmod>2025-11-27T10:11:10.769Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/slides/intro.html</loc>
+    <lastmod>2025-11-27T10:11:10.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/survey-prompts.html</loc>
+    <lastmod>2025-11-27T10:11:10.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://itsleeds.github.io/ai4transport/codespaces.html</loc>
+    <lastmod>2025-11-27T10:11:10.751Z</lastmod>
   </url>
   <url>
     <loc>https://itsleeds.github.io/ai4transport/survey.html</loc>
-    <lastmod>2025-11-27T10:03:09.474Z</lastmod>
+    <lastmod>2025-11-27T10:11:10.790Z</lastmod>
   </url>
 </urlset>
