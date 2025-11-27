@@ -371,20 +371,20 @@
   {
     "objectID": "s1.html",
     "href": "s1.html",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
+    "title": "Session 1: Foundations of AI in Transport",
     "section": "",
-    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
+    "text": "This session lays the groundwork for the course. We will demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#introduction",
-    "href": "s1.html#introduction",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
+    "objectID": "s1.html#overview",
+    "href": "s1.html#overview",
+    "title": "Session 1: Foundations of AI in Transport",
     "section": "",
-    "text": "This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.",
+    "text": "This session lays the groundwork for the course. We will demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
@@ -393,42 +393,31 @@
   {
     "objectID": "s1.html#quick-start-try-it-now",
     "href": "s1.html#quick-start-try-it-now",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
+    "title": "Session 1: Foundations of AI in Transport",
     "section": "2 Quick Start: Try it Now",
-    "text": "2 Quick Start: Try it Now\nBefore we dive into the theory, let’s see AI in action. You don’t need to install anything yet.\n\nOpen a new tab and go to a free AI chat tool like Microsoft 365 Copilot (available to staff in many organisations with IT services provided by Microsoft at m365.cloud.microsoft/), ChatGPT, Claude, or Google Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nSee what it produces, on your computer or by clicking the button to expand in the image below. Is it perfect? Probably not. Is it a good starting point? Often, yes.\n\n\n\nExample output from Microsoft 365 Copilot\n\n\n\nThis is the core of using AI: it’s not a replacement for your expertise, but an accelerator for your work.",
+    "text": "2 Quick Start: Try it Now\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#lecture",
-    "href": "s1.html#lecture",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
-    "section": "3 Lecture",
-    "text": "3 Lecture\n\nDemystifying AI:\n\nWhat is a Large Language Model (LLM)? Think of it as a super-advanced predictive text engine. It has “read” almost everything on the internet and learned patterns of language. When you ask it a question, it predicts the most likely next words to answer you based on those patterns. It doesn’t “know” facts like a human, but it can simulate reasoning very well.\nKey concepts and terminology, with reference to Anthropic’s AI Fluency course.\n\nData Science Framework: How to apply AI effectively within a robust data science workflow.\nAI in Transport: Overview of applications in transport planning.\nEthical Considerations: “Garbage in, garbage out” vs. prompt and context engineering.",
+    "objectID": "s1.html#core-concepts-45-mins",
+    "href": "s1.html#core-concepts-45-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "3 Core Concepts (45 mins)",
+    "text": "3 Core Concepts (45 mins)\n\n3.1 1. Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n3.2 2. Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g., M365 Copilot, ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nCoding Assistants (e.g., GitHub Copilot): Integrated into software development environments (like VS Code) to write and debug code. We will focus on these in Session 2.\n\n\n\n3.3 3. The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n3.4 4. Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"
     ]
   },
   {
-    "objectID": "s1.html#practical",
-    "href": "s1.html#practical",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
-    "section": "4 Practical",
-    "text": "4 Practical\nThis is an interactive session to explore real-world AI use cases in transport.\n\nIdentify AI Opportunities (20 mins):\n\nOn paper, draw a flowchart of a typical task from your work.\nDraw a second flowchart showing how AI could be integrated to improve this workflow.\nBonus: If you have time, repeat for another task. Which is more suitable for AI integration?\n\nGroup Discussion (20 mins):\n\nIn small groups, discuss how AI could be best integrated into your work from first principles.\n\nGroup Feedback (20 mins):\n\nShare key themes and ideas from your group discussion with everyone.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#next-steps",
-    "href": "s1.html#next-steps",
-    "title": "Session 1: Foundations of AI and Data Science for Transport in Transport",
-    "section": "5 Next steps",
-    "text": "5 Next steps\nThe course team will consider the following next steps:\n\nDraft and share survey for potential attendees\nDraft and share course outline for feedback\nDraft Sections 1 and 4 (Robin)\nDraft Sections 2 and 3 (Chris)\nReview and finalise content (both)\nConvert this into website and hosting (Robin, Netlify or GitHub Pages)",
+    "objectID": "s1.html#identifying-tasks-where-ai-can-help-45-mins",
+    "href": "s1.html#identifying-tasks-where-ai-can-help-45-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "4 Identifying tasks where AI can help (45 mins)",
+    "text": "4 Identifying tasks where AI can help (45 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins) * Draw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data). * You can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches. * Mark the steps where AI could act as an “assistant” to speed up the process.\n2. Small Group Strategy (15 mins) * In groups of 3-4, share your flowcharts. * Discuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n3. Feedback & Discussion (15 mins) * We will share the most promising use-cases with the room.",
     "crumbs": [
       "Sessions",
       "Session 1: Foundations"

@@ -9,7 +9,7 @@
 <meta name="author" content="ITS Leeds">
 <meta name="dcterms.date" content="2025">
 
-<title>Session 1: Foundations of AI and Data Science for Transport in Transport – AI and Data Science for Transport -</title>
+<title>Session 1: Foundations of AI in Transport – AI and Data Science for Transport -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -191,11 +191,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
   <li><a href="#quick-start-try-it-now" id="toc-quick-start-try-it-now" class="nav-link" data-scroll-target="#quick-start-try-it-now"><span class="header-section-number">2</span> Quick Start: Try it Now</a></li>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link" data-scroll-target="#lecture"><span class="header-section-number">3</span> Lecture</a></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical"><span class="header-section-number">4</span> Practical</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">5</span> Next steps</a></li>
+  <li><a href="#core-concepts-45-mins" id="toc-core-concepts-45-mins" class="nav-link" data-scroll-target="#core-concepts-45-mins"><span class="header-section-number">3</span> Core Concepts (45 mins)</a>
+  <ul class="collapse">
+  <li><a href="#demystifying-ai-llms" id="toc-demystifying-ai-llms" class="nav-link" data-scroll-target="#demystifying-ai-llms"><span class="header-section-number">3.1</span> 1. Demystifying AI &amp; LLMs</a></li>
+  <li><a href="#types-of-ai-tools" id="toc-types-of-ai-tools" class="nav-link" data-scroll-target="#types-of-ai-tools"><span class="header-section-number">3.2</span> 2. Types of AI Tools</a></li>
+  <li><a href="#the-data-science-framework" id="toc-the-data-science-framework" class="nav-link" data-scroll-target="#the-data-science-framework"><span class="header-section-number">3.3</span> 3. The Data Science Framework</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations"><span class="header-section-number">3.4</span> 4. Ethical Considerations</a></li>
+  </ul></li>
+  <li><a href="#identifying-tasks-where-ai-can-help-45-mins" id="toc-identifying-tasks-where-ai-can-help-45-mins" class="nav-link" data-scroll-target="#identifying-tasks-where-ai-can-help-45-mins"><span class="header-section-number">4</span> Identifying tasks where AI can help (45 mins)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -204,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s1.html">Sessions</a></li><li class="breadcrumb-item"><a href="./s1.html">Session 1: Foundations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 1: Foundations of AI and Data Science for Transport in Transport</h1>
+<h1 class="title">Session 1: Foundations of AI in Transport</h1>
 </div>
 
 
@@ -221,22 +226,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>This session provides a foundation for understanding and applying AI in transport planning. We will demystify AI, introduce Data Science as a framework for its effective application, and explore real-world use cases.</p>
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
+<p>This session lays the groundwork for the course. We will demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.</p>
 </section>
 <section id="quick-start-try-it-now" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="quick-start-try-it-now"><span class="header-section-number">2</span> Quick Start: Try it Now</h2>
-<p>Before we dive into the theory, let’s see AI in action. You don’t need to install anything yet.</p>
+<p>Before diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).</p>
 <ol type="1">
-<li>Open a new tab and go to a free AI chat tool like <a href="https://m365.cloud.microsoft/chat/?auth=2&amp;home=1&amp;from=ShellLogo">Microsoft 365 Copilot</a> (available to staff in many organisations with IT services provided by Microsoft at <a href="https://m365.cloud.microsoft/chat/?auth=2&amp;home=1&amp;from=ShellLogo">m365.cloud.microsoft/</a>), <a href="https://chatgpt.com">ChatGPT</a>, <a href="https://claude.ai">Claude</a>, or <a href="https://gemini.google.com">Google Gemini</a>.</li>
+<li>Open a free AI chat tool like <a href="https://m365.cloud.microsoft/chat/">Microsoft 365 Copilot</a>, <a href="https://chatgpt.com">ChatGPT</a>, <a href="https://claude.ai">Claude</a>, or <a href="https://gemini.google.com">Gemini</a>.</li>
 <li>Copy and paste the following prompt:</li>
 </ol>
 <blockquote class="blockquote">
 <p>“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”</p>
 </blockquote>
 <ol start="3" type="1">
-<li>See what it produces, on your computer or by clicking the button to expand in the image below. Is it perfect? Probably not. Is it a good starting point? Often, yes.</li>
+<li>Critique the result. It won’t be perfect, but it acts as a powerful <strong>accelerator</strong> for your expertise.</li>
 </ol>
 <details>
 <summary>
@@ -244,52 +249,45 @@ Example output from Microsoft 365 Copilot
 </summary>
 <p><img src="images/paste-9.png" class="img-fluid"></p>
 </details>
-<p>This is the core of using AI: <strong>it’s not a replacement for your expertise, but an accelerator for your work.</strong></p>
 </section>
-<section id="lecture" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="lecture"><span class="header-section-number">3</span> Lecture</h2>
+<section id="core-concepts-45-mins" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="core-concepts-45-mins"><span class="header-section-number">3</span> Core Concepts (45 mins)</h2>
+<section id="demystifying-ai-llms" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="demystifying-ai-llms"><span class="header-section-number">3.1</span> 1. Demystifying AI &amp; LLMs</h3>
+<p>We focus on <strong>Large Language Models (LLMs)</strong>. Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.</p>
+</section>
+<section id="types-of-ai-tools" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="types-of-ai-tools"><span class="header-section-number">3.2</span> 2. Types of AI Tools</h3>
+<p>It is important to distinguish between the tools we will use:</p>
 <ul>
-<li><strong>Demystifying AI:</strong>
-<ul>
-<li><strong>What is a Large Language Model (LLM)?</strong> Think of it as a super-advanced predictive text engine. It has “read” almost everything on the internet and learned patterns of language. When you ask it a question, it predicts the most likely next words to answer you based on those patterns. It doesn’t “know” facts like a human, but it can simulate reasoning very well.</li>
-<li>Key concepts and terminology, with reference to <a href="https://www.youtube.com/watch?v=JpGtOfSgR-c">Anthropic’s AI Fluency course</a>.</li>
-</ul></li>
-<li><strong>Data Science Framework:</strong> How to apply AI effectively within a robust data science workflow.</li>
-<li><strong>AI in Transport:</strong> Overview of applications in transport planning.</li>
-<li><strong>Ethical Considerations:</strong> “Garbage in, garbage out” vs.&nbsp;prompt and context engineering.</li>
+<li><strong>Web-based Chatbots (e.g., M365 Copilot, ChatGPT):</strong> Best for generating text, summarizing reports, and brainstorming ideas.</li>
+<li><strong>Coding Assistants (e.g., GitHub Copilot):</strong> Integrated into software development environments (like VS Code) to write and debug code. We will focus on these in Session 2.</li>
 </ul>
 </section>
-<section id="practical" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="practical"><span class="header-section-number">4</span> Practical</h2>
-<p>This is an interactive session to explore real-world AI use cases in transport.</p>
-<ol type="1">
-<li><strong>Identify AI Opportunities (20 mins):</strong>
+<section id="the-data-science-framework" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="the-data-science-framework"><span class="header-section-number">3.3</span> 3. The Data Science Framework</h3>
+<p>AI is most effective when integrated into a reproducible data science workflow:</p>
 <ul>
-<li>On paper, draw a flowchart of a typical task from your work.</li>
-<li>Draw a second flowchart showing how AI could be integrated to improve this workflow.</li>
-<li><em>Bonus:</em> If you have time, repeat for another task. Which is more suitable for AI integration?</li>
-</ul></li>
-<li><strong>Group Discussion (20 mins):</strong>
-<ul>
-<li>In small groups, discuss how AI could be best integrated into your work from first principles.</li>
-</ul></li>
-<li><strong>Group Feedback (20 mins):</strong>
-<ul>
-<li>Share key themes and ideas from your group discussion with everyone.</li>
-</ul></li>
-</ol>
-</section>
-<section id="next-steps" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="next-steps"><span class="header-section-number">5</span> Next steps</h2>
-<p>The course team will consider the following next steps:</p>
-<ul>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/8">Draft and share survey for potential attendees</a></li>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/9">Draft and share course outline for feedback</a></li>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/10">Draft Sections 1 and 4 (Robin)</a></li>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/11">Draft Sections 2 and 3 (Chris)</a></li>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/12">Review and finalise content (both)</a></li>
-<li><a href="https://github.com/itsleeds/ai4transport/issues/13">Convert this into website and hosting (Robin, Netlify or GitHub Pages)</a></li>
+<li><strong>Reproducibility:</strong> Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).</li>
+<li><strong>Scalability:</strong> Automating tasks to run on 100 files as easily as one.</li>
+<li><strong>Transparency:</strong> Code allows others to audit your methodology.</li>
 </ul>
+</section>
+<section id="ethical-considerations" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="ethical-considerations"><span class="header-section-number">3.4</span> 4. Ethical Considerations</h3>
+<ul>
+<li><strong>Bias:</strong> AI models reflect the biases in their training data.</li>
+<li><strong>“Hallucinations”:</strong> Models can confidently state falsehoods.</li>
+<li><strong>Data Privacy:</strong> Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.</li>
+</ul>
+</section>
+</section>
+<section id="identifying-tasks-where-ai-can-help-45-mins" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="identifying-tasks-where-ai-can-help-45-mins"><span class="header-section-number">4</span> Identifying tasks where AI can help (45 mins)</h2>
+<p>We will now apply these concepts to your daily work.</p>
+<p><strong>1. Individual Task: Workflow Mapping (10 mins)</strong> * Draw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data). * You can use pen and paper, or we recommend <strong><a href="https://excalidraw.com/">Excalidraw</a></strong> for quickly creating digital sketches. * Mark the steps where AI could act as an “assistant” to speed up the process.</p>
+<p><strong>2. Small Group Strategy (15 mins)</strong> * In groups of 3-4, share your flowcharts. * Discuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?</p>
+<p><strong>3. Feedback &amp; Discussion (15 mins)</strong> * We will share the most promising use-cases with the room.</p>
 
 
 </section>
