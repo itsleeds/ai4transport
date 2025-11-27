@@ -35,6 +35,8 @@ However, a more effective approach is likely to be to ask the AI to help you wri
 
 ### Example: Downloading motorway data
 
+Note: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.
+
 1. Write a prompt that results in code to download motorway data in the South East of England.
 
 2. Update the prompt to make it more specific, e.g. telling it to use a specific language or package.
@@ -114,15 +116,42 @@ See the resulting code and outputs in the [survey](survey.qmd) page.
 
 Option 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.
 
+Option 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.
+
+Option 2: use AI to help you explore the motorway data you downloaded earlier in this session.
+
+Option 3: use AI to help you explore a transport dataset of your choice.
+
 ## AI-Assisted Data Visualization
 
-*Placeholder: Demonstrate how to use AI to generate code for creating charts and maps, including interactive visualizations.*
+Data visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn.
+AI can help by generating code snippets for visualizations based on natural language prompts.
+
+### Exercises
+
+Continue with EDA tasks from the previous exercise, but add visualisations.
+
+You can use packages of your choice, but we recommend you try the following:
+
+- For people using R: `ggplot2` (part of the tidyverse), `plotly` (for interactive plots), or `mapview` (for spatial data).
+
+- For people using Python: `matplotlib`, `seaborn`, or `plotly`.
 
 ## Interpreting Results with LLMs
 
-*Placeholder: Discuss how to use Large Language Models to help interpret data analysis results and generate narrative summaries.*
+Copy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.
 
-## Practical Exercise
+Do you agree with the AI's interpretation?
+
+Advanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:
+
+```sh
+quarto render your_file.qmd --to markdown
+```
+
+Then as the AI to read the output (in this case called `your_file.md`) and help you interpret the results.
+
+## Bonus: Analysing road traffic collision data in TfSE
 
 *Placeholder: Outline a hands-on exercise where participants will use AI tools to analyze a sample transport dataset.*
 
