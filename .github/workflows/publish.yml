@@ -33,7 +33,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install python3
           sudo apt-get install python3-pip
-          python3 -m pip install jupyter jupyter-cache
+          python3 -m pip install jupyter jupyter-cache pandas numpy matplotlib
           # Install additional R packages
           Rscript -e "install.packages('tmaptools')"
 
