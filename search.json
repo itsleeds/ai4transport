@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Deep Dive into Transport Data",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Workshop: Bring Your Own Data",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#course-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Deep Dive into Transport Data",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Workshop: Bring Your Own Data",
     "crumbs": [
       "Schedule"
     ]
@@ -80,46 +80,573 @@
     ]
   },
   {
-    "objectID": "questionnaire.html",
-    "href": "questionnaire.html",
-    "title": "Pre-Course Questionnaire",
+    "objectID": "codespaces.html",
+    "href": "codespaces.html",
+    "title": "AI and Data Science for Transport",
     "section": "",
-    "text": "This questionnaire will help us tailor the ‘AI and Data Science for Transport’ course to your needs. Please complete the prerequisites before filling out this form."
+    "text": "This short guide expands on the description of how to use VSCode inside GitHub Codespaces for Quarto development in the prerequisites section section.\nAs described there, click on the following button:\n\n\n\nOpen in GitHub Codespaces\n\n\nThen open the file you would like to edit, either by clicking on the Files button on the left hand panel and clicking on the file, or (recommended) use the Keyboard shortcut Ctrl+P and then typing the name of the file you would like to edit and then Enter when it shows up.\nTo edit the file s2.qmd, for example, type Ctrl+P then s2, you should see something like this:\n\nTo push changes back to GitHub you can do the following:\n\nOpen a terminal, e.g. by pressing Ctrl+J and then selecting the Terminal option, as shown in the screenshot below\nEnter the following commands:\n\ngit commit -am 'change whatever'\ngit push\n\nTo add an image…\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds"
   },
   {
-    "objectID": "questionnaire.html#prerequisites-confirmation",
-    "href": "questionnaire.html#prerequisites-confirmation",
-    "title": "Pre-Course Questionnaire",
-    "section": "Prerequisites Confirmation",
-    "text": "Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No"
+    "objectID": "survey-prompts.html",
+    "href": "survey-prompts.html",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "This document records the interaction steps used to create the survey analysis page.\n\n\nUser Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv.\n\n\n\n\nUser Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts).\n\n\n\n\n\nUser Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website.\n\n\n\n\nUser Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate.\n\n\n\n\nUser Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs.\n\n\n\n\nUser Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
   },
   {
-    "objectID": "questionnaire.html#your-details",
-    "href": "questionnaire.html#your-details",
-    "title": "Pre-Course Questionnaire",
-    "section": "Your Details",
-    "text": "Your Details\n2. What is your GitHub username?\nShort text answer"
+    "objectID": "survey-prompts.html#initial-setup-and-data-conversion",
+    "href": "survey-prompts.html#initial-setup-and-data-conversion",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv."
   },
   {
-    "objectID": "questionnaire.html#your-setup",
-    "href": "questionnaire.html#your-setup",
-    "title": "Pre-Course Questionnaire",
-    "section": "Your Setup",
-    "text": "Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code"
+    "objectID": "survey-prompts.html#data-analysis",
+    "href": "survey-prompts.html#data-analysis",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts)."
   },
   {
-    "objectID": "questionnaire.html#current-work-and-ai-experience",
-    "href": "questionnaire.html#current-work-and-ai-experience",
-    "title": "Pre-Course Questionnaire",
-    "section": "Current Work and AI Experience",
-    "text": "Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nMicrosoft 365 Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer"
+    "objectID": "survey-prompts.html#website-integration",
+    "href": "survey-prompts.html#website-integration",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website."
   },
   {
-    "objectID": "questionnaire.html#course-expectations",
-    "href": "questionnaire.html#course-expectations",
-    "title": "Pre-Course Questionnaire",
-    "section": "Course Expectations",
-    "text": "Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident"
+    "objectID": "survey-prompts.html#formatting-and-improvements",
+    "href": "survey-prompts.html#formatting-and-improvements",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate."
+  },
+  {
+    "objectID": "survey-prompts.html#freezing-results-for-deployment",
+    "href": "survey-prompts.html#freezing-results-for-deployment",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs."
+  },
+  {
+    "objectID": "survey-prompts.html#git-operations",
+    "href": "survey-prompts.html#git-operations",
+    "title": "1 Survey Analysis Workflow Prompts",
+    "section": "",
+    "text": "User Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
+  },
+  {
+    "objectID": "slides/intro.html#welcome",
+    "href": "slides/intro.html#welcome",
+    "title": "Introduction & Survey Results",
+    "section": "Welcome",
+    "text": "Welcome\nAI and Data Science for Transport\nA practical, hands-on course for transport professionals."
+  },
+  {
+    "objectID": "slides/intro.html#course-aims",
+    "href": "slides/intro.html#course-aims",
+    "title": "Introduction & Survey Results",
+    "section": "Course Aims",
+    "text": "Course Aims\n\nAutomate repetitive and boring tasks.\nAccelerate your existing workflows.\nEnhance your capabilities with new tools.\n\nUltimate Goal: More effective transport planning investments and decisions."
+  },
+  {
+    "objectID": "slides/intro.html#agenda",
+    "href": "slides/intro.html#agenda",
+    "title": "Introduction & Survey Results",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\nTime\nSession\n\n\n\n\n10:00-11:30\nSession 1: Foundations of AI in Transport\n\n\n11:30-13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n13:00-14:00\nLunch\n\n\n14:00-15:30\nSession 3: Using LLMs for Reporting\n\n\n15:30-17:00\nSession 4: AI for Data Analysis"
+  },
+  {
+    "objectID": "slides/intro.html#prerequisites",
+    "href": "slides/intro.html#prerequisites",
+    "title": "Introduction & Survey Results",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nWe hope you have:\n\nA GitHub account.\nA willingness to experiment.\nA modern web browser.\n\nNo prior coding experience is strictly required!"
+  },
+  {
+    "objectID": "slides/intro.html#survey-insights",
+    "href": "slides/intro.html#survey-insights",
+    "title": "Introduction & Survey Results",
+    "section": "Survey Insights",
+    "text": "Survey Insights\nWe asked you about your current work and tools. Here is what you said."
+  },
+  {
+    "objectID": "slides/intro.html#current-ai-tool-usage",
+    "href": "slides/intro.html#current-ai-tool-usage",
+    "title": "Introduction & Survey Results",
+    "section": "Current AI Tool Usage",
+    "text": "Current AI Tool Usage\nCopilot and ChatGPT are the most popular tools among attendees."
+  },
+  {
+    "objectID": "slides/intro.html#automation-opportunities",
+    "href": "slides/intro.html#automation-opportunities",
+    "title": "Introduction & Survey Results",
+    "section": "Automation Opportunities",
+    "text": "Automation Opportunities\nData analysis and reporting are the key areas where you want AI help."
+  },
+  {
+    "objectID": "slides/intro.html#why-this-matters",
+    "href": "slides/intro.html#why-this-matters",
+    "title": "Introduction & Survey Results",
+    "section": "Why this matters",
+    "text": "Why this matters\nThe course is designed to address exactly these needs:\n\nSession 2 & 4: Focus on the Data Analysis automation you requested.\nSession 3: Focuses on the Reporting workflows.\nThroughout: We use Copilot and LLMs because that is what you are already exploring."
+  },
+  {
+    "objectID": "slides/intro.html#lets-start",
+    "href": "slides/intro.html#lets-start",
+    "title": "Introduction & Survey Results",
+    "section": "Let’s Start!",
+    "text": "Let’s Start!\nSession 1: Foundations of AI in Transport\nLink to Session 1 materials"
+  },
+  {
+    "objectID": "s2.html",
+    "href": "s2.html",
+    "title": "Session 2: (AI-Powered) Coding and Development",
+    "section": "",
+    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\n\n\n\nNoteHuman in the Loop\n\n\n\n\n\nIt is crucial to maintain “Human in the loop” workflows to prevent AI agents from running out of control. Version control systems like Git and collaboration platforms like GitHub enable the integration of AI input with quality assurance through Pull Requests (similar to tracked changes in Word), code reviews, and a human-led merge process. Additionally, safeguards such as maximum expenditure limits per day, project, or user can help mitigate risks.\n\n\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
+    "crumbs": [
+      "Sessions",
+      "Session 2: AI-Powered Development"
+    ]
+  },
+  {
+    "objectID": "s2.html#introduction",
+    "href": "s2.html#introduction",
+    "title": "Session 2: (AI-Powered) Coding and Development",
+    "section": "",
+    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\n\n\n\nNoteHuman in the Loop\n\n\n\n\n\nIt is crucial to maintain “Human in the loop” workflows to prevent AI agents from running out of control. Version control systems like Git and collaboration platforms like GitHub enable the integration of AI input with quality assurance through Pull Requests (similar to tracked changes in Word), code reviews, and a human-led merge process. Additionally, safeguards such as maximum expenditure limits per day, project, or user can help mitigate risks.\n\n\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
+    "crumbs": [
+      "Sessions",
+      "Session 2: AI-Powered Development"
+    ]
+  },
+  {
+    "objectID": "s2.html#ai-powered-ides",
+    "href": "s2.html#ai-powered-ides",
+    "title": "Session 2: (AI-Powered) Coding and Development",
+    "section": "2 AI-Powered IDEs",
+    "text": "2 AI-Powered IDEs\n\nIntroduction to AI Coding Assistants: We’ll look at GitHub Copilot as a future-proof example of an AI coding assistant embedded into existing tools.\nLive Demonstration",
+    "crumbs": [
+      "Sessions",
+      "Session 2: AI-Powered Development"
+    ]
+  },
+  {
+    "objectID": "s2.html#exercise-create-a-new-figure-using-github-copilot",
+    "href": "s2.html#exercise-create-a-new-figure-using-github-copilot",
+    "title": "Session 2: (AI-Powered) Coding and Development",
+    "section": "3 Exercise: Create a new figure using GitHub Copilot",
+    "text": "3 Exercise: Create a new figure using GitHub Copilot\n\nTask: Use Copilot to modify the data/od_viewer.py Python file to make a new plot of something that interests you.",
+    "crumbs": [
+      "Sessions",
+      "Session 2: AI-Powered Development"
+    ]
+  },
+  {
+    "objectID": "s2.html#bonus-exercise-interactive-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ais",
+    "href": "s2.html#bonus-exercise-interactive-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ais",
+    "title": "Session 2: (AI-Powered) Coding and Development",
+    "section": "4 Bonus Exercise: interactive with GitHub to enable version-controlled collaborative workflows embedding AIs",
+    "text": "4 Bonus Exercise: interactive with GitHub to enable version-controlled collaborative workflows embedding AIs\nNote: this bonus exercise is designed for those already comfortable with GitHub and version control concepts, or those who are ahead of schedule and wish to explore further.\n\nTask: Contribute to a shared repository using an AI-assisted workflow.\n\nFork and Clone the exercise repository.\nCreate an issue describing a new feature you will add.\nCreate a branch linked to your issue.\nUse Copilot to write the code for the new feature.\nCommit and push your changes.\nCreate a pull request for your work to be reviewed.\n\n\nSee the materials on the Data Science for Transport Planning course website for more details.",
+    "crumbs": [
+      "Sessions",
+      "Session 2: AI-Powered Development"
+    ]
+  },
+  {
+    "objectID": "s4.html",
+    "href": "s4.html",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "",
+    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#introduction",
+    "href": "s4.html#introduction",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "",
+    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#objectives",
+    "href": "s4.html#objectives",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "2 Objectives",
+    "text": "2 Objectives\n\nApply AI Skills: Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.\nProblem Solving: Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.\nPeer Learning: Share approaches and insights with colleagues, fostering a collaborative learning environment.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#workshop-structure",
+    "href": "s4.html#workshop-structure",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "3 Workshop Structure",
+    "text": "3 Workshop Structure\n\n3.1 1. Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 2. Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 3. Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#suggested-activities",
+    "href": "s4.html#suggested-activities",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "4 Suggested Activities",
+    "text": "4 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the Spanish OD data we used earlier.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#course-wrap-up",
+    "href": "s4.html#course-wrap-up",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "5 Course Wrap-up",
+    "text": "5 Course Wrap-up\n\nFinal Q&A.\nResources for further learning.\nFeedback and next steps.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
+    "section": "",
+    "text": "Robin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\nThis course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#who-is-this-course-for",
+    "href": "index.html#who-is-this-course-for",
+    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
+    "section": "",
+    "text": "This course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "s1.html",
+    "href": "s1.html",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session lays the groundwork for the course.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#overview",
+    "href": "s1.html#overview",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session lays the groundwork for the course.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#slides-and-presentation-45-mins",
+    "href": "s1.html#slides-and-presentation-45-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "2 Slides and Presentation (45 mins)",
+    "text": "2 Slides and Presentation (45 mins)\nThe first half of the session will be delivered as a presentation. See the slides for details. The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.\nIt will also provide a chance for debate: questions are encouraged!\nA summary of core concepts covered in the presentation can be found below (click to expand):\n\n\nClick to expand core concepts from the presentation\n\n\n2.1 Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n2.2 Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g. ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nTools that integrate with your existing workflows (e.g., GitHub Copilot): Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.\n\nM365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.\n\n\n2.3 The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n2.4 Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#quick-start-try-it-now-5-minutes",
+    "href": "s1.html#quick-start-try-it-now-5-minutes",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "3 Quick Start: Try it Now (5 minutes)",
+    "text": "3 Quick Start: Try it Now (5 minutes)\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
+    "href": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "4 Identifying tasks where AI can help (40 mins)",
+    "text": "4 Identifying tasks where AI can help (40 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins)\n\nDraw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).\nYou can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches.\nMark the steps where AI could act as an “assistant” to speed up the process.\n\n2. Small Group Strategy (15 mins)\n\nIn groups of 3-4, share your flowcharts.\nDiscuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n\n3. Feedback & Discussion (15 mins)\n\nWe will share the most promising use-cases with the room.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "tfse.html",
+    "href": "tfse.html",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "",
+    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
+  },
+  {
+    "objectID": "tfse.html#current-working-practices",
+    "href": "tfse.html#current-working-practices",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.1 Current working practices",
+    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
+  },
+  {
+    "objectID": "tfse.html#ai-tools",
+    "href": "tfse.html#ai-tools",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.2 AI tools",
+    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
+  },
+  {
+    "objectID": "tfse.html#data-and-data-science",
+    "href": "tfse.html#data-and-data-science",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.3 Data and data science",
+    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
+  },
+  {
+    "objectID": "tfse.html#general",
+    "href": "tfse.html#general",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.4 General",
+    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
+  },
+  {
+    "objectID": "tfse.html#course-overview",
+    "href": "tfse.html#course-overview",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.5 Course Overview",
+    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
+  },
+  {
+    "objectID": "tfse.html#syllabus-6-hours-total",
+    "href": "tfse.html#syllabus-6-hours-total",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.6 Syllabus (6 hours total)",
+    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)\n\n\n\n\nI Do: Live Demonstration (11:30 - 12:00)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (12:00 - 12:30)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:30 - 13:00)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (13:00 - 14:00)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (60 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
+  },
+  {
+    "objectID": "tfse.html#resourcing",
+    "href": "tfse.html#resourcing",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.8 Resourcing",
+    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
+  },
+  {
+    "objectID": "s3.html",
+    "href": "s3.html",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "",
+    "text": "In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#introduction",
+    "href": "s3.html#introduction",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "",
+    "text": "In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#finding-and-cleaning-data-with-ai",
+    "href": "s3.html#finding-and-cleaning-data-with-ai",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "2 Finding and Cleaning Data with AI",
+    "text": "2 Finding and Cleaning Data with AI\n\nGenerally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists. That means they are not generally good at very specific domains, such as the locations of transport datasets.\n\nYou can check which model you are using by asking the AI directly.\n\n\nExample conversation\n\nUser: What model are you?\nCopilot: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.\n\n\nTo provide an example, imagine you need a dataset of the motorway network in the South East of England. You could try this prompt in an AI chat tool, as shown in the details below.\nHowever, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.\n\n2.1 Example: Downloading motorway data\nNote: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.\n\nWrite a prompt that results in code to download motorway data in the South East of England.\nUpdate the prompt to make it more specific, e.g. telling it to use a specific language or package.\nTry running the code.\n\n\n\nExample prompt and output\n\nPrompt:\n\n“Write R code to download motorway network data for the South East of England from OpenStreetMap using the osmdata package.”\n\nAI Output:\n\nlibrary(osmdata)\nlibrary(sf)\n# Define the bounding box for South East England\nbbox &lt;- getbb(\"South East England, UK\")\n# Create an Overpass query for motorways\nmotorway_query &lt;- opq(bbox) %&gt;%\n  add_osm_feature(key = \"highway\", value = \"motorway\")\n# Download the data\nmotorway_data &lt;- osmdata_sf(motorway_query)\n# Extract the motorway lines\nmotorways &lt;- motorway_data$osm_lines\n# Plot the result\nplot(st_geometry(motorways), col = 'blue', main = \"Motorway Network in South East England\")\n# Save to a shapefile\nst_write(motorways, \"south_east_motorways.shp\")\n\nNotes:\n\nIt worked in one shot!\n\nA year ago this would not have worked first time, but the models are improving rapidly.\n\nHowever, it was not perfect:\n\n\nIt saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).\nIt used the outdated %&gt;% pipe operator from magrittr rather than the native R pipe |&gt;.\n\n\nRefining the prompt can easily fix these issues.\n\n\n\n\n2.2 Example: Downloading road traffic collision data in TfSE\nSee the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.\n\n\n2.3 Bonus activity\nUse AI to help you find and import data on a topic of your choice relevant to transport planning.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#exploratory-data-analysis-eda-with-ai",
+    "href": "s3.html#exploratory-data-analysis-eda-with-ai",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "3 Exploratory Data Analysis (EDA) with AI",
+    "text": "3 Exploratory Data Analysis (EDA) with AI\nTake a read of the AI-assisted EDA session in survey-prompts.md for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the survey page.\n\n3.1 Exercises\nOption 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.\nOption 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.\nOption 2: use AI to help you explore the motorway data you downloaded earlier in this session.\nOption 3: use AI to help you explore a transport dataset of your choice.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#ai-assisted-data-visualization",
+    "href": "s3.html#ai-assisted-data-visualization",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "4 AI-Assisted Data Visualization",
+    "text": "4 AI-Assisted Data Visualization\nData visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn. AI can help by generating code snippets for visualizations based on natural language prompts.\n\n4.1 Exercises\nContinue with EDA tasks from the previous exercise, but add visualisations.\nYou can use packages of your choice, but we recommend you try the following:\n\nFor people using R: ggplot2 (part of the tidyverse), plotly (for interactive plots), or mapview (for spatial data).\nFor people using Python: matplotlib, seaborn, or plotly.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#interpreting-results-with-llms",
+    "href": "s3.html#interpreting-results-with-llms",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "5 Interpreting Results with LLMs",
+    "text": "5 Interpreting Results with LLMs\nCopy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.\nDo you agree with the AI’s interpretation?\nAdvanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:\nquarto render your_file.qmd --to markdown\nThen as the AI to read the output (in this case called your_file.md) and help you interpret the results.",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
+    "href": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
+    "title": "Session 3: AI for Transport Data Analysis",
+    "section": "6 Bonus: Analysing road traffic collision data in TfSE",
+    "text": "6 Bonus: Analysing road traffic collision data in TfSE\nIn this section, we demonstrate how to programmatically access and filter large national datasets using R.\n\nlibrary(stats19)\nlibrary(sf)\nlibrary(dplyr)\n\n# 1. Load the study area boundary\n# We use the pre-prepared TfSE boundary file\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\n\nWe can download road safety data directly from the Department for Transport using the stats19 package.\nExample: Getting 5 years of data (Code only)\n\n# This code downloads collision data for 2020-2024\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\nExample: Joining Casualties (Code only)\n\n# This code gets casualty data and joins it to the collisions\ncasualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"casualty\"))\n\ncasualties_joined = dplyr::left_join(\n  casualties_5y,\n  collisions_5y,\n  by = \"collision_index\" # Common ID field\n)\n\nLive Demo: Getting 2020 Collisions for TfSE\nFor this exercise, we will download just the 2020 collision data and filter it to our study area.\n\n# 1. Get 2020 collision data\ncollisions_2020 = get_stats19(year = 2020, type = \"collision\")\n\n# 2. Convert to an 'sf' object (spatial data)\ncollisions_sf = format_sf(collisions_2020, lonlat = TRUE)\n\n# 3. Filter to the TfSE boundary\n# Ensure Coordinate Reference Systems match\ncollisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n\n# Spatial subset: keep collisions within the boundary\ncollisions_tfse = collisions_sf[tfse_boundary, ]\n\nprint(paste(\"Original 2020 collisions:\", nrow(collisions_sf)))\nprint(paste(\"TfSE collisions:\", nrow(collisions_tfse)))\n\n# 4. Quick visual check\nplot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = \"red\", \n     main = \"Road Collisions in TfSE (2020)\")\nplot(st_geometry(tfse_boundary), add = TRUE, border = \"blue\")",
+    "crumbs": [
+      "Sessions",
+      "Session 3: Data Analysis"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html",
+    "href": "s3-advanced.html",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "",
+    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#introduction",
+    "href": "s3-advanced.html#introduction",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "",
+    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#what-youll-learn",
+    "href": "s3-advanced.html#what-youll-learn",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "2 What you’ll learn",
+    "text": "2 What you’ll learn\n\nSet up an API client\nSend a basic prompt and parse a response\nAsk the model for structured JSON and validate it\nFetch a PDF from a URL, extract text, and summarise it reproducibly\nBatch a task across multiple files",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#level-0-the-non-coder-approach-chat-with-your-pdf",
+    "href": "s3-advanced.html#level-0-the-non-coder-approach-chat-with-your-pdf",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "3 Level 0: The Non-Coder Approach (Chat with your PDF)",
+    "text": "3 Level 0: The Non-Coder Approach (Chat with your PDF)\nBefore we write code, it is important to know that you can do single-document analysis without any programming.\nTry this manual workflow: 1. Go to Claude.ai, ChatGPT Plus, or Gemini Advanced. 2. Click the “paperclip” or “plus” icon to upload a PDF (e.g., a local transport policy document). 3. Ask: “Summarise the key transport objectives in this document as a bulleted list.”\nWhy do we need code then? Imagine you have 500 planning applications to review. Uploading them one by one and copying the answers into Excel would take days. The method below allows you to write a script once and process 5, 500, or 5,000 documents automatically while you grab a coffee.",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#level-1-automating-for-scale-python-setup",
+    "href": "s3-advanced.html#level-1-automating-for-scale-python-setup",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "4 Level 1: Automating for Scale (Python Setup)",
+    "text": "4 Level 1: Automating for Scale (Python Setup)\nWe’ll use Python to build this automation. If packages are missing, install them first.\n\n#!pip install openai requests pypdf\nimport os\nimport json\nfrom typing import List, Dict\nfrom openai import OpenAI\n\nBest practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the .env file directly.\nNow create the client:\n\nROUTER_API_KEY = 'link to your api key location'\n\nCLIENT = OpenAI(\n    api_key=ROUTER_API_KEY,\n    default_headers={\"Authorization\": f\"Bearer {ROUTER_API_KEY}\"}\n)",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#a-simple-chat-completion",
+    "href": "s3-advanced.html#a-simple-chat-completion",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "5 A simple chat completion",
+    "text": "5 A simple chat completion\nThis mirrors what you do in a chat UI, but from code:\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a dilligent, concise transport planning assistant.\"},\n        {\"role\": \"user\", \"content\": \"Tell me a family-friendly transport planning joke.\"}\n    ]\n)\nprint(resp.choices[0].message.content)\n\nTry tweaking the prompt style (e.g., more witty, drier, aimed at students vs. professionals).",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#getting-structured-json-outputs",
+    "href": "s3-advanced.html#getting-structured-json-outputs",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "6 Getting structured (JSON) outputs",
+    "text": "6 Getting structured (JSON) outputs\nWhen you need to use the response downstream, ask the model to return JSON and validate it.\n\nschema_hint = {\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\"type\": \"string\"},\n        \"insight\": {\"type\": \"string\"},\n        \"confidence\": {\"type\": \"number\"}\n    },\n    \"required\": [\"title\", \"insight\", \"confidence\"]\n}\n\nprompt = (\n    \"Summarise one noteworthy transport planning insight from London’s congestion pricing \"\n    \"policy in 1-2 sentences. Return only valid JSON with keys: title, insight, confidence (0-1).\"\n)\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"Return only JSON, no extra text.\"},\n        {\"role\": \"user\", \"content\": prompt}\n    ]\n)\n\nraw = resp.choices[0].message.content\ntry:\n    data = json.loads(raw)\n    assert set([\"title\", \"insight\", \"confidence\"]) &lt;= set(data.keys())\nexcept Exception as e:\n    raise ValueError(f\"Model did not return valid JSON. Raw output: {raw}\") from e\n\ndata",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#analysing-a-pdf-from-a-url-robust-approach",
+    "href": "s3-advanced.html#analysing-a-pdf-from-a-url-robust-approach",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "7 Analysing a PDF from a URL (robust approach)",
+    "text": "7 Analysing a PDF from a URL (robust approach)\nRather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.\n\n!pip install pypdf\nimport io\nimport math\nimport requests\nfrom pypdf import PdfReader\n\ndef fetch_pdf_text(url: str, max_pages: int = 5) -&gt; str:\n    \"\"\"Download a PDF and extract text from the first `max_pages` pages.\"\"\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    with io.BytesIO(r.content) as f:\n        reader = PdfReader(f)\n        pages = min(max_pages, len(reader.pages))\n        text = []\n        for i in range(pages):\n            text.append(reader.pages[i].extract_text() or \"\")\n    return \"\\n\\n\".join(text).strip()\n\ndef chunk_text(text: str, chunk_chars: int = 6000) -&gt; List[str]:\n    \"\"\"Split text into roughly token-sized chunks for prompting.\"\"\"\n    chunks = []\n    for i in range(0, len(text), chunk_chars):\n        chunks.append(text[i:i+chunk_chars])\n    return chunks\n\ndef summarise_pdf(url: str, task: str = \"Summarise and comment on this document for a transport audience.\") -&gt; str:\n    text = fetch_pdf_text(url)\n    if not text:\n        return \"No text extracted from the PDF.\"\n    chunks = chunk_text(text)\n    summaries = []\n    for idx, ch in enumerate(chunks, start=1):\n        r = CLIENT.chat.completions.create(\n            model=\"gpt-5-mini\",\n            messages=[\n                {\"role\": \"system\", \"content\": \"You are a precise analyst. Keep outputs concise.\"},\n                {\"role\": \"user\", \"content\": f\"{task}\\n\\nChunk {idx}/{len(chunks)}:\\n{ch}\"}\n            ]\n        )\n        summaries.append(r.choices[0].message.content)\n    # Compress partial summaries into a final synthesis\n    final = CLIENT.chat.completions.create(\n        model=\"gpt-5-mini\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"Create a single, coherent summary with key takeaways.\"},\n            {\"role\": \"user\", \"content\": \"\\n\\n\".join(summaries)}\n        ]\n    )\n    return final.choices[0].message.content\n\n# Example (uses a classic sample PDF)\nsample_url = \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\"\nsummarise_pdf(sample_url)\n\n\n7.1 Try it\n\nChange max_pages in fetch_pdf_text to control cost/speed.\nSwap task to focus on risks, methods, or key findings.\nUse your own PDF URLs (public reports, guidance docs, etc.).",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#batch-a-task-across-multiple-documents",
+    "href": "s3-advanced.html#batch-a-task-across-multiple-documents",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "8 Batch a task across multiple documents",
+    "text": "8 Batch a task across multiple documents\nYou’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):\n\nfrom datetime import datetime\n\ndef extract_insights(text: str) -&gt; Dict:\n    prompt = (\n        \"From the provided text, output JSON with: title, bullets (array of 2-3 concise points),\"\n        \" confidence (0-1). Return only JSON.\"\n    )\n    r = CLIENT.chat.completions.create(\n        model=MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Return valid JSON only.\"},\n            {\"role\": \"user\", \"content\": f\"{prompt}\\n\\n{text[:6000]}\"}\n        ]\n    )\n    raw = r.choices[0].message.content\n    try:\n        return json.loads(raw)\n    except Exception:\n        return {\"title\": \"(parse_error)\", \"bullets\": [raw], \"confidence\": 0.0}\n\ndef batch_process(urls: List[str], out_path: str = \"insights.jsonl\") -&gt; str:\n    with open(out_path, \"w\", encoding=\"utf-8\") as f:\n        for url in urls:\n            try:\n                text = fetch_pdf_text(url, max_pages=5)\n                data = extract_insights(text)\n                data.update({\"source\": url, \"ts\": datetime.utcnow().isoformat()})\n                f.write(json.dumps(data, ensure_ascii=False) + \"\\n\")\n            except Exception as e:\n                f.write(json.dumps({\n                    \"source\": url, \"error\": str(e), \"ts\": datetime.utcnow().isoformat()\n                }) + \"\\n\")\n    return out_path\n\nurls = [\n    \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\",\n    # add more public PDF URLs here\n]\n\nbatch_process(urls)",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#good-practice-and-guardrails",
+    "href": "s3-advanced.html#good-practice-and-guardrails",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "9 Good practice and guardrails",
+    "text": "9 Good practice and guardrails\n\nReproducibility: fix the model name per project and log prompts.\nPrivacy: don’t send sensitive data to third-party APIs without approval.\nCost control: cap pages, chunk sizes, and batch sizes; cache intermediate results.\nError handling: catch network errors/timeouts; write partial results with error notes.\nVersion control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
+  },
+  {
+    "objectID": "s3-advanced.html#where-this-fits-in-the-course",
+    "href": "s3-advanced.html#where-this-fits-in-the-course",
+    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "section": "10 Where this fits in the course",
+    "text": "10 Where this fits in the course\n\nFrom Session 1: we’re applying AI within a clear workflow with ethical awareness.\nFrom Session 2: we’re turning assisted coding into reproducible automation.\nInto Session 4: we’ll apply the same ideas to transport data analysis and reporting.",
+    "crumbs": [
+      "Sessions",
+      "Bonus: Advanced Automation"
+    ]
   },
   {
     "objectID": "slides/day1.html#welcome",
@@ -136,7 +663,7 @@
     "href": "slides/day1.html#agenda",
     "title": "AI and Data Science for Transport",
     "section": "Agenda",
-    "text": "Agenda\n\n10:00-11:30 Session 1: Foundations of AI and Data Science for Transport in Transport\n11:30-13:00 Session 2: (AI-Powered) Coding and Development\n13:00-14:00 Lunch\n14:00-15:30 Session 3: Using LLMs for Reporting and Analysis\n15:30-17:00 Session 4: AI and Data Science for Transport Data Analysis",
+    "text": "Agenda\n\n10:00-11:30 Session 1: Foundations of AI and Data Science for Transport in Transport\n11:30-13:00 Session 2: (AI-Powered) Coding and Development\n13:00-14:00 Lunch\n14:00-15:30 Session 3: Using LLMs for Reporting and Analysis\n15:30-17:00 Session 4: Applied AI Workshop: Bring Your Own Data",
     "crumbs": [
       "Slides"
     ]
@@ -272,11 +799,11 @@
     ]
   },
   {
-    "objectID": "slides/day1.html#session-4-ai-and-data-science-for-transport-data-analysis",
-    "href": "slides/day1.html#session-4-ai-and-data-science-for-transport-data-analysis",
+    "objectID": "slides/day1.html#session-4-applied-ai-workshop-bring-your-own-data",
+    "href": "slides/day1.html#session-4-applied-ai-workshop-bring-your-own-data",
     "title": "AI and Data Science for Transport",
-    "section": "Session 4: AI and Data Science for Transport Data Analysis",
-    "text": "Session 4: AI and Data Science for Transport Data Analysis\nKey topics:\n\nAI-accelerated data processing\nPattern recognition in transport datasets\nVisualisation with AI assistance\nComplete workflow examples\n\nSee: Session 4 materials",
+    "section": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "text": "Session 4: Applied AI Workshop: Bring Your Own Data\nKey topics:\n\nHands-on application of AI tools\nWorking with your own datasets and problems\nInstructor support and peer collaboration\nShow and tell\n\nSee: Session 4 materials",
     "crumbs": [
       "Slides"
     ]
@@ -322,551 +849,46 @@
     ]
   },
   {
-    "objectID": "s3-advanced.html",
-    "href": "s3-advanced.html",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
+    "objectID": "questionnaire.html",
+    "href": "questionnaire.html",
+    "title": "Pre-Course Questionnaire",
     "section": "",
-    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
+    "text": "This questionnaire will help us tailor the ‘AI and Data Science for Transport’ course to your needs. Please complete the prerequisites before filling out this form."
   },
   {
-    "objectID": "s3-advanced.html#introduction",
-    "href": "s3-advanced.html#introduction",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "",
-    "text": "Building on Session 2’s AI-powered coding, this session shows how to call an LLM API from code to automate repeatable analysis tasks. You’ll set up a client securely, make simple requests, request structured (JSON) outputs, and analyse a PDF fetched from the web. This sets you up for Session 4, where we apply AI to transport data analysis.",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
+    "objectID": "questionnaire.html#prerequisites-confirmation",
+    "href": "questionnaire.html#prerequisites-confirmation",
+    "title": "Pre-Course Questionnaire",
+    "section": "Prerequisites Confirmation",
+    "text": "Prerequisites Confirmation\n1. I confirm that I have read the course prerequisites and completed the required setup steps.\n\n( ) Yes\n( ) No"
   },
   {
-    "objectID": "s3-advanced.html#what-youll-learn",
-    "href": "s3-advanced.html#what-youll-learn",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "2 What you’ll learn",
-    "text": "2 What you’ll learn\n\nSet up an API client\nSend a basic prompt and parse a response\nAsk the model for structured JSON and validate it\nFetch a PDF from a URL, extract text, and summarise it reproducibly\nBatch a task across multiple files",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
+    "objectID": "questionnaire.html#your-details",
+    "href": "questionnaire.html#your-details",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Details",
+    "text": "Your Details\n2. What is your GitHub username?\nShort text answer"
   },
   {
-    "objectID": "s3-advanced.html#level-0-the-non-coder-approach-chat-with-your-pdf",
-    "href": "s3-advanced.html#level-0-the-non-coder-approach-chat-with-your-pdf",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "3 Level 0: The Non-Coder Approach (Chat with your PDF)",
-    "text": "3 Level 0: The Non-Coder Approach (Chat with your PDF)\nBefore we write code, it is important to know that you can do single-document analysis without any programming.\nTry this manual workflow: 1. Go to Claude.ai, ChatGPT Plus, or Gemini Advanced. 2. Click the “paperclip” or “plus” icon to upload a PDF (e.g., a local transport policy document). 3. Ask: “Summarise the key transport objectives in this document as a bulleted list.”\nWhy do we need code then? Imagine you have 500 planning applications to review. Uploading them one by one and copying the answers into Excel would take days. The method below allows you to write a script once and process 5, 500, or 5,000 documents automatically while you grab a coffee.",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
+    "objectID": "questionnaire.html#your-setup",
+    "href": "questionnaire.html#your-setup",
+    "title": "Pre-Course Questionnaire",
+    "section": "Your Setup",
+    "text": "Your Setup\n3. What is your primary development environment?\n\n( ) VS Code\n( ) RStudio\n( ) Jupyter Notebook\n( ) Other (please specify)\n( ) None\n\n4. Which programming languages are you most comfortable with for data analysis? (Select all that apply)\n\nPython\nR\nSQL\nNone\nOther (please specify)\n\n5. How do you plan to follow the course materials?\n\n( ) On my own computer using a local setup.\n( ) In the cloud using GitHub Codespaces.\n( ) I’m not sure yet.\n\n6. Did the test code in the prerequisites.qmd file run successfully on your machine?\n\n( ) Yes\n( ) No\n( ) I did not run the code"
   },
   {
-    "objectID": "s3-advanced.html#level-1-automating-for-scale-python-setup",
-    "href": "s3-advanced.html#level-1-automating-for-scale-python-setup",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "4 Level 1: Automating for Scale (Python Setup)",
-    "text": "4 Level 1: Automating for Scale (Python Setup)\nWe’ll use Python to build this automation. If packages are missing, install them first.\n\n#!pip install openai requests pypdf\nimport os\nimport json\nfrom typing import List, Dict\nfrom openai import OpenAI\n\nBest practice is to set your API key as an environment variable (don’t hard-code secrets). You can do this using PowerShell or through the .env file directly.\nNow create the client:\n\nROUTER_API_KEY = 'link to your api key location'\n\nCLIENT = OpenAI(\n    api_key=ROUTER_API_KEY,\n    default_headers={\"Authorization\": f\"Bearer {ROUTER_API_KEY}\"}\n)",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
+    "objectID": "questionnaire.html#current-work-and-ai-experience",
+    "href": "questionnaire.html#current-work-and-ai-experience",
+    "title": "Pre-Course Questionnaire",
+    "section": "Current Work and AI Experience",
+    "text": "Current Work and AI Experience\n7. Which software or digital tools do you use most often in your day-to-day transport planning work?\nLong text answer\n8. Briefly describe a typical work task you complete on a day-to-day basis.\nLong text answer\n9. What are the most repetitive or boring parts of your work?\nLong text answer\n10. Which parts of your work do you think are most suitable for automation?\nLong text answer\n11. Which AI tools have you heard of or tested? (Select all that apply)\n\nChatGPT\nGitHub Copilot\nMicrosoft 365 Copilot\nGoogle Gemini\nNone\nOther (please specify)\n\n12. Which AI tools, if any, do you currently use in your work?\nLong text answer"
   },
   {
-    "objectID": "s3-advanced.html#a-simple-chat-completion",
-    "href": "s3-advanced.html#a-simple-chat-completion",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "5 A simple chat completion",
-    "text": "5 A simple chat completion\nThis mirrors what you do in a chat UI, but from code:\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a dilligent, concise transport planning assistant.\"},\n        {\"role\": \"user\", \"content\": \"Tell me a family-friendly transport planning joke.\"}\n    ]\n)\nprint(resp.choices[0].message.content)\n\nTry tweaking the prompt style (e.g., more witty, drier, aimed at students vs. professionals).",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3-advanced.html#getting-structured-json-outputs",
-    "href": "s3-advanced.html#getting-structured-json-outputs",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "6 Getting structured (JSON) outputs",
-    "text": "6 Getting structured (JSON) outputs\nWhen you need to use the response downstream, ask the model to return JSON and validate it.\n\nschema_hint = {\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\"type\": \"string\"},\n        \"insight\": {\"type\": \"string\"},\n        \"confidence\": {\"type\": \"number\"}\n    },\n    \"required\": [\"title\", \"insight\", \"confidence\"]\n}\n\nprompt = (\n    \"Summarise one noteworthy transport planning insight from London’s congestion pricing \"\n    \"policy in 1-2 sentences. Return only valid JSON with keys: title, insight, confidence (0-1).\"\n)\n\nresp = CLIENT.chat.completions.create(\n    model=\"gpt-5-mini\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"Return only JSON, no extra text.\"},\n        {\"role\": \"user\", \"content\": prompt}\n    ]\n)\n\nraw = resp.choices[0].message.content\ntry:\n    data = json.loads(raw)\n    assert set([\"title\", \"insight\", \"confidence\"]) &lt;= set(data.keys())\nexcept Exception as e:\n    raise ValueError(f\"Model did not return valid JSON. Raw output: {raw}\") from e\n\ndata",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3-advanced.html#analysing-a-pdf-from-a-url-robust-approach",
-    "href": "s3-advanced.html#analysing-a-pdf-from-a-url-robust-approach",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "7 Analysing a PDF from a URL (robust approach)",
-    "text": "7 Analysing a PDF from a URL (robust approach)\nRather than relying on vendor-specific file-upload APIs, we’ll fetch the PDF, extract text locally, then send concise excerpts to the model. This is portable and keeps you in control of pre-processing.\n\n!pip install pypdf\nimport io\nimport math\nimport requests\nfrom pypdf import PdfReader\n\ndef fetch_pdf_text(url: str, max_pages: int = 5) -&gt; str:\n    \"\"\"Download a PDF and extract text from the first `max_pages` pages.\"\"\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    with io.BytesIO(r.content) as f:\n        reader = PdfReader(f)\n        pages = min(max_pages, len(reader.pages))\n        text = []\n        for i in range(pages):\n            text.append(reader.pages[i].extract_text() or \"\")\n    return \"\\n\\n\".join(text).strip()\n\ndef chunk_text(text: str, chunk_chars: int = 6000) -&gt; List[str]:\n    \"\"\"Split text into roughly token-sized chunks for prompting.\"\"\"\n    chunks = []\n    for i in range(0, len(text), chunk_chars):\n        chunks.append(text[i:i+chunk_chars])\n    return chunks\n\ndef summarise_pdf(url: str, task: str = \"Summarise and comment on this document for a transport audience.\") -&gt; str:\n    text = fetch_pdf_text(url)\n    if not text:\n        return \"No text extracted from the PDF.\"\n    chunks = chunk_text(text)\n    summaries = []\n    for idx, ch in enumerate(chunks, start=1):\n        r = CLIENT.chat.completions.create(\n            model=\"gpt-5-mini\",\n            messages=[\n                {\"role\": \"system\", \"content\": \"You are a precise analyst. Keep outputs concise.\"},\n                {\"role\": \"user\", \"content\": f\"{task}\\n\\nChunk {idx}/{len(chunks)}:\\n{ch}\"}\n            ]\n        )\n        summaries.append(r.choices[0].message.content)\n    # Compress partial summaries into a final synthesis\n    final = CLIENT.chat.completions.create(\n        model=\"gpt-5-mini\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"Create a single, coherent summary with key takeaways.\"},\n            {\"role\": \"user\", \"content\": \"\\n\\n\".join(summaries)}\n        ]\n    )\n    return final.choices[0].message.content\n\n# Example (uses a classic sample PDF)\nsample_url = \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\"\nsummarise_pdf(sample_url)\n\n\n7.1 Try it\n\nChange max_pages in fetch_pdf_text to control cost/speed.\nSwap task to focus on risks, methods, or key findings.\nUse your own PDF URLs (public reports, guidance docs, etc.).",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3-advanced.html#batch-a-task-across-multiple-documents",
-    "href": "s3-advanced.html#batch-a-task-across-multiple-documents",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "8 Batch a task across multiple documents",
-    "text": "8 Batch a task across multiple documents\nYou’ll often need a small, consistent record per file (e.g., title, 2–3 bullet insights, and a confidence score). Here’s a simple batcher that writes JSON Lines (one JSON object per line):\n\nfrom datetime import datetime\n\ndef extract_insights(text: str) -&gt; Dict:\n    prompt = (\n        \"From the provided text, output JSON with: title, bullets (array of 2-3 concise points),\"\n        \" confidence (0-1). Return only JSON.\"\n    )\n    r = CLIENT.chat.completions.create(\n        model=MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Return valid JSON only.\"},\n            {\"role\": \"user\", \"content\": f\"{prompt}\\n\\n{text[:6000]}\"}\n        ]\n    )\n    raw = r.choices[0].message.content\n    try:\n        return json.loads(raw)\n    except Exception:\n        return {\"title\": \"(parse_error)\", \"bullets\": [raw], \"confidence\": 0.0}\n\ndef batch_process(urls: List[str], out_path: str = \"insights.jsonl\") -&gt; str:\n    with open(out_path, \"w\", encoding=\"utf-8\") as f:\n        for url in urls:\n            try:\n                text = fetch_pdf_text(url, max_pages=5)\n                data = extract_insights(text)\n                data.update({\"source\": url, \"ts\": datetime.utcnow().isoformat()})\n                f.write(json.dumps(data, ensure_ascii=False) + \"\\n\")\n            except Exception as e:\n                f.write(json.dumps({\n                    \"source\": url, \"error\": str(e), \"ts\": datetime.utcnow().isoformat()\n                }) + \"\\n\")\n    return out_path\n\nurls = [\n    \"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\",\n    # add more public PDF URLs here\n]\n\nbatch_process(urls)",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3-advanced.html#good-practice-and-guardrails",
-    "href": "s3-advanced.html#good-practice-and-guardrails",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "9 Good practice and guardrails",
-    "text": "9 Good practice and guardrails\n\nReproducibility: fix the model name per project and log prompts.\nPrivacy: don’t send sensitive data to third-party APIs without approval.\nCost control: cap pages, chunk sizes, and batch sizes; cache intermediate results.\nError handling: catch network errors/timeouts; write partial results with error notes.\nVersion control: commit your scripts/notebooks; review diffs of prompt changes (links to Session 2).",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3-advanced.html#where-this-fits-in-the-course",
-    "href": "s3-advanced.html#where-this-fits-in-the-course",
-    "title": "Bonus: Advanced Automating Document Analysis with LLM APIs",
-    "section": "10 Where this fits in the course",
-    "text": "10 Where this fits in the course\n\nFrom Session 1: we’re applying AI within a clear workflow with ethical awareness.\nFrom Session 2: we’re turning assisted coding into reproducible automation.\nInto Session 4: we’ll apply the same ideas to transport data analysis and reporting.",
-    "crumbs": [
-      "Sessions",
-      "Bonus: Advanced Automation"
-    ]
-  },
-  {
-    "objectID": "s3.html",
-    "href": "s3.html",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "",
-    "text": "In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#introduction",
-    "href": "s3.html#introduction",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "",
-    "text": "In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#finding-and-cleaning-data-with-ai",
-    "href": "s3.html#finding-and-cleaning-data-with-ai",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "2 Finding and Cleaning Data with AI",
-    "text": "2 Finding and Cleaning Data with AI\n\nGenerally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists. That means they are not generally good at very specific domains, such as the locations of transport datasets.\n\nYou can check which model you are using by asking the AI directly.\n\n\nExample conversation\n\nUser: What model are you?\nCopilot: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.\n\n\nTo provide an example, imagine you need a dataset of the motorway network in the South East of England. You could try this prompt in an AI chat tool, as shown in the details below.\nHowever, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.\n\n2.1 Example: Downloading motorway data\nNote: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.\n\nWrite a prompt that results in code to download motorway data in the South East of England.\nUpdate the prompt to make it more specific, e.g. telling it to use a specific language or package.\nTry running the code.\n\n\n\nExample prompt and output\n\nPrompt:\n\n“Write R code to download motorway network data for the South East of England from OpenStreetMap using the osmdata package.”\n\nAI Output:\n\nlibrary(osmdata)\nlibrary(sf)\n# Define the bounding box for South East England\nbbox &lt;- getbb(\"South East England, UK\")\n# Create an Overpass query for motorways\nmotorway_query &lt;- opq(bbox) %&gt;%\n  add_osm_feature(key = \"highway\", value = \"motorway\")\n# Download the data\nmotorway_data &lt;- osmdata_sf(motorway_query)\n# Extract the motorway lines\nmotorways &lt;- motorway_data$osm_lines\n# Plot the result\nplot(st_geometry(motorways), col = 'blue', main = \"Motorway Network in South East England\")\n# Save to a shapefile\nst_write(motorways, \"south_east_motorways.shp\")\n\nNotes:\n\nIt worked in one shot!\n\nA year ago this would not have worked first time, but the models are improving rapidly.\n\nHowever, it was not perfect:\n\n\nIt saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).\nIt used the outdated %&gt;% pipe operator from magrittr rather than the native R pipe |&gt;.\n\n\nRefining the prompt can easily fix these issues.\n\n\n\n\n2.2 Example: Downloading road traffic collision data in TfSE\nSee the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.\n\n\n2.3 Bonus activity\nUse AI to help you find and import data on a topic of your choice relevant to transport planning.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#exploratory-data-analysis-eda-with-ai",
-    "href": "s3.html#exploratory-data-analysis-eda-with-ai",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "3 Exploratory Data Analysis (EDA) with AI",
-    "text": "3 Exploratory Data Analysis (EDA) with AI\nTake a read of the AI-assisted EDA session in survey-prompts.md for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the survey page.\n\n3.1 Exercises\nOption 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.\nOption 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.\nOption 2: use AI to help you explore the motorway data you downloaded earlier in this session.\nOption 3: use AI to help you explore a transport dataset of your choice.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#ai-assisted-data-visualization",
-    "href": "s3.html#ai-assisted-data-visualization",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "4 AI-Assisted Data Visualization",
-    "text": "4 AI-Assisted Data Visualization\nData visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn. AI can help by generating code snippets for visualizations based on natural language prompts.\n\n4.1 Exercises\nContinue with EDA tasks from the previous exercise, but add visualisations.\nYou can use packages of your choice, but we recommend you try the following:\n\nFor people using R: ggplot2 (part of the tidyverse), plotly (for interactive plots), or mapview (for spatial data).\nFor people using Python: matplotlib, seaborn, or plotly.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#interpreting-results-with-llms",
-    "href": "s3.html#interpreting-results-with-llms",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "5 Interpreting Results with LLMs",
-    "text": "5 Interpreting Results with LLMs\nCopy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.\nDo you agree with the AI’s interpretation?\nAdvanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:\nquarto render your_file.qmd --to markdown\nThen as the AI to read the output (in this case called your_file.md) and help you interpret the results.",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
-    "href": "s3.html#bonus-analysing-road-traffic-collision-data-in-tfse",
-    "title": "Session 3: AI for Transport Data Analysis",
-    "section": "6 Bonus: Analysing road traffic collision data in TfSE",
-    "text": "6 Bonus: Analysing road traffic collision data in TfSE\nIn this section, we demonstrate how to programmatically access and filter large national datasets using R.\n\nlibrary(stats19)\nlibrary(sf)\nlibrary(dplyr)\n\n# 1. Load the study area boundary\n# We use the pre-prepared TfSE boundary file\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\n\nWe can download road safety data directly from the Department for Transport using the stats19 package.\nExample: Getting 5 years of data (Code only)\n\n# This code downloads collision data for 2020-2024\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\nExample: Joining Casualties (Code only)\n\n# This code gets casualty data and joins it to the collisions\ncasualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"casualty\"))\n\ncasualties_joined = dplyr::left_join(\n  casualties_5y,\n  collisions_5y,\n  by = \"collision_index\" # Common ID field\n)\n\nLive Demo: Getting 2020 Collisions for TfSE\nFor this exercise, we will download just the 2020 collision data and filter it to our study area.\n\n# 1. Get 2020 collision data\ncollisions_2020 = get_stats19(year = 2020, type = \"collision\")\n\n# 2. Convert to an 'sf' object (spatial data)\ncollisions_sf = format_sf(collisions_2020, lonlat = TRUE)\n\n# 3. Filter to the TfSE boundary\n# Ensure Coordinate Reference Systems match\ncollisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n\n# Spatial subset: keep collisions within the boundary\ncollisions_tfse = collisions_sf[tfse_boundary, ]\n\nprint(paste(\"Original 2020 collisions:\", nrow(collisions_sf)))\nprint(paste(\"TfSE collisions:\", nrow(collisions_tfse)))\n\n# 4. Quick visual check\nplot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = \"red\", \n     main = \"Road Collisions in TfSE (2020)\")\nplot(st_geometry(tfse_boundary), add = TRUE, border = \"blue\")",
-    "crumbs": [
-      "Sessions",
-      "Session 3: Data Analysis"
-    ]
-  },
-  {
-    "objectID": "tfse.html",
-    "href": "tfse.html",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "",
-    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
-  },
-  {
-    "objectID": "tfse.html#current-working-practices",
-    "href": "tfse.html#current-working-practices",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.1 Current working practices",
-    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
-  },
-  {
-    "objectID": "tfse.html#ai-tools",
-    "href": "tfse.html#ai-tools",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.2 AI tools",
-    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
-  },
-  {
-    "objectID": "tfse.html#data-and-data-science",
-    "href": "tfse.html#data-and-data-science",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.3 Data and data science",
-    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
-  },
-  {
-    "objectID": "tfse.html#general",
-    "href": "tfse.html#general",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.4 General",
-    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
-  },
-  {
-    "objectID": "tfse.html#course-overview",
-    "href": "tfse.html#course-overview",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.5 Course Overview",
-    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
-  },
-  {
-    "objectID": "tfse.html#syllabus-6-hours-total",
-    "href": "tfse.html#syllabus-6-hours-total",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.6 Syllabus (6 hours total)",
-    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)\n\n\n\n\nI Do: Live Demonstration (11:30 - 12:00)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (12:00 - 12:30)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:30 - 13:00)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (13:00 - 14:00)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (60 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
-  },
-  {
-    "objectID": "tfse.html#resourcing",
-    "href": "tfse.html#resourcing",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.8 Resourcing",
-    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
-  },
-  {
-    "objectID": "s1.html",
-    "href": "s1.html",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session lays the groundwork for the course.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#overview",
-    "href": "s1.html#overview",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session lays the groundwork for the course.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#slides-and-presentation-45-mins",
-    "href": "s1.html#slides-and-presentation-45-mins",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "2 Slides and Presentation (45 mins)",
-    "text": "2 Slides and Presentation (45 mins)\nThe first half of the session will be delivered as a presentation. See the slides for details. The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.\nIt will also provide a chance for debate: questions are encouraged!\nA summary of core concepts covered in the presentation can be found below (click to expand):\n\n\nClick to expand core concepts from the presentation\n\n\n2.1 Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n2.2 Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g. ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nTools that integrate with your existing workflows (e.g., GitHub Copilot): Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.\n\nM365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.\n\n\n2.3 The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n2.4 Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#quick-start-try-it-now-5-minutes",
-    "href": "s1.html#quick-start-try-it-now-5-minutes",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "3 Quick Start: Try it Now (5 minutes)",
-    "text": "3 Quick Start: Try it Now (5 minutes)\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
-    "href": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "4 Identifying tasks where AI can help (40 mins)",
-    "text": "4 Identifying tasks where AI can help (40 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins)\n\nDraw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).\nYou can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches.\nMark the steps where AI could act as an “assistant” to speed up the process.\n\n2. Small Group Strategy (15 mins)\n\nIn groups of 3-4, share your flowcharts.\nDiscuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n\n3. Feedback & Discussion (15 mins)\n\nWe will share the most promising use-cases with the room.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
-    "section": "",
-    "text": "Robin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\nThis course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#who-is-this-course-for",
-    "href": "index.html#who-is-this-course-for",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
-    "section": "",
-    "text": "This course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "s4.html",
-    "href": "s4.html",
-    "title": "Session 4: AI and Data Science for Transport Data Analysis",
-    "section": "",
-    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Deep Dive"
-    ]
-  },
-  {
-    "objectID": "s4.html#introduction",
-    "href": "s4.html#introduction",
-    "title": "Session 4: AI and Data Science for Transport Data Analysis",
-    "section": "",
-    "text": "In this session, we’ll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Deep Dive"
-    ]
-  },
-  {
-    "objectID": "s4.html#lecture-ai-in-data-analysis",
-    "href": "s4.html#lecture-ai-in-data-analysis",
-    "title": "Session 4: AI and Data Science for Transport Data Analysis",
-    "section": "2 Lecture: AI in Data Analysis",
-    "text": "2 Lecture: AI in Data Analysis\n\nAccelerating the Workflow: How AI helps with data cleaning, preprocessing, and exploratory data analysis (EDA).\nPattern Identification: Using AI to uncover patterns and generate hypotheses from complex transport datasets.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Deep Dive"
-    ]
-  },
-  {
-    "objectID": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
-    "href": "s4.html#practical-analyzing-spatio-temporal-od-data-with-ai",
-    "title": "Session 4: AI and Data Science for Transport Data Analysis",
-    "section": "3 Practical: Analyzing Spatio-Temporal OD Data with AI",
-    "text": "3 Practical: Analyzing Spatio-Temporal OD Data with AI\nWe will work through a guided case study using open access Call Detail Records (CDR) data from Spain.\n\n3.1 1. Data Acquisition and Preparation with AI Assistance\n\nWe will use the spanishoddata package to download OD data.\nUse an AI assistant to help write the R code to filter the data for a specific city (e.g., Seville).\nPrepare the location and flow data for visualization.\n\n\n\n3.2 2. AI-Powered Visualization\n\nUse the flowmapblue package to create an interactive flow map.\nAsk an AI assistant to help customize the map, for example, by adding animation or clustering.\n\n\n\n3.3 3. Interpretation and Reporting\n\nUse an LLM to help interpret the patterns shown in the flow map.\nGenerate a summary of the findings for a report.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Deep Dive"
-    ]
-  },
-  {
-    "objectID": "s4.html#course-wrap-up",
-    "href": "s4.html#course-wrap-up",
-    "title": "Session 4: AI and Data Science for Transport Data Analysis",
-    "section": "4 Course Wrap-up",
-    "text": "4 Course Wrap-up\n\nRecap of the key concepts and skills covered in the course.\nQ&A session.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Deep Dive"
-    ]
-  },
-  {
-    "objectID": "s2.html",
-    "href": "s2.html",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "",
-    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#introduction",
-    "href": "s2.html#introduction",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "",
-    "text": "This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.\n\n\nThe Myth: AI writes code for you while you sleep.\nThe Reality: AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it. This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).\n\n\n\nCIC stands for Context, Instruction, Constraints. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.\n\n\n\nBad Example: “Make me a graph of this data.”\n\n\nGood Example: “I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named delay and route. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints).”\n\nThe good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.\n\n\n\n\nDespite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.\n\nHallucinations: The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.\nVerification: Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.\nSecurity: Never paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.\n\n\n\n\nThere are four primary ways to interact with an AI coding assistant:\n\nCopy / Paste: Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.\nAuto-Complete: The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with TAB or ignore them.\nCode Inspection: Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.\nVibe Coding: Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#ai-powered-ides",
-    "href": "s2.html#ai-powered-ides",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "2 AI-Powered IDEs",
-    "text": "2 AI-Powered IDEs\n\nIntroduction to AI Coding Assistants: We’ll look at tools like GitHub Copilot using Python.\nLive Demonstration:",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "s2.html#independent-challenge-create-a-new-figure-using-the-ai-tools",
-    "href": "s2.html#independent-challenge-create-a-new-figure-using-the-ai-tools",
-    "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "3 Independent Challenge: Create a new figure using the AI tools",
-    "text": "3 Independent Challenge: Create a new figure using the AI tools\n\nTask: Use Copilot to modify the data/od_viewer.py Python file to make a new plot of something that interests you.",
-    "crumbs": [
-      "Sessions",
-      "Session 2: AI-Powered Development"
-    ]
-  },
-  {
-    "objectID": "slides/intro.html#welcome",
-    "href": "slides/intro.html#welcome",
-    "title": "Introduction & Survey Results",
-    "section": "Welcome",
-    "text": "Welcome\nAI and Data Science for Transport\nA practical, hands-on course for transport professionals."
-  },
-  {
-    "objectID": "slides/intro.html#course-aims",
-    "href": "slides/intro.html#course-aims",
-    "title": "Introduction & Survey Results",
-    "section": "Course Aims",
-    "text": "Course Aims\n\nAutomate repetitive and boring tasks.\nAccelerate your existing workflows.\nEnhance your capabilities with new tools.\n\nUltimate Goal: More effective transport planning investments and decisions."
-  },
-  {
-    "objectID": "slides/intro.html#agenda",
-    "href": "slides/intro.html#agenda",
-    "title": "Introduction & Survey Results",
-    "section": "Agenda",
-    "text": "Agenda\n\n\n\nTime\nSession\n\n\n\n\n10:00-11:30\nSession 1: Foundations of AI in Transport\n\n\n11:30-13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n13:00-14:00\nLunch\n\n\n14:00-15:30\nSession 3: Using LLMs for Reporting\n\n\n15:30-17:00\nSession 4: AI for Data Analysis"
-  },
-  {
-    "objectID": "slides/intro.html#prerequisites",
-    "href": "slides/intro.html#prerequisites",
-    "title": "Introduction & Survey Results",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nWe hope you have:\n\nA GitHub account.\nA willingness to experiment.\nA modern web browser.\n\nNo prior coding experience is strictly required!"
-  },
-  {
-    "objectID": "slides/intro.html#survey-insights",
-    "href": "slides/intro.html#survey-insights",
-    "title": "Introduction & Survey Results",
-    "section": "Survey Insights",
-    "text": "Survey Insights\nWe asked you about your current work and tools. Here is what you said."
-  },
-  {
-    "objectID": "slides/intro.html#current-ai-tool-usage",
-    "href": "slides/intro.html#current-ai-tool-usage",
-    "title": "Introduction & Survey Results",
-    "section": "Current AI Tool Usage",
-    "text": "Current AI Tool Usage\nCopilot and ChatGPT are the most popular tools among attendees."
-  },
-  {
-    "objectID": "slides/intro.html#automation-opportunities",
-    "href": "slides/intro.html#automation-opportunities",
-    "title": "Introduction & Survey Results",
-    "section": "Automation Opportunities",
-    "text": "Automation Opportunities\nData analysis and reporting are the key areas where you want AI help."
-  },
-  {
-    "objectID": "slides/intro.html#why-this-matters",
-    "href": "slides/intro.html#why-this-matters",
-    "title": "Introduction & Survey Results",
-    "section": "Why this matters",
-    "text": "Why this matters\nThe course is designed to address exactly these needs:\n\nSession 2 & 4: Focus on the Data Analysis automation you requested.\nSession 3: Focuses on the Reporting workflows.\nThroughout: We use Copilot and LLMs because that is what you are already exploring."
-  },
-  {
-    "objectID": "slides/intro.html#lets-start",
-    "href": "slides/intro.html#lets-start",
-    "title": "Introduction & Survey Results",
-    "section": "Let’s Start!",
-    "text": "Let’s Start!\nSession 1: Foundations of AI in Transport\nLink to Session 1 materials"
-  },
-  {
-    "objectID": "survey-prompts.html",
-    "href": "survey-prompts.html",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "This document records the interaction steps used to create the survey analysis page.\n\n\nUser Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv.\n\n\n\n\nUser Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts).\n\n\n\n\n\nUser Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website.\n\n\n\n\nUser Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate.\n\n\n\n\nUser Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs.\n\n\n\n\nUser Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
-  },
-  {
-    "objectID": "survey-prompts.html#initial-setup-and-data-conversion",
-    "href": "survey-prompts.html#initial-setup-and-data-conversion",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nCreate a new file called survey.qmd that starts by importing @Pre-Course Questionnaire(1-13).xlsx if that file exists and exporting it to results.csv\n\nGemini Action:\n\nInstalled openpyxl.\nCreated survey.qmd with Python code to read the Excel file and save as CSV.\nRendered the file to generate results.csv."
-  },
-  {
-    "objectID": "survey-prompts.html#data-analysis",
-    "href": "survey-prompts.html#data-analysis",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nNow carefully read the contents of results.csv and add multiple Python chunks to @survey.qmd to analyse it and extract the key insights, including the fact that copilot is the most commonly used AI tool that people currently use and that “data” related tasks data analysis is frequently mentioned as things conducive to automation.\n\nGemini Action:\n\nRead results.csv to understand columns.\nAdded Python chunks to survey.qmd to:\n\nAnalyze AI tool usage (cleaning and counting).\nAnalyze automation opportunities (keyword matching).\nGenerate visualizations (bar charts)."
-  },
-  {
-    "objectID": "survey-prompts.html#website-integration",
-    "href": "survey-prompts.html#website-integration",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nUpdate @_quarto.yml to ensure the page builds and is visible on the website\n\nGemini Action:\n\nAdded survey.qmd to the _quarto.yml sidebar under “Sessions”.\nRe-rendered the website."
-  },
-  {
-    "objectID": "survey-prompts.html#formatting-and-improvements",
-    "href": "survey-prompts.html#formatting-and-improvements",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nRender to survey.html then read survey.html and find ways to improve the outputs. Add the following to the yaml header of @survey.qmd and then re-read the output and continue to making improvements to the outputs, including using #| include: false and the creation of properly rendered html tables that can be cross-referenced using #label: tbl-xxx. format: html: code-fold: true code-tools: true\n\nGemini Action:\n\nUpdated YAML header for HTML formatting.\nHid the data loading chunk using #| include: false.\nConverted raw text outputs to Markdown tables using the tabulate library and Markdown() display.\nAdded cross-reference labels (#| label: tbl-..., #| label: fig-...) and captions.\nInstalled tabulate."
-  },
-  {
-    "objectID": "survey-prompts.html#freezing-results-for-deployment",
-    "href": "survey-prompts.html#freezing-results-for-deployment",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nFreeze the results so that the code in @survey.qmd will not run when I push it, I think you use freeze: true for this but am not sure, search quarto docs if needs be. Add the survey results files to @.gitignore so they are not pushed.\n\nGemini Action:\n\nAdded freeze: true to survey.qmd.\nUpdated .gitignore to exclude raw data (.xlsx, .csv) but explicitly allow _freeze/ (by removing it from the ignore list).\nRe-rendered to populate the _freeze folder with static outputs."
-  },
-  {
-    "objectID": "survey-prompts.html#git-operations",
-    "href": "survey-prompts.html#git-operations",
-    "title": "1 Survey Analysis Workflow Prompts",
-    "section": "",
-    "text": "User Prompt:\n\nCommit and push the updates\n\nGemini Action:\n\nStaged changes (including new survey.qmd and _freeze directory).\nCommitted with message “Add survey results page with frozen output”.\nPushed to branch intro-friendly-updates."
-  },
-  {
-    "objectID": "codespaces.html",
-    "href": "codespaces.html",
-    "title": "AI and Data Science for Transport",
-    "section": "",
-    "text": "This short guide expands on the description of how to use VSCode inside GitHub Codespaces for Quarto development in the prerequisites section section.\nAs described there, click on the following button:\n\n\n\nOpen in GitHub Codespaces\n\n\nThen open the file you would like to edit, either by clicking on the Files button on the left hand panel and clicking on the file, or (recommended) use the Keyboard shortcut Ctrl+P and then typing the name of the file you would like to edit and then Enter when it shows up.\nTo edit the file s2.qmd, for example, type Ctrl+P then s2, you should see something like this:\n\nTo push changes back to GitHub you can do the following:\n\nOpen a terminal, e.g. by pressing Ctrl+J and then selecting the Terminal option, as shown in the screenshot below\nEnter the following commands:\n\ngit commit -am 'change whatever'\ngit push\n\nTo add an image…\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds"
+    "objectID": "questionnaire.html#course-expectations",
+    "href": "questionnaire.html#course-expectations",
+    "title": "Pre-Course Questionnaire",
+    "section": "Course Expectations",
+    "text": "Course Expectations\n13. What specific skills or knowledge do you hope to gain from this course?\nLong text answer\n14. On a scale of 1 to 5, how would you rate your confidence in using programming (e.g., Python or R) for data analysis?\n\n\nNot confident at all\n\n\n\n\n\n\n\n\n\n\n\nVery confident"
   },
   {
     "objectID": "survey.html",
