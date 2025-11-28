@@ -20,7 +20,7 @@ AI and Data Science for Transport
 -   **11:30-13:00** Session 2: (AI-Powered) Coding and Development
 -   **13:00-14:00** Lunch
 -   **14:00-15:30** Session 3: Using LLMs for Reporting and Analysis
--   **15:30-17:00** Session 4: AI and Data Science for Transport Data Analysis
+-   **15:30-17:00** Session 4: Applied AI Workshop: Bring Your Own Data
 
 ## Prerequisites
 
@@ -127,14 +127,14 @@ See: [Session 2 materials](../s2.qmd)
 
 See: [Session 3 materials](../s3.qmd)
 
-## Session 4: AI and Data Science for Transport Data Analysis
+## Session 4: Applied AI Workshop: Bring Your Own Data
 
 ### Key topics:
 
--   AI-accelerated data processing
--   Pattern recognition in transport datasets
--   Visualisation with AI assistance
--   Complete workflow examples
+-   Hands-on application of AI tools
+-   Working with your own datasets and problems
+-   Instructor support and peer collaboration
+-   Show and tell
 
 See: [Session 4 materials](../s4.qmd)
 

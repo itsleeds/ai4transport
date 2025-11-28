@@ -1,37 +1,46 @@
 ---
-title: "Session 4: AI and Data Science for Transport Data Analysis"
+title: "Session 4: Applied AI Workshop: Bring Your Own Data"
 ---
 
 ## Introduction
 
-In this session, we'll explore how AI can accelerate the analysis of transport data. We will focus on a case study using spatio-temporal origin-destination (OD) data.
+In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.
 
-## Lecture: AI in Data Analysis
+## Objectives
 
--   **Accelerating the Workflow:** How AI helps with data cleaning, preprocessing, and exploratory data analysis (EDA).
--   **Pattern Identification:** Using AI to uncover patterns and generate hypotheses from complex transport datasets.
+-   **Apply AI Skills:** Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.
+-   **Problem Solving:** Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.
+-   **Peer Learning:** Share approaches and insights with colleagues, fostering a collaborative learning environment.
 
-## Practical: Analyzing Spatio-Temporal OD Data with AI
+## Workshop Structure
 
-We will work through a guided case study using open access Call Detail Records (CDR) data from Spain.
+### 1. Problem Definition (15 mins)
 
-### 1. Data Acquisition and Preparation with AI Assistance
+-   Briefly define the problem you want to solve or the question you want to answer.
+-   Identify the data you have available or need to acquire.
+-   Determine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.
 
--   We will use the `spanishoddata` package to download OD data.
--   Use an AI assistant to help write the R code to filter the data for a specific city (e.g., Seville).
--   Prepare the location and flow data for visualization.
+### 2. Hands-on Development (60 mins)
 
-### 2. AI-Powered Visualization
+-   **Work on your project:** Spend this time coding, analyzing data, or writing reports with the assistance of AI.
+-   **Instructor Support:** The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.
+-   **Collaboration:** Feel free to work in pairs or small groups if you have similar interests or datasets.
 
--   Use the `flowmapblue` package to create an interactive flow map.
--   Ask an AI assistant to help customize the map, for example, by adding animation or clustering.
+### 3. Show and Tell (15 mins)
 
-### 3. Interpretation and Reporting
+-   Volunteers will have the opportunity to briefly share what they have achieved or discovered.
+-   Discuss challenges faced and how AI helped (or didn't help) overcome them.
 
--   Use an LLM to help interpret the patterns shown in the flow map.
--   Generate a summary of the findings for a report.
+## Suggested Activities
+
+If you didn't bring your own data, here are some challenges you can try using the open datasets we've looked at today:
+
+-   **Advanced Visualization:** Create a dashboard summarizing the Spanish OD data we used earlier.
+-   **Policy Analysis:** Use an LLM to compare two different transport policy documents and identify conflicting recommendations.
+-   **Automated Reporting:** Write a script that automatically generates a summary report from a CSV file of traffic counts.
 
 ## Course Wrap-up
 
--   Recap of the key concepts and skills covered in the course.
--   Q&A session.
+-   Final Q&A.
+-   Resources for further learning.
+-   Feedback and next steps.
