@@ -99,7 +99,7 @@ M365 Copilot is primarily designed for productivity tasks (emails, documents, da
 
 ## Chris's slides
 
-See powerpoint slides: [github.com/itsleeds/ai4transport/releases](https://github.com/itsleeds/ai4transport/releases/download/v1/TFSE.Generative.AI.Basics.pptx)
+See powerpoint slides: [github.com/itsleeds/ai4transport/releases](https://github.com/itsleeds/ai4transport/releases/download/v1/aibasics.pptx)
 
 ![](images/paste-22.png)
 
