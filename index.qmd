@@ -1,5 +1,37 @@
 ---
 number-sections: false
+title: "AI and Data Science for Transport"
+subtitle: "Empowering transport professionals with modern data science and AI tools"
 ---
 
+## Welcome
+
+Welcome to the course materials for **AI and Data Science for Transport**.
+This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.
+
+Our goal is to help you:
+
+-   **Automate** repetitive tasks.
+-   **Analyze** complex datasets efficiently.
+-   **Visualize** transport patterns with clarity.
+
+### See What's Possible
+
+In this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:
+
+![Commuting flows in the South East of England](images/tfse_od_map.png)
+
+### Get Started
+
+-   Check the [Prerequisites](prerequisites.qmd) to set up your environment.
+-   View the [Schedule](schedule.qmd) to see what we will cover.
+-   Jump to [Session 1](s1.qmd) to begin.
+
+---
+
+<details>
+<summary><strong>Repository README and Developer Setup</strong></summary>
+
 {{< include README.md >}}
+
+</details>
