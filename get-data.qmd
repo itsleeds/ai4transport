@@ -16,6 +16,9 @@ Load necessary packages.
 ```{r}
 library(sf)
 library(dplyr)
+library(readr)
+library(tidyr)
+library(stringr)
 library(stats19)
 library(osmdata)
 ```
@@ -92,20 +95,68 @@ if(file.exists("tfse_boundary.geojson")) {
 
 ## 4. Census OD Data (2011 and 2021)
 
-Download Origin-Destination data for commuting.
+Download and process Origin-Destination data for commuting.
+Note: This requires `ODWP02EW_MSOA_v1.zip` to be present in the working directory.
+You can download it from WICID (see https://github.com/itsleeds/2021-census-od-data/blob/main/README.md).
 
 ```{r}
-# 2011 Data (using pct package or direct download if available)
-# For this example, we'll placeholder the logic as the specific API for 2011/2021 bulk download can be complex.
-# Ideally, we would use the `nomis` API or direct CSV downloads.
+# 2021 Data processing
+od_zip_path = "ODWP02EW_MSOA_v1.zip"
 
-# 2021 Data
-# Reference: https://github.com/itsleeds/2021-census-od-data
-# We can download the pre-processed CSVs if available, or fetch from NOMIS.
-# Here is a placeholder for fetching a specific table, e.g., ODWP01EW (Workplace by residence)
-
-# Example: Download a specific CSV if URL is known (fictitious URL for demo)
-# download.file("https://www.nomisweb.co.uk/api/v01/dataset/NM_2021_1/bulk.csv", "od_2021.csv")
+if(file.exists(od_zip_path)) {
+  message("Processing OD data...")
+  od_2021 = read_csv(od_zip_path)
+  
+  # Clean column names and keep only needed columns
+  # Columns: 
+  # 1: Middle layer Super Output Areas code (Origin)
+  # 3: MSOA of workplace code (Destination)
+  # 6: Method used to travel to workplace (12 categories) label
+  # 7: Count
+  od_2021 = od_2021[, c(1, 3, 6, 7)]
+  names(od_2021) = c("o", "d", "method", "count")
+  
+  # Filter to TfSE region
+  # We need the MSOA codes from the TfSE boundary
+  if(file.exists("tfse_msoas.gpkg")) {
+    tfse_msoas = read_sf("tfse_msoas.gpkg")
+    valid_msoas = tfse_msoas$MSOA21CD
+    
+    # Filter: Keep trips where BOTH Origin and Destination are within TfSE
+    # This creates a self-contained dataset for the region
+    od_tfse = od_2021 |>
+      filter(o %in% valid_msoas & d %in% valid_msoas)
+    
+    # Clean method names (as per README)
+    od_tfse = od_tfse |>
+      filter(!str_detect(method, "Not in employment")) |>
+      mutate(
+        method = case_when(
+          method == "Bus, minibus or coach" ~ "Bus",
+          method == "Driving a car or van" ~ "Car",
+          method == "Motorcycle, scooter or moped" ~ "Motorcycle",
+          method == "On foot" ~ "Walking",
+          method == "Other method of travel to work" ~ "Other",
+          method == "Passenger in a car or van" ~ "Passenger",
+          method == "Underground, metro, light rail, tram" ~ "Metro",
+          method == "Work mainly at or from home" ~ "Home",
+          TRUE ~ method
+        )
+      )
+    
+    # Pivot to wide format
+    od_tfse_wide = od_tfse |>
+      pivot_wider(names_from = method, values_from = count, values_fill = 0)
+    
+    # Save
+    write_csv(od_tfse_wide, "od_tfse_2021.csv")
+    message("Saved od_tfse_2021.csv")
+  } else {
+    warning("tfse_msoas.gpkg not found. Skipping OD filtering.")
+  }
+} else {
+  warning("ODWP02EW_MSOA_v1.zip not found. Skipping OD data processing.")
+}
 ```
 
 ## 5. DfT Traffic Data
@@ -128,7 +179,8 @@ files_to_upload = c(
   "tfse_lads.gpkg",
   "tfse_msoas.gpkg",
   "south_east_motorways.gpkg",
-  "collisions_tfse_2020_2024.gpkg"
+  "collisions_tfse_2020_2024.gpkg",
+  "od_tfse_2021.csv"
   # Add OD and Traffic files here when implemented
 )
 
