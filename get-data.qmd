@@ -1,0 +1,140 @@
+---
+title: "Get Data for the Course"
+execute:
+  eval: false
+---
+
+## Overview
+
+This document contains R code to download, process, and upload datasets used in the AI and Data Science for Transport course.
+It is designed to be run by course maintainers to populate the GitHub Releases with necessary data files.
+
+## Setup
+
+Load necessary packages.
+
+```{r}
+library(sf)
+library(dplyr)
+library(stats19)
+library(osmdata)
+```
+
+## 1. TfSE Boundary and Geographies
+
+Get the Transport for the South East (TfSE) boundary and relevant administrative geographies.
+
+```{r}
+# TfSE Boundary (assuming local file availability or prior download)
+# This part mirrors the logic in s3.qmd
+tfse_path = "/home/robin/github/robinlovelace/counterbid/tfse_boundary/TfSE_Area_Boundary.shp"
+if(file.exists(tfse_path)){
+    tfse_boundary = read_sf(tfse_path)
+    
+    # Get LADs
+    u_lads = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_May_2024_Boundaries_UK_BUC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
+    lads = read_sf(u_lads)
+    
+    # Get MSOAs
+    u_msoas = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_Super_Output_Areas_DEC_2021_EW_PWC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
+    msoas = read_sf(u_msoas)
+    
+    # Filter
+    tfse_boundary = st_transform(tfse_boundary, st_crs(lads))
+    msoas = st_transform(msoas, st_crs(lads))
+    
+    tfse_lads = lads[tfse_boundary, ]
+    tfse_msoas = msoas[tfse_boundary, ]
+    
+    # Save
+    write_sf(tfse_boundary, "tfse_boundary.geojson", delete_dsn = TRUE)
+    write_sf(tfse_lads, "tfse_lads.gpkg", delete_dsn = TRUE)
+    write_sf(tfse_msoas, "tfse_msoas.gpkg", delete_dsn = TRUE)
+}
+```
+
+## 2. Motorway Network (South East England)
+
+Download motorway data from OpenStreetMap.
+
+```{r}
+# Define the bounding box for South East England
+bbox <- getbb("South East England, UK")
+# Create an Overpass query for motorways
+motorway_query <- opq(bbox) |>
+  add_osm_feature(key = "highway", value = "motorway")
+# Download the data
+motorway_data <- osmdata_sf(motorway_query)
+# Extract the motorway lines
+motorways <- motorway_data$osm_lines
+# Save
+write_sf(motorways, "south_east_motorways.gpkg", delete_dsn = TRUE)
+```
+
+## 3. STATS19 Collision Data (5 Years)
+
+Download 5 years of road safety data (2020-2024) and filter to TfSE.
+
+```{r}
+# Get 5 years of collision data
+years = 2020:2024
+collisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = "collision"))
+
+# Filter to TfSE if boundary exists
+if(file.exists("tfse_boundary.geojson")) {
+  tfse_boundary = read_sf("tfse_boundary.geojson")
+  collisions_sf = stats19::format_sf(collisions_5y, lonlat = TRUE)
+  collisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))
+  collisions_tfse = collisions_sf[tfse_boundary, ]
+  write_sf(collisions_tfse, "collisions_tfse_2020_2024.gpkg", delete_dsn = TRUE)
+}
+```
+
+## 4. Census OD Data (2011 and 2021)
+
+Download Origin-Destination data for commuting.
+
+```{r}
+# 2011 Data (using pct package or direct download if available)
+# For this example, we'll placeholder the logic as the specific API for 2011/2021 bulk download can be complex.
+# Ideally, we would use the `nomis` API or direct CSV downloads.
+
+# 2021 Data
+# Reference: https://github.com/itsleeds/2021-census-od-data
+# We can download the pre-processed CSVs if available, or fetch from NOMIS.
+# Here is a placeholder for fetching a specific table, e.g., ODWP01EW (Workplace by residence)
+
+# Example: Download a specific CSV if URL is known (fictitious URL for demo)
+# download.file("https://www.nomisweb.co.uk/api/v01/dataset/NM_2021_1/bulk.csv", "od_2021.csv")
+```
+
+## 5. DfT Traffic Data
+
+Download traffic count data.
+
+```{r}
+# Placeholder for DfT traffic data download
+# dft_traffic = read.csv("https://storage.googleapis.com/dft-statistics/road-traffic/downloads/dft_traffic_counts_aadf.csv")
+# Filter for TfSE region
+```
+
+## Upload to GitHub Release
+
+Upload all generated files to the `v1` release.
+
+```{r}
+files_to_upload = c(
+  "tfse_boundary.geojson",
+  "tfse_lads.gpkg",
+  "tfse_msoas.gpkg",
+  "south_east_motorways.gpkg",
+  "collisions_tfse_2020_2024.gpkg"
+  # Add OD and Traffic files here when implemented
+)
+
+for(f in files_to_upload) {
+  if(file.exists(f)) {
+    system(paste("gh release upload v1", f, "--clobber"))
+  }
+}
+```
