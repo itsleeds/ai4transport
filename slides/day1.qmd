@@ -138,6 +138,8 @@ See: [Session 3 materials](../s3.qmd)
 
 See: [Session 4 materials](../s4.qmd)
 
+![](../images/tfse_od_map.png)
+
 ## Feedback on Session 4
 
 Please provide feedback on this session: [forms.office.com/e/XZ2Hdt72HK](https://forms.office.com/e/XZ2Hdt72HK)
