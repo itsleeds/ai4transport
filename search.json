@@ -444,19 +444,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
+    "title": "Online Course: An Introduction to AI and Data Science for Transport",
     "section": "",
-    "text": "Robin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\nThis course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#who-is-this-course-for",
-    "href": "index.html#who-is-this-course-for",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
-    "section": "",
-    "text": "This course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
+    "text": "Online Course: An Introduction to AI and Data Science for Transport\nPlanning Robin Lovelace and Chris Rushton\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\nPython Environment Setup\nSome Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.\n\nCreate a virtual environment: bash     python3 -m venv .venv\nActivate the virtual environment (Linux/macOS): bash     source .venv/bin/activate (On Windows, use .venv\\Scripts\\activate)\nInstall dependencies: bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache\n\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 ITS Leeds",
     "crumbs": [
       "Home"
     ]
