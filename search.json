@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Workshop: Bring Your Own Data",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Session",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#course-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Workshop: Bring Your Own Data",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Session",
     "crumbs": [
       "Schedule"
     ]
@@ -464,7 +464,7 @@
   {
     "objectID": "s4.html",
     "href": "s4.html",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "",
     "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
     "crumbs": [
@@ -475,7 +475,7 @@
   {
     "objectID": "s4.html#introduction",
     "href": "s4.html#introduction",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "",
     "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
     "crumbs": [
@@ -486,7 +486,7 @@
   {
     "objectID": "s4.html#objectives",
     "href": "s4.html#objectives",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "2 Objectives",
     "text": "2 Objectives\n\nApply AI Skills: Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.\nProblem Solving: Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.\nPeer Learning: Share approaches and insights with colleagues, fostering a collaborative learning environment.",
     "crumbs": [
@@ -497,9 +497,9 @@
   {
     "objectID": "s4.html#workshop-structure",
     "href": "s4.html#workshop-structure",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "3 Workshop Structure",
-    "text": "3 Workshop Structure\n\n3.1 1. Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 2. Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 3. Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
+    "text": "3 Workshop Structure\n\n3.1 Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
     "crumbs": [
       "Sessions",
       "Session 4: Workshop"
@@ -508,7 +508,7 @@
   {
     "objectID": "s4.html#suggested-activities",
     "href": "s4.html#suggested-activities",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "4 Suggested Activities",
     "text": "4 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the Spanish OD data we used earlier.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
     "crumbs": [
@@ -519,7 +519,7 @@
   {
     "objectID": "s4.html#course-wrap-up",
     "href": "s4.html#course-wrap-up",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "title": "Session 4: Applied AI Session",
     "section": "5 Course Wrap-up",
     "text": "5 Course Wrap-up\n\nFinal Q&A.\nResources for further learning.\nFeedback and next steps.",
     "crumbs": [
@@ -726,7 +726,7 @@
     "href": "slides/day1.html#agenda",
     "title": "AI and Data Science for Transport",
     "section": "Agenda",
-    "text": "Agenda\n\n10:00-11:30 Session 1: Foundations of AI and Data Science for Transport in Transport\n11:30-13:00 Session 2: (AI-Powered) Coding and Development\n13:00-14:00 Lunch\n14:00-15:30 Session 3: Using LLMs for Reporting and Analysis\n15:30-17:00 Session 4: Applied AI Workshop: Bring Your Own Data",
+    "text": "Agenda\n\n10:00-11:30 Session 1: Foundations of AI and Data Science for Transport in Transport\n11:30-13:00 Session 2: (AI-Powered) Coding and Development\n13:00-14:00 Lunch\n14:00-15:30 Session 3: AI for Transport Data Analysis\n15:30-17:00 Session 4: Applied AI Session",
     "crumbs": [
       "Slides"
     ]
@@ -862,11 +862,11 @@
     ]
   },
   {
-    "objectID": "slides/day1.html#session-4-applied-ai-workshop-bring-your-own-data",
-    "href": "slides/day1.html#session-4-applied-ai-workshop-bring-your-own-data",
+    "objectID": "slides/day1.html#session-4-applied-ai-session",
+    "href": "slides/day1.html#session-4-applied-ai-session",
     "title": "AI and Data Science for Transport",
-    "section": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "text": "Session 4: Applied AI Workshop: Bring Your Own Data\nKey topics:\n\nHands-on application of AI tools\nWorking with your own datasets and problems\nInstructor support and peer collaboration\nShow and tell\n\nSee: Session 4 materials",
+    "section": "Session 4: Applied AI Session",
+    "text": "Session 4: Applied AI Session\nKey topics:\n\nHands-on application of AI tools\nWorking with your own datasets and problems\nInstructor support and peer collaboration\nShow and tell\n\nSee: Session 4 materials",
     "crumbs": [
       "Slides"
     ]
