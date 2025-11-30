@@ -254,203 +254,6 @@
     ]
   },
   {
-    "objectID": "s4.html",
-    "href": "s4.html",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "",
-    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "s4.html#introduction",
-    "href": "s4.html#introduction",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "",
-    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "s4.html#objectives",
-    "href": "s4.html#objectives",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "2 Objectives",
-    "text": "2 Objectives\n\nApply AI Skills: Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.\nProblem Solving: Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.\nPeer Learning: Share approaches and insights with colleagues, fostering a collaborative learning environment.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "s4.html#workshop-structure",
-    "href": "s4.html#workshop-structure",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "3 Workshop Structure",
-    "text": "3 Workshop Structure\n\n3.1 1. Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 2. Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 3. Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "s4.html#suggested-activities",
-    "href": "s4.html#suggested-activities",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "4 Suggested Activities",
-    "text": "4 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the Spanish OD data we used earlier.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "s4.html#course-wrap-up",
-    "href": "s4.html#course-wrap-up",
-    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
-    "section": "5 Course Wrap-up",
-    "text": "5 Course Wrap-up\n\nFinal Q&A.\nResources for further learning.\nFeedback and next steps.",
-    "crumbs": [
-      "Sessions",
-      "Session 4: Workshop"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
-    "section": "",
-    "text": "Robin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\nThis course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#who-is-this-course-for",
-    "href": "index.html#who-is-this-course-for",
-    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
-    "section": "",
-    "text": "This course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "s1.html",
-    "href": "s1.html",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session lays the groundwork for the course.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#overview",
-    "href": "s1.html#overview",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "",
-    "text": "This session lays the groundwork for the course.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#slides-and-presentation-45-mins",
-    "href": "s1.html#slides-and-presentation-45-mins",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "2 Slides and Presentation (45 mins)",
-    "text": "2 Slides and Presentation (45 mins)\nThe first half of the session will be delivered as a presentation. See the slides for details. The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.\nIt will also provide a chance for debate: questions are encouraged!\nA summary of core concepts covered in the presentation can be found below (click to expand):\n\n\nClick to expand core concepts from the presentation\n\n\n2.1 Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n2.2 Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g. ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nTools that integrate with your existing workflows (e.g., GitHub Copilot): Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.\n\nM365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.\n\n\n2.3 The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n2.4 Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#quick-start-try-it-now-5-minutes",
-    "href": "s1.html#quick-start-try-it-now-5-minutes",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "3 Quick Start: Try it Now (5 minutes)",
-    "text": "3 Quick Start: Try it Now (5 minutes)\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
-    "href": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
-    "title": "Session 1: Foundations of AI in Transport",
-    "section": "4 Identifying tasks where AI can help (40 mins)",
-    "text": "4 Identifying tasks where AI can help (40 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins)\n\nDraw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).\nYou can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches.\nMark the steps where AI could act as an “assistant” to speed up the process.\n\n2. Small Group Strategy (15 mins)\n\nIn groups of 3-4, share your flowcharts.\nDiscuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n\n3. Feedback & Discussion (15 mins)\n\nWe will share the most promising use-cases with the room.",
-    "crumbs": [
-      "Sessions",
-      "Session 1: Foundations"
-    ]
-  },
-  {
-    "objectID": "tfse.html",
-    "href": "tfse.html",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "",
-    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
-  },
-  {
-    "objectID": "tfse.html#current-working-practices",
-    "href": "tfse.html#current-working-practices",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.1 Current working practices",
-    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
-  },
-  {
-    "objectID": "tfse.html#ai-tools",
-    "href": "tfse.html#ai-tools",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.2 AI tools",
-    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
-  },
-  {
-    "objectID": "tfse.html#data-and-data-science",
-    "href": "tfse.html#data-and-data-science",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.3 Data and data science",
-    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
-  },
-  {
-    "objectID": "tfse.html#general",
-    "href": "tfse.html#general",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.4 General",
-    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
-  },
-  {
-    "objectID": "tfse.html#course-overview",
-    "href": "tfse.html#course-overview",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.5 Course Overview",
-    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
-  },
-  {
-    "objectID": "tfse.html#syllabus-6-hours-total",
-    "href": "tfse.html#syllabus-6-hours-total",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.6 Syllabus (6 hours total)",
-    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)\n\n\n\n\nI Do: Live Demonstration (11:30 - 12:00)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (12:00 - 12:30)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:30 - 13:00)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (13:00 - 14:00)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (60 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
-  },
-  {
-    "objectID": "tfse.html#resourcing",
-    "href": "tfse.html#resourcing",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.8 Resourcing",
-    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
-  },
-  {
     "objectID": "s3.html",
     "href": "s3.html",
     "title": "Session 3: AI for Transport Data Analysis",
@@ -526,6 +329,266 @@
       "Sessions",
       "Session 3: Data Analysis"
     ]
+  },
+  {
+    "objectID": "tfse.html",
+    "href": "tfse.html",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "",
+    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
+  },
+  {
+    "objectID": "tfse.html#current-working-practices",
+    "href": "tfse.html#current-working-practices",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.1 Current working practices",
+    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
+  },
+  {
+    "objectID": "tfse.html#ai-tools",
+    "href": "tfse.html#ai-tools",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.2 AI tools",
+    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
+  },
+  {
+    "objectID": "tfse.html#data-and-data-science",
+    "href": "tfse.html#data-and-data-science",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.3 Data and data science",
+    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
+  },
+  {
+    "objectID": "tfse.html#general",
+    "href": "tfse.html#general",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.4 General",
+    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
+  },
+  {
+    "objectID": "tfse.html#course-overview",
+    "href": "tfse.html#course-overview",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.5 Course Overview",
+    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
+  },
+  {
+    "objectID": "tfse.html#syllabus-6-hours-total",
+    "href": "tfse.html#syllabus-6-hours-total",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.6 Syllabus (6 hours total)",
+    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)\n\n\n\n\nI Do: Live Demonstration (11:30 - 12:00)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (12:00 - 12:30)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:30 - 13:00)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (13:00 - 14:00)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (60 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
+  },
+  {
+    "objectID": "tfse.html#resourcing",
+    "href": "tfse.html#resourcing",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.8 Resourcing",
+    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
+  },
+  {
+    "objectID": "s1.html",
+    "href": "s1.html",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session lays the groundwork for the course.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#overview",
+    "href": "s1.html#overview",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "",
+    "text": "This session lays the groundwork for the course.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#slides-and-presentation-45-mins",
+    "href": "s1.html#slides-and-presentation-45-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "2 Slides and Presentation (45 mins)",
+    "text": "2 Slides and Presentation (45 mins)\nThe first half of the session will be delivered as a presentation. See the slides for details. The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.\nIt will also provide a chance for debate: questions are encouraged!\nA summary of core concepts covered in the presentation can be found below (click to expand):\n\n\nClick to expand core concepts from the presentation\n\n\n2.1 Demystifying AI & LLMs\nWe focus on Large Language Models (LLMs). Think of an LLM not as a “truth machine,” but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.\n\n\n2.2 Types of AI Tools\nIt is important to distinguish between the tools we will use:\n\nWeb-based Chatbots (e.g. ChatGPT): Best for generating text, summarizing reports, and brainstorming ideas.\nTools that integrate with your existing workflows (e.g., GitHub Copilot): Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.\n\nM365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.\n\n\n2.3 The Data Science Framework\nAI is most effective when integrated into a reproducible data science workflow:\n\nReproducibility: Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).\nScalability: Automating tasks to run on 100 files as easily as one.\nTransparency: Code allows others to audit your methodology.\n\n\n\n2.4 Ethical Considerations\n\nBias: AI models reflect the biases in their training data.\n“Hallucinations”: Models can confidently state falsehoods.\nData Privacy: Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#quick-start-try-it-now-5-minutes",
+    "href": "s1.html#quick-start-try-it-now-5-minutes",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "3 Quick Start: Try it Now (5 minutes)",
+    "text": "3 Quick Start: Try it Now (5 minutes)\nBefore diving into the theory, let’s see AI in action using a standard Large Language Model (LLM).\n\nOpen a free AI chat tool like Microsoft 365 Copilot, ChatGPT, Claude, or Gemini.\nCopy and paste the following prompt:\n\n\n“I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words.”\n\n\nCritique the result. It won’t be perfect, but it acts as a powerful accelerator for your expertise.\n\n\n\nExample output from Microsoft 365 Copilot",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
+    "href": "s1.html#identifying-tasks-where-ai-can-help-40-mins",
+    "title": "Session 1: Foundations of AI in Transport",
+    "section": "4 Identifying tasks where AI can help (40 mins)",
+    "text": "4 Identifying tasks where AI can help (40 mins)\nWe will now apply these concepts to your daily work.\n1. Individual Task: Workflow Mapping (10 mins)\n\nDraw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).\nYou can use pen and paper, or we recommend Excalidraw for quickly creating digital sketches.\nMark the steps where AI could act as an “assistant” to speed up the process.\n\n2. Small Group Strategy (15 mins)\n\nIn groups of 3-4, share your flowcharts.\nDiscuss: Which task is the “low hanging fruit”? Which is too complex or risky for AI?\n\n3. Feedback & Discussion (15 mins)\n\nWe will share the most promising use-cases with the room.",
+    "crumbs": [
+      "Sessions",
+      "Session 1: Foundations"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
+    "section": "",
+    "text": "Robin Lovelace and Chris Rushton\n\n\n\nOpen in GitHub Codespaces\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\nThis course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#who-is-this-course-for",
+    "href": "index.html#who-is-this-course-for",
+    "title": "Online Course: An Introduction to AI and Data Science for Transport Planning",
+    "section": "",
+    "text": "This course is designed specifically for:\n\nTransport Planners and Strategists in local authorities and consultancies.\nData Analysts looking to modernize their workflows.\nPolicy Officers interested in evidence-based decision making.\n\nDo I need to be a coder?\nNo! While we will use code (Python and R) to demonstrate the power of automation, the focus is on concepts, workflows, and tools. We provide the code for you to run and experiment with. A willingness to try new digital tools is the only requirement.\nThe trigger for the course was interest from Transport for the South\nEast (TfSE) in using AI to improve transport planning. See the\ntfse document for the (currently in-development) course content\nfor that specific course.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "s4.html",
+    "href": "s4.html",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "",
+    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#introduction",
+    "href": "s4.html#introduction",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "",
+    "text": "In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#objectives",
+    "href": "s4.html#objectives",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "2 Objectives",
+    "text": "2 Objectives\n\nApply AI Skills: Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.\nProblem Solving: Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.\nPeer Learning: Share approaches and insights with colleagues, fostering a collaborative learning environment.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#workshop-structure",
+    "href": "s4.html#workshop-structure",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "3 Workshop Structure",
+    "text": "3 Workshop Structure\n\n3.1 1. Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 2. Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 3. Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#suggested-activities",
+    "href": "s4.html#suggested-activities",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "4 Suggested Activities",
+    "text": "4 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the Spanish OD data we used earlier.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "s4.html#course-wrap-up",
+    "href": "s4.html#course-wrap-up",
+    "title": "Session 4: Applied AI Workshop: Bring Your Own Data",
+    "section": "5 Course Wrap-up",
+    "text": "5 Course Wrap-up\n\nFinal Q&A.\nResources for further learning.\nFeedback and next steps.",
+    "crumbs": [
+      "Sessions",
+      "Session 4: Workshop"
+    ]
+  },
+  {
+    "objectID": "get-data.html",
+    "href": "get-data.html",
+    "title": "Get Data for the Course",
+    "section": "",
+    "text": "This document contains R code to download, process, and upload datasets used in the AI and Data Science for Transport course. It is designed to be run by course maintainers to populate the GitHub Releases with necessary data files."
+  },
+  {
+    "objectID": "get-data.html#overview",
+    "href": "get-data.html#overview",
+    "title": "Get Data for the Course",
+    "section": "",
+    "text": "This document contains R code to download, process, and upload datasets used in the AI and Data Science for Transport course. It is designed to be run by course maintainers to populate the GitHub Releases with necessary data files."
+  },
+  {
+    "objectID": "get-data.html#setup",
+    "href": "get-data.html#setup",
+    "title": "Get Data for the Course",
+    "section": "2 Setup",
+    "text": "2 Setup\nLoad necessary packages.\n\nlibrary(sf)\nlibrary(dplyr)\nlibrary(stats19)\nlibrary(osmdata)"
+  },
+  {
+    "objectID": "get-data.html#tfse-boundary-and-geographies",
+    "href": "get-data.html#tfse-boundary-and-geographies",
+    "title": "Get Data for the Course",
+    "section": "3 1. TfSE Boundary and Geographies",
+    "text": "3 1. TfSE Boundary and Geographies\nGet the Transport for the South East (TfSE) boundary and relevant administrative geographies.\n\n# TfSE Boundary (assuming local file availability or prior download)\n# This part mirrors the logic in s3.qmd\ntfse_path = \"/home/robin/github/robinlovelace/counterbid/tfse_boundary/TfSE_Area_Boundary.shp\"\nif(file.exists(tfse_path)){\n    tfse_boundary = read_sf(tfse_path)\n    \n    # Get LADs\n    u_lads = \"https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_May_2024_Boundaries_UK_BUC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson\"\n    lads = read_sf(u_lads)\n    \n    # Get MSOAs\n    u_msoas = \"https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_Super_Output_Areas_DEC_2021_EW_PWC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson\"\n    msoas = read_sf(u_msoas)\n    \n    # Filter\n    tfse_boundary = st_transform(tfse_boundary, st_crs(lads))\n    msoas = st_transform(msoas, st_crs(lads))\n    \n    tfse_lads = lads[tfse_boundary, ]\n    tfse_msoas = msoas[tfse_boundary, ]\n    \n    # Save\n    write_sf(tfse_boundary, \"tfse_boundary.geojson\", delete_dsn = TRUE)\n    write_sf(tfse_lads, \"tfse_lads.gpkg\", delete_dsn = TRUE)\n    write_sf(tfse_msoas, \"tfse_msoas.gpkg\", delete_dsn = TRUE)\n}"
+  },
+  {
+    "objectID": "get-data.html#motorway-network-south-east-england",
+    "href": "get-data.html#motorway-network-south-east-england",
+    "title": "Get Data for the Course",
+    "section": "4 2. Motorway Network (South East England)",
+    "text": "4 2. Motorway Network (South East England)\nDownload motorway data from OpenStreetMap.\n\n# Define the bounding box for South East England\nbbox &lt;- getbb(\"South East England, UK\")\n# Create an Overpass query for motorways\nmotorway_query &lt;- opq(bbox) |&gt;\n  add_osm_feature(key = \"highway\", value = \"motorway\")\n# Download the data\nmotorway_data &lt;- osmdata_sf(motorway_query)\n# Extract the motorway lines\nmotorways &lt;- motorway_data$osm_lines\n# Save\nwrite_sf(motorways, \"south_east_motorways.gpkg\", delete_dsn = TRUE)"
+  },
+  {
+    "objectID": "get-data.html#stats19-collision-data-5-years",
+    "href": "get-data.html#stats19-collision-data-5-years",
+    "title": "Get Data for the Course",
+    "section": "5 3. STATS19 Collision Data (5 Years)",
+    "text": "5 3. STATS19 Collision Data (5 Years)\nDownload 5 years of road safety data (2020-2024) and filter to TfSE.\n\n# Get 5 years of collision data\nyears = 2020:2024\ncollisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = \"collision\"))\n\n# Filter to TfSE if boundary exists\nif(file.exists(\"tfse_boundary.geojson\")) {\n  tfse_boundary = read_sf(\"tfse_boundary.geojson\")\n  collisions_sf = stats19::format_sf(collisions_5y, lonlat = TRUE)\n  collisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))\n  collisions_tfse = collisions_sf[tfse_boundary, ]\n  write_sf(collisions_tfse, \"collisions_tfse_2020_2024.gpkg\", delete_dsn = TRUE)\n}"
+  },
+  {
+    "objectID": "get-data.html#census-od-data-2011-and-2021",
+    "href": "get-data.html#census-od-data-2011-and-2021",
+    "title": "Get Data for the Course",
+    "section": "6 4. Census OD Data (2011 and 2021)",
+    "text": "6 4. Census OD Data (2011 and 2021)\nDownload Origin-Destination data for commuting.\n\n# 2011 Data (using pct package or direct download if available)\n# For this example, we'll placeholder the logic as the specific API for 2011/2021 bulk download can be complex.\n# Ideally, we would use the `nomis` API or direct CSV downloads.\n\n# 2021 Data\n# Reference: https://github.com/itsleeds/2021-census-od-data\n# We can download the pre-processed CSVs if available, or fetch from NOMIS.\n# Here is a placeholder for fetching a specific table, e.g., ODWP01EW (Workplace by residence)\n\n# Example: Download a specific CSV if URL is known (fictitious URL for demo)\n# download.file(\"https://www.nomisweb.co.uk/api/v01/dataset/NM_2021_1/bulk.csv\", \"od_2021.csv\")"
+  },
+  {
+    "objectID": "get-data.html#dft-traffic-data",
+    "href": "get-data.html#dft-traffic-data",
+    "title": "Get Data for the Course",
+    "section": "7 5. DfT Traffic Data",
+    "text": "7 5. DfT Traffic Data\nDownload traffic count data.\n\n# Placeholder for DfT traffic data download\n# dft_traffic = read.csv(\"https://storage.googleapis.com/dft-statistics/road-traffic/downloads/dft_traffic_counts_aadf.csv\")\n# Filter for TfSE region"
+  },
+  {
+    "objectID": "get-data.html#upload-to-github-release",
+    "href": "get-data.html#upload-to-github-release",
+    "title": "Get Data for the Course",
+    "section": "8 Upload to GitHub Release",
+    "text": "8 Upload to GitHub Release\nUpload all generated files to the v1 release.\n\nfiles_to_upload = c(\n  \"tfse_boundary.geojson\",\n  \"tfse_lads.gpkg\",\n  \"tfse_msoas.gpkg\",\n  \"south_east_motorways.gpkg\",\n  \"collisions_tfse_2020_2024.gpkg\"\n  # Add OD and Traffic files here when implemented\n)\n\nfor(f in files_to_upload) {\n  if(file.exists(f)) {\n    system(paste(\"gh release upload v1\", f, \"--clobber\"))\n  }\n}"
   },
   {
     "objectID": "s3-advanced.html",
