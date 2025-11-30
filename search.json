@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Session",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#course-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI and Data Science for Transport in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI Session",
+    "text": "The course will run from 10:00 to 17:00, with a 1-hour break for lunch.\nView course slides\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n10:00 - 11:30\nSession 1: Foundations of AI in Transport\n\n\n\n11:30 - 13:00\nSession 2: (AI-Powered) Coding and Development\n\n\n\n13:00 - 14:00\nLunch\n\n\n\n14:00 - 15:30\nSession 3: AI for Transport Data Analysis\n\n\n\n15:30 - 17:00\nSession 4: Applied AI",
     "crumbs": [
       "Schedule"
     ]
@@ -44,7 +44,7 @@
     "href": "prerequisites.html#software-prerequisites",
     "title": "Prerequisites",
     "section": "2 Software Prerequisites",
-    "text": "2 Software Prerequisites\nYou should bring a laptop with either of the following:\n\nOption 1: if you’re using a cloud-based development environment:\n\nA modern web browser (e.g., Chrome, Firefox, Edge).\nA GitHub account (sign up at github.com) and have your username ready.\nTested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:\n\n\n\n\n\nOpen in GitHub Codespaces\n\n\nor, for running the code locally:\n\nOption 2: A laptop with a the necessary software installed, including:\n\nAn IDE such as VS Code (recommended) or RStudio.\nR or Python installed (see below for testing code).\nThe gh command-line tool (see cli.github.com for installation and set-up instructions).",
+    "text": "2 Software Prerequisites\nYou should bring a laptop with either of the following:\n\nOption 1: if you’re using a cloud-based development environment:\n\nA modern web browser (e.g., Chrome, Firefox, Edge).\nA GitHub account (sign up at github.com) and have your username ready.\nTested out GitHub Codespaces to ensure it works on your machine by opening this link and running the prerequisites code in prerequisites.qmd:\n\n\n\n\n\nOpen in GitHub Codespaces\n\n\nor, for running the code locally:\n\nOption 2: A laptop with the necessary software installed, including:\n\nAn IDE such as VS Code (recommended) or RStudio.\nR or Python installed (see below for testing code).\nThe gh command-line tool (see cli.github.com for installation and set-up instructions).",
     "crumbs": [
       "Prerequisites"
     ]
@@ -243,11 +243,11 @@
     ]
   },
   {
-    "objectID": "s2.html#bonus-exercise-interactive-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ais",
-    "href": "s2.html#bonus-exercise-interactive-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ais",
+    "objectID": "s2.html#bonus-exercise-interacting-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ai",
+    "href": "s2.html#bonus-exercise-interacting-with-github-to-enable-version-controlled-collaborative-workflows-embedding-ai",
     "title": "Session 2: (AI-Powered) Coding and Development",
-    "section": "4 Bonus Exercise: interactive with GitHub to enable version-controlled collaborative workflows embedding AIs",
-    "text": "4 Bonus Exercise: interactive with GitHub to enable version-controlled collaborative workflows embedding AIs\nNote: this bonus exercise is designed for those already comfortable with GitHub and version control concepts, or those who are ahead of schedule and wish to explore further.\n\nTask: Contribute to a shared repository using an AI-assisted workflow.\n\nFork and Clone the exercise repository.\nCreate an issue describing a new feature you will add.\nCreate a branch linked to your issue.\nUse Copilot to write the code for the new feature.\nCommit and push your changes.\nCreate a pull request for your work to be reviewed.\n\n\nSee the materials on the Data Science for Transport Planning course website for more details.",
+    "section": "4 Bonus Exercise: Interacting with GitHub to enable version-controlled collaborative workflows embedding AI",
+    "text": "4 Bonus Exercise: Interacting with GitHub to enable version-controlled collaborative workflows embedding AI\nNote: this bonus exercise is designed for those already comfortable with GitHub and version control concepts, or those who are ahead of schedule and wish to explore further.\n\nTask: Contribute to a shared repository using an AI-assisted workflow.\n\nFork and Clone the exercise repository.\nCreate an issue describing a new feature you will add.\nCreate a branch linked to your issue.\nUse Copilot to write the code for the new feature.\nCommit and push your changes.\nCreate a pull request for your work to be reviewed.\n\n\nSee the materials on the Data Science for Transport Planning course website for more details.",
     "crumbs": [
       "Sessions",
       "Session 2: AI-Powered Development"
@@ -291,7 +291,7 @@
     "href": "s3.html#exploratory-data-analysis-eda-with-ai",
     "title": "Session 3: AI for Transport Data Analysis",
     "section": "3 Exploratory Data Analysis (EDA) with AI",
-    "text": "3 Exploratory Data Analysis (EDA) with AI\nTake a read of the AI-assisted EDA session in survey-prompts.md for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the survey page.\n\n3.1 Exercises\nOption 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.\nOption 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.\nOption 2: use AI to help you explore the motorway data you downloaded earlier in this session.\nOption 3: use AI to help you explore a transport dataset of your choice.",
+    "text": "3 Exploratory Data Analysis (EDA) with AI\nTake a read of the AI-assisted EDA session in survey-prompts.md for ideas on how to use AI to speed up EDA tasks. See the resulting code and outputs in the survey page.\n\n3.1 Exercises\nOption 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.\nOption 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.\nOption 3: use AI to help you explore the motorway data you downloaded earlier in this session.\nOption 4: use AI to help you explore a transport dataset of your choice.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -313,7 +313,7 @@
     "href": "s3.html#interpreting-results-with-llms",
     "title": "Session 3: AI for Transport Data Analysis",
     "section": "5 Interpreting Results with LLMs",
-    "text": "5 Interpreting Results with LLMs\nCopy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.\nDo you agree with the AI’s interpretation?\nAdvanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:\nquarto render your_file.qmd --to markdown\nThen as the AI to read the output (in this case called your_file.md) and help you interpret the results.",
+    "text": "5 Interpreting Results with LLMs\nCopy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.\nDo you agree with the AI’s interpretation?\nAdvanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:\nquarto render your_file.qmd --to markdown\nThen ask the AI to read the output (in this case called your_file.md) and help you interpret the results.",
     "crumbs": [
       "Sessions",
       "Session 3: Data Analysis"
@@ -454,7 +454,7 @@
   {
     "objectID": "s4.html",
     "href": "s4.html",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "",
     "text": "In this final session, the focus shifts to you. This is a hands-on session designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
     "crumbs": [
@@ -465,7 +465,7 @@
   {
     "objectID": "s4.html#introduction",
     "href": "s4.html#introduction",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "",
     "text": "In this final session, the focus shifts to you. This is a hands-on session designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.",
     "crumbs": [
@@ -476,7 +476,7 @@
   {
     "objectID": "s4.html#objectives",
     "href": "s4.html#objectives",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "2 Objectives",
     "text": "2 Objectives\n\nApply AI Skills: Use AI coding assistants, data analysis tools, and LLMs to solve real-world challenges relevant to your work.\nProblem Solving: Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.\nPeer Learning: Share approaches and insights with colleagues, fostering a collaborative learning environment.",
     "crumbs": [
@@ -487,7 +487,7 @@
   {
     "objectID": "s4.html#session-structure",
     "href": "s4.html#session-structure",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "3 Session Structure",
     "text": "3 Session Structure\n\n3.1 Problem Definition (15 mins)\n\nBriefly define the problem you want to solve or the question you want to answer.\nIdentify the data you have available or need to acquire.\nDetermine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.\n\n\n\n3.2 Hands-on Development (60 mins)\n\nWork on your project: Spend this time coding, analyzing data, or writing reports with the assistance of AI.\nInstructor Support: The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.\nCollaboration: Feel free to work in pairs or small groups if you have similar interests or datasets.\n\n\n\n3.3 Show and Tell (15 mins)\n\nVolunteers will have the opportunity to briefly share what they have achieved or discovered.\nDiscuss challenges faced and how AI helped (or didn’t help) overcome them.",
     "crumbs": [
@@ -498,7 +498,7 @@
   {
     "objectID": "s4.html#data-for-the-session",
     "href": "s4.html#data-for-the-session",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "4 Data for the Session",
     "text": "4 Data for the Session\nIf you haven’t brought your own data, you can use the datasets prepared for this course. They are available on the Releases page of the repository. The files have been downloaded into the working directory.\n\nRPython\n\n\n\nlibrary(sf)\n\n# TfSE Boundary and Geographies\ntfse_boundary = read_sf(\"tfse_boundary.geojson\")\ntfse_lads = read_sf(\"tfse_lads.gpkg\")\ntfse_msoas = read_sf(\"tfse_msoas.gpkg\")\n\n# Motorway Network\nmotorways = read_sf(\"south_east_motorways.gpkg\")\n\n# Collision Data\ncollisions = read_sf(\"collisions_tfse_2020_2024.gpkg\")\n\n\n\n\nimport geopandas as gpd\n\n# TfSE Boundary and Geographies\ntfse_boundary = gpd.read_file(\"tfse_boundary.geojson\")\ntfse_lads = gpd.read_file(\"tfse_lads.gpkg\")\ntfse_msoas = gpd.read_file(\"tfse_msoas.gpkg\")\n\n# Motorway Network\nmotorways = gpd.read_file(\"south_east_motorways.gpkg\")\n\n# Collision Data\ncollisions = gpd.read_file(\"collisions_tfse_2020_2024.gpkg\")",
     "crumbs": [
@@ -509,9 +509,9 @@
   {
     "objectID": "s4.html#suggested-activities",
     "href": "s4.html#suggested-activities",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "5 Suggested Activities",
-    "text": "5 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the Spanish OD data we used earlier.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
+    "text": "5 Suggested Activities\nIf you didn’t bring your own data, here are some challenges you can try using the open datasets we’ve looked at today:\n\nAdvanced Visualization: Create a dashboard summarizing the OD data we used in Session 2.\nPolicy Analysis: Use an LLM to compare two different transport policy documents and identify conflicting recommendations.\nAutomated Reporting: Write a script that automatically generates a summary report from a CSV file of traffic counts.",
     "crumbs": [
       "Sessions",
       "Session 4: Applied AI"
@@ -520,7 +520,7 @@
   {
     "objectID": "s4.html#course-wrap-up",
     "href": "s4.html#course-wrap-up",
-    "title": "Session 4: Applied AI Session",
+    "title": "Session 4: Applied AI",
     "section": "6 Course Wrap-up",
     "text": "6 Course Wrap-up\n\nFinal Q&A.\nResources for further learning.\nFeedback and next steps.",
     "crumbs": [
