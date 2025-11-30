@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Applied AI Session"
+title: "Session 4: Applied AI"
 ---
 
 ## Introduction
@@ -83,7 +83,7 @@ collisions = gpd.read_file("collisions_tfse_2020_2024.gpkg")
 
 If you didn't bring your own data, here are some challenges you can try using the open datasets we've looked at today:
 
--   **Advanced Visualization:** Create a dashboard summarizing the Spanish OD data we used earlier.
+-   **Advanced Visualization:** Create a dashboard summarizing the OD data we used in Session 2.
 -   **Policy Analysis:** Use an LLM to compare two different transport policy documents and identify conflicting recommendations.
 -   **Automated Reporting:** Write a script that automatically generates a summary report from a CSV file of traffic counts.
 

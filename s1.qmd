@@ -8,7 +8,7 @@ This session lays the groundwork for the course.
 
 ## Slides and Presentation (45 mins)
 
-The first half of the session will be delivered as a presentation. See the [slides](/slides/day1.qmd) for details.
+The first half of the session will be delivered as a presentation. See the [slides](/slides/day1.html) for details.
 The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.
 
 It will also provide a chance for debate: questions are encouraged!
