@@ -4,7 +4,7 @@ title: "Session 4: Applied AI Session"
 
 ## Introduction
 
-In this final session, the focus shifts to you. This is a hands-on workshop designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.
+In this final session, the focus shifts to you. This is a hands-on session designed for you to apply the AI tools and techniques learned throughout the day to your own transport problems and datasets.
 
 ## Objectives
 
@@ -12,7 +12,7 @@ In this final session, the focus shifts to you. This is a hands-on workshop desi
 -   **Problem Solving:** Tackle a specific problem or question you brought with you, or explore a provided dataset in depth.
 -   **Peer Learning:** Share approaches and insights with colleagues, fostering a collaborative learning environment.
 
-## Workshop Structure
+## Session Structure
 
 ### Problem Definition (15 mins)
 
@@ -30,6 +30,54 @@ In this final session, the focus shifts to you. This is a hands-on workshop desi
 
 -   Volunteers will have the opportunity to briefly share what they have achieved or discovered.
 -   Discuss challenges faced and how AI helped (or didn't help) overcome them.
+
+## Data for the Session
+
+If you haven't brought your own data, you can use the datasets prepared for this course.
+They are available on the [Releases page](https://github.com/itsleeds/ai4transport/releases) of the repository.
+The files have been downloaded into the working directory.
+
+::: {.panel-tabset}
+
+### R
+
+```{r}
+#| label: load-data-r
+#| eval: false
+library(sf)
+
+# TfSE Boundary and Geographies
+tfse_boundary = read_sf("tfse_boundary.geojson")
+tfse_lads = read_sf("tfse_lads.gpkg")
+tfse_msoas = read_sf("tfse_msoas.gpkg")
+
+# Motorway Network
+motorways = read_sf("south_east_motorways.gpkg")
+
+# Collision Data
+collisions = read_sf("collisions_tfse_2020_2024.gpkg")
+```
+
+### Python
+
+```{python}
+#| label: load-data-python
+#| eval: false
+import geopandas as gpd
+
+# TfSE Boundary and Geographies
+tfse_boundary = gpd.read_file("tfse_boundary.geojson")
+tfse_lads = gpd.read_file("tfse_lads.gpkg")
+tfse_msoas = gpd.read_file("tfse_msoas.gpkg")
+
+# Motorway Network
+motorways = gpd.read_file("south_east_motorways.gpkg")
+
+# Collision Data
+collisions = gpd.read_file("collisions_tfse_2020_2024.gpkg")
+```
+
+:::
 
 ## Suggested Activities
 
