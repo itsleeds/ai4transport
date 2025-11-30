@@ -36,7 +36,7 @@ website:
           - href: s3.qmd
             text: "Session 3: Data Analysis"
           - href: s4.qmd
-            text: "Session 4: Workshop"
+            text: "Session 4: Applied AI"
           - href: survey.qmd
             text: "Survey Results"
           - href: s3-advanced.qmd
