@@ -87,7 +87,7 @@ A year ago this would not have worked first time, but the models are improving r
 
 ```{r}
 #| echo: false
-# Manual updated to save as GeoPackage:
+# Manually updated to save as GeoPackage:
 st_write(motorways, "south_east_motorways.gpkg")
 system("gh release list")
 system("gh release upload v1 south_east_motorways.gpkg")
@@ -122,9 +122,9 @@ Option 1: try to reproduce some of the outputs, and new outputs, that were gener
 
 Option 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.
 
-Option 2: use AI to help you explore the motorway data you downloaded earlier in this session.
+Option 3: use AI to help you explore the motorway data you downloaded earlier in this session.
 
-Option 3: use AI to help you explore a transport dataset of your choice.
+Option 4: use AI to help you explore a transport dataset of your choice.
 
 ## AI-Assisted Data Visualization
 
@@ -153,7 +153,7 @@ Advanced: write data analysis code in a Quarto (.qmd) file and render it to Mark
 quarto render your_file.qmd --to markdown
 ```
 
-Then as the AI to read the output (in this case called `your_file.md`) and help you interpret the results.
+Then ask the AI to read the output (in this case called `your_file.md`) and help you interpret the results.
 
 ## Bonus: Analysing road traffic collision data in TfSE
 

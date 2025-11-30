@@ -25,7 +25,7 @@ You should bring a laptop with either of the following:
 
 **or, for running the code locally:**
 
--   Option 2: A laptop with a the necessary software installed, including:
+-   Option 2: A laptop with the necessary software installed, including:
     -   An IDE such as VS Code (recommended) or RStudio.
     -   R or Python installed (see below for testing code).
     -   The `gh` command-line tool (see [cli.github.com](https://cli.github.com/) for installation and set-up instructions).

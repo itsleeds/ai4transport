@@ -56,7 +56,7 @@ There are four primary ways to interact with an AI coding assistant:
 
 -   **Task:** Use Copilot to modify the `data/od_viewer.py` Python file to make a new plot of something that interests you.
 
-## Bonus Exercise: interactive with GitHub to enable version-controlled collaborative workflows embedding AIs
+## Bonus Exercise: Interacting with GitHub to enable version-controlled collaborative workflows embedding AI
 
 Note: this bonus exercise is designed for those already comfortable with GitHub and version control concepts, or those who are ahead of schedule and wish to explore further.
 
