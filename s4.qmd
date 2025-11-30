@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Applied AI Workshop: Bring Your Own Data"
+title: "Session 4: Applied AI Session"
 ---
 
 ## Introduction
@@ -14,19 +14,19 @@ In this final session, the focus shifts to you. This is a hands-on workshop desi
 
 ## Workshop Structure
 
-### 1. Problem Definition (15 mins)
+### Problem Definition (15 mins)
 
 -   Briefly define the problem you want to solve or the question you want to answer.
 -   Identify the data you have available or need to acquire.
 -   Determine which AI tools (e.g., ChatGPT, Claude, GitHub Copilot) are most suitable for your task.
 
-### 2. Hands-on Development (60 mins)
+### Hands-on Development (60 mins)
 
 -   **Work on your project:** Spend this time coding, analyzing data, or writing reports with the assistance of AI.
 -   **Instructor Support:** The instructors will be circulating to provide one-on-one guidance and troubleshoot issues.
 -   **Collaboration:** Feel free to work in pairs or small groups if you have similar interests or datasets.
 
-### 3. Show and Tell (15 mins)
+### Show and Tell (15 mins)
 
 -   Volunteers will have the opportunity to briefly share what they have achieved or discovered.
 -   Discuss challenges faced and how AI helped (or didn't help) overcome them.
