@@ -119,14 +119,13 @@ See: [Session 2 materials](../s2.qmd)
 
 ## Lunch Break (12:30-13:30)
 
-## Session 3: Using LLMs for Reporting and Analysis
+## Session 3: AI for Transport Data Analysis
 
 ### Key topics:
 
--   Large Language Models for transport documents
--   Prompt engineering techniques
--   Analysing policy documents and reports
--   Practical exercises with real transport data
+-   Finding, cleaning, and visualizing transport data with AI
+-   Exploratory Data Analysis (EDA) and interpretation
+-   *Note: Originally planned to focus on document analysis. That advanced content is now in [Session 3 Advanced](../s3-advanced.qmd), but we expect most to focus on this updated data analysis session.*
 
 See: [Session 3 materials](../s3.qmd)
 
