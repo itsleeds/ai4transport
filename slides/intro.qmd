@@ -23,9 +23,9 @@ A practical, hands-on course for transport professionals.
 | Time | Session |
 |---|---|
 | **10:00-11:30** | Session 1: Foundations of AI in Transport |
-| **11:30-13:00** | Session 2: (AI-Powered) Coding and Development |
-| **13:00-14:00** | Lunch |
-| **14:00-15:30** | Session 3: Using LLMs for Reporting |
+| **11:30-12:30** | Session 2: (AI-Powered) Coding and Development |
+| **12:30-13:30** | Lunch |
+| **13:30-15:30** | Session 3: Using LLMs for Reporting |
 | **15:30-17:00** | Session 4: AI for Data Analysis |
 
 ## Prerequisites

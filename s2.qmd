@@ -6,6 +6,31 @@ title: "Session 2: (AI-Powered) Coding and Development"
 
 This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.
 
+## Getting Started with GitHub Codespaces
+
+We will be using GitHub Codespaces for this session. This provides a full development environment in your browser, pre-configured with all the necessary tools.
+
+[**Launch GitHub Codespaces**](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1){.btn .btn-primary target="_blank"}
+
+### Understanding the VS Code Interface
+
+When you open Codespaces, you will see Visual Studio Code (VS Code) running in your browser. It consists of several key areas:
+
+-   **Activity Bar** (Left Sidebar): Lets you switch between views like Explorer (files), Search, Source Control (Git), and Extensions.
+-   **Side Bar** (Next to Activity Bar): Shows the details of the current view (e.g., your file tree).
+-   **Editor** (Center): The main area where you edit your code. You can have multiple tabs open.
+-   **Panel** (Bottom): Displays the Terminal, Debug Console, Output, and Problems. This is where you'll run commands and see program output.
+-   **Status Bar** (Bottom Edge): Shows information about the current project, git branch, and cursor position.
+
+## Exercise: Explore the Environment
+
+Before we dive into coding, let's get familiar with the environment.
+
+1.  **Open the Explorer:** Click the top icon in the Activity Bar (or press `Ctrl+Shift+E` / `Cmd+Shift+E`). Look at the file structure.
+2.  **Open the Terminal:** If not visible, press `` Ctrl+` `` (backtick) or go to the menu *Terminal > New Terminal*.
+3.  **Find the Extensions:** Click the square icon in the Activity Bar. Search for "Python" to see that it is already installed.
+4.  **Locate the Command Palette:** Press `Ctrl+Shift+P` (or `Cmd+Shift+P`). Type "Theme" and try changing the Color Theme.
+
 ### The Myth vs. The Reality
 
 **The Myth:** AI writes code for you while you sleep.

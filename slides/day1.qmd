@@ -17,9 +17,9 @@ AI and Data Science for Transport
 ## Agenda
 
 -   **10:00-11:30** Session 1: Foundations of AI and Data Science for Transport in Transport
--   **11:30-13:00** Session 2: (AI-Powered) Coding and Development
--   **13:00-14:00** Lunch
--   **14:00-15:30** Session 3: AI for Transport Data Analysis
+-   **11:30-12:30** Session 2: (AI-Powered) Coding and Development
+-   **12:30-13:30** Lunch
+-   **13:30-15:30** Session 3: AI for Transport Data Analysis
 -   **15:30-17:00** Session 4: Applied AI Session
 
 ## Prerequisites
@@ -117,7 +117,7 @@ See powerpoint slides: [github.com/itsleeds/ai4transport/releases](https://githu
 
 See: [Session 2 materials](../s2.qmd)
 
-## Lunch Break (13:00-14:00)
+## Lunch Break (12:30-13:30)
 
 ## Session 3: Using LLMs for Reporting and Analysis
 

@@ -119,7 +119,7 @@ Interactive session exploring real-world AI use cases in transport.
 -   In groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).
 -   Feedback to everyone and discuss common themes (~20 mins).
 
-### Module 2: (AI-Powered) Coding and Development (11:30 - 13:00)
+### Module 2: (AI-Powered) Coding and Development (11:30 - 12:30)
 
 <!-- TODO: think of a task and write some example code -->
 
@@ -135,17 +135,17 @@ Interactive session exploring real-world AI use cases in transport.
 - We do
 - You do -->
 
--   **I Do: Live Demonstration (11:30 - 12:00)**
+-   **I Do: Live Demonstration (11:30 - 11:50)**
     -   Instructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).
     -   Demonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.
     -   Live coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).
 
--   **We Do: Guided Practice (12:00 - 12:30)**
+-   **We Do: Guided Practice (11:50 - 12:10)**
     -   Building on the "I Do" example, participants follow along with the instructor.
-    -   Guided exercise: Use Copilot to perform the next step, such as cleaning the data or adding a new feature.
+    -   Guided exercise: Use Copilot to perform the next step, such as cleaning the data or or adding a new feature.
     -   Collaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.
 
--   **You Do: Independent Application (12:30 - 13:00)**
+-   **You Do: Independent Application (12:10 - 12:30)**
     -   Participants receive a small, related challenge to solve independently or in pairs.
     -   Task: Use Copilot to automate a script for data handling or generate a simple visualization.
     -   Instructor provides support and reviews solutions.
@@ -159,14 +159,14 @@ y = x**2
 plt.plot(x, y)   
 ```
 
-### Lunch Break (13:00 - 14:00)
+### Lunch Break (12:30 - 13:30)
 
-### Module 3: Using LLMs for Reporting and Analysis (14:00 - 15:30)
+### Module 3: Using LLMs for Reporting and Analysis (13:30 - 15:30)
 
 -   **Lecture (30 mins):**
     -   Introduction to Large Language Models (LLMs) and prompt engineering.
     -   Techniques for using LLMs with transport-related documents and data.
--   **Practical (60 mins):**
+-   **Practical (90 mins):**
     -   Reading and summarising transport policy documents.
     -   Real-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.
     -   Analysing qualitative data (e.g., consultation responses).
