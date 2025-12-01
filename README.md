@@ -1,6 +1,4 @@
-# Online Course: An Introduction to AI and Data Science for Transport
-Planning
-Robin Lovelace and Chris Rushton
+
 
 [![](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
 
@@ -16,7 +14,15 @@ APIs to:
 The ultimate goal is more effective transport planning investments and
 decisions
 
-### Python Environment Setup
+![Commuting flows in the South East of England, generated with AI
+assistance](images/tfse_od_map.png)
+
+<details>
+
+<summary>
+
+Python Environment Setup
+</summary>
 
 Some Quarto documents in this repository utilize Python code. To ensure
 these documents render correctly, it’s recommended to set up a Python
@@ -33,3 +39,5 @@ The trigger for the course was interest from Transport for the South
 East (TfSE) in using AI to improve transport planning. See the
 [tfse](tfse) document for the (currently in-development) course content
 for that specific course.
+
+</details>
