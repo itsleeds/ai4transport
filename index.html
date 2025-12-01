@@ -202,10 +202,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#see-whats-possible" id="toc-see-whats-possible" class="nav-link" data-scroll-target="#see-whats-possible">See What’s Possible</a></li>
   <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started">Get Started</a></li>
   </ul></li>
-  <li><a href="#online-course-an-introduction-to-ai-and-data-science-for-transport" id="toc-online-course-an-introduction-to-ai-and-data-science-for-transport" class="nav-link" data-scroll-target="#online-course-an-introduction-to-ai-and-data-science-for-transport">Online Course: An Introduction to AI and Data Science for Transport</a>
-  <ul class="collapse">
-  <li><a href="#python-environment-setup" id="toc-python-environment-setup" class="nav-link" data-scroll-target="#python-environment-setup">Python Environment Setup</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/ai4transport/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -263,11 +259,6 @@ ul.task-list li input[type="checkbox"] {
 <summary>
 <strong>Repository README and Developer Setup</strong>
 </summary>
-</details></section>
-</section>
-<section id="online-course-an-introduction-to-ai-and-data-science-for-transport" class="level1">
-<h1>Online Course: An Introduction to AI and Data Science for Transport</h1>
-<p>Planning Robin Lovelace and Chris Rushton</p>
 <p><a href="https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1"><img src="https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png" class="img-fluid"></a></p>
 <p>This repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:</p>
 <ul>
@@ -276,8 +267,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Enhance capabilities, leading to new and better outputs</li>
 </ul>
 <p>The ultimate goal is more effective transport planning investments and decisions</p>
-<section id="python-environment-setup" class="level3">
-<h3 class="anchored" data-anchor-id="python-environment-setup">Python Environment Setup</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tfse_od_map.png" class="img-fluid figure-img"></p>
+<figcaption>Commuting flows in the South East of England, generated with AI assistance</figcaption>
+</figure>
+</div>
+<details>
+<summary>
+Python Environment Setup
+</summary>
 <p>Some Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.</p>
 <ol type="1">
 <li><strong>Create a virtual environment:</strong> <code>bash     python3 -m venv .venv</code></li>
@@ -285,7 +284,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Install dependencies:</strong> <code>bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache</code></li>
 </ol>
 <p>The trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the <a href="tfse">tfse</a> document for the (currently in-development) course content for that specific course.</p>
-
+</details>
+</details>
 
 
 </section>
