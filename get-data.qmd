@@ -21,6 +21,8 @@ library(tidyr)
 library(stringr)
 library(stats19)
 library(osmdata)
+library(osmactive)
+library(tmap)
 ```
 
 ## 1. TfSE Boundary and Geographies
@@ -169,6 +171,64 @@ Download traffic count data.
 # Filter for TfSE region
 ```
 
+## 6. TfSE Transport Network (osmactive)
+
+Download and classify transport network using `osmactive`.
+
+```{r}
+if(file.exists("tfse_boundary.geojson")) {
+  tfse_boundary = read_sf("tfse_boundary.geojson")
+  
+  # Get the travel network for TfSE
+  # We use a broader region (e.g., South East England) and clip to the boundary
+  osm_tfse = get_travel_network("England", boundary = tfse_boundary, boundary_type = "clipsrc")
+  
+  # Extract networks
+  cycle_net_tfse = get_cycling_network(osm_tfse)
+  drive_net_tfse = get_driving_network(osm_tfse)
+  
+  # Calculate distance to road and classify
+  cycle_net_tfse = distance_to_road(cycle_net_tfse, drive_net_tfse)
+  cycle_net_tfse = classify_cycle_infrastructure(cycle_net_tfse)
+  
+  # Save datasets
+  write_sf(cycle_net_tfse, "tfse_cycling_network.gpkg", delete_dsn = TRUE)
+  write_sf(drive_net_tfse, "tfse_driving_network.gpkg", delete_dsn = TRUE)
+}
+```
+
+## 7. Brighton Area Analysis
+
+Create a 20km buffer around Brighton and generate an interactive map.
+
+```{r}
+if(exists("cycle_net_tfse")) {
+  # Define Brighton center
+  # Coordinates for Brighton: ~ 50.8225° N, 0.1372° W
+  brighton_point = st_point(c(-0.1372, 50.8225)) |> 
+    st_sfc(crs = 4326) |> 
+    st_transform(st_crs(cycle_net_tfse))
+  
+  # Buffer 20km
+  brighton_buffer = st_buffer(brighton_point, 20000)
+  
+  # Clip the cycle network
+  brighton_cycle_net = cycle_net_tfse[brighton_buffer, ]
+  
+  # Save the subset
+  write_sf(brighton_cycle_net, "brighton_20km_cycle_network.gpkg", delete_dsn = TRUE)
+  
+  # Create interactive map
+  tmap_mode("view")
+  m_brighton = tm_shape(brighton_cycle_net) +
+    tm_lines(col = "cycle_segregation", lwd = 2, title.col = "Cycle Infrastructure") +
+    tm_basemap("CartoDB.Positron")
+  
+  # Save map
+  tmap_save(m_brighton, "brighton_cycle_map.html")
+}
+```
+
 ## Upload to GitHub Release
 
 Upload all generated files to the `v1` release.
@@ -180,8 +240,11 @@ files_to_upload = c(
   "tfse_msoas.gpkg",
   "south_east_motorways.gpkg",
   "collisions_tfse_2020_2024.gpkg",
-  "od_tfse_2021.csv"
-  # Add OD and Traffic files here when implemented
+  "od_tfse_2021.csv",
+  "tfse_cycling_network.gpkg",
+  "tfse_driving_network.gpkg",
+  "brighton_20km_cycle_network.gpkg",
+  "brighton_cycle_map.html"
 )
 
 for(f in files_to_upload) {
