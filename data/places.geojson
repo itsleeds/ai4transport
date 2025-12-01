@@ -1,0 +1,410 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Robin"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.531007561443829,
+          53.81230846319289
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chris"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.5685884923956053,
+          53.806989389960734
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pasha"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.2183189382110413,
+          51.24190308656898
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Andrew"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.19653768290993412,
+          51.25095013708537
+        ],
+        "type": "Point"
+      },
+      "id": 3
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dominique"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.5511717149526305,
+          51.31694909216941
+        ],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alex"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.5248335876462704,
+          51.31830181131235
+        ],
+        "type": "Point"
+      },
+      "id": 5
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "James"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.9513284950578793,
+          51.45000634434979
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lydia"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.0066180890900682,
+          51.45085611238832
+        ],
+        "type": "Point"
+      },
+      "id": 7
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Miriam"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.9888805989188256,
+          51.47890654055581
+        ],
+        "type": "Point"
+      },
+      "id": 8
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rob"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.8207237924388835,
+          51.41083652779585
+        ],
+        "type": "Point"
+      },
+      "id": 9
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chai"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.7961876640341927,
+          51.5781902711758
+        ],
+        "type": "Point"
+      },
+      "id": 10
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paul"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.257919099086024,
+          51.77130497862936
+        ],
+        "type": "Point"
+      },
+      "id": 11
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kyle"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.2365771885150991,
+          51.76711372658457
+        ],
+        "type": "Point"
+      },
+      "id": 12
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tom"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.2178396872059807,
+          51.76356034164627
+        ],
+        "type": "Point"
+      },
+      "id": 13
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "William"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.5863868215784009,
+          51.3130019780821
+        ],
+        "type": "Point"
+      },
+      "id": 14
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cindi"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.15892534900405053,
+          50.83861563167693
+        ],
+        "type": "Point"
+      },
+      "id": 15
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kieron"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.11786855749778624,
+          50.83362296202645
+        ],
+        "type": "Point"
+      },
+      "id": 16
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Naga"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.8682731392596281,
+          52.46715702228761
+        ],
+        "type": "Point"
+      },
+      "id": 17
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tom"
+      },
+      "geometry": {
+        "coordinates": [
+          0.55227641007437,
+          50.917415753512074
+        ],
+        "type": "Point"
+      },
+      "id": 18
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Balal"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.7803890648678191,
+          51.81070806807844
+        ],
+        "type": "Point"
+      },
+      "id": 19
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mingfei"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.8469509014293521,
+          51.820176611425666
+        ],
+        "type": "Point"
+      },
+      "id": 20
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Joshua"
+      },
+      "geometry": {
+        "coordinates": [
+          0.016997804807573402,
+          50.87140077242145
+        ],
+        "type": "Point"
+      },
+      "id": 21
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Emily"
+      },
+      "geometry": {
+        "coordinates": [
+          0.029979258819224697,
+          50.87176158172667
+        ],
+        "type": "Point"
+      },
+      "id": 22
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jo"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.0513114880509704,
+          50.78705634118083
+        ],
+        "type": "Point"
+      },
+      "id": 23
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Roland"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.0673002302406758,
+          50.81906578288829
+        ],
+        "type": "Point"
+      },
+      "id": 24
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kirsten"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.21106709476947572,
+          50.844260202355514
+        ],
+        "type": "Point"
+      },
+      "id": 25
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eleanor"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.13480011420182336,
+          50.84734462245592
+        ],
+        "type": "Point"
+      },
+      "id": 26
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sian"
+      },
+      "geometry": {
+        "coordinates": [
+          0.1070270947255949,
+          52.19151922230523
+        ],
+        "type": "Point"
+      },
+      "id": 27
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tim"
+      },
+      "geometry": {
+        "coordinates": [
+          0.14575039636591214,
+          52.19325603016958
+        ],
+        "type": "Point"
+      },
+      "id": 28
+    }
+  ]
+}
