@@ -1,0 +1,73 @@
+---
+title: "Bonus Content"
+format: html
+execute: 
+  eval: false
+---
+
+## Thanks for attending!
+
+We hope you enjoyed the course.
+You can find all the materials and updates on the [course website](https://itsleeds.github.io/ai4transport/).
+
+Here is a quick visualisation of the data we explored:
+
+### Places
+
+```{r}
+#| label: map-places
+#| message: false
+#| warning: false
+library(sf)
+library(mapview)
+# Read places data
+places = read_sf("https://github.com/itsleeds/ai4transport/raw/main/data/places.geojson")
+# Visualise places
+mapview(places, zcol = "name")
+```
+
+![](images/paste-11.png)
+
+### OD Data
+
+```{r}
+library(tidyverse)
+library(sf)
+```
+
+<details>
+
+<summary>Download and prepare OD data for TfSE</summary>
+
+```{r}
+#| label: plot-od
+#| message: false
+#| warning: false
+library(od)
+
+od = read_csv("od_tfse_2021.csv")
+zones = read_sf("tfse_msoas.gpkg")
+
+# Check 1st column of zones matches 'o' and 'd' in od
+summary(zones[[1]] %in% c(od$o, od$d))
+od_sf = od_to_sf(od, zones)
+od_sf = od_sf |>
+  mutate(`% Car` = Car / (Car + Bicycle + Walking + Bus + Train))
+od_sf$length = sf::st_length(od_sf) |> as.numeric()
+sf::write_sf(od_sf, "od_tfse_2021_sf.gpkg", delete_dsn = TRUE)
+```
+
+</details>
+
+```{r}
+od_sf = read_sf("od_tfse_2021_sf.gpkg")
+od_sf |>
+  filter(Car > 10 & length > 10 * 1000) |>
+  arrange(desc(`% Car`)) |>
+  ggplot() +
+  geom_sf(aes(colour = `% Car`)) +
+  scale_colour_viridis_c(direction = -1) +
+  theme_minimal()
+```
+
+![OD commuting flows in TfSE, coloured by % car use](https://itsleeds.github.io/ai4transport/images/tfse_od_map.png)
