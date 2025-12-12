@@ -9,7 +9,7 @@ website:
   announcement:
     icon: info-circle
     dismissable: true
-    content: "If you're interested, get in touch with [Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton) and [Robin Lovelace](https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace)."
+    content: "This course is now complete. If you're interested in hiring us to deliver training or consultancy, get in touch with [Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton) and [Robin Lovelace](https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace)."
     type: primary
     position: below-navbar
   page-footer:
