@@ -379,7 +379,7 @@
     "href": "bonus.html#further-learning",
     "title": "Bonus Content",
     "section": "2 Further Learning",
-    "text": "2 Further Learning\nWe recommend taking Anthropic’s full AI Fluency course to deepen your understanding of AI.\nIf you want more experience with data science, we recommend the transport chapter of:\n\nGeocomputation with R\nGeocomputation with Python",
+    "text": "2 Further Learning\nWe recommend taking Anthropic’s full AI Fluency course to deepen your understanding of AI.\nIf you want more experience with data science:\n\nGeocomputation with R, and the Transport chapter in particular\nGeocomputation with Python",
     "crumbs": [
       "Sessions",
       "Bonus: post-course follow-up"
