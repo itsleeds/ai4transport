@@ -1,5 +1,4 @@
 Package: ai4transport
-Type: Project
 Title: AI and Data Science for Transport - Course materials
 Version: 0.1.0
 Description: Teaching materials, examples, and scripts used for the "AI and Data Science for Transport" course.
@@ -8,29 +7,7 @@ Maintainer: ITS Leeds <itsleeds@leeds.ac.uk>
 License: CC0
 Encoding: UTF-8
 Depends: R (>= 4.0.0)
-Imports:
-    sf,
-    tidyverse,
-    tmap,
-    osmextract,
-    osmdata,
-    osmactive,
-    stats19,
-    stplanr,
-    mapview,
-    od,
-    dplyr,
-    readr,
-    tidyr,
-    stringr,
-    purrr,
-    ggplot2,
-    pak,
-    reticulate,
-    tmaptools
-Remotes:
-    nptscot/osmactive
+Imports: sf, tidyverse, tmap, osmextract, osmdata, osmactive, stats19, stplanr, mapview, od, dplyr, readr, tidyr, stringr, purrr, ggplot2, pak, reticulate, tmaptools
+Remotes: nptscot/osmactive
 URL: https://github.com/itsleeds/ai4transport
 BugReports: https://github.com/itsleeds/ai4transport/issues
-
-# Note: This DESCRIPTION is used to document package dependencies for the course material repository; it is not necessarily a package intended for CRAN distribution.
