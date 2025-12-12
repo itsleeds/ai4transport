@@ -1,0 +1,22 @@
+^data$
+^data/
+^images$
+^images/
+^slides$
+^slides/
+^routing-engine$
+^routing-engine/
+^docs$
+^docs/
+^_freeze$
+^_freeze/
+^osm_network.geojson$
+^.*\.geojson$
+^.*\.gpkg$
+^.*\.csv$
+^\.github/
+^_extensions/
+
+# Keep R/ and DESCRIPTION
+^R/
+!^R/
