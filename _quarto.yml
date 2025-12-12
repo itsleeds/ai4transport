@@ -6,6 +6,12 @@ website:
   title: "AI and Data Science for Transport"
   repo-url: "https://github.com/itsleeds/ai4transport"
   repo-actions: [issue]
+  announcement:
+    icon: info-circle
+    dismissable: true
+    content: "If you're interested, get in touch with [Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton) and [Robin Lovelace](https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace)."
+    type: primary
+    position: below-navbar
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
     left: "Materials by ITS Leeds, 2025."
