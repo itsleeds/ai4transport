@@ -74,12 +74,19 @@ od_sf |>
 
 ## Further Learning
 
-We recommend taking Anthropic's full [AI Fluency course](https://github.com/anthropics/courses/tree/master/AI_fluency) to deepen your understanding of AI.
+We recommend taking Anthropic's full [AI Fluency course](todo-add-link) to deepen your understanding of AI.
 
 If you want more experience with data science, we recommend the transport chapter of:
 
--   [Geocomputation with R](https://r.geocompx.org/transport.html)
--   [Geocomputation with Python](https://py.geocompx.org/transport.html)
+-   [Geocomputation with R](todo-add-link)
+-   [Geocomputation with Python](todo-add-link)
+
+## Get in touch
+
+If you are interested in learning more or collaborating, please get in touch with the team. You can find our email addresses on our institutional profiles:
+
+-   [Robin Lovelace](todo-add-link)
+-   [Chris Rushton](todo-add-link)
 
 ## Data Access
 
