@@ -386,11 +386,22 @@
     ]
   },
   {
+    "objectID": "bonus.html#get-in-touch",
+    "href": "bonus.html#get-in-touch",
+    "title": "Bonus Content",
+    "section": "3 Get in touch",
+    "text": "3 Get in touch\nIf you are interested in learning more or collaborating, please get in touch with the team. You can find our email addresses on our institutional profiles:\n\nRobin Lovelace\nChris Rushton",
+    "crumbs": [
+      "Sessions",
+      "Bonus: post-course follow-up"
+    ]
+  },
+  {
     "objectID": "bonus.html#data-access",
     "href": "bonus.html#data-access",
     "title": "Bonus Content",
-    "section": "3 Data Access",
-    "text": "3 Data Access\nYou can find details on how to access the data used in this course on the Get Data page.",
+    "section": "4 Data Access",
+    "text": "4 Data Access\nYou can find details on how to access the data used in this course on the Get Data page.",
     "crumbs": [
       "Sessions",
       "Bonus: post-course follow-up"
