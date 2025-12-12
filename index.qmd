@@ -25,6 +25,7 @@ In this course, you will learn how to generate professional outputs like this or
 
 -   Check the [Prerequisites](prerequisites.qmd) to set up your environment.
 -   View the [Schedule](schedule.qmd) to see what we will cover.
+-   See the [Get Data](get-data.qmd) page for data access.
 -   Jump to [Session 1](s1.qmd) to begin.
 
 ---

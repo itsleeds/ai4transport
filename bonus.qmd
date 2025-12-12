@@ -71,3 +71,16 @@ od_sf |>
 ```
 
 ![OD commuting flows in TfSE, coloured by % car use](https://itsleeds.github.io/ai4transport/images/tfse_od_map.png)
+
+## Further Learning
+
+We recommend taking Anthropic's full [AI Fluency course](https://github.com/anthropics/courses/tree/master/AI_fluency) to deepen your understanding of AI.
+
+If you want more experience with data science, we recommend the transport chapter of:
+
+-   [Geocomputation with R](https://r.geocompx.org/transport.html)
+-   [Geocomputation with Python](https://py.geocompx.org/transport.html)
+
+## Data Access
+
+You can find details on how to access the data used in this course on the [Get Data](get-data.qmd) page.
