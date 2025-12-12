@@ -353,60 +353,38 @@
     ]
   },
   {
-    "objectID": "tfse.html",
-    "href": "tfse.html",
-    "title": "TfSE AI and Data Science for Transport Course",
+    "objectID": "bonus.html",
+    "href": "bonus.html",
+    "title": "Bonus Content",
     "section": "",
-    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
+    "text": "We hope you enjoyed the course. You can find all the materials and updates on the course website.\nHere is a quick visualisation of the data we explored:\n\n\n\nlibrary(sf)\nlibrary(mapview)\n# Read places data\nplaces = read_sf(\"https://github.com/itsleeds/ai4transport/raw/main/data/places.geojson\")\n# Visualise places\nmapview(places, zcol = \"name\")\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\n\n\nDownload and prepare OD data for TfSE\n\n\nlibrary(od)\n\nod = read_csv(\"od_tfse_2021.csv\")\nzones = read_sf(\"tfse_msoas.gpkg\")\n\n# Check 1st column of zones matches 'o' and 'd' in od\nsummary(zones[[1]] %in% c(od$o, od$d))\nod_sf = od_to_sf(od, zones)\nod_sf = od_sf |&gt;\n  mutate(`% Car` = Car / (Car + Bicycle + Walking + Bus + Train))\nod_sf$length = sf::st_length(od_sf) |&gt; as.numeric()\nsf::write_sf(od_sf, \"od_tfse_2021_sf.gpkg\", delete_dsn = TRUE)\n\n\n\nod_sf = read_sf(\"od_tfse_2021_sf.gpkg\")\nod_sf |&gt;\n  filter(Car &gt; 10 & length &gt; 10 * 1000) |&gt;\n  arrange(desc(`% Car`)) |&gt;\n  ggplot() +\n  geom_sf(aes(colour = `% Car`)) +\n  scale_colour_viridis_c(direction = -1) +\n  theme_minimal()\n\n\n\n\nOD commuting flows in TfSE, coloured by % car use"
   },
   {
-    "objectID": "tfse.html#current-working-practices",
-    "href": "tfse.html#current-working-practices",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.1 Current working practices",
-    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
+    "objectID": "bonus.html#thanks-for-attending",
+    "href": "bonus.html#thanks-for-attending",
+    "title": "Bonus Content",
+    "section": "",
+    "text": "We hope you enjoyed the course. You can find all the materials and updates on the course website.\nHere is a quick visualisation of the data we explored:\n\n\n\nlibrary(sf)\nlibrary(mapview)\n# Read places data\nplaces = read_sf(\"https://github.com/itsleeds/ai4transport/raw/main/data/places.geojson\")\n# Visualise places\nmapview(places, zcol = \"name\")\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\n\n\nDownload and prepare OD data for TfSE\n\n\nlibrary(od)\n\nod = read_csv(\"od_tfse_2021.csv\")\nzones = read_sf(\"tfse_msoas.gpkg\")\n\n# Check 1st column of zones matches 'o' and 'd' in od\nsummary(zones[[1]] %in% c(od$o, od$d))\nod_sf = od_to_sf(od, zones)\nod_sf = od_sf |&gt;\n  mutate(`% Car` = Car / (Car + Bicycle + Walking + Bus + Train))\nod_sf$length = sf::st_length(od_sf) |&gt; as.numeric()\nsf::write_sf(od_sf, \"od_tfse_2021_sf.gpkg\", delete_dsn = TRUE)\n\n\n\nod_sf = read_sf(\"od_tfse_2021_sf.gpkg\")\nod_sf |&gt;\n  filter(Car &gt; 10 & length &gt; 10 * 1000) |&gt;\n  arrange(desc(`% Car`)) |&gt;\n  ggplot() +\n  geom_sf(aes(colour = `% Car`)) +\n  scale_colour_viridis_c(direction = -1) +\n  theme_minimal()\n\n\n\n\nOD commuting flows in TfSE, coloured by % car use"
   },
   {
-    "objectID": "tfse.html#ai-tools",
-    "href": "tfse.html#ai-tools",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.2 AI tools",
-    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI and Data Science for Transport",
+    "section": "",
+    "text": "Welcome to the course materials for AI and Data Science for Transport. This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.\nOur goal is to help you:\n\nAutomate repetitive tasks.\nAnalyze complex datasets efficiently.\nVisualize transport patterns with clarity.\n\n\n\nIn this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:\n\n\n\nCommuting flows in the South East of England\n\n\n\n\n\n\nCheck the Prerequisites to set up your environment.\nView the Schedule to see what we will cover.\nJump to Session 1 to begin.\n\n\n\n\nRepository README and Developer Setup\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\n\nCommuting flows in the South East of England, generated with AI assistance\n\n\n\n\nPython Environment Setup\n\nSome Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.\n\nCreate a virtual environment: bash     python3 -m venv .venv\nActivate the virtual environment (Linux/macOS): bash     source .venv/bin/activate (On Windows, use .venv\\Scripts\\activate)\nInstall dependencies: bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache\n\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
-    "objectID": "tfse.html#data-and-data-science",
-    "href": "tfse.html#data-and-data-science",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.3 Data and data science",
-    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
-  },
-  {
-    "objectID": "tfse.html#general",
-    "href": "tfse.html#general",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.4 General",
-    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
-  },
-  {
-    "objectID": "tfse.html#course-overview",
-    "href": "tfse.html#course-overview",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.5 Course Overview",
-    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
-  },
-  {
-    "objectID": "tfse.html#syllabus-6-hours-total",
-    "href": "tfse.html#syllabus-6-hours-total",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.6 Syllabus (6 hours total)",
-    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 12:30)\n\n\n\n\nI Do: Live Demonstration (11:30 - 11:50)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (11:50 - 12:10)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:10 - 12:30)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (12:30 - 13:30)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (13:30 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (90 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
-  },
-  {
-    "objectID": "tfse.html#resourcing",
-    "href": "tfse.html#resourcing",
-    "title": "TfSE AI and Data Science for Transport Course",
-    "section": "3.8 Resourcing",
-    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "AI and Data Science for Transport",
+    "section": "",
+    "text": "Welcome to the course materials for AI and Data Science for Transport. This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.\nOur goal is to help you:\n\nAutomate repetitive tasks.\nAnalyze complex datasets efficiently.\nVisualize transport patterns with clarity.\n\n\n\nIn this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:\n\n\n\nCommuting flows in the South East of England\n\n\n\n\n\n\nCheck the Prerequisites to set up your environment.\nView the Schedule to see what we will cover.\nJump to Session 1 to begin.\n\n\n\n\nRepository README and Developer Setup\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\n\nCommuting flows in the South East of England, generated with AI assistance\n\n\n\n\nPython Environment Setup\n\nSome Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.\n\nCreate a virtual environment: bash     python3 -m venv .venv\nActivate the virtual environment (Linux/macOS): bash     source .venv/bin/activate (On Windows, use .venv\\Scripts\\activate)\nInstall dependencies: bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache\n\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "s1.html",
@@ -464,24 +442,60 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "AI and Data Science for Transport",
+    "objectID": "tfse.html",
+    "href": "tfse.html",
+    "title": "TfSE AI and Data Science for Transport Course",
     "section": "",
-    "text": "Welcome to the course materials for AI and Data Science for Transport. This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.\nOur goal is to help you:\n\nAutomate repetitive tasks.\nAnalyze complex datasets efficiently.\nVisualize transport patterns with clarity.\n\n\n\nIn this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:\n\n\n\nCommuting flows in the South East of England\n\n\n\n\n\n\nCheck the Prerequisites to set up your environment.\nView the Schedule to see what we will cover.\nJump to Session 1 to begin.\n\n\n\n\nRepository README and Developer Setup\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\n\nCommuting flows in the South East of England, generated with AI assistance\n\n\n\n\nPython Environment Setup\n\nSome Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.\n\nCreate a virtual environment: bash     python3 -m venv .venv\nActivate the virtual environment (Linux/macOS): bash     source .venv/bin/activate (On Windows, use .venv\\Scripts\\activate)\nInstall dependencies: bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache\n\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "We’re developing materials to support teaching of AI and Data Science for Transport, building on introductory webinars on AI and transport that will cover:\n\nWebinar 1: What is AI?\nUse of AI in data analysis\nApplication of AI in transport planning"
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "AI and Data Science for Transport",
-    "section": "",
-    "text": "Welcome to the course materials for AI and Data Science for Transport. This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.\nOur goal is to help you:\n\nAutomate repetitive tasks.\nAnalyze complex datasets efficiently.\nVisualize transport patterns with clarity.\n\n\n\nIn this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:\n\n\n\nCommuting flows in the South East of England\n\n\n\n\n\n\nCheck the Prerequisites to set up your environment.\nView the Schedule to see what we will cover.\nJump to Session 1 to begin.\n\n\n\n\nRepository README and Developer Setup\n\n\nThis repo contains code to support teaching the use of data science and AI and Data Science for Transport planning. By AI we mean services such as Google Gemini, ChatGPT and similar tools from web user interfaces and APIs to:\n\nAutomate boring tasks\nSpeed-up work to increase productivity\nEnhance capabilities, leading to new and better outputs\n\nThe ultimate goal is more effective transport planning investments and decisions\n\n\n\nCommuting flows in the South East of England, generated with AI assistance\n\n\n\n\nPython Environment Setup\n\nSome Quarto documents in this repository utilize Python code. To ensure these documents render correctly, it’s recommended to set up a Python virtual environment and install the necessary dependencies.\n\nCreate a virtual environment: bash     python3 -m venv .venv\nActivate the virtual environment (Linux/macOS): bash     source .venv/bin/activate (On Windows, use .venv\\Scripts\\activate)\nInstall dependencies: bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache\n\nThe trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning. See the tfse document for the (currently in-development) course content for that specific course.",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "tfse.html#current-working-practices",
+    "href": "tfse.html#current-working-practices",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.1 Current working practices",
+    "text": "3.1 Current working practices\n\nWhich software, web applications or other digital tools do you use for your day-to-day transport planning work?\nWith reference to a recent project or concrete example, describe typical work tasks that you need to complete on a day-to-day basis.\nWhat are the most boring parts of your work?\nWhich parts of your work are most conducive to automation?"
+  },
+  {
+    "objectID": "tfse.html#ai-tools",
+    "href": "tfse.html#ai-tools",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.2 AI tools",
+    "text": "3.2 AI tools\n\nWhich AI tools have you heard of?\nWhich AI tools have you tested?\nWhich AI tools do you currently use in your work (if any)?\nAre there any particular AI tools or technologies you are interested in learning more about?"
+  },
+  {
+    "objectID": "tfse.html#data-and-data-science",
+    "href": "tfse.html#data-and-data-science",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.3 Data and data science",
+    "text": "3.3 Data and data science\n\nHow do you currently use data in your decision-making processes?\nWhat kinds of data do you use?\nWhich data science tools do you use?\nDo you use any programming languages (e.g., Python, R) for data analysis?\nDo you use interactive development environments (e.g. VS Code) for your work, and if so which?"
+  },
+  {
+    "objectID": "tfse.html#general",
+    "href": "tfse.html#general",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.4 General",
+    "text": "3.4 General\n\nWhat skills or knowledge do you hope to gain from this course?"
+  },
+  {
+    "objectID": "tfse.html#course-overview",
+    "href": "tfse.html#course-overview",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.5 Course Overview",
+    "text": "3.5 Course Overview\nThis 6-hour course provides a comprehensive introduction to the field of Data Science and AI and Data Science for Transport.\nWe have found consistently that the best way to take advantage of the new AI tools and techniques is to integrate them into robust and reproducible data science methods. The principles of “garbage in, garbage out” and “all models are wrong but some are useful” applies equally to AI models as they do to traditional models. With the power of AI, it is even more important to have have high-quality input datasets, reproducible workflows that enable quality assurance (QA) steps and agile development practices that can adapt to changing datasets, requirements and computational capabilities.\nThis course will focus on practical applications and real-world examples to help participants understand how to leverage AI in their work.\nParticipants will consolidate their knowledge of fundamental concepts, tools, and techniques and learn to apply them to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use AI and other digital tools to convert raw datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course will be tailored to the specific needs and backgrounds of Transport for the South East."
+  },
+  {
+    "objectID": "tfse.html#syllabus-6-hours-total",
+    "href": "tfse.html#syllabus-6-hours-total",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.6 Syllabus (6 hours total)",
+    "text": "3.6 Syllabus (6 hours total)\nThe course will run from 10:00 to 17:00, with a 1-hour break for lunch.\n\n3.6.1 Module 1: Foundations of AI in Transport (10:00 - 11:30)\n\nLecture (30 mins):\n\nDemystifying AI: Key concepts and terminology.\n\nCross-referencing Anthropic’s free AI Fluency course\n\nData Science as a framework for applying AI effectively.\n\nOur own experience and unique take on it\n\nOverview of AI applications in transport planning.\n\n…\n\n3.7 Ethical considerations and “garbage in, garbage out” vs prompt engineering and context engineering.\n\nPractical (60 mins):\n\nInteractive session exploring real-world AI use cases in transport.\n\nHands-on exercise identifying potential AI applications in common transport planning tasks (~20 mins).\n\nStart with pen and paper (recommended)\nDraw a flowchart of an example from your current work\nDraw a flowchart that shows how AI could be introduced\nBonus if fast: do for another project/workflow, which project is most conducive to AI integration?\n\nIn groups of around 5 people: talk about how best to integrate AI in your work from first principles (~20 mins).\nFeedback to everyone and discuss common themes (~20 mins).\n\n\n\n3.7.1 Module 2: (AI-Powered) Coding and Development (11:30 - 12:30)\n\n\n\n\nI Do: Live Demonstration (11:30 - 11:50)\n\nInstructor introduces AI-powered IDEs (VS Code) and AI coding assistants (GitHub Copilot).\nDemonstrates an efficient AI-assisted workflow, highlighting best practices for prompting and when to use AI.\nLive coding: Using Copilot to generate, explain, and debug Python code for a common transport data task (e.g., loading a dataset).\n\nWe Do: Guided Practice (11:50 - 12:10)\n\nBuilding on the “I Do” example, participants follow along with the instructor.\nGuided exercise: Use Copilot to perform the next step, such as cleaning the data or or adding a new feature.\nCollaborative problem-solving: The instructor introduces a bug, and the group uses AI tools to identify and fix it together.\n\nYou Do: Independent Application (12:10 - 12:30)\n\nParticipants receive a small, related challenge to solve independently or in pairs.\nTask: Use Copilot to automate a script for data handling or generate a simple visualization.\nInstructor provides support and reviews solutions.\n\n\n# Make a graph showing x and x^2:\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = x**2\nplt.plot(x, y)   \n\n\n3.7.2 Lunch Break (12:30 - 13:30)\n\n\n3.7.3 Module 3: Using LLMs for Reporting and Analysis (13:30 - 15:30)\n\nLecture (30 mins):\n\nIntroduction to Large Language Models (LLMs) and prompt engineering.\nTechniques for using LLMs with transport-related documents and data.\n\nPractical (90 mins):\n\nReading and summarising transport policy documents.\nReal-world example: analysing 100+ Local Cycling and Walking Infrastructure Plans.\nAnalysing qualitative data (e.g., consultation responses).\nDrafting sections of a transport report based on provided data.\n\n\n\n\n3.7.4 Module 4: AI and Data Science for Transport Data Analysis (15:30 - 17:00)\n\nLecture (15 mins):\n\nHow AI accelerates data cleaning, preprocessing, and exploratory analysis.\nUsing AI to identify patterns and generate hypotheses from transport datasets.\n\nPractical (75 mins):\n\nGuided case study: Using AI tools to analyze a transport dataset from start to finish.\nGenerating visualizations and interpreting results with AI assistance.\nCourse wrap-up and Q&A."
+  },
+  {
+    "objectID": "tfse.html#resourcing",
+    "href": "tfse.html#resourcing",
+    "title": "TfSE AI and Data Science for Transport Course",
+    "section": "3.8 Resourcing",
+    "text": "3.8 Resourcing\nThe development and initial delivery of this course is estimated at 5 days total, including preparation and delivery:\n\nRobin Lovelace: 3 days\nChris: 2 days"
   },
   {
     "objectID": "s4.html",
@@ -579,7 +593,7 @@
     "href": "get-data.html#setup",
     "title": "Get Data for the Course",
     "section": "2 Setup",
-    "text": "2 Setup\nLoad necessary packages.\n\nlibrary(sf)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(stats19)\nlibrary(osmdata)"
+    "text": "2 Setup\nLoad necessary packages.\n\nlibrary(sf)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(stats19)\nlibrary(osmdata)\nlibrary(osmactive)\nlibrary(tmap)"
   },
   {
     "objectID": "get-data.html#tfse-boundary-and-geographies",
@@ -617,11 +631,25 @@
     "text": "7 5. DfT Traffic Data\nDownload traffic count data.\n\n# Placeholder for DfT traffic data download\n# dft_traffic = read.csv(\"https://storage.googleapis.com/dft-statistics/road-traffic/downloads/dft_traffic_counts_aadf.csv\")\n# Filter for TfSE region"
   },
   {
+    "objectID": "get-data.html#tfse-transport-network-osmactive",
+    "href": "get-data.html#tfse-transport-network-osmactive",
+    "title": "Get Data for the Course",
+    "section": "8 6. TfSE Transport Network (osmactive)",
+    "text": "8 6. TfSE Transport Network (osmactive)\nDownload and classify transport network using osmactive.\n\nif(file.exists(\"tfse_boundary.geojson\")) {\n  tfse_boundary = read_sf(\"tfse_boundary.geojson\")\n  \n  # Get the travel network for TfSE\n  # We use a broader region (e.g., South East England) and clip to the boundary\n  osm_tfse = get_travel_network(\"England\", boundary = tfse_boundary, boundary_type = \"clipsrc\")\n  \n  # Extract networks\n  cycle_net_tfse = get_cycling_network(osm_tfse)\n  drive_net_tfse = get_driving_network(osm_tfse)\n  \n  # Calculate distance to road and classify\n  cycle_net_tfse = distance_to_road(cycle_net_tfse, drive_net_tfse)\n  cycle_net_tfse = classify_cycle_infrastructure(cycle_net_tfse)\n  \n  # Save datasets\n  write_sf(cycle_net_tfse, \"tfse_cycling_network.gpkg\", delete_dsn = TRUE)\n  write_sf(drive_net_tfse, \"tfse_driving_network.gpkg\", delete_dsn = TRUE)\n}"
+  },
+  {
+    "objectID": "get-data.html#brighton-area-analysis",
+    "href": "get-data.html#brighton-area-analysis",
+    "title": "Get Data for the Course",
+    "section": "9 7. Brighton Area Analysis",
+    "text": "9 7. Brighton Area Analysis\nCreate a 20km buffer around Brighton and generate an interactive map.\n\nif(exists(\"cycle_net_tfse\")) {\n  # Define Brighton center\n  # Coordinates for Brighton: ~ 50.8225° N, 0.1372° W\n  brighton_point = st_point(c(-0.1372, 50.8225)) |&gt; \n    st_sfc(crs = 4326) |&gt; \n    st_transform(st_crs(cycle_net_tfse))\n  \n  # Buffer 20km\n  brighton_buffer = st_buffer(brighton_point, 20000)\n  \n  # Clip the cycle network\n  brighton_cycle_net = cycle_net_tfse[brighton_buffer, ]\n  \n  # Save the subset\n  write_sf(brighton_cycle_net, \"brighton_20km_cycle_network.gpkg\", delete_dsn = TRUE)\n  \n  # Create interactive map\n  tmap_mode(\"view\")\n  m_brighton = tm_shape(brighton_cycle_net) +\n    tm_lines(col = \"cycle_segregation\", lwd = 2, title.col = \"Cycle Infrastructure\") +\n    tm_basemap(\"CartoDB.Positron\")\n  \n  # Save map\n  tmap_save(m_brighton, \"brighton_cycle_map.html\")\n}"
+  },
+  {
     "objectID": "get-data.html#upload-to-github-release",
     "href": "get-data.html#upload-to-github-release",
     "title": "Get Data for the Course",
-    "section": "8 Upload to GitHub Release",
-    "text": "8 Upload to GitHub Release\nUpload all generated files to the v1 release.\n\nfiles_to_upload = c(\n  \"tfse_boundary.geojson\",\n  \"tfse_lads.gpkg\",\n  \"tfse_msoas.gpkg\",\n  \"south_east_motorways.gpkg\",\n  \"collisions_tfse_2020_2024.gpkg\",\n  \"od_tfse_2021.csv\"\n  # Add OD and Traffic files here when implemented\n)\n\nfor(f in files_to_upload) {\n  if(file.exists(f)) {\n    system(paste(\"gh release upload v1\", f, \"--clobber\"))\n  }\n}"
+    "section": "10 Upload to GitHub Release",
+    "text": "10 Upload to GitHub Release\nUpload all generated files to the v1 release.\n\nfiles_to_upload = c(\n  \"tfse_boundary.geojson\",\n  \"tfse_lads.gpkg\",\n  \"tfse_msoas.gpkg\",\n  \"south_east_motorways.gpkg\",\n  \"collisions_tfse_2020_2024.gpkg\",\n  \"od_tfse_2021.csv\",\n  \"tfse_cycling_network.gpkg\",\n  \"tfse_driving_network.gpkg\",\n  \"brighton_20km_cycle_network.gpkg\",\n  \"brighton_cycle_map.html\"\n)\n\nfor(f in files_to_upload) {\n  if(file.exists(f)) {\n    system(paste(\"gh release upload v1\", f, \"--clobber\"))\n  }\n}"
   },
   {
     "objectID": "s3-advanced.html",
@@ -885,11 +913,11 @@
     ]
   },
   {
-    "objectID": "slides/day1.html#session-3-using-llms-for-reporting-and-analysis",
-    "href": "slides/day1.html#session-3-using-llms-for-reporting-and-analysis",
+    "objectID": "slides/day1.html#session-3-ai-for-transport-data-analysis",
+    "href": "slides/day1.html#session-3-ai-for-transport-data-analysis",
     "title": "AI and Data Science for Transport",
-    "section": "Session 3: Using LLMs for Reporting and Analysis",
-    "text": "Session 3: Using LLMs for Reporting and Analysis\nKey topics:\n\nLarge Language Models for transport documents\nPrompt engineering techniques\nAnalysing policy documents and reports\nPractical exercises with real transport data\n\nSee: Session 3 materials",
+    "section": "Session 3: AI for Transport Data Analysis",
+    "text": "Session 3: AI for Transport Data Analysis\nKey topics:\n\nFinding, cleaning, and visualizing transport data with AI\nExploratory Data Analysis (EDA) and interpretation\nNote: Originally planned to focus on document analysis. That advanced content is now in Session 3 Advanced, but we expect most to focus on this updated data analysis session.\n\nSee: Session 3 materials",
     "crumbs": [
       "Slides"
     ]
