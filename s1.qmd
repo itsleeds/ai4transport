@@ -1,82 +1,99 @@
 ---
-title: "Session 1: Foundations of AI in Transport"
+title: "Session 1: What is AI? Foundations & Principles"
 ---
 
 ## Overview
 
-This session lays the groundwork for the course.
+This session introduces AI from the ground up — what it is, how it works, and why it matters for transport professionals. No technical background required.
 
-## Slides and Presentation (45 mins)
+## Part 1: Demystifying AI (30 mins)
 
-The first half of the session will be delivered as a presentation. See the [slides](/slides/day1.html) for details.
-The aim of the presentation is to demystify artificial intelligence, specifically focusing on the tools transforming transport planning today, and establish a framework for using them effectively and ethically.
+### What is Artificial Intelligence?
 
-It will also provide a chance for debate: questions are encouraged!
+AI is not one thing. The term encompasses several distinct technologies:
 
-A summary of core concepts covered in the presentation can be found below (click to expand):
+-   **Machine Learning (ML):** Algorithms that improve with experience (e.g., predicting traffic flows from historical data)
+-   **Deep Learning:** Neural networks that recognise patterns (e.g., detecting cyclists in video feeds)
+-   **Large Language Models (LLMs):** The technology behind ChatGPT, GitHub Copilot, and similar tools
 
-<details>
-<summary>Click to expand core concepts from the presentation</summary>
+For this course, we focus primarily on **LLMs** — the AI tools you are most likely to use day-to-day.
 
-### Demystifying AI & LLMs
-We focus on **Large Language Models (LLMs)**. Think of an LLM not as a "truth machine," but as a highly advanced predictive text engine. It has analyzed vast amounts of text to understand patterns. When prompted, it predicts the most plausible next words. This allows it to reason, draft text, and even write code, but it requires human oversight to check facts.
-    
-### Types of AI Tools
-It is important to distinguish between the tools we will use:
+### How do LLMs work?
 
-*   **Web-based Chatbots (e.g. ChatGPT):** Best for generating text, summarizing reports, and brainstorming ideas.
-*   **Tools that integrate with your existing workflows (e.g., GitHub Copilot):** Integrated into software (like VS Code, which is used in the GitHub Codespaces environment many of you will be using for this course) to write and debug code. We will focus on these in Session 2.
+Think of an LLM as a highly advanced predictive text engine:
 
-M365 Copilot is half-way between these two, you can use it to work on your documents, emails, and spreadsheets, but is often used as a chat interface and (in my experience) its outputs are often just given in the chat interface telling you what to do rather than doing it for you.
+1.  It has been trained on vast amounts of text (books, websites, code repositories)
+2.  It learns statistical patterns in language — which words tend to follow others
+3.  When you give it a prompt, it predicts the most plausible next words
+4.  This prediction process allows it to reason, draft text, and write code
+
+::: callout-warning
+LLMs do **not** "know" facts. They generate plausible-sounding text based on patterns. Always verify outputs, especially for technical or domain-specific information.
+:::
+
+### What can AI do well? What can't it do?
+
+| ✅ AI is good at | ❌ AI struggles with |
+|---|---|
+| Summarising long documents | Factual accuracy (can "hallucinate") |
+| Generating boilerplate code | Understanding your specific context |
+| Explaining unfamiliar concepts | Domain-specific transport knowledge |
+| Brainstorming and idea generation | Numerical precision without verification |
+| Translating between formats/languages | Knowing when it doesn't know |
+
+## Part 2: AI in Transport (30 mins)
+
+### Real-world applications
+
+AI is already being used across transport planning:
+
+-   **Demand forecasting:** Predicting passenger numbers for new routes
+-   **Safety analysis:** Identifying high-risk road locations from collision data
+-   **Network planning:** Optimising cycling infrastructure using spatial data
+-   **Accessibility analysis:** Evaluating public transport coverage
+-   **Document analysis:** Extracting insights from planning documents
 
 ### The Data Science Framework
+
 AI is most effective when integrated into a reproducible data science workflow:
 
-*   **Reproducibility:** Moving away from ad-hoc Excel spreadsheets to scripted workflows (R/Python).
-*   **Scalability:** Automating tasks to run on 100 files as easily as one.
-*   **Transparency:** Code allows others to audit your methodology.
+-   **Reproducibility:** Moving from ad-hoc spreadsheets to scripted workflows (R/Python)
+-   **Scalability:** Automating tasks to run on 100 files as easily as one
+-   **Transparency:** Code allows others to audit your methodology
+-   **Version control:** Track changes and collaborate using Git
 
-### Ethical Considerations
+## Part 3: Ethical Considerations (15 mins)
 
-*   **Bias:** AI models reflect the biases in their training data.
-*   **"Hallucinations":** Models can confidently state falsehoods.
-*   **Data Privacy:** Never input sensitive personal data (GDPR) or confidential internal documents into public AI models.
+### Key concerns for transport professionals
 
-</details>
+-   **Bias:** AI models reflect biases in their training data. A model trained on car-centric data may undervalue walking and cycling
+-   **"Hallucinations":** Models can confidently state falsehoods. Never trust AI output without verification
+-   **Data privacy:** Never input sensitive personal data (GDPR) or confidential internal documents into public AI models
+-   **Deskilling vs upskilling:** AI should enhance your expertise, not replace critical thinking. This course focuses on using AI to make you *more* capable, not more dependent
 
-## Quick Start: Try it Now (5 minutes)
+### Discussion
 
-Before diving into the theory, let's see AI in action using a standard Large Language Model (LLM).
+::: {.callout-note}
+## Think about it
 
-1.  Open a free AI chat tool like [Microsoft 365 Copilot](https://m365.cloud.microsoft/chat/), [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or [Gemini](https://gemini.google.com).
-2.  Copy and paste the following prompt:
+What transport tasks in your work could benefit from AI assistance? What tasks should remain firmly under human control?
+:::
 
-> "I am a transport planner for a medium-sized UK town. We are proposing a new segregated cycle lane on a busy high street, but local business owners are worried about the loss of parking. Draft a short response explaining the long-term economic benefits of increased footfall from cyclists and pedestrians. Keep it under 200 words."
+## Part 4: Hands-on First Steps (15 mins)
 
-3.  Critique the result. It won't be perfect, but it acts as a powerful **accelerator** for your expertise.
+Before diving into the tools, let's see AI in action:
 
-<details>
-<summary>Example output from Microsoft 365 Copilot</summary>
+1.  Open a web-based AI chat tool (ChatGPT, Claude, or Microsoft Copilot)
+2.  Try this prompt: *"Explain what a spatial interaction model is, in 3 sentences, for a transport planner"*
+3.  Now try: *"Write R code to create a desire line map showing commuter flows between Leeds and surrounding areas using the stplanr package"*
+4.  Compare the outputs — what's useful? What needs correction?
 
-![](images/paste-9.png)
+::: {.callout-tip}
+## Key insight
+Notice how the quality of output depends heavily on the quality of your input. This is why prompt engineering matters — we cover this in depth in Session 5.
+:::
 
-</details>
+## Next Steps
 
-## Identifying tasks where AI can help (40 mins)
-
-We will now apply these concepts to your daily work.
-
-**1. Individual Task: Workflow Mapping (10 mins)**
-
-*   Draw a simple flowchart of a routine task you perform (e.g., replying to consultation emails, cleaning traffic count data).
-*   You can use pen and paper, or we recommend **[Excalidraw](https://excalidraw.com/)** for quickly creating digital sketches.
-*   Mark the steps where AI could act as an "assistant" to speed up the process.
-
-**2. Small Group Strategy (15 mins)**
-
-*   In groups of 3-4, share your flowcharts.
-*   Discuss: Which task is the "low hanging fruit"? Which is too complex or risky for AI?
-
-**3. Feedback & Discussion (15 mins)**
-
-*   We will share the most promising use-cases with the room.
+-   [Session 2: AI Tools & GitHub Copilot](s2.qmd) — Hands-on with integrated AI tools
+-   [Prerequisites](prerequisites.qmd) — Make sure your setup is ready

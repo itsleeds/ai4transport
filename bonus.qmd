@@ -1,93 +1,162 @@
 ---
-title: "Bonus Content"
-format: html
-execute: 
-  eval: false
+title: "Bonus Exercises"
+description-meta: "Additional challenges for experienced users, including copilot-cli and advanced DuckDB."
+pagetitle: "Bonus Exercises"
 ---
 
-## Thanks for attending!
+## Overview
 
-We hope you enjoyed the course.
-You can find all the materials and updates on the [course website](https://itsleeds.github.io/ai4transport/).
+These bonus exercises are for participants who want to go further. They assume comfort with the command line and programming concepts from the main sessions.
 
-Here is a quick visualisation of the data we explored:
+## copilot-cli {#copilot-cli}
 
-### Places
+GitHub Copilot is also available as a **command-line tool** that brings AI assistance to your terminal. This is useful for:
 
-```{r}
-#| label: map-places
-#| message: false
-#| warning: false
-library(sf)
-library(mapview)
-# Read places data
-places = read_sf("https://github.com/itsleeds/ai4transport/raw/main/data/places.geojson")
-# Visualise places
-mapview(places, zcol = "name")
+-   Getting command suggestions without leaving the terminal
+-   Explaining complex shell commands
+-   Generating Git workflows
+-   Automating repetitive CLI tasks
+
+### Installation
+
+::: callout-note
+## Prerequisites
+You need a GitHub account with Copilot access (free for students, or via GitHub Copilot Individual/Enterprise).
+:::
+
+**Install the GitHub CLI extension:**
+
+```bash
+# Install gh CLI if you don't have it
+# macOS
+brew install gh
+# Windows
+winget install GitHub.cli
+# Linux
+sudo apt install gh
+
+# Install the Copilot extension
+gh extension install github/gh-copilot
 ```
 
-![](images/paste-11.png)
+**Authenticate:**
 
-### OD Data
-
-```{r}
-library(tidyverse)
-library(sf)
+```bash
+gh auth login
 ```
 
-<details>
+### Basic Usage
 
-<summary>Download and prepare OD data for TfSE</summary>
+**Suggest a command:**
 
-```{r}
-#| label: plot-od
-#| message: false
-#| warning: false
-library(od)
-
-od = read_csv("od_tfse_2021.csv")
-zones = read_sf("tfse_msoas.gpkg")
-
-# Check 1st column of zones matches 'o' and 'd' in od
-summary(zones[[1]] %in% c(od$o, od$d))
-od_sf = od_to_sf(od, zones)
-od_sf = od_sf |>
-  mutate(`% Car` = Car / (Car + Bicycle + Walking + Bus + Train))
-od_sf$length = sf::st_length(od_sf) |> as.numeric()
-sf::write_sf(od_sf, "od_tfse_2021_sf.gpkg", delete_dsn = TRUE)
+```bash
+gh copilot suggest "find all GeoJSON files larger than 10MB in the current directory"
 ```
 
-</details>
+**Explain a command:**
 
-```{r}
-od_sf = read_sf("od_tfse_2021_sf.gpkg")
-od_sf |>
-  filter(Car > 10 & length > 10 * 1000) |>
-  arrange(desc(`% Car`)) |>
-  ggplot() +
-  geom_sf(aes(colour = `% Car`)) +
-  scale_colour_viridis_c(direction = -1) +
-  theme_minimal()
+```bash
+gh copilot explain "find . -name '*.geojson' -size +10M -exec du -h {} + | sort -hr"
 ```
 
-![OD commuting flows in TfSE, coloured by % car use](https://itsleeds.github.io/ai4transport/images/tfse_od_map.png)
+### Exercise: Terminal Productivity
 
-## Further Learning
+Try these prompts with `gh copilot suggest`:
 
-We recommend taking Anthropic's full [AI Fluency course](https://www.anthropic.com/learn/claude-for-you) to deepen your understanding of AI.
+1.  "Download the GeoJSON file from this URL and convert it to a GeoPackage"
+2.  "Find all R files that contain the word 'st_transform' and show the line numbers"
+3.  "Count the number of features in a GeoJSON file from the command line"
+4.  "Set up a Git pre-commit hook that checks for large files"
 
-If you want more experience with data science:
+::: {.callout-tip}
+## Tip
+Use `gh copilot suggest --target shell` for shell commands or `--target git` for Git-specific commands.
+:::
 
--   [Geocomputation with R](https://r.geocompx.org/), and the [Transport chapter](https://r.geocompx.org/transport.html) in particular
--   [Geocomputation with Python](https://py.geocompx.org/)
+## DuckDB Challenges {#duckdb-challenges}
 
-## Get in touch
+For those who enjoyed Session 4 and want to go deeper with DuckDB.
 
-If you are interested in learning more or collaborating, please get in touch with the team. You can find our email addresses on our institutional profiles:
+### Challenge 1: Performance Comparison
 
--   [Robin Lovelace](https://environment.leeds.ac.uk/transport/staff/953/professor-robin-lovelace)
--   [Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton)
+Benchmark DuckDB vs R (dplyr) vs Python (pandas) for:
 
-## Data Access
+1.  Loading and filtering the Leeds network (19,145 features)
+2.  Grouping and aggregation by highway type
+3.  Spatial join with the boundary polygon
 
-You can find details on how to access the data used in this course on the [Get Data](get-data.qmd) page.
+Ask AI to write the benchmarking code and compare results.
+
+### Challenge 2: Complex Spatial Query
+
+Write a DuckDB query that:
+
+1.  Loads `leeds_network.geojson` and `leeds_boundary.geojson`
+2.  Finds all cycleways within 500m of major roads (highway = 'primary' or 'secondary')
+3.  Calculates the total length of these "at-risk" cycleways
+4.  Outputs the result as a new GeoJSON file
+
+### Challenge 3: OD Data Enrichment
+
+Using the Leeds OD data:
+
+1.  Load into DuckDB
+2.  Join with zone-level statistics (total population, employment)
+3.  Calculate cycling mode share per zone
+4.  Export the results for visualisation in R/Python
+
+### Challenge 4: Multi-File Query
+
+DuckDB can query multiple files without loading them into memory:
+
+```sql
+-- Query all GeoJSON files in a directory
+SELECT * FROM read_geojson('data/*.geojson')
+```
+
+Try combining data from multiple sources into a single analysis.
+
+## Advanced Prompting Challenges
+
+### Challenge 5: Code Review
+
+Use AI as a code reviewer:
+
+```
+Act as a senior transport data scientist. Review this analysis script for:
+1. Methodological correctness
+2. Code quality and readability  
+3. Performance issues
+4. Missing edge cases
+5. Suggestions for improvement
+
+[paste your code from Session 7]
+```
+
+### Challenge 6: Documentation Generation
+
+Take any function you wrote during the course and ask AI to:
+
+1.  Add roxygen2/docstring documentation
+2.  Write unit tests using testthat (R) or pytest (Python)
+3.  Create a usage vignette/tutorial
+4.  Generate a README for a package containing the function
+
+## Non-Technical Bonus Activities
+
+### For those who prefer analysis over coding:
+
+**A. AI-Assisted Literature Review**
+-   Use AI to search for recent transport data science papers
+-   Ask it to summarise key findings and methodologies
+-   Compare AI summaries with the actual papers — how accurate is it?
+
+**B. Prompt Engineering Practice**
+-   Collect 10 real transport analysis tasks from your work
+-   Write SPACE-framework prompts for each
+-   Test them with different AI tools and compare results
+
+**C. AI Ethics Assessment**
+-   Identify 3 ways AI bias could affect transport planning decisions
+-   Write guidelines for your team on responsible AI use
+-   Discuss: when should AI *not* be used in transport analysis?

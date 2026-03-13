@@ -1,0 +1,169 @@
+---
+title: "Session 6: Agentic AI & Multi-Step Workflows"
+---
+
+## Introduction
+
+So far, we have used AI for individual tasks — one prompt, one response. Now we explore **agentic AI**: using AI to handle multi-step workflows where the AI can plan, execute, check its work, and iterate.
+
+## What is an Agentic Workflow?
+
+Traditional AI interaction:
+> You ask → AI responds → You check → Done
+
+Agentic AI interaction:
+> You describe a goal → AI creates a plan → AI executes steps → AI checks results → AI adjusts → You review
+
+The key difference: the AI has more autonomy to work through a problem, but you remain in control.
+
+## GitHub Copilot Agent Mode
+
+GitHub Copilot's **Agent Mode** (in VS Code) can:
+
+-   Read and write multiple files in your project
+-   Run terminal commands
+-   See errors and fix them
+-   Iterate on solutions across multiple steps
+
+### Enabling Agent Mode
+
+1.  Open Copilot Chat in VS Code
+2.  Look for the mode selector (usually at the bottom of the chat panel)
+3.  Select **Agent** (instead of "Ask" or "Edit")
+
+::: callout-caution
+## Important
+Agent Mode can modify files and run commands. Always review changes before accepting them. Use version control (Git) so you can revert if needed.
+:::
+
+## Exercise 1: Single-Step to Multi-Step
+
+### Task: Create a Complete Analysis Script
+
+**Single-step approach (what we did on Day 1):**
+
+```
+Write R code to analyse the Leeds cycling network
+```
+
+**Multi-step agentic approach:**
+
+```
+Create a complete R script that:
+1. Loads leeds_network.geojson and leeds_boundary.geojson
+2. Cleans the data (removes invalid geometries, filters to Leeds boundary)
+3. Calculates network statistics (total length, by type, by surface)
+4. Creates a summary table with mode share estimates
+5. Generates 3 maps: network overview, surface quality, and cycling density
+6. Saves all outputs to an 'output/' directory
+7. Includes error handling and progress messages
+
+Run the script and fix any errors you encounter.
+```
+
+The second prompt gives the AI a clear multi-step plan to execute. Try both and compare!
+
+## Exercise 2: Using Agent Mode
+
+### Setup
+
+1.  Open the ai4transport repository in VS Code (or Codespaces)
+2.  Open Copilot Chat and switch to **Agent** mode
+3.  Create a new file called `leeds_analysis.R`
+
+### Task
+
+Enter this prompt in Agent Mode:
+
+```
+Create a complete transport analysis pipeline for Leeds:
+
+1. Write a function that loads the OD data (leeds_od_data.csv) and 
+   calculates mode share (bicycle, walk, car_driver) for each zone
+2. Write a function that joins this with zone boundaries 
+   (leeds_boundary.geojson) and creates a choropleth map
+3. Write a function that identifies the top 5 "cycling potential" 
+   routes — desire lines with high car trips but short distance
+4. Create a main script that runs all functions and saves results
+5. Run the script and fix any errors
+
+Use tidyverse and tmap packages. Add clear comments explaining each step.
+```
+
+Watch how Agent Mode:
+-   Creates the file
+-   Writes code
+-   Runs it
+-   Sees errors (if any)
+-   Fixes them
+-   Reports the result
+
+### Review
+
+After Agent Mode finishes:
+
+1.  **Read every line of code.** Do you understand it?
+2.  **Check the outputs.** Do they look reasonable?
+3.  **Question the AI.** Ask it to explain any parts you don't understand
+4.  **Test edge cases.** What happens with missing data? Empty results?
+
+## Exercise 3: Debugging with Agentic AI
+
+### Setup
+
+Create a file with an intentional bug:
+
+```r
+# leeds_buggy.R
+library(sf)
+library(tmap)
+
+leeds_network = read_sf("leeds_network.geojson")
+leeds_boundary = read_sf("leeds_boundary.geojson")
+
+# Bug: wrong CRS transformation
+leeds_projected = st_transform(leeds_network, 2770)
+# Bug: column name typo
+cycleways = leeds_network[leeds_network$highway == "cycle", ]
+# Bug: incomplete map
+map = tm_shape(leeds_projected) + tm_lines()
+tmap_save(map, "output/map.png")
+```
+
+Ask Agent Mode:
+
+```
+This script has errors. Find and fix all bugs, explain what was wrong, 
+and make the script work correctly. Also add proper error handling.
+```
+
+## Discussion: When to Use Agentic AI
+
+| ✅ Good for agentic AI | ❌ Not ideal for agentic AI |
+|---|---|
+| Boilerplate project setup | Novel research questions |
+| Multi-file refactoring | Domain-specific analysis logic |
+| Debugging complex errors | Tasks requiring human judgement |
+| Generating test suites | Sensitive data processing |
+| Documentation generation | Final production code (review needed) |
+
+::: {.callout-important}
+## Keep control
+Agentic AI is powerful but not infallible. Always:
+-   Review all changes before committing
+-   Use Git to track and revert changes
+-   Test the output, not just the code
+-   Maintain your understanding of what the code does
+:::
+
+## Key Takeaways
+
+1.  Agentic AI can handle multi-step workflows, saving time on complex tasks
+2.  Agent Mode in Copilot can read/write files and run commands
+3.  Always review agentic AI's work — it optimises for "done" not "correct"
+4.  Use version control to safely experiment with agentic workflows
+5.  The goal is to amplify your capabilities, not replace your judgement
+
+## Next Steps
+
+-   [Session 7: Applied Projects](s7.qmd) — Apply everything to your own Leeds project

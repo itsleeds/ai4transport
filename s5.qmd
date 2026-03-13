@@ -1,0 +1,148 @@
+---
+title: "Session 5: Effective Prompting Strategies"
+---
+
+## Introduction
+
+Day 2 focuses on getting the most out of AI tools. We start with **prompt engineering** — the skill of communicating effectively with AI to get useful, accurate results.
+
+## Why Prompting Matters
+
+The same AI model can produce wildly different outputs depending on how you prompt it. Consider:
+
+> **Vague:** "Analyse this transport data"
+
+> **Specific:** "I have a CSV of cycling counts in Leeds with columns: date, count_point_id, location, total_cycles, longitude, latitude. Create a time series plot showing monthly averages, highlight any months with counts above the 90th percentile, and add a trend line. Use R with ggplot2."
+
+The second prompt will produce usable code. The first will produce... something.
+
+## The SPACE Framework
+
+Building on the CIC framework from Day 1, we introduce **SPACE** for more complex tasks:
+
+-   **S**ituation: What is the context? What data/environment are you working in?
+-   **P**roblem: What specifically are you trying to solve or create?
+-   **A**ction: What should the AI do? (Write code? Explain? Debug? Refactor?)
+-   **C**onstraints: What limitations exist? (Language, packages, performance, style)
+-   **E**xample: Can you show an example of the desired output?
+
+### Example
+
+> **Situation:** I'm analysing commuter cycling patterns in Leeds for a council transport strategy report. I have OD data from the 2021 Census with columns for origin zone, destination zone, and bicycle count.
+>
+> **Problem:** I need to identify the top 20 desire lines for cycling investment.
+>
+> **Action:** Write R code that creates a desire line map using stplanr, with line width proportional to cycling volume.
+>
+> **Constraints:** Use tmap for plotting, keep the map to A4 size, use a colour-blind-friendly palette.
+>
+> **Example:** Similar to this but for Leeds instead of London: [link to example]
+
+## Exercise 1: Prompt Improvement
+
+Take these poor prompts and rewrite them using the SPACE framework. Then compare your improved prompts with Copilot's output vs the original.
+
+### Prompt A
+> "Show me a map"
+
+### Prompt B
+> "Fix my code it doesn't work"
+
+### Prompt C
+> "What does this data mean?"
+
+::: {.callout-tip}
+## Tip
+After rewriting, try both the original and improved prompts with Copilot. Compare the outputs. The difference is often dramatic.
+:::
+
+## Exercise 2: Iterative Prompting
+
+The best results come from **iterative conversations**, not single prompts. Try this workflow:
+
+**Prompt 1:** Create initial code
+```
+Write R code to load leeds_network.geojson and create a basic map 
+of the cycling infrastructure coloured by surface type
+```
+
+**Prompt 2:** Refine the output
+```
+That's a good start. Now filter to only show cycleways and paths, 
+and use a diverging colour palette
+```
+
+**Prompt 3:** Add detail
+```
+Add labels for the 5 longest cycleways. Use direct labels 
+rather than a legend for these
+```
+
+**Prompt 4:** Polish
+```
+Make the map publication-ready: add a title, source attribution 
+(OSM), north arrow, and scale bar
+```
+
+::: {.callout-note}
+## Notice
+Each prompt builds on the conversation history. The AI remembers context from previous messages in the same conversation. This is why a multi-turn conversation is more powerful than isolated prompts.
+:::
+
+## Exercise 3: Common Prompting Patterns
+
+### Pattern 1: "Explain this code"
+
+Take any code block from the repository and ask:
+```
+Explain this code line by line. What does each part do? 
+Are there any potential issues?
+
+[paste code]
+```
+
+### Pattern 2: "Compare approaches"
+
+```
+Compare 3 ways to calculate road network length in R:
+1. Using sf::st_length() 
+2. Using DuckDB with ST_Length()
+3. Using Python geopandas
+
+Which is fastest for a dataset with 50,000 road segments? 
+Show benchmarking code.
+```
+
+### Pattern 3: "Generate test cases"
+
+```
+I have a function that calculates mode share from OD data. 
+Write test cases using testthat that check:
+- Edge cases (zero trips, missing values)
+- That shares sum to 1.0
+- That it handles both absolute counts and percentages
+```
+
+### Pattern 4: "Act as a reviewer"
+
+```
+Act as a code reviewer. Review this function for:
+- Correctness
+- Performance
+- Readability
+- Edge cases
+
+[paste code]
+```
+
+## Key Takeaways
+
+1.  **Be specific:** Vague prompts get vague outputs
+2.  **Iterate:** Build on previous responses rather than starting fresh
+3.  **Provide context:** The more the AI knows about your situation, the better
+4.  **Set constraints:** Tell the AI what you do and don't want
+5.  **Question outputs:** AI-generated code is a starting point, not a final answer
+
+## Next Steps
+
+-   [Session 6: Agentic AI & Multi-Step Workflows](s6.qmd) — Beyond single prompts

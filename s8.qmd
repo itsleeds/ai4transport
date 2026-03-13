@@ -1,0 +1,82 @@
+---
+title: "Session 8: Presentations & Wrap-up"
+---
+
+## Presentations
+
+Everyone will have 2 minutes to share their work from Session 7. Structure your presentation as:
+
+1.  **What I set out to do** (15 seconds)
+2.  **What I built** (30 seconds) — show a screenshot or output
+3.  **How AI helped** (30 seconds) — what prompting techniques worked?
+4.  **What I learned** (30 seconds) — about transport analysis, AI tools, or both
+5.  **What's next** (15 seconds) — how will you apply this in your work?
+
+::: callout-tip
+Don't worry about polished presentations. This is about sharing and learning from each other.
+:::
+
+## Course Wrap-up
+
+### What We Covered
+
+| Day | Session | Key Skills |
+|-----|---------|------------|
+| **Day 1** | What is AI? | Understanding AI capabilities and limitations |
+| | AI Tools & Copilot | Setting up and using GitHub Copilot |
+| | Coding Workshop | AI-assisted spatial analysis with Leeds data |
+| | Learning with DuckDB | Using AI to learn new tools |
+| **Day 2** | Prompting Strategies | SPACE framework, iterative prompting |
+| | Agentic AI | Multi-step workflows, Agent Mode |
+| | Applied Projects | Independent project work |
+| | Presentations | Sharing and reflecting |
+
+### Key Principles
+
+1.  **AI is a tool, not a replacement.** It makes you more productive, not redundant.
+2.  **Prompting is a skill.** The quality of your output depends on the quality of your input.
+3.  **Always verify.** AI-generated code and analysis must be checked by a human.
+4.  **Iterate and improve.** Start simple, refine with follow-up prompts.
+5.  **Use AI to learn.** The best use of AI is to become more capable, not more dependent.
+
+### The AI-Assisted Transport Professional
+
+After this course, you should be able to:
+
+-   Use GitHub Copilot to write and debug code faster
+-   Write effective prompts using the SPACE framework
+-   Use AI to learn new tools and packages
+-   Build agentic workflows for multi-step tasks
+-   Critically evaluate AI-generated outputs
+-   Know when AI is (and isn't) the right tool
+
+## Resources for Continued Learning
+
+### GitHub Skills (Free, Self-Paced)
+
+-   [Introduction to GitHub](https://github.com/skills/introduction-to-github)
+-   [Communicate using Markdown](https://github.com/skills/communicate-using-markdown)
+-   [GitHub Copilot](https://github.com/skills/github-copilot)
+
+### R/Python Resources
+
+-   [Geocomputation with R](https://r.geocompx.org/) — Spatial analysis in R
+-   [stplanr](https://itsleeds.github.io/stplanr/) — Transport planning in R
+-   [osmextract](https://docs.ropensci.org/osmextract/) — Download OSM data
+
+### AI Resources
+
+-   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+-   [Prompt Engineering Guide](https://www.promptingguide.ai/)
+
+## Feedback
+
+Please complete the post-course survey: [forms.office.com](https://forms.office.com/)
+
+Your feedback helps us improve future courses!
+
+## Thank You
+
+Thank you for participating in the AI and Data Science for Transport course. Stay in touch via the [GitHub Discussions](https://github.com/itsleeds/ai4transport/discussions) forum.
+
+Good luck with your AI-assisted transport work! 🚀

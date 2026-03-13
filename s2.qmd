@@ -1,14 +1,40 @@
 ---
-title: "Session 2: (AI-Powered) Coding and Development"
+title: "Session 2: AI Tools & GitHub Copilot"
 ---
 
 ## Introduction
 
-This session focuses on how AI can enhance your coding and development workflow. We will investigate how to use integrated coding assistants to increase the speed of development.
+This session introduces the AI tools we will use throughout the course, with a focus on **GitHub Copilot** — an AI coding assistant integrated directly into your development environment.
+
+## Types of AI Tools
+
+There are three main categories of AI tools relevant to transport professionals:
+
+### 1. Web-based Chatbots (ChatGPT, Claude, Copilot)
+
+-   Best for: Brainstorming, summarising, explaining concepts
+-   Limitation: No direct access to your files or code
+-   We used these in Session 1
+
+### 2. Integrated Coding Assistants (GitHub Copilot in VS Code)
+
+-   Best for: Writing, debugging, and understanding code
+-   Advantage: Works directly in your code editor, sees your files
+-   **This is our primary tool for the course**
+
+### 3. Productivity Assistants (Microsoft 365 Copilot)
+
+-   Best for: Working with emails, documents, spreadsheets
+-   Limitation: Limited coding capabilities
+-   Not covered in detail in this course
+
+::: callout-tip
+GitHub Copilot is significantly more capable for coding tasks than M365 Copilot. If your organisation provides both, use GitHub Copilot for code and M365 Copilot for documents.
+:::
 
 ## Getting Started with GitHub Codespaces
 
-We will be using GitHub Codespaces for this session. This provides a full development environment in your browser, pre-configured with all the necessary tools.
+We will be using GitHub Codespaces for this course. This provides a full development environment in your browser, pre-configured with all the necessary tools.
 
 [**Launch GitHub Codespaces**](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1){.btn .btn-primary target="_blank"}
 
@@ -22,7 +48,7 @@ When you open Codespaces, you will see Visual Studio Code (VS Code) running in y
 -   **Panel** (Bottom): Displays the Terminal, Debug Console, Output, and Problems. This is where you'll run commands and see program output.
 -   **Status Bar** (Bottom Edge): Shows information about the current project, git branch, and cursor position.
 
-## Exercise: Explore the Environment
+### Exercise: Explore the Environment
 
 Before we dive into coding, let's get familiar with the environment.
 
@@ -31,67 +57,76 @@ Before we dive into coding, let's get familiar with the environment.
 3.  **Find the Extensions:** Click the square icon in the Activity Bar. Search for "Python" to see that it is already installed.
 4.  **Locate the Command Palette:** Press `Ctrl+Shift+P` (or `Cmd+Shift+P`). Type "Theme" and try changing the Color Theme.
 
+## GitHub Copilot in VS Code
+
+### What is GitHub Copilot?
+
+GitHub Copilot is an **AI pair programmer** that suggests code completions and responds to natural language prompts directly in your editor. It is powered by large language models trained on billions of lines of public code.
+
 ### The Myth vs. The Reality
 
 **The Myth:** AI writes code for you while you sleep.
 
-**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Consequently, our roles pivot from simply writing code to reviewing and managing it.  This is well enabled in GitHub using pull requests and code review (beyond the scope of this session).
+**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Our roles pivot from simply writing code to reviewing and managing it.
+
+### Using Copilot Chat
+
+The most powerful way to use Copilot is through the **Chat panel** in VS Code:
+
+1.  Open Copilot Chat: `Ctrl+Shift+I` (or click the Copilot icon)
+2.  You can ask questions about your code, request new code, or get explanations
+3.  Use `@workspace` to let Copilot see your entire project
 
 ### The CIC Framework
 
-CIC stands for **Context, Instruction, Constraints**. It is a useful framework for communicating with an AI developer, similar to the STAR framework used in interviews. Following this framework ensures your AI assistant understands both the requirements and your intent.
+CIC stands for **Context, Instruction, Constraints**. It is a useful framework for communicating with an AI developer.
 
 #### Examples
 
 > **Bad Example:** "Make me a graph of this data."
 
-> **Good Example:** "I am analysing transport data for a government contract focusing on bus delays (Context). My data has columns named `delay` and `route`. Create a histogram of this data where the delay is subset by route (Instruction). Make the figure suitable for professional publication. Ensure that all errors are gracefully caught and resolved, and use PEP8 best practices throughout (Constraints)."
+> **Good Example:** "I am analysing cycling data for Leeds focusing on commuter routes (Context). My data has columns named `origin`, `destination`, and `bicycle`. Create a desire line map showing the top 50 cycling flows using the stplanr and tmap packages in R (Instruction). Use a sequential colour palette and ensure the map has a title, legend, and is publication-ready (Constraints)."
 
 The good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.
 
-### Trust but Verify
+## Practical Exercise: Your First AI-Assisted Code
 
-Despite best efforts, errors may occur. In our role as reviewers and managers, we must be mindful of pitfalls and ensure code is tested and verified.
+### Task: Load and Visualise Leeds Transport Data
 
--   **Hallucinations:** The model may generate plausible but meaningless strings of tokens, such as non-existent packages or inaccurate variable names.
--   **Verification:** Never assume the first draft is perfect. Always run the code immediately to check for errors and use known test data to verify results align with expectations.
--   **Security:** **Never** paste passwords, API keys, or private personal data into the chat. Unless told otherwise, always assume that your data will be used to train other models.
+Using Copilot Chat, work through these steps:
 
-::: {.callout-note collapse="true"}
-## Human in the Loop
+**Step 1:** Ask Copilot to explain the Leeds data files in the repository:
 
-It is crucial to maintain "Human in the loop" workflows to prevent AI agents from running out of control. Version control systems like Git and collaboration platforms like GitHub enable the integration of AI input with quality assurance through Pull Requests (similar to tracked changes in Word), code reviews, and a human-led merge process. Additionally, safeguards such as maximum expenditure limits per day, project, or user can help mitigate risks.
+```
+@workspace What data files are available and what do they contain?
+```
+
+**Step 2:** Ask Copilot to write code to load the data:
+
+```
+Write R code to load leeds_network.geojson using sf and create a basic plot coloured by highway type using tmap
+```
+
+**Step 3:** Iterate — ask Copilot to improve the visualisation:
+
+```
+Update the map to use a colour-blind friendly palette and add a title "Leeds Cycling Network"
+```
+
+::: {.callout-tip}
+## Notice
+Each prompt builds on the previous one. This iterative approach is the key to productive AI-assisted development.
 :::
 
-### Interacting With the AI Assistant
+## Key Takeaways
 
-There are four primary ways to interact with an AI coding assistant:
+1.  GitHub Copilot works best when you provide **context, instructions, and constraints**
+2.  Always review AI-generated code — it's a draft, not a final product
+3.  Iterate: start simple, then refine with follow-up prompts
+4.  The AI is your assistant, not your replacement
 
-1.  **Copy / Paste:** Asking questions via a web interface and pasting the response. Useful for single tasks but less integrated than modern IDE solutions.
-2.  **Auto-Complete:** The assistant provides line-by-line completion suggestions as you type. You can accept suggestions with `TAB` or ignore them.
-3.  **Code Inspection:** Highlighting code to ask specific questions, such as debugging, reviewing, or optimizing. A recommended approach is asking the assistant to make code more professional and efficient, then reviewing the suggested edits.
-4.  **Vibe Coding:** Designing a project specification with context and asking the agent to build it. The agent generates project files for your confirmation.
+## Next Steps
 
-## AI-Powered IDEs
-
--   **Introduction to AI Coding Assistants:** We'll look at GitHub Copilot as a future-proof example of an AI coding assistant embedded into existing tools.
--   **Live Demonstration**
-
-## Exercise: Create a new figure using GitHub Copilot
-
--   **Task:** Use Copilot to modify the `data/od_viewer.py` Python file to make a new plot of something that interests you.
-
-## Bonus Exercise: Interacting with GitHub to enable version-controlled collaborative workflows embedding AI
-
-Note: this bonus exercise is designed for those already comfortable with GitHub and version control concepts, or those who are ahead of schedule and wish to explore further.
-
--   **Task:** Contribute to a shared repository using an AI-assisted workflow.
-
-    1.  Fork and Clone the exercise repository.
-    2.  Create an issue describing a new feature you will add.
-    3.  Create a branch linked to your issue.
-    4.  Use Copilot to write the code for the new feature.
-    5.  Commit and push your changes.
-    6.  Create a pull request for your work to be reviewed.
-
-See the materials on the [Data Science for Transport Planning](https://tdscience.github.io/dstp/s6.html) course website for more details.
+-   [Session 3: AI-Powered Coding Workshop](s3.qmd) — More hands-on practice
+-   [Session 4: Learning New Tools with AI (DuckDB)](s4.qmd) — Using AI to skill up
+-   [Bonus: copilot-cli](bonus.qmd#copilot-cli) — Command-line Copilot for advanced users

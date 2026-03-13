@@ -1,0 +1,124 @@
+---
+title: "Session 7: Applied Projects"
+---
+
+## Introduction
+
+This is a hands-on session for you to apply the AI tools and techniques from the course to a transport problem of your choosing. The instructors will circulate to provide guidance.
+
+## Leeds Data Available
+
+All projects should use Leeds as the case study. Available data:
+
+-   `leeds_boundary.geojson` — 5km buffer around Leeds city centre
+-   `leeds_network.geojson` — OSM cycling network data (19,145 features)
+-   `leeds_od_data.csv` — Origin-destination data (from the `od` R package)
+
+Additional data can be downloaded using `osmextract` or from [data.gov.uk](https://data.gov.uk).
+
+## Project Ideas
+
+### For Beginners
+
+Pick one of these guided projects:
+
+**A. Leeds Cycling Map**
+- Create a publication-quality map of Leeds cycling infrastructure
+- Use AI to help with styling, labels, and colour schemes
+- Output: A static map image (PNG/PDF)
+
+**B. Mode Share Analysis**
+- Calculate and visualise mode share from the OD data
+- Identify zones with high/low cycling potential
+- Output: A table and bar chart
+
+**C. Network Statistics Report**
+- Calculate descriptive statistics for the Leeds network
+- Compare cycling infrastructure across different areas
+- Output: A summary document with tables
+
+### For Intermediate Users
+
+**D. Spatial Interaction Model**
+- Build a simple spatial interaction model using the `simodels` package
+- Predict cycling flows based on distance and zone characteristics
+- Compare predictions with actual OD data
+- Output: Model results and visualisation
+
+**E. Accessibility Analysis**
+- Calculate what percentage of Leeds is accessible by cycling within 10/20/30 minutes
+- Use network-based or buffer-based approaches
+- Identify underserved areas
+- Output: Accessibility maps and statistics
+
+**F. DuckDB Transport Pipeline**
+- Build a complete data pipeline using DuckDB
+- Load, clean, analyse, and export transport data
+- Compare performance with R/Python approaches
+- Output: Reproducible analysis script
+
+### For Advanced Users
+
+**G. Multi-modal Network Comparison**
+- Compare walking, cycling, and driving networks in Leeds
+- Identify conflicts and opportunities for improvement
+- Use AI to help with complex spatial operations
+- Output: Comparative analysis with maps
+
+**H. Custom Tool Development**
+- Build a reusable function or package for a common transport analysis task
+- Use AI to help with documentation, testing, and error handling
+- Output: A GitHub repository with a working tool
+
+## Project Workflow
+
+### Step 1: Define Your Question (10 mins)
+
+Write down:
+-   What question are you trying to answer?
+-   What data do you need?
+-   What tools will you use?
+-   What will the output look like?
+
+### Step 2: Plan with AI (10 mins)
+
+Ask Copilot:
+```
+I want to [your project description] using Leeds transport data.
+Help me break this down into steps and suggest an approach.
+```
+
+### Step 3: Implement (60 mins)
+
+Work through your plan with AI assistance. Remember:
+-   Use the SPACE framework for prompts
+-   Iterate rather than starting over
+-   Save your work frequently
+-   Ask for help when stuck
+
+### Step 4: Document (20 mins)
+
+Use AI to help document your work:
+```
+Add comments and documentation to my code. Also write a brief 
+summary of what I did, what I found, and any limitations.
+```
+
+### Step 5: Prepare to Share (10 mins)
+
+Prepare a 2-minute summary of:
+-   What you built
+-   What you learned
+-   What surprised you
+-   What you would do differently
+
+## Getting Help
+
+-   Ask Copilot first — practise the prompting techniques from Session 5
+-   If stuck, discuss with a neighbour
+-   Raise your hand for instructor help
+-   Check the [course GitHub repository](https://github.com/itsleeds/ai4transport) for examples
+
+## Next Steps
+
+-   [Session 8: Presentations & Wrap-up](s8.qmd) — Share what you built
