@@ -54,7 +54,7 @@ website:
           - href: s5.qmd
             text: "Session 5: Superprompts to Agents"
           - href: s6.qmd
-            text: "Session 6: Learning with DuckDB"
+            text: "Session 6: AI-Driven Data Science"
           - href: s7.qmd
             text: "Session 7: Applied Projects"
           - href: s8.qmd
