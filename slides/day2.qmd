@@ -14,8 +14,8 @@ AI and Data Science for Transport
 
 ## Day 2 Agenda
 
--   **10:00-11:00** Session 5: Effective Prompting Strategies
--   **11:00-12:30** Session 6: Agentic AI & Multi-Step Workflows
+-   **10:00-11:30** Session 5: Agentic AI — Superprompts to Agents
+-   **11:30-12:30** Session 6: Learning New Tools with AI (DuckDB)
 -   **12:30-13:30** Lunch
 -   **13:30-16:00** Session 7: Applied Projects
 -   **16:00-17:00** Session 8: Presentations & Wrap-up
@@ -24,71 +24,64 @@ AI and Data Science for Transport
 
 ::: incremental
 -   We learned what AI is (and isn't)
+-   Understood how LLMs work (tokens, attention, context)
+-   Learned the SPACE prompting framework
 -   Set up GitHub Copilot in VS Code
 -   Analysed Leeds transport data with AI assistance
--   Used AI to learn DuckDB
--   **Key insight:** AI makes you more productive when you prompt well
 :::
 
-## Session 5: Effective Prompting
+## Session 5: Agentic AI
 
-### The SPACE Framework
+### From Superprompts to Agents
+
+Key concepts for today:
 
 ::: incremental
--   **S**ituation — What context does the AI need?
--   **P**roblem — What are you trying to solve?
--   **A**ction — What should the AI do?
--   **C**onstraints — What limitations apply?
--   **E**xample — Can you show the desired output?
+-   **Superprompts** — repeatable, structured prompts
+-   **Context & RAG** — providing relevant knowledge
+-   **Agents** — AI that plans, acts, and iterates
+-   **Tools** — extending AI beyond text generation
+-   **Orchestration** — coordinating workflows
 :::
 
-## Prompting: Bad vs Good
+## Superprompts
 
-> **Bad:** "Analyse this data"
+Turn one-off prompts into **repeatable processes**:
 
-> **Good:** "I have Leeds cycling count data (columns: date, location, count). Calculate monthly averages, identify peak months above 90th percentile, and create a ggplot2 time series with trend line. Use R."
+-   Detailed context and role definition
+-   Step-by-step instructions
+-   Output format specifications
+-   Examples and constraints
 
-## Iterative Prompting
-
-The best results come from **conversations**:
-
-1.  Create → 2. Refine → 3. Add detail → 4. Polish
-
-Each prompt builds on the previous response.
-
-## Session 6: Agentic AI
-
-### What is an Agentic Workflow?
+## From Prompts to Agents
 
 Traditional: You ask → AI responds → Done
 
 Agentic: You describe goal → AI plans → AI executes → AI checks → You review
 
-## GitHub Copilot Agent Mode
+## Key Insight: Next Tool Prediction
 
-Agent Mode can:
+Modern agents predict the **next action**, not just the next word:
 
--   Read and write multiple files
--   Run terminal commands
--   See and fix errors
--   Iterate across multiple steps
+-   Writing code
+-   Reading files
+-   Running commands
+-   Calling APIs
 
-## Exercise: Agent Mode Demo
+## Session 6: Learning DuckDB
 
-Create a complete analysis pipeline with one prompt:
+Using AI to learn a powerful new tool.
 
-```
-Create an R script that loads Leeds OD data, calculates 
-mode share, creates a choropleth map, and saves the output.
-Run it and fix any errors.
-```
+-   Ask AI to explain concepts
+-   Write code with AI assistance
+-   **Understand** what you're doing — do not just copy!
 
 ## Session 7: Applied Projects
 
 Your turn! Apply everything to a Leeds transport problem.
 
 -   Choose a project matching your skill level
--   Use AI as your coding partner
+-   Use SPACE framework for prompts
 -   Present your work in Session 8
 
 ## Session 8: Presentations
@@ -104,10 +97,10 @@ Your turn! Apply everything to a Leeds transport problem.
 ## Key Takeaways
 
 ::: incremental
-1.  Prompting is a skill — practise SPACE
-2.  Iterate: build on previous responses
-3.  Agentic AI handles multi-step tasks
-4.  Always review AI outputs critically
+1.  Understanding AI internals helps you use it better
+2.  SPACE: Situation, Problem, Action, Constraints, Example
+3.  Superprompts = repeatable AI processes
+4.  Agents add planning and iteration
 5.  Use AI to become *more* capable
 :::
 
