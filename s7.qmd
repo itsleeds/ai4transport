@@ -82,10 +82,14 @@ Write down:
 
 ### Step 2: Plan with AI (10 mins)
 
-Ask Copilot:
+Ask Copilot using the SPACE framework from Session 2:
+
 ```
-I want to [your project description] using Leeds transport data.
-Help me break this down into steps and suggest an approach.
+Situation: I am working on [your project description] using Leeds transport data.
+Problem: [What you are trying to solve]
+Action: Help me break this into steps and suggest an approach
+Constraints: [Any limitations]
+Example: [If applicable]
 ```
 
 ### Step 3: Implement (60 mins)
@@ -114,7 +118,7 @@ Prepare a 2-minute summary of:
 
 ## Getting Help
 
--   Ask Copilot first — practise the prompting techniques from Session 5
+-   Ask Copilot first — practise the SPACE framework from Session 2
 -   If stuck, discuss with a neighbour
 -   Raise your hand for instructor help
 -   Check the [course GitHub repository](https://github.com/itsleeds/ai4transport) for examples

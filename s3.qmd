@@ -1,155 +1,124 @@
 ---
-title: "Session 3: AI-Powered Coding Workshop"
-execute:
-    eval: false
+title: "Session 3: AI Tools & GitHub Copilot"
 ---
 
 ## Introduction
 
-In this session, you will practise using AI to write, debug, and improve code for analysing transport data. We use **Leeds** as our case study throughout.
+This session introduces the AI tools we will use throughout the course, with a focus on **GitHub Copilot** — an AI coding assistant integrated directly into your development environment.
 
-## Getting Started
+## Types of AI Tools
 
-Ensure you have GitHub Codespaces open with the repository loaded.
+There are three main categories of AI tools relevant to transport professionals:
 
-[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
+### 1. Web-based Chatbots (ChatGPT, Claude, Copilot)
 
-## The Leeds Data
+-   Best for: Brainstorming, summarising, explaining concepts
+-   Limitation: No direct access to your files or code
+-   We used these in Session 1
 
-We will work with data specifically for Leeds:
+### 2. Integrated Coding Assistants (GitHub Copilot in VS Code)
 
--   **Leeds boundary** (`leeds_boundary.geojson`): A 5km buffer around Leeds city centre
--   **Leeds cycling network** (`leeds_network.geojson`): OSM cycling infrastructure data
+-   Best for: Writing, debugging, and understanding code
+-   Advantage: Works directly in your code editor, sees your files
+-   **This is our primary tool for the course**
 
-### Loading the Data
+### 3. Productivity Assistants (Microsoft 365 Copilot)
 
-::: {.panel-tabset}
+-   Best for: Working with emails, documents, spreadsheets
+-   Limitation: Limited coding capabilities
+-   Not covered in detail in this course
 
-### R
-
-```{r}
-#| label: load-leeds-r
-#| eval: false
-library(sf)
-library(tmap)
-
-# Load Leeds data
-leeds_boundary = read_sf("leeds_boundary.geojson")
-leeds_network = read_sf("leeds_network.geojson")
-
-# Quick map
-tm_shape(leeds_boundary) +
-  tm_borders(col = "grey40", lwd = 2) +
-  tm_shape(leeds_network) +
-  tm_lines("highway", 
-           palette = c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3"),
-           title.col = "Road Type") +
-  tm_layout(main.title = "Leeds Cycling Network",
-            main.title.size = 1.2)
-```
-
-### Python
-
-```{python}
-#| label: load-leeds-py
-#| eval: false
-import geopandas as gpd
-import matplotlib.pyplot as plt
-
-# Load Leeds data
-leeds_boundary = gpd.read_file("leeds_boundary.geojson")
-leeds_network = gpd.read_file("leeds_network.geojson")
-
-# Quick map
-fig, ax = plt.subplots(1, 1, figsize=(12, 10))
-leeds_boundary.boundary.plot(ax=ax, color="grey", linewidth=2)
-leeds_network.plot(ax=ax, column="highway", legend=True, linewidth=0.5)
-ax.set_title("Leeds Cycling Network")
-plt.tight_layout()
-plt.show()
-```
-
+::: callout-tip
+GitHub Copilot is significantly more capable for coding tasks than M365 Copilot. If your organisation provides both, use GitHub Copilot for code and M365 Copilot for documents.
 :::
 
-## Exercise 1: Data Exploration with AI
+## Getting Started with GitHub Codespaces
 
-Use Copilot Chat to explore the Leeds data. Try these prompts:
+We will be using GitHub Codespaces for this course. This provides a full development environment in your browser, pre-configured with all the necessary tools.
 
-1.  `What columns are in leeds_network.geojson and what do they mean?`
-2.  `Write R code to summarise the cycling network by road type`
-3.  `Create a bar chart showing the number of features per highway type`
+[**Launch GitHub Codespaces**](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1){.btn .btn-primary target="_blank"}
+
+### Understanding the VS Code Interface
+
+When you open Codespaces, you will see Visual Studio Code (VS Code) running in your browser. It consists of several key areas:
+
+-   **Activity Bar** (Left Sidebar): Lets you switch between views like Explorer (files), Search, Source Control (Git), and Extensions.
+-   **Side Bar** (Next to Activity Bar): Shows the details of the current view (e.g., your file tree).
+-   **Editor** (Center): The main area where you edit your code. You can have multiple tabs open.
+-   **Panel** (Bottom): Displays the Terminal, Debug Console, Output, and Problems. This is where you'll run commands and see program output.
+-   **Status Bar** (Bottom Edge): Shows information about the current project, git branch, and cursor position.
+
+### Exercise: Explore the Environment
+
+Before we dive into coding, let's get familiar with the environment.
+
+1.  **Open the Explorer:** Click the top icon in the Activity Bar (or press `Ctrl+Shift+E` / `Cmd+Shift+E`). Look at the file structure.
+2.  **Open the Terminal:** If not visible, press `` Ctrl+` `` (backtick) or go to the menu *Terminal > New Terminal*.
+3.  **Find the Extensions:** Click the square icon in the Activity Bar. Search for "Python" to see that it is already installed.
+4.  **Locate the Command Palette:** Press `Ctrl+Shift+P` (or `Cmd+Shift+P`). Type "Theme" and try changing the Color Theme.
+
+## GitHub Copilot in VS Code
+
+### What is GitHub Copilot?
+
+GitHub Copilot is an **AI pair programmer** that suggests code completions and responds to natural language prompts directly in your editor. It is powered by large language models trained on billions of lines of public code.
+
+### The Myth vs. The Reality
+
+**The Myth:** AI writes code for you while you sleep.
+
+**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Our roles pivot from simply writing code to reviewing and managing it.
+
+### Using Copilot Chat
+
+The most powerful way to use Copilot is through the **Chat panel** in VS Code:
+
+1.  Open Copilot Chat: `Ctrl+Shift+I` (or click the Copilot icon)
+2.  You can ask questions about your code, request new code, or get explanations
+3.  Use `@workspace` to let Copilot see your entire project
+
+::: callout-tip
+## Apply what you learned
+Use the SPACE framework from Session 2 when writing prompts to Copilot. The quality of your output depends on the quality of your input.
+:::
+
+## Practical Exercise: Your First AI-Assisted Code
+
+### Task: Load and Visualise Leeds Transport Data
+
+Using Copilot Chat, work through these steps:
+
+**Step 1:** Ask Copilot to explain the Leeds data files in the repository:
+
+```
+@workspace What data files are available and what do they contain?
+```
+
+**Step 2:** Ask Copilot to write code to load the data:
+
+```
+Write R code to load leeds_network.geojson using sf and create a basic plot coloured by highway type using tmap
+```
+
+**Step 3:** Iterate — ask Copilot to improve the visualisation:
+
+```
+Update the map to use a colour-blind friendly palette and add a title "Leeds Cycling Network"
+```
 
 ::: {.callout-tip}
-## Copilot tip
-Use `@workspace` at the start of your prompt to give Copilot context about your entire project, not just the current file.
+## Notice
+Each prompt builds on the previous one. This iterative approach is the key to productive AI-assisted development.
 :::
 
-## Exercise 2: Spatial Analysis with AI
+## Key Takeaways
 
-Now let's do some spatial analysis. Ask Copilot to help you:
-
-### Task A: Network Length Analysis
-
-```
-Calculate the total length of cycling infrastructure in Leeds by road type. 
-Create a table sorted by total length. Use R with sf and dplyr.
-```
-
-### Task B: Accessibility Analysis
-
-```
-Write R code to calculate what percentage of Leeds (within the boundary) 
-is within 500m of a cycling route. Use st_buffer and st_intersection.
-```
-
-### Task C: Interactive Map
-
-```
-Create an interactive map of the Leeds cycling network using tmap in view mode. 
-Colour by highway type and add a pop-up showing the road name.
-```
-
-## Exercise 3: Debugging with AI
-
-AI is particularly useful for debugging. Try this exercise:
-
-1.  Take any code from Exercise 2
-2.  Intentionally introduce an error (e.g., misspell a function name)
-3.  Ask Copilot: `This code gives an error. What's wrong and how do I fix it?`
-
-::: {.callout-note}
-## Discussion
-How well did Copilot diagnose the error? Did it suggest the right fix? Did it introduce new issues?
-:::
-
-## Exercise 4: Code Improvement
-
-Take working code and ask Copilot to improve it:
-
-```
-This code works but could be better. Refactor it to:
-1. Use more descriptive variable names
-2. Add error handling
-3. Be more memory efficient
-4. Follow R/Python best practices
-```
-
-## Bonus: Comparing R and Python
-
-::: {.callout-tip}
-## Language agnostic
-Ask Copilot to translate your R code to Python (or vice versa). Notice how the AI handles the differences between the two languages. This is a great way to learn the idioms of a new language.
-:::
-
-## Key Skills Practised
-
--   Using AI to explore unfamiliar datasets
--   Writing spatial analysis code with AI assistance
--   Debugging AI-generated code
--   Iterating on code quality with follow-up prompts
--   Translating between programming languages
+1.  GitHub Copilot works best when you provide **context, instructions, and constraints** (SPACE framework)
+2.  Always review AI-generated code — it's a draft, not a final product
+3.  Iterate: start simple, then refine with follow-up prompts
+4.  The AI is your assistant, not your replacement
 
 ## Next Steps
 
--   [Session 4: Learning New Tools with AI (DuckDB)](s4.qmd) — Using AI to learn a new tool
--   [Bonus exercises](bonus.qmd) — More challenges for experienced coders
+-   [Session 4: AI-Powered Coding Workshop](s4.qmd) — More hands-on practice
+-   [Bonus: copilot-cli](bonus.qmd#copilot-cli) — Command-line Copilot for advanced users

@@ -1,169 +1,370 @@
 ---
-title: "Session 6: Agentic AI & Multi-Step Workflows"
+title: "Session 8: Learning New Tools with AI (DuckDB)"
+execute:
+    eval: false
 ---
 
 ## Introduction
 
-So far, we have used AI for individual tasks — one prompt, one response. Now we explore **agentic AI**: using AI to handle multi-step workflows where the AI can plan, execute, check its work, and iterate.
+In this session, you will learn a powerful new tool — **DuckDB** — with AI as your guide. The goal is not to be spoon-fed answers, but to use AI to **understand** how the tool works so you can apply it independently.
 
-## What is an Agentic Workflow?
-
-Traditional AI interaction:
-> You ask → AI responds → You check → Done
-
-Agentic AI interaction:
-> You describe a goal → AI creates a plan → AI executes steps → AI checks results → AI adjusts → You review
-
-The key difference: the AI has more autonomy to work through a problem, but you remain in control.
-
-## GitHub Copilot Agent Mode
-
-GitHub Copilot's **Agent Mode** (in VS Code) can:
-
--   Read and write multiple files in your project
--   Run terminal commands
--   See errors and fix them
--   Iterate on solutions across multiple steps
-
-### Enabling Agent Mode
-
-1.  Open Copilot Chat in VS Code
-2.  Look for the mode selector (usually at the bottom of the chat panel)
-3.  Select **Agent** (instead of "Ask" or "Edit")
-
-::: callout-caution
-## Important
-Agent Mode can modify files and run commands. Always review changes before accepting them. Use version control (Git) so you can revert if needed.
+::: callout-important
+## Upskilling, not de-skilling
+We will use AI to explain concepts and generate starter code, but you must **read, understand, and question** every output. If you don't understand what the code does, ask the AI to explain it. The aim is to leave this session *more capable* than when you started.
 :::
 
-## Exercise 1: Single-Step to Multi-Step
+## What is DuckDB?
 
-### Task: Create a Complete Analysis Script
+DuckDB is an **in-process SQL database** — think of it as "SQLite for analytics." Key features:
 
-**Single-step approach (what we did on Day 1):**
+-   Runs inside R or Python (no server needed)
+-   Extremely fast for analytical queries on large datasets
+-   Can query CSV, Parquet, and GeoJSON files directly
+-   Supports spatial data via the `spatial` extension
 
-```
-Write R code to analyse the Leeds cycling network
-```
+### Why DuckDB for Transport?
 
-**Multi-step agentic approach:**
+Transport analysis often involves:
 
-```
-Create a complete R script that:
-1. Loads leeds_network.geojson and leeds_boundary.geojson
-2. Cleans the data (removes invalid geometries, filters to Leeds boundary)
-3. Calculates network statistics (total length, by type, by surface)
-4. Creates a summary table with mode share estimates
-5. Generates 3 maps: network overview, surface quality, and cycling density
-6. Saves all outputs to an 'output/' directory
-7. Includes error handling and progress messages
+-   Large datasets (millions of OSM road segments, GTFS records, GPS traces)
+-   Complex filtering and aggregation (group by zone, time period, mode)
+-   Joining multiple data sources (OD data + network data + zone boundaries)
 
-Run the script and fix any errors you encounter.
-```
+DuckDB excels at these tasks, often outperforming R's dplyr or Python's pandas for large data.
 
-The second prompt gives the AI a clear multi-step plan to execute. Try both and compare!
+## Part 1: Learning DuckDB with AI (45 mins)
 
-## Exercise 2: Using Agent Mode
+### Step 1: Ask AI to Explain DuckDB
 
-### Setup
-
-1.  Open the ai4transport repository in VS Code (or Codespaces)
-2.  Open Copilot Chat and switch to **Agent** mode
-3.  Create a new file called `leeds_analysis.R`
-
-### Task
-
-Enter this prompt in Agent Mode:
+Start a conversation with Copilot Chat:
 
 ```
-Create a complete transport analysis pipeline for Leeds:
-
-1. Write a function that loads the OD data (leeds_od_data.csv) and 
-   calculates mode share (bicycle, walk, car_driver) for each zone
-2. Write a function that joins this with zone boundaries 
-   (leeds_boundary.geojson) and creates a choropleth map
-3. Write a function that identifies the top 5 "cycling potential" 
-   routes — desire lines with high car trips but short distance
-4. Create a main script that runs all functions and saves results
-5. Run the script and fix any errors
-
-Use tidyverse and tmap packages. Add clear comments explaining each step.
+Explain DuckDB to a transport planner who knows R/Python but has never used 
+a SQL database. What makes it different from data.frame/pandas? 
+Give 3 concrete examples relevant to transport data analysis.
 ```
 
-Watch how Agent Mode:
--   Creates the file
--   Writes code
--   Runs it
--   Sees errors (if any)
--   Fixes them
--   Reports the result
+Read the response carefully. Ask follow-up questions:
 
-### Review
+-   "How do I load DuckDB in R vs Python?"
+-   "What's the difference between an in-memory and file-based database?"
+-   "When would I use DuckDB instead of dplyr/pandas?"
 
-After Agent Mode finishes:
+### Step 2: Your First DuckDB Query
 
-1.  **Read every line of code.** Do you understand it?
-2.  **Check the outputs.** Do they look reasonable?
-3.  **Question the AI.** Ask it to explain any parts you don't understand
-4.  **Test edge cases.** What happens with missing data? Empty results?
+Ask Copilot:
 
-## Exercise 3: Debugging with Agentic AI
+```
+Write R code to create a DuckDB database, load leeds_network.geojson into it, 
+and run a SQL query that counts the number of road segments by highway type, 
+sorted by count descending. Explain each step.
+```
 
-### Setup
+::: {.panel-tabset}
 
-Create a file with an intentional bug:
+### R
 
-```r
-# leeds_buggy.R
+```{r}
+#| label: duckdb-first-r
+#| eval: false
+# Try this yourself first, then compare with AI output!
+library(duckdb)
 library(sf)
-library(tmap)
 
-leeds_network = read_sf("leeds_network.geojson")
-leeds_boundary = read_sf("leeds_boundary.geojson")
+# Connect to DuckDB (in-memory)
+con = dbConnect(duckdb())
 
-# Bug: wrong CRS transformation
-leeds_projected = st_transform(leeds_network, 2770)
-# Bug: column name typo
-cycleways = leeds_network[leeds_network$highway == "cycle", ]
-# Bug: incomplete map
-map = tm_shape(leeds_projected) + tm_lines()
-tmap_save(map, "output/map.png")
+# Install and load spatial extension
+dbExecute(con, "INSTALL spatial")
+dbExecute(con, "LOAD spatial")
+
+# Load the Leeds network data
+dbExecute(con, "
+  CREATE TABLE leeds_network AS 
+  SELECT * FROM st_read('leeds_network.geojson')
+")
+
+# Query: count segments by highway type
+result = dbGetQuery(con, "
+  SELECT highway, COUNT(*) as n_segments
+  FROM leeds_network
+  GROUP BY highway
+  ORDER BY n_segments DESC
+")
+print(result)
 ```
 
-Ask Agent Mode:
+### Python
 
+```{python}
+#| label: duckdb-first-py
+#| eval: false
+# Try this yourself first, then compare with AI output!
+import duckdb
+
+# Connect to DuckDB (in-memory)
+con = duckdb.connect()
+
+# Install and load spatial extension
+con.execute("INSTALL spatial")
+con.execute("LOAD spatial")
+
+# Load the Leeds network data
+con.execute("""
+  CREATE TABLE leeds_network AS 
+  SELECT * FROM st_read('leeds_network.geojson')
+""")
+
+# Query: count segments by highway type
+result = con.execute("""
+  SELECT highway, COUNT(*) as n_segments
+  FROM leeds_network
+  GROUP BY highway
+  ORDER BY n_segments DESC
+""").df()
+print(result)
 ```
-This script has errors. Find and fix all bugs, explain what was wrong, 
-and make the script work correctly. Also add proper error handling.
-```
 
-## Discussion: When to Use Agentic AI
-
-| ✅ Good for agentic AI | ❌ Not ideal for agentic AI |
-|---|---|
-| Boilerplate project setup | Novel research questions |
-| Multi-file refactoring | Domain-specific analysis logic |
-| Debugging complex errors | Tasks requiring human judgement |
-| Generating test suites | Sensitive data processing |
-| Documentation generation | Final production code (review needed) |
-
-::: {.callout-important}
-## Keep control
-Agentic AI is powerful but not infallible. Always:
--   Review all changes before committing
--   Use Git to track and revert changes
--   Test the output, not just the code
--   Maintain your understanding of what the code does
 :::
+
+::: {.callout-tip}
+## Check your understanding
+Before moving on, make sure you can answer: What does `GROUP BY` do? Why is `ORDER BY n_segments DESC` useful? If unsure, ask the AI!
+:::
+
+## Part 2: OD Data with DuckDB (45 mins)
+
+Now we bring in origin-destination data. The R `od` package provides example datasets that work well for learning.
+
+### Step 3: Loading OD Data
+
+Ask Copilot:
+
+```
+The R 'od' package has example OD datasets. Write R code to:
+1. Load the od::od_leeds dataset
+2. Save it as a CSV
+3. Load it into DuckDB
+4. Query the top 10 OD pairs by bicycle count
+
+Also show the Python equivalent using DuckDB directly on the CSV.
+```
+
+::: {.panel-tabset}
+
+### R
+
+```{r}
+#| label: duckdb-od-r
+#| eval: false
+library(duckdb)
+library(od)
+library(dplyr)
+
+# Get Leeds OD data
+od_data = od::od_leeds
+# Save for DuckDB
+write.csv(od_data, "leeds_od_data.csv", row.names = FALSE)
+
+# Connect to DuckDB
+con = dbConnect(duckdb())
+dbExecute(con, "LOAD spatial")
+
+# Load OD data
+dbExecute(con, "
+  CREATE TABLE od_data AS 
+  SELECT * FROM read_csv_auto('leeds_od_data.csv')
+")
+
+# Top 10 cycling flows
+top_cycle = dbGetQuery(con, "
+  SELECT * FROM od_data
+  ORDER BY bicycle DESC
+  LIMIT 10
+")
+print(top_cycle)
+
+# Total trips by mode
+mode_totals = dbGetQuery(con, "
+  SELECT 
+    SUM(bicycle) as total_bicycle,
+    SUM(walk) as total_walk,
+    SUM(car_driver) as total_car,
+    SUM(all) as total_all
+  FROM od_data
+")
+print(mode_totals)
+```
+
+### Python
+
+```{python}
+#| label: duckdb-od-py
+#| eval: false
+import duckdb
+
+# Connect to DuckDB
+con = duckdb.connect()
+con.execute("LOAD spatial")
+
+# Load OD data directly from CSV
+con.execute("""
+  CREATE TABLE od_data AS 
+  SELECT * FROM read_csv_auto('leeds_od_data.csv')
+""")
+
+# Top 10 cycling flows
+top_cycle = con.execute("""
+  SELECT * FROM od_data
+  ORDER BY bicycle DESC
+  LIMIT 10
+""").df()
+print(top_cycle)
+
+# Mode share analysis
+mode_totals = con.execute("""
+  SELECT 
+    SUM(bicycle) as total_bicycle,
+    SUM(walk) as total_walk,
+    SUM(car_driver) as total_car,
+    SUM(all) as total_all
+  FROM od_data
+""").df()
+print(mode_totals)
+```
+
+:::
+
+### Step 4: Spatial Queries with DuckDB
+
+Ask Copilot:
+
+```
+Write code to join the Leeds OD data with zone boundaries using DuckDB's 
+spatial extension. Calculate the total cycling trips originating from each zone 
+and create a choropleth map of the results.
+```
+
+::: {.callout-note}
+## Challenge
+Can you write this query *without* looking at the AI answer first? Try it, then compare.
+:::
+
+## Part 3: Routing Data with DuckDB (30 mins)
+
+### Step 5: Network Analysis
+
+Ask Copilot:
+
+```
+Using the leeds_network.geojson loaded in DuckDB, write a query that:
+1. Calculates the total length of cycleway in metres
+2. Finds the average length of road segments by highway type
+3. Identifies the longest continuous road (by name)
+
+Explain the SQL functions used.
+```
+
+::: {.panel-tabset}
+
+### R
+
+```{r}
+#| label: duckdb-network-r
+#| eval: false
+# Total cycleway length
+cycleway_stats = dbGetQuery(con, "
+  SELECT 
+    highway,
+    COUNT(*) as n_segments,
+    SUM(ST_Length(geom)) as total_length_m,
+    AVG(ST_Length(geom)) as avg_segment_length_m
+  FROM leeds_network
+  WHERE highway IN ('cycleway', 'path', 'footway')
+  GROUP BY highway
+  ORDER BY total_length_m DESC
+")
+print(cycleway_stats)
+
+# Longest roads by name
+longest_roads = dbGetQuery(con, "
+  SELECT 
+    name,
+    COUNT(*) as segments,
+    SUM(ST_Length(geom)) as total_length_m
+  FROM leeds_network
+  WHERE name IS NOT NULL
+  GROUP BY name
+  ORDER BY total_length_m DESC
+  LIMIT 10
+")
+print(longest_roads)
+```
+
+### Python
+
+```{python}
+#| label: duckdb-network-py
+#| eval: false
+# Total cycleway length
+cycleway_stats = con.execute("""
+  SELECT 
+    highway,
+    COUNT(*) as n_segments,
+    SUM(ST_Length(geom)) as total_length_m,
+    AVG(ST_Length(geom)) as avg_segment_length_m
+  FROM leeds_network
+  WHERE highway IN ('cycleway', 'path', 'footway')
+  GROUP BY highway
+  ORDER BY total_length_m DESC
+""").df()
+print(cycleway_stats)
+
+# Longest roads by name
+longest_roads = con.execute("""
+  SELECT 
+    name,
+    COUNT(*) as segments,
+    SUM(ST_Length(geom)) as total_length_m
+  FROM leeds_network
+  WHERE name IS NOT NULL
+  GROUP BY name
+  ORDER BY total_length_m DESC
+  LIMIT 10
+""").df()
+print(longest_roads)
+```
+
+:::
+
+## Part 4: Reflection & Discussion (15 mins)
+
+### Questions to Discuss
+
+1.  **When is DuckDB better than dplyr/pandas?** Think about data size, query complexity, and workflow.
+2.  **How did AI help you learn?** Was the AI-generated code always correct? Did you need to modify it?
+3.  **What surprised you?** About DuckDB? About using AI to learn?
+
+### The AI-Assisted Learning Workflow
+
+The approach we used in this session:
+
+1.  **Ask** AI to explain a concept (DuckDB basics)
+2.  **Try** writing code yourself based on the explanation
+3.  **Compare** your code with AI's suggestion
+4.  **Question** anything you don't understand — ask follow-up prompts
+5.  **Apply** the concept to your own transport problem
+
+This workflow is more powerful than copying AI output because you **understand** what the code does.
 
 ## Key Takeaways
 
-1.  Agentic AI can handle multi-step workflows, saving time on complex tasks
-2.  Agent Mode in Copilot can read/write files and run commands
-3.  Always review agentic AI's work — it optimises for "done" not "correct"
-4.  Use version control to safely experiment with agentic workflows
-5.  The goal is to amplify your capabilities, not replace your judgement
+-   DuckDB is a fast, embedded database ideal for transport data analysis
+-   SQL skills transfer across R, Python, and many other tools
+-   AI can accelerate learning new tools, but you must engage critically
+-   Always understand code before using it in production
 
 ## Next Steps
 
--   [Session 7: Applied Projects](s7.qmd) — Apply everything to your own Leeds project
+-   [Day 2: Effective Prompting](s7.qmd) — Advanced AI interaction techniques
+-   [Bonus: DuckDB challenges](bonus.qmd#duckdb-challenges) — More complex queries for experienced users

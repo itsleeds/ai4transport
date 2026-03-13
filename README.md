@@ -14,8 +14,8 @@ APIs to:
 The ultimate goal is more effective transport planning investments and
 decisions
 
-![Commuting flows in the South East of England, generated with AI
-assistance](images/tfse_od_map.png)
+![Commuting flows in the Leeds, generated with AI
+assistance](images/leeds_od_map.png)
 
 <details>
 
@@ -36,8 +36,8 @@ virtual environment and install the necessary dependencies.
     `bash     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache`
 
 The trigger for the course was interest from Transport for the South
-East (TfSE) in using AI to improve transport planning. See the
-[tfse](tfse) document for the (currently in-development) course content
+East (Leeds) in using AI to improve transport planning. See the
+[leeds](leeds) document for the (currently in-development) course content
 for that specific course.
 
 </details>

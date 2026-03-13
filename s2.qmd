@@ -1,132 +1,104 @@
 ---
-title: "Session 2: AI Tools & GitHub Copilot"
+title: "Session 2: How AI Works & The SPACE Framework"
 ---
 
 ## Introduction
 
-This session introduces the AI tools we will use throughout the course, with a focus on **GitHub Copilot** — an AI coding assistant integrated directly into your development environment.
+Before using AI tools effectively, it helps to understand what is happening "under the hood". This session demystifies the key technical concepts and introduces a practical framework for communicating with AI.
 
-## Types of AI Tools
+## Part 1: How LLMs Work
 
-There are three main categories of AI tools relevant to transport professionals:
+### Tokens: The Building Blocks
 
-### 1. Web-based Chatbots (ChatGPT, Claude, Copilot)
+LLMs do not process text character-by-character or word-by-word. Instead, they break text into **tokens** — chunks of text that typically correspond to parts of words.
 
--   Best for: Brainstorming, summarising, explaining concepts
--   Limitation: No direct access to your files or code
--   We used these in Session 1
-
-### 2. Integrated Coding Assistants (GitHub Copilot in VS Code)
-
--   Best for: Writing, debugging, and understanding code
--   Advantage: Works directly in your code editor, sees your files
--   **This is our primary tool for the course**
-
-### 3. Productivity Assistants (Microsoft 365 Copilot)
-
--   Best for: Working with emails, documents, spreadsheets
--   Limitation: Limited coding capabilities
--   Not covered in detail in this course
+-   **What is a token?** In English, roughly 1 token ≈ 4 characters or ¾ of a word. The sentence "Transport planning in Leeds" is about 6 tokens.
+-   **Why does this matter?** Every AI tool has a **context window** measured in tokens. If your model supports 128,000 tokens, that is roughly 50,000 words — about a short book.
+-   **Cost implications:** Most AI services charge per token (input and output). Longer prompts and responses cost more. Being concise saves money.
 
 ::: callout-tip
-GitHub Copilot is significantly more capable for coding tasks than M365 Copilot. If your organisation provides both, use GitHub Copilot for code and M365 Copilot for documents.
+## Token counting
+You can see token usage in GitHub Copilot's chat panel. Understanding tokens helps you write efficient prompts that do not waste context window space.
 :::
 
-## Getting Started with GitHub Codespaces
+### Attention: Why Context Matters
 
-We will be using GitHub Codespaces for this course. This provides a full development environment in your browser, pre-configured with all the necessary tools.
+The **attention mechanism** is the key innovation that makes modern LLMs powerful. In simple terms:
 
-[**Launch GitHub Codespaces**](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1){.btn .btn-primary target="_blank"}
+1.  When the model generates each new token, it "pays attention" to all previous tokens in the context
+2.  It decides which tokens are most relevant to the current prediction
+3.  This is how it maintains coherence over long conversations
 
-### Understanding the VS Code Interface
+**Why this matters for prompting:**
 
-When you open Codespaces, you will see Visual Studio Code (VS Code) running in your browser. It consists of several key areas:
+-   **Relevant context improves output.** If you mention that your data is for Leeds transport planning, the model can use that context throughout the response.
+-   **Irrelevant context degrades output.** Including unrelated information can cause "attention dilution" — the model may focus on the wrong things.
+-   **Order matters.** Information at the beginning and end of prompts tends to receive more attention than information in the middle.
 
--   **Activity Bar** (Left Sidebar): Lets you switch between views like Explorer (files), Search, Source Control (Git), and Extensions.
--   **Side Bar** (Next to Activity Bar): Shows the details of the current view (e.g., your file tree).
--   **Editor** (Center): The main area where you edit your code. You can have multiple tabs open.
--   **Panel** (Bottom): Displays the Terminal, Debug Console, Output, and Problems. This is where you'll run commands and see program output.
--   **Status Bar** (Bottom Edge): Shows information about the current project, git branch, and cursor position.
-
-### Exercise: Explore the Environment
-
-Before we dive into coding, let's get familiar with the environment.
-
-1.  **Open the Explorer:** Click the top icon in the Activity Bar (or press `Ctrl+Shift+E` / `Cmd+Shift+E`). Look at the file structure.
-2.  **Open the Terminal:** If not visible, press `` Ctrl+` `` (backtick) or go to the menu *Terminal > New Terminal*.
-3.  **Find the Extensions:** Click the square icon in the Activity Bar. Search for "Python" to see that it is already installed.
-4.  **Locate the Command Palette:** Press `Ctrl+Shift+P` (or `Cmd+Shift+P`). Type "Theme" and try changing the Color Theme.
-
-## GitHub Copilot in VS Code
-
-### What is GitHub Copilot?
-
-GitHub Copilot is an **AI pair programmer** that suggests code completions and responds to natural language prompts directly in your editor. It is powered by large language models trained on billions of lines of public code.
-
-### The Myth vs. The Reality
-
-**The Myth:** AI writes code for you while you sleep.
-
-**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Our roles pivot from simply writing code to reviewing and managing it.
-
-### Using Copilot Chat
-
-The most powerful way to use Copilot is through the **Chat panel** in VS Code:
-
-1.  Open Copilot Chat: `Ctrl+Shift+I` (or click the Copilot icon)
-2.  You can ask questions about your code, request new code, or get explanations
-3.  Use `@workspace` to let Copilot see your entire project
-
-### The CIC Framework
-
-CIC stands for **Context, Instruction, Constraints**. It is a useful framework for communicating with an AI developer.
-
-#### Examples
-
-> **Bad Example:** "Make me a graph of this data."
-
-> **Good Example:** "I am analysing cycling data for Leeds focusing on commuter routes (Context). My data has columns named `origin`, `destination`, and `bicycle`. Create a desire line map showing the top 50 cycling flows using the stplanr and tmap packages in R (Instruction). Use a sequential colour palette and ensure the map has a title, legend, and is publication-ready (Constraints)."
-
-The good example typically yields high-quality, readable code, whereas the bad example produces unpredictable results.
-
-## Practical Exercise: Your First AI-Assisted Code
-
-### Task: Load and Visualise Leeds Transport Data
-
-Using Copilot Chat, work through these steps:
-
-**Step 1:** Ask Copilot to explain the Leeds data files in the repository:
-
-```
-@workspace What data files are available and what do they contain?
-```
-
-**Step 2:** Ask Copilot to write code to load the data:
-
-```
-Write R code to load leeds_network.geojson using sf and create a basic plot coloured by highway type using tmap
-```
-
-**Step 3:** Iterate — ask Copilot to improve the visualisation:
-
-```
-Update the map to use a colour-blind friendly palette and add a title "Leeds Cycling Network"
-```
-
-::: {.callout-tip}
-## Notice
-Each prompt builds on the previous one. This iterative approach is the key to productive AI-assisted development.
+::: callout-warning
+## Median result regression
+LLMs tend to produce the "most likely" (median) response based on training data. Without specific guidance, they default to generic answers. This is why detailed, specific prompts outperform vague ones — they steer the model away from generic median responses.
 :::
+
+### Context Windows and Scope
+
+Every LLM has a fixed **context window** — the maximum amount of text it can process at once. Think of it as the model's working memory:
+
+-   **System prompt** (instructions): Sets the AI's role and constraints
+-   **Conversation history**: Previous messages in the chat
+-   **Your current prompt**: What you are asking right now
+-   **The response**: Generated within the remaining space
+
+When the context window fills up, earlier information is dropped. This is why very long conversations can lose track of initial instructions.
+
+## Part 2: The SPACE Framework
+
+Now that you understand how LLMs work, here is a practical framework for writing effective prompts.
+
+### SPACE
+
+-   **S**ituation: What is the context? What data/environment are you working in?
+-   **P**roblem: What specifically are you trying to solve or create?
+-   **A**ction: What should the AI do? (Write code? Explain? Debug? Refactor?)
+-   **C**onstraints: What limitations exist? (Language, packages, performance, style)
+-   **E**xample: Can you show an example of the desired output?
+
+### Examples
+
+> **Bad prompt:** "Analyse this transport data"
+
+> **Good prompt (SPACE):**
+> -   **Situation:** I have a CSV of cycling counts in Leeds with columns: date, count_point_id, location, total_cycles, longitude, latitude
+> -   **Problem:** I need to understand seasonal patterns and identify unusual count locations
+> -   **Action:** Write R code to create a time series plot of monthly averages with a trend line
+> -   **Constraints:** Use ggplot2, keep it to a single A4 page, use a colour-blind-friendly palette
+> -   **Example:** Similar to the chart on page 3 of this report [describe or link]
+
+### The CIC Short Version
+
+For simpler tasks, the **CIC** (Context, Instruction, Constraints) shortcut works well:
+
+> "I am analysing cycling data for Leeds focusing on commuter routes (Context). Create a desire line map showing the top 50 cycling flows using stplanr and tmap in R (Instruction). Use a sequential colour palette with a title and legend (Constraints)."
+
+## Exercise: Prompt Improvement
+
+Take these poor prompts and rewrite them using SPACE:
+
+1.  "Show me a map"
+2.  "Fix my code it doesn't work"
+3.  "What does this data mean?"
+
+Then test both versions with Copilot Chat and compare the outputs.
 
 ## Key Takeaways
 
-1.  GitHub Copilot works best when you provide **context, instructions, and constraints**
-2.  Always review AI-generated code — it's a draft, not a final product
-3.  Iterate: start simple, then refine with follow-up prompts
-4.  The AI is your assistant, not your replacement
+1.  **Tokens** are the currency of LLMs — understand them to use AI efficiently
+2.  **Attention** is finite — put important information where it gets noticed
+3.  **Context windows** are limited — be concise and prioritise relevant information
+4.  **SPACE** is your framework for writing prompts that get useful results
+5.  **Specificity** prevents median result regression — detailed prompts yield better outputs
 
 ## Next Steps
 
--   [Session 3: AI-Powered Coding Workshop](s3.qmd) — More hands-on practice
--   [Session 4: Learning New Tools with AI (DuckDB)](s4.qmd) — Using AI to skill up
--   [Bonus: copilot-cli](bonus.qmd#copilot-cli) — Command-line Copilot for advanced users
+-   [Session 3: AI Tools & GitHub Copilot](s3.qmd) — Setting up and using the tools
+-   [Bonus: Advanced prompting](bonus.qmd) — More prompting challenges

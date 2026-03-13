@@ -40,11 +40,11 @@ website:
           - href: s1.qmd
             text: "Session 1: What is AI?"
           - href: s2.qmd
-            text: "Session 2: AI Tools & Copilot"
+            text: "Session 2: How AI Works & SPACE"
           - href: s3.qmd
-            text: "Session 3: Coding Workshop"
+            text: "Session 3: AI Tools & Copilot"
           - href: s4.qmd
-            text: "Session 4: Learning with DuckDB"
+            text: "Session 4: Coding Workshop"
       - section: "Day 2 Slides"
         contents:
           - href: slides/day2.html
@@ -52,9 +52,9 @@ website:
       - section: "Day 2: Agentic AI & Applied Work"
         contents:
           - href: s5.qmd
-            text: "Session 5: Prompting Strategies"
+            text: "Session 5: Superprompts to Agents"
           - href: s6.qmd
-            text: "Session 6: Agentic AI"
+            text: "Session 6: Learning with DuckDB"
           - href: s7.qmd
             text: "Session 7: Applied Projects"
           - href: s8.qmd

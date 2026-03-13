@@ -1,370 +1,155 @@
 ---
-title: "Session 4: Learning New Tools with AI (DuckDB)"
+title: "Session 3: AI-Powered Coding Workshop"
 execute:
     eval: false
 ---
 
 ## Introduction
 
-In this session, you will learn a powerful new tool — **DuckDB** — with AI as your guide. The goal is not to be spoon-fed answers, but to use AI to **understand** how the tool works so you can apply it independently.
+In this session, you will practise using AI to write, debug, and improve code for analysing transport data. We use **Leeds** as our case study throughout.
 
-::: callout-important
-## Upskilling, not de-skilling
-We will use AI to explain concepts and generate starter code, but you must **read, understand, and question** every output. If you don't understand what the code does, ask the AI to explain it. The aim is to leave this session *more capable* than when you started.
-:::
+## Getting Started
 
-## What is DuckDB?
+Ensure you have GitHub Codespaces open with the repository loaded.
 
-DuckDB is an **in-process SQL database** — think of it as "SQLite for analytics." Key features:
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1)
 
--   Runs inside R or Python (no server needed)
--   Extremely fast for analytical queries on large datasets
--   Can query CSV, Parquet, and GeoJSON files directly
--   Supports spatial data via the `spatial` extension
+## The Leeds Data
 
-### Why DuckDB for Transport?
+We will work with data specifically for Leeds:
 
-Transport analysis often involves:
+-   **Leeds boundary** (`leeds_boundary.geojson`): A 5km buffer around Leeds city centre
+-   **Leeds cycling network** (`leeds_network.geojson`): OSM cycling infrastructure data
 
--   Large datasets (millions of OSM road segments, GTFS records, GPS traces)
--   Complex filtering and aggregation (group by zone, time period, mode)
--   Joining multiple data sources (OD data + network data + zone boundaries)
-
-DuckDB excels at these tasks, often outperforming R's dplyr or Python's pandas for large data.
-
-## Part 1: Learning DuckDB with AI (45 mins)
-
-### Step 1: Ask AI to Explain DuckDB
-
-Start a conversation with Copilot Chat:
-
-```
-Explain DuckDB to a transport planner who knows R/Python but has never used 
-a SQL database. What makes it different from data.frame/pandas? 
-Give 3 concrete examples relevant to transport data analysis.
-```
-
-Read the response carefully. Ask follow-up questions:
-
--   "How do I load DuckDB in R vs Python?"
--   "What's the difference between an in-memory and file-based database?"
--   "When would I use DuckDB instead of dplyr/pandas?"
-
-### Step 2: Your First DuckDB Query
-
-Ask Copilot:
-
-```
-Write R code to create a DuckDB database, load leeds_network.geojson into it, 
-and run a SQL query that counts the number of road segments by highway type, 
-sorted by count descending. Explain each step.
-```
+### Loading the Data
 
 ::: {.panel-tabset}
 
 ### R
 
 ```{r}
-#| label: duckdb-first-r
+#| label: load-leeds-r
 #| eval: false
-# Try this yourself first, then compare with AI output!
-library(duckdb)
 library(sf)
+library(tmap)
 
-# Connect to DuckDB (in-memory)
-con = dbConnect(duckdb())
+# Load Leeds data
+leeds_boundary = read_sf("leeds_boundary.geojson")
+leeds_network = read_sf("leeds_network.geojson")
 
-# Install and load spatial extension
-dbExecute(con, "INSTALL spatial")
-dbExecute(con, "LOAD spatial")
-
-# Load the Leeds network data
-dbExecute(con, "
-  CREATE TABLE leeds_network AS 
-  SELECT * FROM st_read('leeds_network.geojson')
-")
-
-# Query: count segments by highway type
-result = dbGetQuery(con, "
-  SELECT highway, COUNT(*) as n_segments
-  FROM leeds_network
-  GROUP BY highway
-  ORDER BY n_segments DESC
-")
-print(result)
+# Quick map
+tm_shape(leeds_boundary) +
+  tm_borders(col = "grey40", lwd = 2) +
+  tm_shape(leeds_network) +
+  tm_lines("highway", 
+           palette = c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3"),
+           title.col = "Road Type") +
+  tm_layout(main.title = "Leeds Cycling Network",
+            main.title.size = 1.2)
 ```
 
 ### Python
 
 ```{python}
-#| label: duckdb-first-py
+#| label: load-leeds-py
 #| eval: false
-# Try this yourself first, then compare with AI output!
-import duckdb
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
-# Connect to DuckDB (in-memory)
-con = duckdb.connect()
+# Load Leeds data
+leeds_boundary = gpd.read_file("leeds_boundary.geojson")
+leeds_network = gpd.read_file("leeds_network.geojson")
 
-# Install and load spatial extension
-con.execute("INSTALL spatial")
-con.execute("LOAD spatial")
-
-# Load the Leeds network data
-con.execute("""
-  CREATE TABLE leeds_network AS 
-  SELECT * FROM st_read('leeds_network.geojson')
-""")
-
-# Query: count segments by highway type
-result = con.execute("""
-  SELECT highway, COUNT(*) as n_segments
-  FROM leeds_network
-  GROUP BY highway
-  ORDER BY n_segments DESC
-""").df()
-print(result)
+# Quick map
+fig, ax = plt.subplots(1, 1, figsize=(12, 10))
+leeds_boundary.boundary.plot(ax=ax, color="grey", linewidth=2)
+leeds_network.plot(ax=ax, column="highway", legend=True, linewidth=0.5)
+ax.set_title("Leeds Cycling Network")
+plt.tight_layout()
+plt.show()
 ```
 
 :::
+
+## Exercise 1: Data Exploration with AI
+
+Use Copilot Chat to explore the Leeds data. Try these prompts:
+
+1.  `What columns are in leeds_network.geojson and what do they mean?`
+2.  `Write R code to summarise the cycling network by road type`
+3.  `Create a bar chart showing the number of features per highway type`
 
 ::: {.callout-tip}
-## Check your understanding
-Before moving on, make sure you can answer: What does `GROUP BY` do? Why is `ORDER BY n_segments DESC` useful? If unsure, ask the AI!
+## Copilot tip
+Use `@workspace` at the start of your prompt to give Copilot context about your entire project, not just the current file.
 :::
 
-## Part 2: OD Data with DuckDB (45 mins)
+## Exercise 2: Spatial Analysis with AI
 
-Now we bring in origin-destination data. The R `od` package provides example datasets that work well for learning.
+Now let's do some spatial analysis. Ask Copilot to help you:
 
-### Step 3: Loading OD Data
-
-Ask Copilot:
+### Task A: Network Length Analysis
 
 ```
-The R 'od' package has example OD datasets. Write R code to:
-1. Load the od::od_leeds dataset
-2. Save it as a CSV
-3. Load it into DuckDB
-4. Query the top 10 OD pairs by bicycle count
-
-Also show the Python equivalent using DuckDB directly on the CSV.
+Calculate the total length of cycling infrastructure in Leeds by road type. 
+Create a table sorted by total length. Use R with sf and dplyr.
 ```
 
-::: {.panel-tabset}
-
-### R
-
-```{r}
-#| label: duckdb-od-r
-#| eval: false
-library(duckdb)
-library(od)
-library(dplyr)
-
-# Get Leeds OD data
-od_data = od::od_leeds
-# Save for DuckDB
-write.csv(od_data, "leeds_od_data.csv", row.names = FALSE)
-
-# Connect to DuckDB
-con = dbConnect(duckdb())
-dbExecute(con, "LOAD spatial")
-
-# Load OD data
-dbExecute(con, "
-  CREATE TABLE od_data AS 
-  SELECT * FROM read_csv_auto('leeds_od_data.csv')
-")
-
-# Top 10 cycling flows
-top_cycle = dbGetQuery(con, "
-  SELECT * FROM od_data
-  ORDER BY bicycle DESC
-  LIMIT 10
-")
-print(top_cycle)
-
-# Total trips by mode
-mode_totals = dbGetQuery(con, "
-  SELECT 
-    SUM(bicycle) as total_bicycle,
-    SUM(walk) as total_walk,
-    SUM(car_driver) as total_car,
-    SUM(all) as total_all
-  FROM od_data
-")
-print(mode_totals)
-```
-
-### Python
-
-```{python}
-#| label: duckdb-od-py
-#| eval: false
-import duckdb
-
-# Connect to DuckDB
-con = duckdb.connect()
-con.execute("LOAD spatial")
-
-# Load OD data directly from CSV
-con.execute("""
-  CREATE TABLE od_data AS 
-  SELECT * FROM read_csv_auto('leeds_od_data.csv')
-""")
-
-# Top 10 cycling flows
-top_cycle = con.execute("""
-  SELECT * FROM od_data
-  ORDER BY bicycle DESC
-  LIMIT 10
-""").df()
-print(top_cycle)
-
-# Mode share analysis
-mode_totals = con.execute("""
-  SELECT 
-    SUM(bicycle) as total_bicycle,
-    SUM(walk) as total_walk,
-    SUM(car_driver) as total_car,
-    SUM(all) as total_all
-  FROM od_data
-""").df()
-print(mode_totals)
-```
-
-:::
-
-### Step 4: Spatial Queries with DuckDB
-
-Ask Copilot:
+### Task B: Accessibility Analysis
 
 ```
-Write code to join the Leeds OD data with zone boundaries using DuckDB's 
-spatial extension. Calculate the total cycling trips originating from each zone 
-and create a choropleth map of the results.
+Write R code to calculate what percentage of Leeds (within the boundary) 
+is within 500m of a cycling route. Use st_buffer and st_intersection.
 ```
+
+### Task C: Interactive Map
+
+```
+Create an interactive map of the Leeds cycling network using tmap in view mode. 
+Colour by highway type and add a pop-up showing the road name.
+```
+
+## Exercise 3: Debugging with AI
+
+AI is particularly useful for debugging. Try this exercise:
+
+1.  Take any code from Exercise 2
+2.  Intentionally introduce an error (e.g., misspell a function name)
+3.  Ask Copilot: `This code gives an error. What's wrong and how do I fix it?`
 
 ::: {.callout-note}
-## Challenge
-Can you write this query *without* looking at the AI answer first? Try it, then compare.
+## Discussion
+How well did Copilot diagnose the error? Did it suggest the right fix? Did it introduce new issues?
 :::
 
-## Part 3: Routing Data with DuckDB (30 mins)
+## Exercise 4: Code Improvement
 
-### Step 5: Network Analysis
-
-Ask Copilot:
+Take working code and ask Copilot to improve it:
 
 ```
-Using the leeds_network.geojson loaded in DuckDB, write a query that:
-1. Calculates the total length of cycleway in metres
-2. Finds the average length of road segments by highway type
-3. Identifies the longest continuous road (by name)
-
-Explain the SQL functions used.
+This code works but could be better. Refactor it to:
+1. Use more descriptive variable names
+2. Add error handling
+3. Be more memory efficient
+4. Follow R/Python best practices
 ```
 
-::: {.panel-tabset}
+## Bonus: Comparing R and Python
 
-### R
-
-```{r}
-#| label: duckdb-network-r
-#| eval: false
-# Total cycleway length
-cycleway_stats = dbGetQuery(con, "
-  SELECT 
-    highway,
-    COUNT(*) as n_segments,
-    SUM(ST_Length(geom)) as total_length_m,
-    AVG(ST_Length(geom)) as avg_segment_length_m
-  FROM leeds_network
-  WHERE highway IN ('cycleway', 'path', 'footway')
-  GROUP BY highway
-  ORDER BY total_length_m DESC
-")
-print(cycleway_stats)
-
-# Longest roads by name
-longest_roads = dbGetQuery(con, "
-  SELECT 
-    name,
-    COUNT(*) as segments,
-    SUM(ST_Length(geom)) as total_length_m
-  FROM leeds_network
-  WHERE name IS NOT NULL
-  GROUP BY name
-  ORDER BY total_length_m DESC
-  LIMIT 10
-")
-print(longest_roads)
-```
-
-### Python
-
-```{python}
-#| label: duckdb-network-py
-#| eval: false
-# Total cycleway length
-cycleway_stats = con.execute("""
-  SELECT 
-    highway,
-    COUNT(*) as n_segments,
-    SUM(ST_Length(geom)) as total_length_m,
-    AVG(ST_Length(geom)) as avg_segment_length_m
-  FROM leeds_network
-  WHERE highway IN ('cycleway', 'path', 'footway')
-  GROUP BY highway
-  ORDER BY total_length_m DESC
-""").df()
-print(cycleway_stats)
-
-# Longest roads by name
-longest_roads = con.execute("""
-  SELECT 
-    name,
-    COUNT(*) as segments,
-    SUM(ST_Length(geom)) as total_length_m
-  FROM leeds_network
-  WHERE name IS NOT NULL
-  GROUP BY name
-  ORDER BY total_length_m DESC
-  LIMIT 10
-""").df()
-print(longest_roads)
-```
-
+::: {.callout-tip}
+## Language agnostic
+Ask Copilot to translate your R code to Python (or vice versa). Notice how the AI handles the differences between the two languages. This is a great way to learn the idioms of a new language.
 :::
 
-## Part 4: Reflection & Discussion (15 mins)
+## Key Skills Practised
 
-### Questions to Discuss
-
-1.  **When is DuckDB better than dplyr/pandas?** Think about data size, query complexity, and workflow.
-2.  **How did AI help you learn?** Was the AI-generated code always correct? Did you need to modify it?
-3.  **What surprised you?** About DuckDB? About using AI to learn?
-
-### The AI-Assisted Learning Workflow
-
-The approach we used in this session:
-
-1.  **Ask** AI to explain a concept (DuckDB basics)
-2.  **Try** writing code yourself based on the explanation
-3.  **Compare** your code with AI's suggestion
-4.  **Question** anything you don't understand — ask follow-up prompts
-5.  **Apply** the concept to your own transport problem
-
-This workflow is more powerful than copying AI output because you **understand** what the code does.
-
-## Key Takeaways
-
--   DuckDB is a fast, embedded database ideal for transport data analysis
--   SQL skills transfer across R, Python, and many other tools
--   AI can accelerate learning new tools, but you must engage critically
--   Always understand code before using it in production
+-   Using AI to explore unfamiliar datasets
+-   Writing spatial analysis code with AI assistance
+-   Debugging AI-generated code
+-   Iterating on code quality with follow-up prompts
+-   Translating between programming languages
 
 ## Next Steps
 
--   [Day 2: Effective Prompting](s5.qmd) — Advanced AI interaction techniques
--   [Bonus: DuckDB challenges](bonus.qmd#duckdb-challenges) — More complex queries for experienced users
+-   [Session 6: Learning New Tools with AI (DuckDB)](s6.qmd) — Using AI to learn a new tool
+-   [Bonus exercises](bonus.qmd) — More challenges for experienced coders
