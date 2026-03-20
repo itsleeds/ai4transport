@@ -82,20 +82,20 @@ Write down:
 
 ### Step 2: Plan with AI (10 mins)
 
-Ask Copilot using the CLEAR framework from Session 2:
+Ask Copilot using the 4D framework from Session 2:
 
 ```
-Concise: I am working on [your project description] using Leeds transport data.
-Logical: I want to [step 1], [step 2], and [step 3].
-Explicit: Help me write [R/Python] code to [specific task] using [specific packages].
-Adaptive: Suggest an approach and let me know if you need more details.
-Reflective: Explain how your proposed code handles [specific complexity].
+Delegation: I want to delegate the [specific task] to AI.
+Description: I am working on [project] using Leeds transport data. 
+             Write [R/Python] code to [task] using [packages].
+Discernment: I will check the output for [potential errors/accuracy].
+Diligence: I will verify [key metrics] and document AI usage.
 ```
 
 ### Step 3: Implement (60 mins)
 
 Work through your plan with AI assistance. Remember:
--   Use the CLEAR framework for prompts
+-   Use the 4D framework for prompts
 -   Iterate rather than starting over
 -   Save your work frequently
 -   Ask for help when stuck
@@ -118,7 +118,7 @@ Prepare a 2-minute summary of:
 
 ## Getting Help
 
--   Ask Copilot first — practise the CLEAR framework from Session 2
+-   Ask Copilot first — practise the 4D framework from Session 2
 -   If stuck, discuss with a neighbour
 -   Raise your hand for instructor help
 -   Check the [course GitHub repository](https://github.com/itsleeds/ai4transport) for examples

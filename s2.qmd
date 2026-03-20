@@ -51,30 +51,30 @@ Every LLM has a fixed **context window** — the maximum amount of text it can p
 
 When the context window fills up, earlier information is dropped. This is why very long conversations can lose track of initial instructions.
 
-## Part 2: The CLEAR Framework
+## Part 2: The 4D Framework for AI Fluency
 
-Now that you understand how LLMs work, here is a practical framework for writing effective prompts in technical and data science workflows.
+Now that you understand how LLMs work, here is a practical framework for using AI effectively and responsibly in technical and transport workflows.
 
-### CLEAR
+### 4D Framework
 
-The **CLEAR** framework was developed for higher education and technical disciplines to improve the reliability of AI outputs ([Lo, 2023](https://doi.org/10.1016/j.acalib.2023.102717)). It emphasizes structured, iterative communication with the model. For more on getting started with prompt engineering, see [Sheffield Hallam University's AI Guide](https://libguides.shu.ac.uk/ai/gettingstarted).
+The **4D Framework** was developed by Rick Dakan and Joseph Feller in partnership with Anthropic ([Anthropic AI Fluency Framework](https://anthropic.skilljar.com/ai-fluency-framework-foundations)). It moves beyond simple prompting to cover the entire AI-assisted workflow.
 
-*   **C**oncise: Remove unnecessary information to help the AI focus on the most important aspects of your query.
-*   **L**ogical: Use a logical flow and order of ideas to ensure the AI correctly processes context and relationships.
-*   **E**xplicit: Provide clear and specific output requirements regarding format, content, and scope.
-*   **A**daptive: Be flexible and prepared to experiment with keywords and iterate based on initial results.
-*   **R**eflective: Critically analyze the results and evaluate the relevancy and accuracy of the AI's response.
+*   **D**elegation: Decide which tasks are appropriate for AI. Focus on planning and identifying AI's specific role in your transport workflow.
+*   **D**escription: Craft effective prompts by clearly articulating the task, context, and desired output. This is the core "prompt engineering" phase.
+*   **D**iscernment: Critically evaluate the AI's output. Identify hallucinations, biases, or inaccuracies and determine if it meets professional standards.
+*   **D**iligence: Ensure ethical and responsible application. Verify all facts, be transparent about AI usage, and ensure the final delivery is safe and high-quality.
+
+The framework emphasizes an iterative **Description-Discernment loop**, where you refine your prompts based on a critical evaluation of the AI's initial responses.
 
 ### Example: Transport Data Analysis
 
 > **Bad prompt:** "Analyse this transport data"
 
-> **Good prompt (CLEAR):**
-> -   **Concise:** I am studying cycling patterns in Leeds to identify commuter corridors.
-> -   **Logical:** First, load the data; second, calculate averages; third, create a plot.
-> -   **Explicit:** Write R code using `ggplot2` to visualize monthly counts from `cycling_counts.csv`. Use a 7-day moving average.
-> -   **Adaptive:** If the plot is too cluttered, I will ask you to filter for the top 5 locations.
-> -   **Reflective:** Explain how the code handles missing values in the date sequence to ensure the trend is accurate.
+> **Good prompt (4D):**
+> -   **Delegation:** I will delegate the initial data cleaning and basic plotting of cycling counts to the AI, while I focus on the strategic interpretation of the results.
+> -   **Description:** "Write R code to load `cycling_counts.csv` using `sf`. Calculate 7-day moving averages for each `location_id` and create a line plot with `ggplot2` using Leeds city colors."
+> -   **Discernment:** I will check the output for common R errors, ensure the moving average logic is correct, and verify that it handles any missing dates appropriately.
+> -   **Diligence:** I will document that AI was used to generate the initial code and verify the final statistics against the raw dataset before including them in the policy report.
 
 ### The CIC Short Version
 
@@ -82,22 +82,22 @@ For simpler tasks, the **CIC** (Context, Instruction, Constraints) shortcut work
 
 > "I am analysing cycling data for Leeds focusing on commuter routes (Context). Create a desire line map showing the top 50 cycling flows using stplanr and tmap in R (Instruction). Use a sequential colour palette with a title and legend (Constraints)."
 
-## Exercise: Prompt Improvement
+## Exercise: AI Workflow Practice
 
-Take these poor prompts and rewrite them using CLEAR:
+Take these poor prompts and apply the 4D framework:
 
 1.  "Show me a map of Leeds"
 2.  "Fix my code it doesn't work"
 3.  "Summarise this GeoJSON file"
 
-Then test both versions with Copilot Chat and compare the outputs.
+For each one, consider: What are you **delegating**? How will you **describe** it? How will you apply **discernment** and **diligence**?
 
 ## Key Takeaways
 
 1.  **Tokens** are the currency of LLMs — understand them to use AI efficiently
 2.  **Attention** is finite — put important information where it gets noticed
 3.  **Context windows** are limited — be concise and prioritise relevant information
-4.  **CLEAR** is your framework for technical prompts that get reliable results
+4.  **4D** is your framework for using AI fluently and responsibly
 5.  **Specificity** prevents median result regression — detailed prompts yield better outputs
 
 ## Next Steps

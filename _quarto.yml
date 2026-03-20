@@ -40,7 +40,7 @@ website:
           - href: s1.qmd
             text: "Session 1: What is AI?"
           - href: s2.qmd
-            text: "Session 2: How AI Works & CLEAR"
+            text: "Session 2: How AI Works & 4D"
           - href: s3.qmd
             text: "Session 3: AI Tools & Copilot"
           - href: s4.qmd
