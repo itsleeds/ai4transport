@@ -25,7 +25,7 @@ AI and Data Science for Transport
 ::: incremental
 -   We learned what AI is (and isn't)
 -   Understood how LLMs work (tokens, attention, context)
--   Learned the SPACE prompting framework
+-   Learned the CLEAR prompting framework
 -   Set up GitHub Copilot in VS Code
 -   Analysed Leeds transport data with AI assistance
 :::
@@ -81,7 +81,7 @@ Using AI to learn a powerful new tool.
 Your turn! Apply everything to a Leeds transport problem.
 
 -   Choose a project matching your skill level
--   Use SPACE framework for prompts
+-   Use CLEAR framework for prompts
 -   Present your work in Session 8
 
 ## Session 8: Presentations
@@ -98,7 +98,7 @@ Your turn! Apply everything to a Leeds transport problem.
 
 ::: incremental
 1.  Understanding AI internals helps you use it better
-2.  SPACE: Situation, Problem, Action, Constraints, Example
+2.  CLEAR: Concise, Logical, Explicit, Adaptive, Reflective
 3.  Superprompts = repeatable AI processes
 4.  Agents add planning and iteration
 5.  Use AI to become *more* capable

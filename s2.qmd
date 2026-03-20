@@ -1,5 +1,5 @@
 ---
-title: "Session 2: How AI Works & The SPACE Framework"
+title: "Session 2: How AI Works & The CLEAR Framework"
 ---
 
 ## Introduction
@@ -51,28 +51,30 @@ Every LLM has a fixed **context window** — the maximum amount of text it can p
 
 When the context window fills up, earlier information is dropped. This is why very long conversations can lose track of initial instructions.
 
-## Part 2: The SPACE Framework
+## Part 2: The CLEAR Framework
 
-Now that you understand how LLMs work, here is a practical framework for writing effective prompts.
+Now that you understand how LLMs work, here is a practical framework for writing effective prompts in technical and data science workflows.
 
-### SPACE
+### CLEAR
 
--   **S**ituation: What is the context? What data/environment are you working in?
--   **P**roblem: What specifically are you trying to solve or create?
--   **A**ction: What should the AI do? (Write code? Explain? Debug? Refactor?)
--   **C**onstraints: What limitations exist? (Language, packages, performance, style)
--   **E**xample: Can you show an example of the desired output?
+The **CLEAR** framework was developed for higher education and technical disciplines to improve the reliability of AI outputs ([Lo, 2023](https://doi.org/10.1016/j.acalib.2023.102717)). It emphasizes structured, iterative communication with the model. For more on getting started with prompt engineering, see [Sheffield Hallam University's AI Guide](https://libguides.shu.ac.uk/ai/gettingstarted).
 
-### Examples
+*   **C**oncise: Remove unnecessary information to help the AI focus on the most important aspects of your query.
+*   **L**ogical: Use a logical flow and order of ideas to ensure the AI correctly processes context and relationships.
+*   **E**xplicit: Provide clear and specific output requirements regarding format, content, and scope.
+*   **A**daptive: Be flexible and prepared to experiment with keywords and iterate based on initial results.
+*   **R**eflective: Critically analyze the results and evaluate the relevancy and accuracy of the AI's response.
+
+### Example: Transport Data Analysis
 
 > **Bad prompt:** "Analyse this transport data"
 
-> **Good prompt (SPACE):**
-> -   **Situation:** I have a CSV of cycling counts in Leeds with columns: date, count_point_id, location, total_cycles, longitude, latitude
-> -   **Problem:** I need to understand seasonal patterns and identify unusual count locations
-> -   **Action:** Write R code to create a time series plot of monthly averages with a trend line
-> -   **Constraints:** Use ggplot2, keep it to a single A4 page, use a colour-blind-friendly palette
-> -   **Example:** Similar to the chart on page 3 of this report [describe or link]
+> **Good prompt (CLEAR):**
+> -   **Concise:** I am studying cycling patterns in Leeds to identify commuter corridors.
+> -   **Logical:** First, load the data; second, calculate averages; third, create a plot.
+> -   **Explicit:** Write R code using `ggplot2` to visualize monthly counts from `cycling_counts.csv`. Use a 7-day moving average.
+> -   **Adaptive:** If the plot is too cluttered, I will ask you to filter for the top 5 locations.
+> -   **Reflective:** Explain how the code handles missing values in the date sequence to ensure the trend is accurate.
 
 ### The CIC Short Version
 
@@ -82,11 +84,11 @@ For simpler tasks, the **CIC** (Context, Instruction, Constraints) shortcut work
 
 ## Exercise: Prompt Improvement
 
-Take these poor prompts and rewrite them using SPACE:
+Take these poor prompts and rewrite them using CLEAR:
 
-1.  "Show me a map"
+1.  "Show me a map of Leeds"
 2.  "Fix my code it doesn't work"
-3.  "What does this data mean?"
+3.  "Summarise this GeoJSON file"
 
 Then test both versions with Copilot Chat and compare the outputs.
 
@@ -95,7 +97,7 @@ Then test both versions with Copilot Chat and compare the outputs.
 1.  **Tokens** are the currency of LLMs — understand them to use AI efficiently
 2.  **Attention** is finite — put important information where it gets noticed
 3.  **Context windows** are limited — be concise and prioritise relevant information
-4.  **SPACE** is your framework for writing prompts that get useful results
+4.  **CLEAR** is your framework for technical prompts that get reliable results
 5.  **Specificity** prevents median result regression — detailed prompts yield better outputs
 
 ## Next Steps

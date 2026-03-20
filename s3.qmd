@@ -79,7 +79,7 @@ The most powerful way to use Copilot is through the **Chat panel** in VS Code:
 
 ::: callout-tip
 ## Apply what you learned
-Use the SPACE framework from Session 2 when writing prompts to Copilot. The quality of your output depends on the quality of your input.
+Use the CLEAR framework from Session 2 when writing prompts to Copilot. The quality of your output depends on the quality of your input.
 :::
 
 ## Practical Exercise: Your First AI-Assisted Code
@@ -113,7 +113,7 @@ Each prompt builds on the previous one. This iterative approach is the key to pr
 
 ## Key Takeaways
 
-1.  GitHub Copilot works best when you provide **context, instructions, and constraints** (SPACE framework)
+1.  GitHub Copilot works best when you provide **Concise, Logical, Explicit, Adaptive, and Reflective** (CLEAR framework) instructions
 2.  Always review AI-generated code — it's a draft, not a final product
 3.  Iterate: start simple, then refine with follow-up prompts
 4.  The AI is your assistant, not your replacement

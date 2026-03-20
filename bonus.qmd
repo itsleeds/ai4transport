@@ -153,7 +153,7 @@ Take any function you wrote during the course and ask AI to:
 
 **B. Prompt Engineering Practice**
 -   Collect 10 real transport analysis tasks from your work
--   Write SPACE-framework prompts for each
+-   Write CLEAR-framework prompts for each
 -   Test them with different AI tools and compare results
 
 **C. AI Ethics Assessment**
