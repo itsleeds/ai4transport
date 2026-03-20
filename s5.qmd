@@ -1,0 +1,218 @@
+---
+title: "Session 5: Agentic AI — From Superprompts to Agents"
+---
+
+## Introduction
+
+In Sessions 2 and 3, we learned how to write effective prompts and use GitHub Copilot. Now we explore the next level: turning AI from a single-shot assistant into a **systematic, repeatable workflow tool**.
+
+This session covers the conceptual building blocks that make modern AI tools powerful, from superprompts to agents and orchestration.
+
+## Part 1: Superprompts
+
+### What is a Superprompt?
+
+A **superprompt** is a carefully structured, reusable prompt that turns a one-off interaction into a repeatable, reliable process. Think of it as a "program" written in natural language.
+
+Unlike ad-hoc prompts, superprompts:
+
+-   Include **detailed context** that stays consistent across uses
+-   Specify **step-by-step instructions** the AI should follow
+-   Define **output format** expectations
+-   Include **examples** of desired behaviour
+-   Set **constraints** and guardrails
+
+### Example: From Prompt to Superprompt
+
+**Ad-hoc prompt:**
+> "Analyse this OD data"
+
+**Superprompt:**
+> You are a transport data scientist analysing origin-destination data for a UK local authority.
+>
+> Your task:
+> 1. Load the CSV file provided
+> 2. Calculate total trips by mode (bicycle, walk, car_driver, all)
+> 3. Compute mode share percentages for each zone
+> 4. Identify the top 10 zones by cycling mode share
+> 5. Create a summary table with: zone name, total trips, bicycle count, bicycle share %
+> 6. Flag any zones where cycling mode share exceeds 15%
+>
+> Output format: Provide R code with clear comments, followed by a plain-English summary of findings.
+>
+> Constraints: Use tidyverse packages. Handle missing values gracefully. Round percentages to 1 decimal place.
+
+### Exercise: Write a Superprompt
+
+Create a superprompt for this task: "Help a transport planner review a proposed cycling scheme"
+
+Your superprompt should include:
+-   Role definition (what is the AI acting as?)
+-   Step-by-step process
+-   Required inputs (what information does the AI need?)
+-   Output format
+-   Constraints
+
+Test it with Copilot Chat and iterate.
+
+## Part 2: Context and RAG
+
+### Why Context Matters
+
+Recall from Session 2: LLMs have a fixed **context window**. The quality of AI output depends heavily on what information is available in that window.
+
+**Good context includes:**
+-   Relevant data and documentation
+-   Domain-specific terminology and standards
+-   Examples of desired output
+-   Institutional knowledge and conventions
+
+**Poor context leads to:**
+-   Generic, non-specific outputs
+-   Hallucinations (fabricated information)
+-   Inconsistent results across sessions
+
+### RAG: Retrieval-Augmented Generation
+
+**RAG** (Retrieval-Augmented Generation) is a technique for providing AI with relevant context from your organisation's knowledge base:
+
+1.  **Retrieval:** When you ask a question, the system first searches a database of documents for relevant information
+2.  **Augmentation:** The retrieved information is added to your prompt as context
+3.  **Generation:** The AI generates a response using both your prompt and the retrieved context
+
+**Practical examples in transport:**
+
+-   Providing AI with your organisation's cycling design standards (e.g., LTN 1/20)
+-   Including relevant sections of Local Plans or transport strategies
+-   Adding documentation for internal tools and datasets
+
+::: callout-tip
+## In practice
+GitHub Copilot's `@workspace` command is a simple form of RAG — it searches your repository for relevant context. More advanced RAG systems can search document databases, wikis, or knowledge bases.
+:::
+
+### Building Useful Contexts
+
+Tips for managing context effectively:
+
+1.  **Keep related files in your project.** Copilot can see files in your workspace.
+2.  **Write clear documentation.** AI reads your README and comments.
+3.  **Use descriptive variable names.** `leeds_cycling_counts` is better than `df`.
+4.  **Create context files.** A `CONTEXT.md` file with project conventions helps AI stay consistent.
+
+## Part 3: Agents
+
+### What is an AI Agent?
+
+An **agent** is an AI system that can:
+
+-   **Plan** a multi-step approach to a goal
+-   **Execute** steps autonomously (reading files, writing code, running commands)
+-   **Observe** results and adjust the plan
+-   **Iterate** until the task is complete
+
+This is different from simple prompting because the agent has a **feedback loop** — it checks its own work and adapts.
+
+### Packaging Prompts into Agents
+
+Agents are essentially **superprompts with capabilities**:
+
+| Component | Purpose |
+|-----------|---------|
+| System prompt | Defines the agent's role and behaviour |
+| Tools | What the agent can do (read files, run code, search web) |
+| Memory | What the agent remembers across steps |
+| Loop | The cycle of plan → act → observe → adjust |
+
+### Types of Agents
+
+-   **GitHub Copilot Agent Mode:** Built into VS Code, can read/write files and run commands
+-   **Custom GPTs (OpenAI):** Package a superprompt with specific knowledge and capabilities
+-   **Gemini Gems (Google):** Similar to Custom GPTs for the Gemini ecosystem
+-   **Claude Projects (Anthropic):** Persistent context with uploaded documents
+
+::: callout-note
+In this course, we focus on GitHub Copilot Agent Mode (Session 6), but the concepts apply across all agent platforms.
+:::
+
+## Part 4: Tools
+
+### From "Next Token" to "Next Tool"
+
+A key concept: modern AI agents do not just predict the next word. They predict the **next action**, which might be:
+
+-   Writing code
+-   Reading a file
+-   Running a terminal command
+-   Searching the web
+-   Calling an API
+
+This is "next tool" prediction — the AI decides which tool to use based on the task.
+
+### Compartmentalised Tools
+
+Well-designed AI tools are:
+
+-   **Specific:** Each tool does one thing well
+-   **Well-defined:** Clear inputs and outputs
+-   **Safe:** Guardrails prevent destructive actions
+-   **Auditable:** Actions are logged and reviewable
+
+For example, a transport analysis agent might have tools for:
+-   Loading and validating spatial data
+-   Running network analysis
+-   Creating maps
+-   Generating reports
+
+## Part 5: Orchestration
+
+### How It All Fits Together
+
+**Orchestration** is the process of coordinating multiple AI tools, agents, and workflows:
+
+```
+User Goal → Planning Agent → Tool Selection → Execution → Results → Review
+     ↑                                                              |
+     └──────────────────────────────────────────────────────────────┘
+```
+
+In practice:
+
+1.  You describe a high-level goal ("Analyse cycling accessibility in Leeds")
+2.  The agent breaks it into tasks (load data, calculate metrics, create maps)
+3.  Each task uses the appropriate tool
+4.  Results are checked and the plan is adjusted
+5.  You review the final output
+
+### Discussion: When to Use Agents vs Simple Prompts
+
+| Use simple prompts when... | Use agents when... |
+|---------------------------|-------------------|
+| One-off questions | Repeated workflows |
+| Exploratory analysis | Multi-step processes |
+| You want full control | Tasks are well-defined |
+| Quick lookups | You need file system access |
+
+## Part 6: Implementation at Scale (Optional)
+
+For organisations deploying AI at scale:
+
+-   **Validity testing:** Checking AI outputs against known correct answers
+-   **Evals:** Systematic evaluation of AI performance on standard tasks
+-   **Judge prompts:** Using AI to evaluate other AI outputs
+-   **Gold sets:** Curated examples of correct outputs for comparison
+
+These topics are beyond the scope of this course but are important for production deployments.
+
+## Key Takeaways
+
+1.  **Superprompts** turn ad-hoc interactions into repeatable processes
+2.  **RAG** provides relevant context from your organisation's knowledge
+3.  **Agents** add planning, execution, and iteration to prompts
+4.  **Tools** extend AI from text generation to action
+5.  **Orchestration** coordinates everything into workflows
+
+## Next Steps
+
+-   [Session 6: Learning with AI (DuckDB)](s6.qmd) — Using AI to learn new tools
+-   [Bonus: copilot-cli](bonus.qmd#copilot-cli) — Agent-like capabilities in the terminal

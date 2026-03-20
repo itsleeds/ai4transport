@@ -1,32 +1,40 @@
 ---
 number-sections: false
 title: "AI and Data Science for Transport"
-subtitle: "Empowering transport professionals with modern data science and AI tools"
+subtitle: "A 2-day course empowering transport professionals with modern data science and AI tools"
 ---
 
 ## Welcome
 
 Welcome to the course materials for **AI and Data Science for Transport**.
-This comprehensive course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.
+This 2-day course is designed to bridge the gap between traditional transport planning and cutting-edge AI technologies.
 
 Our goal is to help you:
 
--   **Automate** repetitive tasks.
--   **Analyze** complex datasets efficiently.
--   **Visualize** transport patterns with clarity.
+-   **Understand** what AI is and how it works
+-   **Automate** repetitive tasks with AI assistance
+-   **Analyze** complex transport datasets efficiently
+-   **Learn** new tools faster using AI as your guide
+-   **Apply** AI to real transport problems in Leeds
 
 ### See What's Possible
 
-In this course, you will learn how to generate professional outputs like this origin-destination map of the South East, using AI-assisted workflows:
+In this course, you will learn how to generate professional outputs like this cycling network map of Leeds, using AI-assisted workflows:
 
-![Commuting flows in the South East of England](images/tfse_od_map.png)
+![Leeds cycling infrastructure](images/leeds_od_map.png)
+
+### Course Structure
+
+**Day 1: Foundations & Tools** — Learn what AI is, set up GitHub Copilot, analyse Leeds transport data, and use AI to learn DuckDB.
+
+**Day 2: Agentic AI & Applied Work** — Master prompting strategies, explore agentic AI workflows, and apply everything to your own Leeds-based project.
 
 ### Get Started
 
--   Check the [Prerequisites](prerequisites.qmd) to set up your environment.
--   View the [Schedule](schedule.qmd) to see what we will cover.
--   See the [Get Data](get-data.qmd) page for data access.
--   Jump to [Session 1](s1.qmd) to begin.
+-   Check the [Prerequisites](prerequisites.qmd) to set up your environment
+-   View the [2-day Schedule](schedule.qmd) to see what we will cover
+-   See the [Get Data](get-data.qmd) page for data access
+-   Jump to [Session 1](s1.qmd) to begin
 
 ---
 

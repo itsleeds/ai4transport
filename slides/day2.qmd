@@ -1,0 +1,115 @@
+---
+title: "AI and Data Science for Transport"
+subtitle: "Day 2: Agentic AI & Applied Work"
+author: "Robin Lovelace and Chris Rushton"
+format: clean-revealjs
+bibliography: ../references.bib
+---
+
+## Welcome to Day 2!
+
+AI and Data Science for Transport
+
+**Day 2: Agentic AI & Applied Work**
+
+## Day 2 Agenda
+
+-   **10:00-11:30** Session 5: Agentic AI — Superprompts to Agents
+-   **11:30-12:30** Session 6: Learning New Tools with AI (DuckDB)
+-   **12:30-13:30** Lunch
+-   **13:30-16:00** Session 7: Applied Projects
+-   **16:00-17:00** Session 8: Presentations & Wrap-up
+
+## Day 1 Recap
+
+::: incremental
+-   We learned what AI is (and isn't)
+-   Understood how LLMs work (tokens, attention, context)
+-   Learned the 4D AI fluency framework
+-   Set up GitHub Copilot in VS Code
+-   Analysed Leeds transport data with AI assistance
+:::
+
+## Session 5: Agentic AI
+
+### From Superprompts to Agents
+
+Key concepts for today:
+
+::: incremental
+-   **Superprompts** — repeatable, structured prompts
+-   **Context & RAG** — providing relevant knowledge
+-   **Agents** — AI that plans, acts, and iterates
+-   **Tools** — extending AI beyond text generation
+-   **Orchestration** — coordinating workflows
+:::
+
+## Superprompts
+
+Turn one-off prompts into **repeatable processes**:
+
+-   Detailed context and role definition
+-   Step-by-step instructions
+-   Output format specifications
+-   Examples and constraints
+
+## From Prompts to Agents
+
+Traditional: You ask → AI responds → Done
+
+Agentic: You describe goal → AI plans → AI executes → AI checks → You review
+
+## Key Insight: Next Tool Prediction
+
+Modern agents predict the **next action**, not just the next word:
+
+-   Writing code
+-   Reading files
+-   Running commands
+-   Calling APIs
+
+## Session 6: Learning DuckDB
+
+Using AI to learn a powerful new tool.
+
+-   Ask AI to explain concepts
+-   Write code with AI assistance
+-   **Understand** what you're doing — do not just copy!
+
+## Session 7: Applied Projects
+
+Your turn! Apply everything to a Leeds transport problem.
+
+-   Choose a project matching your skill level
+-   Use 4D framework for prompts
+-   Present your work in Session 8
+
+## Session 8: Presentations
+
+2 minutes each:
+
+1.  What I set out to do
+2.  What I built (show it!)
+3.  How AI helped
+4.  What I learned
+5.  What's next
+
+## Key Takeaways
+
+::: incremental
+1.  Understanding AI internals helps you use it better
+2.  4D: Delegation, Description, Discernment, Diligence
+3.  Superprompts = repeatable AI processes
+4.  Agents add planning and iteration
+5.  Use AI to become *more* capable
+:::
+
+## Resources
+
+-   [GitHub Copilot Docs](https://docs.github.com/en/copilot)
+-   [Prompt Engineering Guide](https://www.promptingguide.ai/)
+-   [Course Repository](https://github.com/itsleeds/ai4transport)
+
+## Thank You!
+
+Questions? Let's get started with Day 2!

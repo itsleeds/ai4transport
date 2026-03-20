@@ -13,7 +13,7 @@ format:
 #| echo: false
 #| eval: false
 # Export to docx
-quarto::quarto_render("tfse.qmd", output_format = "docx", output_file = "tfse.docx")
+quarto::quarto_render("leeds.qmd", output_format = "docx", output_file = "leeds.docx")
 # regenerate the README
 quarto::quarto_render("README.qmd", output_format = "gfm", output_file = "README.md")
 # Export prequisites to self-contained HTML
@@ -21,9 +21,9 @@ quarto::quarto_render("prerequisites.qmd", output_format = "html", output_file =
 # Optionally: copy whole folder to OneDrive location for sharing
 system("cp -rv . ~/OneDrive/shortcourses/ai4transport/")
 # And the prerequisites
-system("cp -rv docs/prerequisites.html ~/OneDrive/shortcourses/ai4transport/tfse.html")
+system("cp -rv docs/prerequisites.html ~/OneDrive/shortcourses/ai4transport/leeds.html")
 list.files("~/OneDrive/shortcourses/ai4transport/")
-browseURL("/home/robin/OneDrive/shortcourses/ai4transport/tfse.html")
+browseURL("/home/robin/OneDrive/shortcourses/ai4transport/leeds.html")
 ```
 
 This repo contains code to support teaching the use of data science and AI and Data Science for Transport planning.
@@ -35,7 +35,7 @@ By AI we mean services such as Google Gemini, ChatGPT and similar tools from web
 
 The ultimate goal is more effective transport planning investments and decisions
 
-![Commuting flows in the South East of England, generated with AI assistance](images/tfse_od_map.png)
+![Commuting flows in the Leeds, generated with AI assistance](images/leeds_od_map.png)
 
 <details>
 <summary>Python Environment Setup</summary>
@@ -58,7 +58,7 @@ Some Quarto documents in this repository utilize Python code. To ensure these do
     pip install pandas matplotlib numpy osmnx geopandas shapely openai requests pypdf ipython jupyter openpyxl tabulate jupyter-cache
     ```
 
-The trigger for the course was interest from Transport for the South East (TfSE) in using AI to improve transport planning.
-See the [tfse](tfse) document for the (currently in-development) course content for that specific course.
+The trigger for the course was interest from Transport for the Leeds (Leeds) in using AI to improve transport planning.
+See the [leeds](leeds) document for the (currently in-development) course content for that specific course.
 
 </details>

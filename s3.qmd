@@ -1,275 +1,124 @@
 ---
-title: "Session 3: AI for Transport Data Analysis"
-execute:
-    eval: false
+title: "Session 3: AI Tools & GitHub Copilot"
 ---
 
 ## Introduction
 
-In this session, we will explore how AI can be used to augment and accelerate data analysis tasks in transport planning. We will focus on using AI to write code for analyzing and visualizing transport data.
+This session introduces the AI tools we will use throughout the course, with a focus on **GitHub Copilot** — an AI coding assistant integrated directly into your development environment.
 
-## Finding and Cleaning Data with AI
+## Types of AI Tools
 
-<!-- *Placeholder: Describe how to use AI tools (like ChatGPT or Copilot) to identify relevant datasets and write scripts to clean and format them.* -->
+There are three main categories of AI tools relevant to transport professionals:
 
-Generally available AI models, such as GPT (currently used in M365 Copilot and the models you can use in GitHub Copilot) are generalists.
-That means they are *not* generally good at very specific domains, such as the locations of transport datasets.
+### 1. Web-based Chatbots (ChatGPT, Claude, Copilot)
 
-::: note
-You can check which model you are using by asking the AI directly.
+-   Best for: Brainstorming, summarising, explaining concepts
+-   Limitation: No direct access to your files or code
+-   We used these in Session 1
 
-<details>
-<summary>Example conversation</summary>
+### 2. Integrated Coding Assistants (GitHub Copilot in VS Code)
 
-**User**: What model are you?
+-   Best for: Writing, debugging, and understanding code
+-   Advantage: Works directly in your code editor, sees your files
+-   **This is our primary tool for the course**
 
-**Copilot**: I’m based on GPT‑5, a large language model developed by OpenAI and integrated into Microsoft Copilot. This means I can handle a wide range of tasks—answering questions, generating content, analyzing data, and more—while adapting to your context.
+### 3. Productivity Assistants (Microsoft 365 Copilot)
 
-</details>
+-   Best for: Working with emails, documents, spreadsheets
+-   Limitation: Limited coding capabilities
+-   Not covered in detail in this course
+
+::: callout-tip
+GitHub Copilot is significantly more capable for coding tasks than M365 Copilot. If your organisation provides both, use GitHub Copilot for code and M365 Copilot for documents.
 :::
 
-To provide an example, imagine you need a dataset of the motorway network in the South East of England.
-You could try this prompt in an AI chat tool, as shown in the details below.
+## Getting Started with GitHub Codespaces
 
-However, a more effective approach is likely to be to ask the AI to help you write code to search for and download relevant datasets from known repositories, such as data.gov.uk or OpenStreetMap.
+We will be using GitHub Codespaces for this course. This provides a full development environment in your browser, pre-configured with all the necessary tools.
 
-### Example: Downloading motorway data
+[**Launch GitHub Codespaces**](https://github.com/codespaces/new/itsleeds/ai4transport?quickstart=1){.btn .btn-primary target="_blank"}
 
-Note: This example demonstrates where AI can be helpful but also where human intervention is crucial. AI-generated code often requires careful checking against documentation and may use outdated packages or file formats.
+### Understanding the VS Code Interface
 
-1. Write a prompt that results in code to download motorway data in the South East of England.
+When you open Codespaces, you will see Visual Studio Code (VS Code) running in your browser. It consists of several key areas:
 
-2. Update the prompt to make it more specific, e.g. telling it to use a specific language or package.
+-   **Activity Bar** (Left Sidebar): Lets you switch between views like Explorer (files), Search, Source Control (Git), and Extensions.
+-   **Side Bar** (Next to Activity Bar): Shows the details of the current view (e.g., your file tree).
+-   **Editor** (Center): The main area where you edit your code. You can have multiple tabs open.
+-   **Panel** (Bottom): Displays the Terminal, Debug Console, Output, and Problems. This is where you'll run commands and see program output.
+-   **Status Bar** (Bottom Edge): Shows information about the current project, git branch, and cursor position.
 
-3. Try running the code.
+### Exercise: Explore the Environment
 
-<details>
-<summary>Example prompt and output</summary>
+Before we dive into coding, let's get familiar with the environment.
 
-**Prompt:** 
+1.  **Open the Explorer:** Click the top icon in the Activity Bar (or press `Ctrl+Shift+E` / `Cmd+Shift+E`). Look at the file structure.
+2.  **Open the Terminal:** If not visible, press `` Ctrl+` `` (backtick) or go to the menu *Terminal > New Terminal*.
+3.  **Find the Extensions:** Click the square icon in the Activity Bar. Search for "Python" to see that it is already installed.
+4.  **Locate the Command Palette:** Press `Ctrl+Shift+P` (or `Cmd+Shift+P`). Type "Theme" and try changing the Color Theme.
 
-> "Write R code to download motorway network data for the South East of England from OpenStreetMap using the `osmdata` package."
+## GitHub Copilot in VS Code
 
-**AI Output:**
+### What is GitHub Copilot?
 
-```{r}
-library(osmdata)
-library(sf)
-# Define the bounding box for South East England
-bbox <- getbb("South East England, UK")
-# Create an Overpass query for motorways
-motorway_query <- opq(bbox) %>%
-  add_osm_feature(key = "highway", value = "motorway")
-# Download the data
-motorway_data <- osmdata_sf(motorway_query)
-# Extract the motorway lines
-motorways <- motorway_data$osm_lines
-# Plot the result
-plot(st_geometry(motorways), col = 'blue', main = "Motorway Network in South East England")
-# Save to a shapefile
-st_write(motorways, "south_east_motorways.shp")
+GitHub Copilot is an **AI pair programmer** that suggests code completions and responds to natural language prompts directly in your editor. It is powered by large language models trained on billions of lines of public code.
+
+### The Myth vs. The Reality
+
+**The Myth:** AI writes code for you while you sleep.
+
+**The Reality:** AI acts as a very fast and enthusiastic Junior Developer. It understands syntax and grammar but lacks awareness of your intent unless explicitly instructed. Our roles pivot from simply writing code to reviewing and managing it.
+
+### Using Copilot Chat
+
+The most powerful way to use Copilot is through the **Chat panel** in VS Code:
+
+1.  Open Copilot Chat: `Ctrl+Shift+I` (or click the Copilot icon)
+2.  You can ask questions about your code, request new code, or get explanations
+3.  Use `@workspace` to let Copilot see your entire project
+
+::: callout-tip
+## Apply what you learned
+Use the 4D framework from Session 2 when writing prompts to Copilot. The quality of your output depends on the quality of your input.
+:::
+
+## Practical Exercise: Your First AI-Assisted Code
+
+### Task: Load and Visualise Leeds Transport Data
+
+Using Copilot Chat, work through these steps:
+
+**Step 1:** Ask Copilot to explain the Leeds data files in the repository:
+
+```
+@workspace What data files are available and what do they contain?
 ```
 
-**Notes:**
+**Step 2:** Ask Copilot to write code to load the data:
 
-1. It worked in one shot!
-
-A year ago this would not have worked first time, but the models are improving rapidly.
-
-2. However, it was not perfect:
-
-  - It saved the file in an out-of data file format (shapefile) rather than a more modern one (GeoPackage).
-  - It used the outdated `%>%` pipe operator from `magrittr` rather than the native R pipe `|>`.
-
-3. Refining the prompt can easily fix these issues.
-
-</details>
-
-```{r}
-#| echo: false
-# Manually updated to save as GeoPackage:
-st_write(motorways, "south_east_motorways.gpkg")
-system("gh release list")
-system("gh release upload v1 south_east_motorways.gpkg")
+```
+Write R code to load leeds_network.geojson using sf and create a basic plot coloured by highway type using tmap
 ```
 
-```{r}
-#| echo: false
-motorways_url = "https://github.com/itsleeds/ai4transport/releases/download/v1/south_east_motorways.gpkg"
-motorways = sf::read_sf(motorways_url)
-motorways = motorways |>
-  # description 	London Orbital Motorway
-  subset(description == "London Orbital Motorway")
-mapview::mapview(motorways, zcol = "lanes", legend = TRUE)
+**Step 3:** Iterate — ask Copilot to improve the visualisation:
+
+```
+Update the map to use a colour-blind friendly palette and add a title "Leeds Cycling Network"
 ```
 
-### Example: Downloading road traffic collision data in TfSE
+::: {.callout-tip}
+## Notice
+Each prompt builds on the previous one. This iterative approach is the key to productive AI-assisted development.
+:::
 
-See the bonus section at the end of this page for an example of how to use R and AI to download and filter road traffic collision data for the Transport for the South East (TfSE) region.
+## Key Takeaways
 
-### Bonus activity
+1.  GitHub Copilot works best when you provide **Delegation, Description, Discernment, and Diligence** (4D framework) throughout your workflow
+2.  Always review AI-generated code — it's a draft, not a final product
+3.  Iterate: start simple, then refine with follow-up prompts
+4.  The AI is your assistant, not your replacement
 
-Use AI to help you find and import data on a topic of your choice relevant to transport planning.
+## Next Steps
 
-## Exploratory Data Analysis (EDA) with AI
-
-Take a read of the AI-assisted EDA session in [survey-prompts.md](survey-prompts.md) for ideas on how to use AI to speed up EDA tasks.
-See the resulting code and outputs in the [survey](survey.qmd) page.
-
-### Exercises
-
-Option 1: try to reproduce some of the outputs, and new outputs, that were generated in the survey analysis session.
-
-Option 2: Try to download a specific transport dataset (e.g. the motorway network) using AI assistance, verifying the code and output carefully.
-
-Option 3: use AI to help you explore the motorway data you downloaded earlier in this session.
-
-Option 4: use AI to help you explore a transport dataset of your choice.
-
-## AI-Assisted Data Visualization
-
-Data visualization is a key part of data analysis, but the syntax for creating visualizations can be complex and time-consuming to learn.
-AI can help by generating code snippets for visualizations based on natural language prompts.
-
-### Exercises
-
-Continue with EDA tasks from the previous exercise, but add visualisations.
-
-You can use packages of your choice, but we recommend you try the following:
-
-- For people using R: `ggplot2` (part of the tidyverse), `plotly` (for interactive plots), or `mapview` (for spatial data).
-
-- For people using Python: `matplotlib`, `seaborn`, or `plotly`.
-
-## Interpreting Results with LLMs
-
-Copy-paste some of the results from your EDA and visualizations into an AI chat tool, and ask it to help you interpret the results.
-
-Do you agree with the AI's interpretation?
-
-Advanced: write data analysis code in a Quarto (.qmd) file and render it to Markdown with the following command:
-
-```sh
-quarto render your_file.qmd --to markdown
-```
-
-Then ask the AI to read the output (in this case called `your_file.md`) and help you interpret the results.
-
-## Bonus: Analysing road traffic collision data in TfSE
-
-```{r}
-#| eval: false
-#| echo: false
-#| label: tfse-data-prep
-# Note: the following R code was run once to prepare spatial data files for use in the course.
-library(sf)
-library(dplyr)
-
-# 1. Read TfSE Boundary (Absolute path as per instruction)
-tfse_path = "/home/robin/github/robinlovelace/counterbid/tfse_boundary/TfSE_Area_Boundary.shp"
-if(file.exists(tfse_path)){
-    tfse_boundary = read_sf(tfse_path)
-} else {
-    warning("TfSE boundary file not found at specified path.")
-}
-
-# 2. Read LADs (Local Authority Districts)
-u_lads = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_May_2024_Boundaries_UK_BUC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
-lads = read_sf(u_lads)
-
-# 3. Read MSOAs (Middle Layer Super Output Areas) - Centroids for efficiency in spatial join
-u_msoas = "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_Super_Output_Areas_DEC_2021_EW_PWC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson"
-msoas = read_sf(u_msoas)
-
-# 4. Filter Geographies within TfSE
-# Ensure CRS match
-if(exists("tfse_boundary")){
-    tfse_boundary = st_transform(tfse_boundary, st_crs(lads))
-    msoas = st_transform(msoas, st_crs(lads))
-
-    # Spatial intersection/subset
-    tfse_lads = lads[tfse_boundary, ]
-    tfse_msoas = msoas[tfse_boundary, ]
-
-    # 5. Save to GeoPackage
-    write_sf(tfse_lads, "tfse_lads.gpkg")
-    write_sf(tfse_msoas, "tfse_msoas.gpkg")
-    
-    print("Files saved: tfse_lads.gpkg, tfse_msoas.gpkg")
-}
-```
-
-
-In this section, we demonstrate how to programmatically access and filter large national datasets using R.
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| eval: true
-library(stats19)
-library(sf)
-library(dplyr)
-
-# 1. Load the study area boundary
-# We use the pre-prepared TfSE boundary file
-tfse_boundary = read_sf("tfse_boundary.geojson")
-```
-
-We can download road safety data directly from the Department for Transport using the `stats19` package.
-
-**Example: Getting 5 years of data (Code only)**
-
-```{r}
-#| eval: false
-#| echo: true
-# This code downloads collision data for 2020-2024
-years = 2020:2024
-collisions_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = "collision"))
-```
-
-**Example: Joining Casualties (Code only)**
-
-```{r}
-#| eval: false
-#| echo: true
-# This code gets casualty data and joins it to the collisions
-casualties_5y = purrr::map_dfr(years, ~ stats19::get_stats19(year = .x, type = "casualty"))
-
-casualties_joined = dplyr::left_join(
-  casualties_5y,
-  collisions_5y,
-  by = "collision_index" # Common ID field
-)
-```
-
-**Live Demo: Getting 2020 Collisions for TfSE**
-
-For this exercise, we will download just the 2020 collision data and filter it to our study area.
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-
-# 1. Get 2020 collision data
-collisions_2020 = get_stats19(year = 2020, type = "collision")
-
-# 2. Convert to an 'sf' object (spatial data)
-collisions_sf = format_sf(collisions_2020, lonlat = TRUE)
-
-# 3. Filter to the TfSE boundary
-# Ensure Coordinate Reference Systems match
-collisions_sf = st_transform(collisions_sf, st_crs(tfse_boundary))
-
-# Spatial subset: keep collisions within the boundary
-collisions_tfse = collisions_sf[tfse_boundary, ]
-
-print(paste("Original 2020 collisions:", nrow(collisions_sf)))
-print(paste("TfSE collisions:", nrow(collisions_tfse)))
-
-# 4. Quick visual check
-plot(st_geometry(collisions_tfse), pch = 19, cex = 0.1, col = "red", 
-     main = "Road Collisions in TfSE (2020)")
-plot(st_geometry(tfse_boundary), add = TRUE, border = "blue")
-```
+-   [Session 4: AI-Powered Coding Workshop](s4.qmd) — More hands-on practice
+-   [Bonus: copilot-cli](bonus.qmd#copilot-cli) — Command-line Copilot for advanced users

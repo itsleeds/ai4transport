@@ -14,7 +14,7 @@ website:
     position: below-navbar
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
-    left: "Materials by ITS Leeds, 2025."
+    left: "Materials by ITS Leeds, 2025-2026."
   sidebar:
     background: primary
     pinned: true
@@ -31,24 +31,42 @@ website:
         text: Schedule
       - href: prerequisites.qmd
         text: Prerequisites
-      - href: slides/day1.html
-        text: Slides
-      - section: "Sessions"
+      - section: "Day 1 Slides"
+        contents:
+          - href: slides/day1.html
+            text: "Day 1 Slides"
+      - section: "Day 1: Foundations & Tools"
         contents:
           - href: s1.qmd
-            text: "Session 1: Foundations"
+            text: "Session 1: What is AI?"
           - href: s2.qmd
-            text: "Session 2: AI-Powered Development"
+            text: "Session 2: How AI Works & 4D"
           - href: s3.qmd
-            text: "Session 3: Data Analysis"
+            text: "Session 3: AI Tools & Copilot"
           - href: s4.qmd
-            text: "Session 4: Applied AI"
+            text: "Session 4: Coding Workshop"
+      - section: "Day 2 Slides"
+        contents:
+          - href: slides/day2.html
+            text: "Day 2 Slides"
+      - section: "Day 2: Agentic AI & Applied Work"
+        contents:
+          - href: s5.qmd
+            text: "Session 5: Superprompts to Agents"
+          - href: s6.qmd
+            text: "Session 6: AI-Driven Data Science"
+          - href: s7.qmd
+            text: "Session 7: Applied Projects"
+          - href: s8.qmd
+            text: "Session 8: Wrap-up"
+      - section: "Extras"
+        contents:
+          - href: bonus.qmd
+            text: "Bonus Exercises"
+          - href: followup.qmd
+            text: "Post-Course Follow-up"
           - href: survey.qmd
             text: "Survey Results"
-          - href: s3-advanced.qmd
-            text: "Bonus: Advanced Automation"
-          - href: bonus.qmd
-            text: "Bonus: post-course follow-up"
       - href: https://github.com/itsleeds/ai4transport/issues
         text: Forum
 
@@ -59,8 +77,8 @@ format:
     title-prefix: "AI and Data Science for Transport - "
     number-sections: true
     author-meta: "ITS Leeds"
-    date-meta: "2025"
-    copyright: "© 2025 ITS Leeds"
+    date-meta: "2025-2026"
+    copyright: "© 2025-2026 ITS Leeds"
     license: "CC BY-SA"
 
 execute:
